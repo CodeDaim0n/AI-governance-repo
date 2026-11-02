@@ -1,13 +1,17 @@
+"""Rebuild the research PDF, its Markdown edition and source reference index."""
 from pathlib import Path
-import csv,json,math,textwrap
+import csv,json,math,textwrap,re,html
 from xml.sax.saxutils import escape
+import reportlab
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-pdfmetrics.registerFont(TTFont("FabricSans", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"))
-pdfmetrics.registerFont(TTFont("FabricSansBold", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"))
+_font_dir = Path(reportlab.__file__).parent / 'fonts'
+pdfmetrics.registerFont(TTFont("FabricSans", str(_font_dir / 'Vera.ttf')))
+pdfmetrics.registerFont(TTFont("FabricSansBold", str(_font_dir / 'VeraBd.ttf')))
 pdfmetrics.registerFontFamily("FabricSans",normal="FabricSans",bold="FabricSansBold",italic="FabricSans",boldItalic="FabricSansBold")
-from reportlab.platypus import SimpleDocTemplate,Paragraph,Spacer,Table,TableStyle,PageBreak,KeepTogether
+from reportlab.platypus import BaseDocTemplate,Frame,PageTemplate,Paragraph,Spacer,Table,TableStyle,PageBreak,KeepTogether
+from reportlab.platypus.tableofcontents import TableOfContents
 from reportlab.lib.styles import getSampleStyleSheet,ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
@@ -25,27 +29,66 @@ styles.add(ParagraphStyle(name='BodyX',fontName='FabricSans',fontSize=9.2,leadin
 styles.add(ParagraphStyle(name='SmallX',fontName='FabricSans',fontSize=8.4,leading=11.4,textColor=INK,spaceAfter=6))
 styles.add(ParagraphStyle(name='CellX',fontName='FabricSans',fontSize=8.2,leading=11,textColor=INK))
 styles.add(ParagraphStyle(name='LabelX',fontName='FabricSansBold',fontSize=9,leading=12,textColor=TEAL,spaceAfter=10))
-story=[];markdown=[]
-def p(t,small=False):story.append(Paragraph(t,styles['SmallX' if small else 'BodyX']));markdown.append(t)
+for _name in ('LabelX','SectionX','SubX'):
+ styles[_name].keepWithNext=True
+story=[];markdown=[];sections=[]
+def markdown_text(t):
+ t=re.sub(r'<link href="([^"]+)"[^>]*>(.*?)</link>',lambda m:'['+m.group(2)+']('+m.group(1)+')',t)
+ t=t.replace('<b>','**').replace('</b>','**').replace('<br/>','\n')
+ return html.unescape(re.sub(r'</?font\b[^>]*>','',t))
+def p(t,small=False):story.append(Paragraph(t,styles['SmallX' if small else 'BodyX']));markdown.append(markdown_text(t))
 def sub(t):story.append(Paragraph(t,styles['SubX']));markdown.append('### '+t)
 def title(n,t):
  if story:story.append(PageBreak())
  story.append(Paragraph(f'RESEARCH &amp; REFERENCE IMPLEMENTATION  /  {n}',styles['LabelX']))
- story.append(Paragraph(t,styles['SectionX']));markdown.append('\n## '+t+'\n')
+ heading=Paragraph(t,styles['SectionX'])
+ if n!='CONTENTS':
+  heading._paper_key='section-'+str(len(sections)+1)
+  sections.append((heading._paper_key,t))
+ story.append(heading);markdown.append('\n## '+t+'\n')
+
+class PaperDocument(BaseDocTemplate):
+ def __init__(self,*args,**kwargs):
+  super().__init__(*args,**kwargs)
+  frame=Frame(self.leftMargin,self.bottomMargin,self.width,self.height,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0,id='paper')
+  self.addPageTemplates(PageTemplate(id='paper',frames=[frame],onPage=footer))
+  self.section_pages={}
+ def afterFlowable(self,flowable):
+  key=getattr(flowable,'_paper_key',None)
+  if key:
+   text=flowable.getPlainText()
+   self.canv.bookmarkPage(key)
+   self.canv.addOutlineEntry(text,key,level=0,closed=False)
+   self.section_pages[key]=self.page
+   self.notify('TOCEntry',(0,text,self.page,key))
 def table(headers,rows,widths=None):
  cells=[[Paragraph(escape(str(x)),styles['CellX']) for x in headers]]+[[Paragraph(escape(str(x)),styles['CellX']) for x in row] for row in rows]
  t=Table(cells,colWidths=widths or [483/len(headers)]*len(headers),repeatRows=1,hAlign='LEFT')
  t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),GREY),('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),7),('RIGHTPADDING',(0,0),(-1,-1),7),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7),('LINEBELOW',(0,0),(-1,0),.8,TEAL),('LINEBELOW',(0,1),(-1,-1),.3,GREY),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,PALE])]))
- story.append(t);story.append(Spacer(1,8));markdown.append('| '+' | '.join(headers)+' |\n|'+ '|'.join(['---']*len(headers))+'|\n'+'\n'.join('| '+' | '.join(str(x) for x in row)+' |' for row in rows))
+ def cell(value):return str(value).replace('|','\\|').replace('\n','<br>')
+ story.append(t);story.append(Spacer(1,8));markdown.append('| '+' | '.join(cell(x) for x in headers)+' |\n|'+ '|'.join(['---']*len(headers))+'|\n'+'\n'.join('| '+' | '.join(cell(x) for x in row)+' |' for row in rows))
+
+def fit_lines(text,font,size,width):
+ lines=[];current=''
+ for word in text.split():
+  candidate=(current+' '+word).strip()
+  if pdfmetrics.stringWidth(candidate,font,size)<=width:current=candidate
+  else:
+   if current:lines.append(current)
+   if pdfmetrics.stringWidth(word,font,size)>width:raise ValueError('Diagram word exceeds box width: '+word)
+   current=word
+ if current:lines.append(current)
+ return lines
 
 def box(d,x,y,w,h,head,body,kind='design'):
  col=TEAL if kind=='tested' else NAVY
  d.add(Rect(x,y,w,h,rx=6,fillColor=PALE,strokeColor=col,strokeWidth=1))
  d.add(Rect(x,y+h-5,w,5,fillColor=col,strokeColor=col))
- lines=textwrap.wrap(head,width=int(w/5.5))
+ lines=fit_lines(head,'FabricSansBold',9,w-18)
  yy=y+h-20
  for line in lines:d.add(String(x+9,yy,line,fontName='FabricSansBold',fontSize=9,fillColor=col));yy-=12
- for line in textwrap.wrap(body,width=int(w/4.5)):
+ for line in fit_lines(body,'FabricSans',7.5,w-18):
+  if yy-3<y+7:raise ValueError('Diagram text exceeds box height: '+head)
   d.add(String(x+9,yy-3,line,fontName='FabricSans',fontSize=7.5,fillColor=INK));yy-=10
 
 def arrow(d,x1,y1,x2,y2,color=TEAL):
@@ -78,8 +121,8 @@ def sequence():
  nodes=[(0,340,210,65,'1. Verify proposal and identity','Reject identity headers and unknown fields. Authenticate token; load active principal.'),(273,340,210,65,'2. Obtain authoritative context','Tenant, KYC, source version, freshness, validation status, switch and aggregate spend.'),(273,224,210,75,'3. Evaluate OPA policy','Deny hard failures. Where required, obtain an authorized, expiring, exact-action approval.'),(0,224,210,75,'4. Recheck at execution','Approval must match action, actor, source and workflow versions. Recheck reviewer status.'),(0,104,210,75,'5. Commit target and local evidence','Serialize budget and action; consume approval; record minimized audit and outbox atomically.'),(273,104,210,75,'6. Deliver and reconcile','Retry outbox delivery with deduplication. Real targets require receipt and outcome reconciliation.')]
  for x,y,w,h,h1,b in nodes:box(d,x,y,w,h,h1,b,'tested')
  arrow(d,210,373,273,373);arrow(d,378,340,378,299);arrow(d,273,262,210,262);arrow(d,105,224,105,179);arrow(d,210,142,273,142)
- d.add(String(5,63,'Lab guarantee: one SQLite transaction. Production guarantee: target-enforced idempotency,',fontSize=8,fillColor=INK))
- d.add(String(5,49,'expected-version commit, receipts and reconciliation; no global exactly-once claim.',fontSize=8,fillColor=INK))
+ d.add(String(5,63,'Original lab: one SQLite transaction. Remote targets need enforced idempotency,',fontName='FabricSans',fontSize=8,fillColor=INK))
+ d.add(String(5,49,'expected-version commit, receipts and reconciliation; no global exactly-once claim.',fontName='FabricSans',fontSize=8,fillColor=INK))
  return d
 
 def graph():
@@ -98,55 +141,37 @@ def graph():
  return d
 
 # COVER
-story.append(Spacer(1,35));story.append(Paragraph('GOVERNED<br/>AGENT FABRIC',styles['TitleX']))
-p('A reference product suite for bounded autonomous agents in regulated environments')
-p('<b>Eighteen component groups connecting autonomous tool use, independent authority, accountable risk and operational evidence.</b>')
-story.append(Spacer(1,20))
-table(['Design scope','Evidence delivered'],[['Domain-independent autonomous agent fabric','18 product groups, explicit authority boundaries, durable approvals and linked evidence'],['Synthetic implementation and experiments','Original 51 control checks; 40 adapter/agent contracts; native Qwen tool trials and restart journey with failures retained'],['Research implementation, edition 0.3','Architecture, component roles, reproducible native runs and per-product evidence boundaries']],[220,263])
+story.append(Spacer(1,20));story.append(Paragraph('GOVERNED<br/>AGENT FABRIC',styles['TitleX']))
+p('Reusable workflow governance: from process description to bounded execution')
+p('<b>A review-assisted designer and configurable enforcement fabric, with explicit authority and evidence boundaries.</b>')
+story.append(Spacer(1,12))
+table(['Research implementation, edition 0.5','Evidence and scope'],[['Reusable enforcement and 18 component roles','Shared runtime; synthetic credit and IT-access configurations; reviewed effect adapters'],['Current regression','129 core tests including 29 designer/CLI tests; 12 Rego checks; 77 enterprise contracts; 3 AGT assertions'],['Workflow-to-governance design','Live prose-design observations with failures and source-comparison findings retained']],[220,263])
 sub('Abstract')
-p('We extended the Erdos governance framework into an implementation approach connecting workflow assessment, accountable authority and operational evidence. This paper presents the component architecture and interfaces that link enterprise records to runtime action enforcement. Microsoft Agent Governance Toolkit is evaluated as an optional interception layer, OPA as a business-policy decision service, and CISO Assistant Community Edition as the designated risk system of record.')
-p('The suite implements bounded agent tool selection and observation processing around independent execution controls. Original control tests use a synthetic credit adapter; new native experiments retain model failures as well as successful read/tool/effect execution and a connected approval/restart journey. Complete eighteen-product live validation remains unestablished. No result establishes regulated business validity, framework conformity or production readiness.')
+p('We extend the Erdos workflow-assessment framework into a reusable engineering composition: a natural-language governance designer, versioned workflow contracts, shared enforcement, registered effect adapters and operational evidence. The designer proposes a workflow graph, risks, controls and questions; accountable review and engineering connect supported designs to execution. The same runtime supports synthetic credit and IT-access operations through distinct configuration.')
+p('Evaluation separates simulated contracts, real OPA/PostgreSQL checks and live model observations. The latest vendor-onboarding draft passed mechanical validation but source comparison found material governance defects; museum drafts were rejected. This supports a review-assisted prototype, not unattended design. Historical control and native-agent results remain separately scoped. Complete eighteen-product acceptance, business validity and production readiness remain unestablished.')
 p('Prepared 2 November 2026 | Technical working paper | Not peer reviewed',small=True)
 p('No real customer data, banking systems or production credit decisions were used. Named organizational owners, regulatory applicability decisions and product deployment approvals remain unassigned.',small=True)
 
 title('CONTENTS','Paper navigation')
-table(['Section','Page'],[
-('Research question and evidence boundary','3'),
-('Extending the Erdos framework in practice','4'),
-('Architecture and trust boundaries','5'),
-('Execution flow and invariants','6'),
-('Identity, delegation and exclusive execution','7'),
-('Microsoft AGT: adoption and integration','8'),
-('Risk register and accountable acceptance','9'),
-('Worked approval-substitution risk','10'),
-('Data, model and business-system authority','11'),
-('Workflow, approvals and distributed effects','12'),
-('Evidence graph, retention and integrity','13'),
-('Telemetry, incidents and resilience','14'),
-('All input and output steps mapped','15-17'),
-('Framework alignment and regulatory scope','18'),
-('OWASP threats and evidence gaps','19'),
-('Experimental method and reproduction','20'),
-('Observed results and interpretation','21'),
-('Deployment roadmap','22'),
-('Limitations and conclusion','23'),
-('Primary references','24-26'),
-('Component role catalogue','27-29'),
-('Expanded native implementation and acceptance','30-33'),
-('Official products and their implementation roles','34-35')],[413,70])
-p('Companion repository: machine-readable product and step matrices, risk register, framework crosswalk, integration contracts, source code, policy, tests and observed evidence. Diagram sources are supplied as SVG and Mermaid.',True)
+p('Edition 0.5 adds the reusable runtime, prose designer and current evidence first. Original control results and later native experiments retain their own scope and historical labels. Page numbers and PDF bookmarks are generated from the rendered headings.',True)
+toc=TableOfContents()
+toc.levelStyles=[ParagraphStyle(name='PaperTOC',fontName='FabricSans',fontSize=8.8,leading=12.5,textColor=INK,spaceBefore=0,leftIndent=0,firstLineIndent=0)]
+toc.tableStyle=TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),0),('TOPPADDING',(0,0),(-1,-1),4),('BOTTOMPADDING',(0,0),(-1,-1),4)])
+toc.dotsMinLevel=0
+story.append(toc)
+markdown.append('__PAPER_CONTENTS__')
 
 # 2
 title('01','Research question and evidence boundary')
 sub('Question')
-p('How can governance of an agentic workflow remain enforceable when the workflow depends on identity, data, models, people, tools and enterprise systems owned by different teams?')
+p('How can governance remain enforceable across workflow-specific identity, data, models, people and tools, while reusing assessment structures and enforcement machinery? Edition 0.5 also asks what a model-generated governance design can establish before accountable review and implementation.')
 sub('Contribution')
-p('The contribution is a reference integration design and a reproducible control laboratory. It is not a claim to invent policy engines, durable workflows, zero-trust identity or risk registers. The design makes their boundaries explicit and requires a trace from obligation to risk, control, decision and business outcome.')
+p('The contribution is an engineering composition and reproducible control laboratory: explicit design contracts, a configurable enforcement engine, registered adapters and evidence-linked review. Existing policy engines, durable workflows, identity systems and risk registers supply complementary capabilities. The original framework already addresses implementation, enforceable controls, evaluation and operational evidence; the eighteen-product selection is this project\'s choice, not a source requirement or endorsement. [1]')
 table(['Evidence level','Meaning in this paper'],[['Specified','A responsibility, interface or operating rule has been designed.'],['Configured','A configuration or schema is supplied; a configuration file alone is not proof it works.'],['Tested locally','Code ran with a synthetic system and expected results were checked.'],['Integrated with selected product','A native product interface was exercised, with a version and result recorded.'],['Observed in production','Requires real deployment and operational evidence. No component has this status here.']],[125,358])
 sub('Observed scope')
 p('OPA 1.0.1 was run as a real local HTTP service. The Python gateway, signed-token checks, local approval and credit-ledger transactions, and an HTTP outbox sink were exercised. Microsoft agent-governance-toolkit-core 5.0.0 was installed into an isolated target directory and its govern wrapper was exercised in three cases. The wider product catalogue is a target architecture, not a running 18-product deployment.')
 sub('What cannot be concluded')
-p('The original control experiment did not run a generative model or measure model task success. Edition 0.3 adds actual native Qwen tool experiments in the native-research appendix. Neither experiment measures token savings, incident reduction or business credit accuracy. Self-authored tests require independent challenge before supporting release decisions.')
+p('The original control experiment had no generative model. Edition 0.3 added native Qwen tool experiments; edition 0.5 adds prose-design observations and configurable-runtime regression. Neither test counts nor mechanical design acceptance establish semantic adequacy, representative business outcomes or complete deployment acceptance. Self-authored tests and assistant source comparisons require independent human challenge.')
 
 # 3
 title('02','Extending the Erdos framework in practice')
@@ -155,16 +180,19 @@ table(['Implementation focus','Our implementation approach'],[['Authoritative sy
 sub('Implementation scope')
 p('We preserve the framework workflow inputs and governance outputs while making product responsibilities, interfaces, enforcement decisions and evidence paths explicit. The observations in this paper describe the supplied synthetic implementation and its stated test scope.')
 
+from paper_generalisation import append_sections
+_new_diagrams=append_sections(p,sub,title,table,story,markdown,box,arrow,R)
+
 
 # 4
-title('03','Architecture: responsibilities and trust boundaries')
-story.append(topology());markdown.append('See architecture.svg and architecture.mmd for the component diagram.')
-p('Teal-topped boxes contain a locally exercised path or component. Other named products require deployment and native integration. A tested local substitute does not imply that the named enterprise product has been connected.',small=True)
+title('ORIGINAL CONTROL LAB','Architecture: responsibilities and trust boundaries')
+story.append(topology());story.append(Spacer(1,12));markdown.append('![Original control-lab architecture](architecture.svg)')
+p('Historical topology of the original control experiment. Teal boxes identify that experiment\'s exercised path; other labels describe its target architecture. Later Keycloak, OpenFGA, Temporal and other native observations, and the newer PostgreSQL checks, have separate scopes below. This diagram is not a current per-product acceptance matrix.',small=True)
 p('The governance authority owns policy and risk decisions. The execution authority enforces them. The evidence plane records decisions and outcomes. Data and validation authorities supply trusted facts; model-generated content cannot amend those facts.',small=True)
 
 # 5
-title('04','Execution flow and decision invariants')
-story.append(sequence());markdown.append('See execution-flow.svg for the execution sequence.')
+title('ORIGINAL CONTROL LAB','Execution flow and decision invariants')
+story.append(sequence());story.append(Spacer(1,12));markdown.append('![Original control-lab execution sequence](execution-flow.svg)')
 sub('Commit invariant')
 p('A new write is permitted only when identity is active; principal and case share a tenant; the tool is allowlisted; required facts are fresh and valid; workflow validation remains current; the switch permits execution; both single-action and aggregate limits hold; and any required approval remains valid.')
 sub('Important retry distinction')
@@ -175,13 +203,13 @@ title('05','Identity, delegation and exclusive execution')
 sub('Keycloak: authenticate the actor')
 p('The target uses Keycloak for human and service identities through OpenID Connect. The gateway must validate issuer, intended audience, signature, token lifetime and authorized client, using a trusted discovery/JWKS configuration. Tenant, role and task scope must originate from trusted identity and authorization services. A tool-call body cannot nominate its own privileges. [8]')
 sub('OpenFGA: authorize relationships')
-p('Record-level relationships answer whether the user may operate the case and whether this agent is assigned. Authorization is the intersection of the delegating user, workload identity, current task and target record. A relationship grant does not waive OPA business restrictions. The supplied FGA model is illustrative and has not been deployed. [9]')
+p('Record-level relationships constrain the delegating user, workload identity, current task and target resource. A relationship grant cannot waive OPA restrictions. The original control lab used local relationships; later native-agent trials exercised OpenFGA. Configurable bindings and their simulated contracts still require deployment-specific models, tuples and native acceptance. [9]')
 sub('Microsoft AGT: intercept agent proposals')
 p('AGT is used at the agent runtime boundary to reject unrecognized tools before they reach a gateway. Its independently configured policy cannot turn a central deny into an allow. Dynamic trust scores, if adopted, may restrict authority or trigger review; they must not create a legal delegation or silently expand a business limit.')
 sub('OpenBao and platform isolation: protect the only write route')
 p('OpenBao is the proposed source of short-lived adapter credentials and certificate/key operations. Kubernetes and Cilium should restrict agent egress to the authenticated gateway, with target credentials available only to the adapter. Database accounts and administrative roles must not share the agent runtime. [10]')
 sub('Implemented boundary and remaining work')
-p('The lab verifies a narrow RS256 token profile using cryptography and checks a server-owned active-principal table. Its keys are generated locally, with the private key excluded from the repository. It is not a Keycloak/JWKS client and does not provide rotation, federated logout, mTLS or a complete token-replay defense. It listens on loopback only. An authenticated production gateway and network bypass test remain release blockers.')
+p('The original lab verifies a narrow RS256 token profile and a server-owned active-principal table. Its local keys and loopback server are distinct from the later native Keycloak/JWKS client and authenticated configurable API. Later subset trials exercised native identity and relationship checks. Production rotation, federated logout, mTLS, replay defense and network bypass acceptance remain separate requirements.')
 
 # 7
 title('06','Microsoft AGT: adopt, integrate and constrain')
@@ -196,7 +224,7 @@ p('Microsoft Agent Control Specification and the OWASP Agent Control Standard bo
 # 8
 title('07','Risk register and accountable acceptance')
 sub('CISO Assistant Community: system of record')
-p('CISO Assistant Community Edition is selected to hold the risk, control, assessment and treatment records. Its repository distinguishes an AGPLv3 Community Edition from commercial editions. Selected-release licensing and API access must be checked before deployment. The supplied JSON/CSV register is portable seed data, not evidence of a native CISO Assistant integration. [11]')
+p('CISO Assistant Community Edition is selected for risk, control, assessment and treatment records. Its repository distinguishes AGPLv3 Community and commercial editions; verify the selected release. The JSON/CSV register is portable seed data. A later isolated v4.2.1 REST experiment wrote and read back twelve risk/control records and attached evidence with replay checks; it did not appoint owners or accept risk. That separate observation is documented in the native-governance appendix. [11]')
 sub('Risk identity and relationships')
 p('Each risk has an external stable ID, workflow version, failure scenario, impacted assets or people, owner, inherent and residual assessment, rating rationale, uncertainty, controls, evidence references, treatment status, acceptance authority and expiry. Incidents link to the same risk ID. Multiple agent observations should not create unrelated duplicate risks.')
 sub('Who may change what')
@@ -221,7 +249,7 @@ p('The metadata layer identifies assets, owners, classifications, quality result
 sub('KYC and core credit: facts about the customer and commitment')
 p('The gateway must obtain KYC status, case tenant, source version and observation time from an authoritative source. The lab uses synthetic database rows. It does not implement identity verification, sanctions screening, AML investigation, affordability, credit scoring or underwriting policy. A clear KYC fixture is only one test input, not evidence that those obligations are met.')
 sub('MLflow: facts about the evaluated artifact')
-p('MLflow provides the proposed model/prompt registry and evaluation artifact store. The release record should identify model and prompt digests, data versions, intended use, limitations, evaluation results, independent validator, approval and expiry. Runtime use is blocked when the approved version or validation window no longer matches. The lab demonstrates a synthetic validation-expiry gate; no MLflow server was deployed. [13]')
+p('MLflow supplies a model/prompt registry and evaluation store. Release records should identify artifacts, data, intended use, limitations, evaluation, independent review and expiry. The original control lab used a synthetic validation-expiry gate. A later real MLflow HTTP experiment wrote and read back a Fairlearn fixture evaluation and candidate version; the candidate remained unapproved. Eight synthetic records tested metric plumbing, not fairness or business validity. See results/local-native-evaluation.json. [13]')
 sub('GLPI: facts about the business service')
 p('Service identity, owner, important dependencies, criticality and change records belong in the established inventory/change process. GLPI is the open-source reference choice. An enterprise may retain its existing CMDB/ITSM system and use an adapter. A second disconnected governance inventory is undesirable when a reliable authoritative record already exists.')
 sub('Conflicts and unknowns')
@@ -234,7 +262,7 @@ p('Temporal is the proposed owner of long-running state, human waits, timers, bo
 sub('Target adapter: the execution authority')
 p('The adapter accepts only typed, allowlisted operations. It maps a canonical action to the target API, checks expected record version and propagates a scoped idempotency key. Arbitrary SQL, shell execution, arbitrary URLs and arbitrary recipients are outside this credit adapter. Delegation cannot expand the tool or data scope.')
 sub('No fictional distributed transaction')
-p('The lab commits action, approval consumption, audit and outbox in one SQLite transaction. A real core system cannot generally participate in that same transaction. The production adapter therefore needs target-supported idempotency, conditional updates and receipts, plus an intent/outcome journal and reconciliation when the response is lost. Retries must not blindly repeat an irreversible business operation.')
+p('The original lab commits local action, approval consumption, audit and outbox in one SQLite transaction. Edition 0.5 also exercises that local transaction boundary in real PostgreSQL with two configured synthetic workflows. A remote business system cannot generally participate in the same transaction: its adapter needs target-supported idempotency, conditional updates, receipts and durable intent/outcome reconciliation. Retries must not blindly repeat an irreversible effect.')
 sub('Compensation and irreversibility')
 p('A compensating action is a new authorized business operation, not a guaranteed undo. A released payment or an external message may be irreversible. Classify each target operation, define safe cancellation points, identify permitted compensation, and require human recovery for uncertain outcomes. A saga diagram is insufficient without those business rules.')
 sub('Budget semantics')
@@ -242,18 +270,18 @@ p('The lab enforces a lifetime tenant budget of GBP 15,000, a per-action ceiling
 
 # 12
 title('11','Evidence graph, retention and integrity')
-_graph=graph();_graph.scale(.9,.9);_graph.width*=.9;_graph.height*=.9;story.append(_graph);markdown.append('See evidence-graph.svg for the traceability graph.')
+_graph=graph();story.append(_graph);story.append(Spacer(1,12));markdown.append('![Evidence relationships](evidence-graph.svg)')
 sub('Why a graph matters')
-p('The useful property is the explicit relationship among artifacts. A risk record should lead to its controls, test cases, deployment configuration, observed decisions and incidents. A policy or model change should reveal which approvals and assessments need review. PostgreSQL can store these edges without requiring a separate graph database.')
+p('A risk record should link to controls, tests, configuration, decisions and incidents. A policy or model change should reveal which approvals need review. PostgreSQL can store these relationships without a separate graph database.')
 sub('Integrity boundary')
-p('The lab SHA-256 chain detects edits to a stored event body if the chain is left unchanged. It does not resist a privileged operator who rewrites the complete chain or truncates its tail. Production needs signed checkpoints anchored to a separately administered store, restricted archival roles, retention/legal-hold controls and verification against the external checkpoint. Hashing is not anonymization or WORM storage.')
+p('The SHA-256 chain detects edited event bodies while the chain remains unchanged. A privileged operator can rewrite it or truncate its tail. Production needs signed external checkpoints, independent archival authority and retention/legal-hold controls. Hashing does not provide anonymization or immutable storage.')
 sub('Delivery and consistency')
-p('Outbox delivery is at least once. Receivers must deduplicate event IDs, acknowledge accepted updates and expose failures for reconciliation. A risk-register outage does not erase queued evidence. Production must also define backlog limits and a policy for whether a prolonged evidence-export outage restricts new writes.')
+p('Delivery is at least once. Receivers must deduplicate event IDs, acknowledge updates and expose failures for reconciliation. Queued evidence survives a risk-register outage. Backlog limits and restrictions during prolonged export failure require deployment-specific acceptance.')
 
 # 13
 title('12','Telemetry, incidents and service resilience')
 sub('OpenTelemetry and Prometheus')
-p('The observability plane should expose policy decision outcomes, dependency health, source age, validation expiry, approval latency, adapter errors, execution receipts and outbox backlog. Correlate by workflow run and evidence references rather than logging complete prompts or customer records. OpenTelemetry documents sensitive-data handling; the provided collector configuration is an unexecuted reference, not comprehensive DLP. [15]')
+p('The observability plane should expose decisions, dependency health, source age, validation expiry, approval latency, adapter errors and outbox backlog. Correlate minimized evidence references. The deployment-pinned Collector 0.164.0 failed on the restricted host; a separate 0.130.0 compatibility experiment verified actual OTLP delivery, trace read-back and removal of three sensitive attributes. That isolated result does not qualify the deployment release or establish comprehensive DLP. [15]')
 sub('DFIR-IRIS instead of current TheHive')
 p('DFIR-IRIS 2.x is the open-source incident-management reference. Its deployment and API bridge need to be qualified against a selected stable release. Current TheHive is commercially distributed, so it is not used as the core open-source choice. A free community license must not be confused with current open-source licensing. [16,17]')
 sub('Containment must reach the business write path')
@@ -264,18 +292,18 @@ sub('Illustrative acceptance measures, not observed results')
 p('Before a pilot, agree policy-error and outbox-backlog alerts, maximum source age, manual fallback capacity, detection and revocation objectives, restoration objectives and escalation owners. These values depend on business harm and operating context. The paper intentionally does not invent a universal latency SLO or assert that the current lab meets one.')
 
 # 14
-title('13','Full input coverage: steps 3.1.1-3.1.7')
+title('13','Input crosswalk: sections 3.1.1-3.1.7')
 steps=list(csv.DictReader((R/'docs/step-product-matrix.csv').open()))
 table(['Framework section / capability','Product responsibility','Evidence and gate'],[[x['article_section']+' / '+x['our_capability'],x['products'],x['evidence_contract']+'. '+x['gate']] for x in steps[:7]],[117,150,216])
-p('The full CSV adds the accountable role for every row. These assignments implement the integration design; product names do not imply a running connector. Every source record must have an owner, authority, version and freshness contract.',small=True)
+p('Labels in this engineering crosswalk are paraphrases; numeric references identify the original article sections. The CSV adds proposed accountable roles. These mappings neither establish completeness nor appoint owners. Product names do not imply connected services; source authority, version and freshness require validation.',small=True)
 
 # 15
-title('14','Full output coverage: steps 4.1-4.6')
+title('14','Output crosswalk: sections 4.1-4.6')
 table(['Framework section / capability','Products','Operational interpretation'],[[x['article_section']+' / '+x['our_capability'],x['products'],x['evidence_contract']+'. '+x['gate']] for x in steps[7:13]],[117,150,216])
-p('scripts/assess.py generates structured output sections from test results, open risks and implementation status. It explicitly limits readiness to laboratory use and preserves missing evidence. It is a deterministic evidence pack generator, not an autonomous legal or compliance assessor.',small=True)
+p('The historical scripts/assess.py assembles an evidence pack from tests and open risks. Configurable assess/package commands operate on reviewed runtime definitions. The new design command interprets prose into a review draft. These are distinct contracts; none authorizes deployment or establishes legal adequacy.',small=True)
 
 # 16
-title('15','Full output coverage: steps 4.7-4.12')
+title('15','Output crosswalk: sections 4.7-4.12')
 table(['Framework section / capability','Products','Operational interpretation'],[[x['article_section']+' / '+x['our_capability'],x['products'],x['evidence_contract']+'. '+x['gate']] for x in steps[13:]],[117,150,216])
 p('Monitoring does not replace assessment; remediation does not replace validation; an assessment report does not replace a release authorization. Material changes to tools, permissions, sources, policy, model or scope must trigger the appropriate reassessment and invalidate incompatible approvals.',small=True)
 
@@ -286,13 +314,13 @@ table(['Reference','Architecture consequence','Assurance limit'],[['NIST SP 800-
 p('Sources: NIST [2-4], OWASP [5], PRA [18], ICO/legislation [19-21], ISO [22] and BIS [23]. Mappings are architecture judgments, not endorsements or legal opinions. New jurisdictions, retail/commercial scope, outsourcing arrangements and intended uses require their own applicability profiles.',small=True)
 
 # 18
-title('17','OWASP threats: demonstrated and unresolved')
+title('ORIGINAL CONTROL LAB','OWASP threats: initial evidence snapshot')
 rows=[('ASI01 / goal hijack','Typed actions, trusted context and independent OPA restriction','No model prompt-injection attack benchmark'),('ASI02 / tool misuse','Tool allowlist, amount limits and aggregate-budget tests','Real adapter and alternate-path attack tests open'),('ASI03 / identity abuse','Signed lab tokens, active-principal and tenant checks','Keycloak, OpenFGA and real delegation not connected'),('ASI04 / supply chain','Release design calls for SBOM, scan and signed provenance','No supply-chain pipeline executed'),('ASI05 / code execution','No shell tool exposed in this synthetic adapter','No sandbox escape or kernel isolation test'),('ASI06 / poisoned context','Source freshness, version and KYC tests','No RAG/memory poisoning evaluation'),('ASI07 / inter-agent channel','Enterprise identity/mTLS design specified','No inter-agent communication experiment'),('ASI08 / cascading failures','OPA outage denial and serialized exposure checks','No multi-service chaos or restoration exercise'),('ASI09 / human trust','Exact-action approval binding tested','No evidence that reviewers resist deceptive narratives'),('ASI10 / rogue agents','Local stop and revocation behavior tested','No distributed fleet containment exercise')]
 table(['Threat','Current evidence','Remaining gap'],rows,[112,185,186])
-p('The categories are used as a threat catalogue [5]. The row-level assessment above belongs to this paper. Product-level coverage claims are not substituted for evidence of the configured deployment.',small=True)
+p('Historical assessment of the original control run, using the threat catalogue [5]. Later native identity, tool-use and supply-chain experiments are reported separately, with failures retained. This snapshot is not the current product matrix or a complete adversarial benchmark.',small=True)
 
 # 19
-title('18','Method and reproducible experimental setup')
+title('ORIGINAL CONTROL LAB','Method and reproducible experimental setup')
 sub('System under test')
 p('The laboratory comprises a Python gateway and local state store, a separate OPA HTTP process, generated RSA lab keys, a synthetic case/identity/validation inventory and a synthetic credit commitment ledger. An HTTP receiver verifies outbox behavior. Optional Microsoft AGT wraps the same gateway entry point. All tests run without real customer data or external bank credentials.')
 sub('Test design')
@@ -305,7 +333,7 @@ sub('Version discipline')
 p('The observed control run used Python 3.12.14, cryptography 50.0.2 and OPA 1.0.1. The optional AGT dependency set resolved cryptography 49.0.0 separately. OPA 1.0.1 is a historical reproduction target, not a claim that it is the current secure production release. The source artifact digest and test metadata are recorded; upstream binary provenance and a current vulnerability assessment remain release requirements.')
 
 # 20
-title('19','Observed results and interpretation')
+title('ORIGINAL CONTROL LAB','Observed results and interpretation')
 table(['Check group','Observed result','What it establishes'],[['Python control and HTTP checks','42 run; 0 failures; 0 errors; 0 skipped','Specified local boundaries produced expected outcomes in this run.'],['OPA Rego policy checks','6 passed','Selected policy decisions behaved as expected under controlled inputs.'],['Microsoft AGT wrapper checks','3 assertions passed','Wrapper allow/deny works for the exercised cases; central OPA deny remains effective.'],['Concurrent shared exposure','20 requests of GBP 1,000; 15 committed, 5 denied','Serialized local lifetime tenant budget did not exceed GBP 15,000.'],['Audit write failure','Synthetic insert failure rolled back action','No local action committed without its transactionally required evidence.'],['Outbox receiver outage','Event remained undelivered for retry','Local delivery state survives a failed attempt; no native GRC/IRIS claim.']],[142,142,199])
 sub('Research interpretation')
 p('The observations demonstrate selected deterministic controls within our implementation approach to the Erdos framework. The experiment records how the supplied gateway behaves under its stated synthetic conditions. Comparative cost, performance and business-outcome evaluation remain future research activities.')
@@ -316,15 +344,15 @@ p('results/summary.json and tests.log record the control run; rego-tests.log rec
 
 # 21
 title('20','Product deployment and acceptance roadmap')
-table(['Stage','Concrete implementation work','Exit evidence'],[['1. Qualify the environment','Name owners; determine legal/firm scope; choose supported releases and approved licensing; define business service and risk appetite','Signed scope, obligation profile, dependency/license register'],['2. Connect authority','Deploy IAM and relationship checks; implement real KYC/core, metadata, validation and CMDB adapters; define freshness and precedence','Connector tests, access evidence, version-conflict and revocation tests'],['3. Enforce exclusive writes','Deploy gateway/adapter isolation, OpenBao credentials and target idempotency; implement conditional commits and reconciliation','Bypass tests, replay tests, lost-response tests and target receipts'],['4. Connect GRC and incidents','Implement CISO Assistant and IRIS API bridges with durable external IDs, optimistic concurrency and deduplication','Native-product round-trip tests and human-approved risk updates'],['5. Validate outcomes','Add representative credit decisions, fairness, explanations, redress and human-factor tests; independent validation','Approved validation report and unresolved limitations'],['6. Exercise operations','Add metrics, thresholds, bounded queues, manual fallback, restoration, external evidence anchors and incident drills','Measured impact-tolerance and restoration evidence'],['7. Controlled pilot','Restrict cases, tools and exposure; use time-limited authorization; monitor harm and business value','Release approval, pilot outcome review and explicit expansion decision']],[91,234,158])
+table(['Stage','Concrete implementation work','Exit evidence'],[['1. Qualify the environment','Name owners; determine legal/firm scope; choose supported releases and approved licensing; define business service and risk appetite','Signed scope, obligation profile, dependency/license register'],['2. Connect authority','Deploy IAM and relationship checks; implement real KYC/core, metadata, validation and CMDB adapters; define freshness and precedence','Connector tests, access evidence, version-conflict and revocation tests'],['3. Enforce exclusive writes','Deploy gateway/adapter isolation, OpenBao credentials and target idempotency; implement conditional commits and reconciliation','Bypass tests, replay tests, lost-response tests and target receipts'],['4. Connect GRC and incidents','Commission and harden CISO Assistant and IRIS API bridges: durable external IDs, concurrency and deduplication','Native-product round-trip tests and human-approved risk updates'],['5. Validate outcomes','Add representative credit decisions, fairness, explanations, redress and human-factor tests; independent validation','Approved validation report and unresolved limitations'],['6. Exercise operations','Add metrics, thresholds, bounded queues, manual fallback, restoration, external evidence anchors and incident drills','Measured impact-tolerance and restoration evidence'],['7. Controlled pilot','Restrict cases, tools and exposure; use time-limited authorization; monitor harm and business value','Release approval, pilot outcome review and explicit expansion decision']],[91,234,158])
 sub('Small deployment first')
 p('Adopt existing enterprise systems of record wherever possible. Start with one bounded tool, one risk owner and one service dependency map. The catalogue describes responsibilities that must be covered; it does not mandate installing every product immediately or maintaining duplicate inventories.')
 
 # 22
-title('21','Limitations, remaining risks and conclusion')
+title('ORIGINAL CONTROL LAB','Limitations and interpretation of the initial experiment')
 sub('Material technical limitations')
-p('The HTTP service is a loopback laboratory using a basic Python server; it is not a hardened public API. SQLite serializes the small local workload and is not a multi-region exposure service. Authentication failures, schema rejects and some approval-operation rejects do not yet enter the business audit chain; production ingress security telemetry must capture them without exposing credentials. Event hashes reduce raw content but do not anonymize it.')
-p('Policy version is a logical identifier, not a cryptographically verified policy-bundle digest. A malicious policy operator could substitute semantics under the same version unless deployment integrity and separation of duties are added. Local administrators can modify authoritative tables and audit state. The outbox has no production backpressure, poison-message handling or authenticated native-product bridge.')
+p('The original HTTP service is a loopback laboratory using a basic Python server; it is not a hardened public API. SQLite serializes that experiment. Later local PostgreSQL checks do not establish multi-region performance. Authentication and schema failures require security telemetry beyond the business audit chain. Event hashes reduce raw content but do not anonymize it.')
+p('The original policy version is a logical identifier. Later configurable definitions add digests and deployed approval identity, but privileged policy substitution still requires deployment integrity and separation of duties. Administrators can modify authoritative tables and audit state. Later native code adds scoped bridges, per-sink receipts and a queue limit; production poison-message handling, reconciliation and independent evidence custody still need validation.')
 sub('Material governance limitations')
 p('No named accountable humans, real risk acceptance decisions, DPIA, independent validation, customer challenge process, lawful-basis determination or representative credit dataset is supplied. The populated risk register is an example working artifact whose open fields deliberately prevent a production-ready conclusion. Product choice does not satisfy an obligation until the configured control and operating process are assessed.')
 sub('Next research experiments')
@@ -359,7 +387,10 @@ refs=[
 ('24','Open Policy Agent','REST API reference','https://www.openpolicyagent.org/docs/rest-api'),
 ('25','Fairlearn','Fairness assessment and mitigation; official overview','https://fairlearn.org/'),
 ('26','Prometheus','Monitoring and alerting overview','https://prometheus.io/docs/introduction/overview/'),
-('27','OWASP','Agent Control Standard resource','https://genai.owasp.org/resource/agent-control-standard-acs/')]
+('27','OWASP','Agent Control Standard resource','https://genai.owasp.org/resource/agent-control-standard-acs/'),
+('28','Ollama','Structured outputs: schema-constrained generation and independent response validation','https://docs.ollama.com/capabilities/structured-outputs'),
+('29','Ollama','Chat API: structured format, response metadata and model options','https://docs.ollama.com/api/chat'),
+('30','Ollama','Thinking: model-specific controls and separate response fields','https://docs.ollama.com/capabilities/thinking')]
 for start in range(0,len(refs),9):
  title('REFERENCES',f'Primary sources {start+1}-{min(start+9,len(refs))}')
  p('Accessed 2 November 2026. Source assertions are separated from our architecture choices and observed experiments. Public guidance does not substitute for a current legal applicability assessment.',True)
@@ -372,6 +403,7 @@ for start in range(0,len(refs),9):
 products=list(csv.DictReader((R/'docs/products.csv').open()))
 for start in range(0,len(products),6):
  title('APPENDIX A',f'Component role catalogue {start+1}-{min(start+6,len(products))}')
+ p('Original catalogue snapshot. Status labels below describe the initial control lab; they are retained for provenance. Current reuse bindings and later scoped native observations appear in the edition 0.5 and native research sections. Verify licensing against the selected release.',True)
  for x in products[start:start+6]:
   sub(x['product']+' / '+x['capability'])
   p(x['responsibility']+'.',True)
@@ -422,7 +454,7 @@ for _offset in [0,9]:
  _table=Table(_cells,colWidths=[125,255,103],repeatRows=1)
  _table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),GREY),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,PALE]),('LEFTPADDING',(0,0),(-1,-1),7),('RIGHTPADDING',(0,0),(-1,-1),7),('TOPPADDING',(0,0),(-1,-1),9),('BOTTOMPADDING',(0,0),(-1,-1),9),('LINEBELOW',(0,0),(-1,0),.8,TEAL)]))
  story.append(_table)
- markdown.append('Official product directory: docs/components/product-links.json')
+ markdown.append('| Component | Role in our implementation | Official sources |\n|---|---|---|\n'+'\n'.join('| '+str(x['id']).zfill(2)+'. '+x['name']+' | '+x['role']+' | '+'; '.join('['+z['label']+']('+z['url']+')' for z in x['official_links'])+' |' for x in _product_links[_offset:_offset+9]))
 
 # Edition 0.3 preserves the original control experiment and adds native observations.
 _native=json.loads((R/'results/native-agent/comparison.json').read_text())
@@ -442,7 +474,10 @@ for coords in [(220,410,270,410),(370,376,370,324),(220,280,270,280),(370,236,37
 for coords in [(20,144,7,144),(7,144,7,467),(7,467,370,467),(370,467,370,444)]:arrow(d,*coords)
 for coords in [(470,280,481,280),(481,280,481,38),(481,38,470,38)]:arrow(d,*coords,GOLD)
 story.append(d)
-p('Reference operating model. Native experiments use a SQLite synthetic target, development product stores and scripted reviewer credentials. The commissioned enterprise implementation substitutes PostgreSQL and the other authoritative product adapters. Neither diagram establishes that all eighteen groups ran simultaneously.',True)
+story.append(Spacer(1,12))
+_new_diagrams['research-native-agent-loop']=d
+markdown.append('![Historical native agent and approval loop](research-native-agent-loop.svg)')
+p('Reference operating model for the historical native-agent subset: SQLite target, development product stores and scripted reviewer credentials. Later configurable PostgreSQL experiments are separate storage evidence. Neither diagram establishes simultaneous operation of all eighteen groups.',True)
 
 title('NATIVE RESEARCH / 0.3','Protocol, artifacts and observations')
 p('The baseline protocol was internally fixed before scenario inference and hashed into each summary. It was not externally preregistered. Ten scenarios were exercised with seeds 17, 29 and 43: authorized action, approval wait, cross-tenant request, blocked KYC, stale source, kill switch, policy outage, source injection, duplicate retry and aggregate budget exhaustion.')
@@ -476,18 +511,19 @@ p('This is end-to-end autonomous task execution inside the observed native subse
 
 for _offset in [0,9]:
  title('NATIVE RESEARCH / 0.3',f'Observed product boundaries {_offset+1}-{_offset+9}')
+ p('Historical native-agent component matrix, retained without rewriting its recorded states. Later isolated PostgreSQL 16.2 checks passed for the configurable workflows, and a separate Collector 0.130.0 compatibility run passed OTLP checks. Those later observations do not establish connected all-product acceptance.',True)
  table(['Product','Observed status','What the evidence establishes'],[[str(x['id']).zfill(2)+'. '+x['component'],x['status'].replace('_',' '),x['detail']] for x in _matrix[_offset:_offset+9]],[113,108,262])
  p('The matrix reports operations at their actual scope. It is not an eighteen-product simultaneous pass, a maturity score or regulatory certification. Complete-stack results remain separate in results/all-18-live.json.',True)
 
 title('NATIVE RESEARCH / 0.3','Negative results and release implications')
 sub('Product and configuration failures retained')
-p('Native startup exposed removal of OpenBao file storage; the experiment and deployment now use supported Raft storage. Shared development-store locking was resolved with isolated run state. Keycloak rejected tokens after an audience mapper referenced an absent client; the mapper now uses the documented custom-audience field. None of these failures was converted into an allow or a passing integration claim.')
-p('The native Collector could not register process metrics against the restricted process filesystem, including with telemetry level none. Local OpenTelemetry SDK spans therefore represent a partial result, not verified OTLP delivery. A later trace assertion also exposed an ambient one-percent sampler; the corrected experiment explicitly samples all spans. Failed startup and trace runs remain visible.')
+p('Native startup exposed removal of OpenBao file storage; the experiment and deployment use Raft storage. Shared development-store locking was resolved with isolated run state. Keycloak rejected tokens after an audience mapper referenced an absent client; the mapper now uses the custom-audience field. These failures remain recorded separately from successful reruns.')
+p('The deployment-pinned Collector 0.164.0 failed process-metric registration on the restricted host, even with telemetry disabled. Its SDK-span evidence is partial. A separate stock 0.130.0 compatibility run later passed OTLP/HTTP delivery, matching-trace read-back and sensitive-attribute removal (results/native-telemetry/20261102T071551Z/summary.json). It does not replace or qualify the deployment release. A one-percent ambient sampler was also corrected to explicit always-on sampling; failed attempts remain visible.')
 sub('The dependency gate actually rejected a release')
 p('Syft generated an SBOM of the installed Python dependency directory. Grype matched GHSA-g6cj-pr64-35w5 in cryptography 49.0.0 and exited nonzero at the configured High threshold. The scanned AGT 5.0.0 package constrains cryptography below 50.0; the upstream advisory identifies 50.0.0 as the fix. No incompatible override or automatic risk acceptance was applied. The advisory concerns PKCS#7 decryption behavior not exercised by the RS256 path; that reachability distinction is for accountable review, not silent suppression.')
 p('Cosign verified the local SBOM signature and rejected altered bytes. This establishes local artifact integrity under the supplied key, not publisher identity or transparency-log inclusion. The directory scan is not built-image qualification. The raw compressed SBOM, findings, database metadata, public key and bundle are retained.')
 sub('Remaining research and deployment work')
-p('Complete-stack commissioning, the PostgreSQL target path, metadata and inventory authorities, incident delivery, Cilium bypass prevention, built-image security qualification, protected external evidence, restore drills, representative data and meaningful human review remain independent acceptance requirements. Follow-ups were exploratory after observed failures; fixed seeds and self-authored tasks do not remove selection effects or shared implementation/test omissions.')
+p('Isolated real PostgreSQL acceptance has since passed for both configurable workflows. Connected complete-stack effects and downstream delivery, metadata and inventory authorities, incidents, Cilium bypass prevention, built-image qualification, protected evidence, restore drills and meaningful human review remain independent requirements. Exploratory follow-ups and self-authored tasks retain selection effects and correlated omissions.')
 p('Our contribution is an explicit product composition and a reproducible, bounded autonomous execution approach extending the Erdos framework. The observed successes and failures identify specific engineering behavior. They do not establish compliance or justify broader delegated authority.')
 
 
@@ -501,14 +537,15 @@ p('Microsoft AGT intercepts agent tool calls. CISO Assistant holds the risk/cont
 p('Evidence: results/native-ciso.json, native-ciso-records.json and native-ciso-attempts/. Source and dependency locks are under deploy/native/. Concurrent relationship edits still require single-writer coordination or product-supported conditional mutation and reconciliation; detail read/merge alone is not a distributed concurrency guarantee.',True)
 
 title('NATIVE RESEARCH / 0.3','Primary sources and evidence index')
-for _label,_url in [
+_native_sources=[
  ('Ollama: native tool calling','https://docs.ollama.com/capabilities/tool-calling'),
  ('Ollama: official Qwen3 4b-instruct artifact','https://ollama.com/library/qwen3:4b-instruct'),
  ('Keycloak: audience protocol mapper','https://www.keycloak.org/admin-api/protocol-mappers'),
  ('OpenBao: integrated Raft storage','https://openbao.org/docs/configuration/storage/raft/'),
  ('Cryptography: GHSA-g6cj-pr64-35w5 upstream advisory','https://github.com/pyca/cryptography/security/advisories/GHSA-g6cj-pr64-35w5'),
  ('Microsoft AGT 5.0.0: registry dependency metadata','https://pypi.org/pypi/agent-governance-toolkit-core/5.0.0/json'),
- ('Collector v0.164.0: process telemetry source','https://github.com/open-telemetry/opentelemetry-collector/blob/v0.164.0/service/internal/proctelemetry/process_telemetry.go')]:
+ ('Collector v0.164.0: process telemetry source','https://github.com/open-telemetry/opentelemetry-collector/blob/v0.164.0/service/internal/proctelemetry/process_telemetry.go')]
+for _label,_url in _native_sources:
  p('<link href="'+escape(_url)+'" color="#087f8c">'+escape(_label)+'</link>',True)
 sub('Repository evidence')
 table(['Artifact','Purpose'],[
@@ -523,14 +560,20 @@ p('Paths beginning with a timestamp are relative to results/native-agent/. Sourc
 
 def footer(c,doc):
  c.setStrokeColor(GREY);c.line(56,43,W-56,43)
- c.setFont('FabricSans',8);c.setFillColor(INK);c.drawString(56,29,'GOVERNED AGENT FABRIC  |  Research prototype v0.3  |  02 Nov 2026');c.drawRightString(W-56,29,str(doc.page))
+ c.setFont('FabricSans',8);c.setFillColor(INK);c.drawString(56,29,'GOVERNED AGENT FABRIC  |  Research prototype v0.5  |  02 Nov 2026');c.drawRightString(W-56,29,str(doc.page))
  c.setFillColor(TEAL);c.rect(0,H-8,W,8,fill=1,stroke=0)
 
 OUT.mkdir(exist_ok=True)
-SimpleDocTemplate(str(OUT/'Governed_Agent_Fabric_Research_Paper.pdf'),pagesize=A4,leftMargin=56,rightMargin=56,topMargin=48,bottomMargin=58,title='Governed Agent Fabric: Bounded Autonomy, Cross-System Authority and Operational Evidence',author='Reference Architecture Research',pageCompression=1).build(story,onFirstPage=footer,onLaterPages=footer)
-(OUT/'research-paper.md').write_text('\n\n'.join(markdown))
-(OUT/'references.json').write_text(json.dumps([{'id':i,'organization':o,'title':d,'url':u,'accessed':'2026-11-02'} for i,o,d,u in refs],indent=2))
-for name,draw in [('architecture',topology()),('execution-flow',sequence()),('evidence-graph',graph())]:
+document=PaperDocument(str(OUT/'Governed_Agent_Fabric_Research_Paper.pdf'),pagesize=A4,leftMargin=56,rightMargin=56,topMargin=48,bottomMargin=58,title='Governed Agent Fabric: Reusable Workflow Governance, Bounded Execution and Operational Evidence',author='Reference Architecture Research',pageCompression=1)
+document.multiBuild(story)
+contents='| Section | PDF page |\n|---|---|\n'+'\n'.join('| '+name+' | '+str(document.section_pages[key])+' |' for key,name in sections)
+text='# Governed Agent Fabric\n\n'+ '\n\n'.join(markdown).replace('__PAPER_CONTENTS__',contents)
+(OUT/'research-paper.md').write_text(text+'\n',encoding='utf-8')
+_reference_index=[{'id':i,'organization':o,'title':d,'url':u,'accessed':'2026-11-02'} for i,o,d,u in refs]
+_reference_index.extend({'id':'N'+str(i+1),'title':label,'url':url,'accessed':'2026-11-02'} for i,(label,url) in enumerate(_native_sources))
+(OUT/'references.json').write_text(json.dumps(_reference_index,indent=2)+'\n',encoding='utf-8')
+for name,draw in _new_diagrams.items():
  renderSVG.drawToFile(draw,str(OUT/(name+'.svg')))
- c=canvas.Canvas(str(OUT/(name+'.pdf')),pagesize=(draw.width+32,draw.height+32));renderPDF.draw(draw,c,16,16);c.save()
-print('Research paper and three vector diagrams generated')
+_qa=R/'.local/research-paper';_qa.mkdir(parents=True,exist_ok=True)
+(_qa/'page-map.json').write_text(json.dumps([{'title':name,'page':document.section_pages[key],'bookmark':key} for key,name in sections],indent=2)+'\n',encoding='utf-8')
+print('Research paper, Markdown, reference index and vector diagrams generated')

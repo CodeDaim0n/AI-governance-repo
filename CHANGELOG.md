@@ -6,6 +6,7 @@
 - Generate workflow-specific risk/control proposals, all eighteen component responsibilities and a crosswalk to the original seven input areas and twelve assessment outputs.
 - Preserve the distinction between source claims, proposed controls and operational evidence; generated designs have no execution or deployment authority.
 - Add procurement and museum examples, a reproducible live-model recorder, and an illustrated framework-to-implementation briefing with editable diagram source.
+- Update the research paper with reusable runtime and designer methods, retained positive/negative observations, current scoped evidence, two new vector diagrams and generated navigation.
 
 ## 0.4.0 - Configurable workflow contracts
 

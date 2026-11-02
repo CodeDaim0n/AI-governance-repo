@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="483" height="316" preserveAspectRatio="xMinYMin meet" viewBox="0 0 483 316" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="483" height="316"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-316)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="216" width="224" height="86" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="0" y="297" width="224" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="9" y="282" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,564) scale(1,-1)">Workflow configuration</text>
+			<text x="9" y="267" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,534) scale(1,-1)">Schemas, roles, source checks, approval conditions,</text>
+			<text x="9" y="257" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,514) scale(1,-1)">freshness and lifetime budgets.</text>
+			<rect x="259" y="216" width="224" height="86" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="259" y="297" width="224" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="268" y="282" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,564) scale(1,-1)">New effect adapter when required</text>
+			<text x="268" y="267" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,534) scale(1,-1)">Operator-registered code with reviewed validation,</text>
+			<text x="268" y="257" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,514) scale(1,-1)">transaction and receipt semantics.</text>
+			<rect x="0" y="98" width="483" height="86" rx="6" ry="0" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="0" y="179" width="483" height="5" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<text x="9" y="164" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,328) scale(1,-1)">Shared enforcement and evidence</text>
+			<text x="9" y="149" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,298) scale(1,-1)">Tenant isolation; approved configuration; fresh sources; exact approval; budgets; stop state; idempotency; effect, audit</text>
+			<text x="9" y="139" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,278) scale(1,-1)">and outbox transaction.</text>
+			<rect x="0" y="8" width="483" height="60" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="0" y="63" width="483" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="9" y="48" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,96) scale(1,-1)">Deployment-specific product bindings</text>
+			<text x="9" y="33" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,66) scale(1,-1)">Identity, policy, metadata, evaluation, workflow and evidence services need explicit configuration and acceptance.</text>
+			<path d="M 112,216 L 112,184 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="112 184, 114.3971 188.3879, 109.6029 188.3879" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 371,216 L 371,184 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="371 184, 373.3971 188.3879, 368.6029 188.3879" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 241,98 L 241,68 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="241 68, 243.3971 72.38791, 238.6029 72.38791" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

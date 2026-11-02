@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="483" height="280" preserveAspectRatio="xMinYMin meet" viewBox="0 0 483 280" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="483" height="280"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-280)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="178" width="141" height="86" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="0" y="259" width="141" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="9" y="244" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,488) scale(1,-1)">Workflow description</text>
+			<text x="9" y="229" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,458) scale(1,-1)">Untrusted source context,</text>
+			<text x="9" y="219" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,438) scale(1,-1)">duties, constraints and</text>
+			<text x="9" y="209" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,418) scale(1,-1)">unknowns.</text>
+			<rect x="171" y="178" width="141" height="86" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="171" y="259" width="141" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="180" y="244" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,488) scale(1,-1)">Review draft</text>
+			<text x="180" y="229" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,458) scale(1,-1)">Graph, quotations, proposed</text>
+			<text x="180" y="219" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,438) scale(1,-1)">controls and open questions.</text>
+			<rect x="342" y="178" width="141" height="86" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="342" y="259" width="141" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="351" y="244" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,488) scale(1,-1)">Accountable review</text>
+			<text x="351" y="229" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,458) scale(1,-1)">Correct interpretation;</text>
+			<text x="351" y="219" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,438) scale(1,-1)">determine authority and</text>
+			<text x="351" y="209" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,418) scale(1,-1)">evidence needs.</text>
+			<rect x="342" y="36" width="141" height="86" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="342" y="117" width="141" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="351" y="102" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,204) scale(1,-1)">Config + adapters</text>
+			<text x="351" y="87" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,174) scale(1,-1)">Reviewed contract, explicit</text>
+			<text x="351" y="77" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,154) scale(1,-1)">bindings and supported effects.</text>
+			<rect x="171" y="36" width="141" height="86" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="171" y="117" width="141" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="180" y="102" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,204) scale(1,-1)">Shared runtime</text>
+			<text x="180" y="87" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,174) scale(1,-1)">Independent authorization and</text>
+			<text x="180" y="77" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,154) scale(1,-1)">transactional enforcement.</text>
+			<rect x="0" y="36" width="141" height="86" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="0" y="117" width="141" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="9" y="102" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,204) scale(1,-1)">Outcome evidence</text>
+			<text x="9" y="87" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,174) scale(1,-1)">Receipts, audit, outbox, tests</text>
+			<text x="9" y="77" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,154) scale(1,-1)">and operational observations.</text>
+			<path d="M 141,221 L 171,221 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="171 221, 166.6121 223.3971, 166.6121 218.6029" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 312,221 L 342,221 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="342 221, 337.6121 223.3971, 337.6121 218.6029" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 412,178 L 412,122 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="412 122, 414.3971 126.3879, 409.6029 126.3879" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 342,79 L 312,79 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="312 79, 316.3879 76.60287, 316.3879 81.39713" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 171,79 L 141,79 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="141 79, 145.3879 76.60287, 145.3879 81.39713" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<text x="0" y="13" style="font-family: FabricSans; font-size: 8.2px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,26) scale(1,-1)">A review draft cannot execute, provision or approve a deployment.</text>
+		</g>
+	</g>
+</svg>

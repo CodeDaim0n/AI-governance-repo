@@ -12,7 +12,7 @@ article_section,our_capability,products,accountable_role,evidence_contract,gate
 4.4,Risk record,CISO Assistant Community,Risk owner,"Cause, impact, rationale, uncertainty, controls, residual risk, treatment",Only owner can accept; never auto-close
 4.5,Autonomy boundary review,Keycloak + OpenFGA + AGT + OPA,IAM and business owner,"Needed versus actual permissions, task limits, delegation ceiling",No increase from parent authority or trust score
 4.6,Control implementation,OPA + AGT + OpenBao + Cilium,Platform control owner,"Enforcement code, configured product, negative test, evidence",Advisory rules are not execution controls
-4.7,Traceable assurance,CISO Assistant + PostgreSQL + OpenMetadata,Assurance owner,Requirement-control-configuration-test-event-risk links,Traceability is not compliance certification
+4.7,Traceable assurance,CISO Assistant + PostgreSQL + OpenMetadata,Assurance owner,"Links among requirements, controls, configurations, tests, events and risks",Traceability is not compliance certification
 4.8,Validation and evaluation,MLflow + Fairlearn + unittest + OPA tests,Independent validation,"Business correctness, adversarial cases, fairness, resilience, thresholds",Unvalidated dimensions remain open
 4.9,Operations and incidents,OTel + Prometheus + Alertmanager + DFIR-IRIS,SRE and SOC,"Alerts, containment, manual service fallback, recovery and review",Control-plane outage blocks writes; fallback must be rehearsed
 4.10,Value and proportionality,CISO Assistant + MLflow + Prometheus,Business owner and finance,"Baseline task outcome, control cost, loss exposure, supervision cost",No unmeasured claims of savings
