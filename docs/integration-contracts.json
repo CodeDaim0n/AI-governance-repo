@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "status": "Design contracts, not deployed native product connectors",
+  "freshness_seconds": 60,
+  "contracts": [
+    {
+      "system": "Identity",
+      "provider": "Keycloak",
+      "read": [
+        "sub",
+        "issuer",
+        "audience",
+        "expiry",
+        "tenant",
+        "delegator",
+        "task_scope"
+      ],
+      "rule": "Ignore actor and roles in model body; revocation consulted server-side"
+    },
+    {
+      "system": "Relationship authority",
+      "provider": "OpenFGA",
+      "read": [
+        "authorization_model_id",
+        "delegator",
+        "agent",
+        "relation",
+        "resource",
+        "decision"
+      ],
+      "rule": "Intersection of user, workload, task and record permissions; absent result denies"
+    },
+    {
+      "system": "Risk register",
+      "provider": "CISO Assistant Community",
+      "write": [
+        "external_risk_id",
+        "scenario",
+        "owner",
+        "treatment",
+        "control_refs",
+        "evidence_refs",
+        "incident_refs"
+      ],
+      "rule": "Upsert by external ID; never auto-accept or overwrite owner-approved rating; use If-Match/version guard"
+    },
+    {
+      "system": "KYC and core credit",
+      "provider": "Existing enterprise systems via adapters",
+      "read": [
+        "case_id",
+        "tenant",
+        "kyc_status",
+        "source_version",
+        "observed_at",
+        "expiry"
+      ],
+      "write": [
+        "action_digest",
+        "idempotency_key",
+        "expected_source_version"
+      ],
+      "rule": "Target enforces idempotency and compare-and-set; no agent target credentials"
+    },
+    {
+      "system": "Inventory and change",
+      "provider": "GLPI",
+      "read": [
+        "service_owner",
+        "criticality",
+        "approved_change",
+        "version"
+      ],
+      "rule": "Unapproved material model, tool or privilege change suspends release"
+    },
+    {
+      "system": "Model validation",
+      "provider": "MLflow",
+      "read": [
+        "model_digest",
+        "evaluation_id",
+        "approver",
+        "validation_expiry",
+        "permitted_scope"
+      ],
+      "rule": "Promotion needs independent validation and human release authority"
+    },
+    {
+      "system": "Metadata",
+      "provider": "OpenMetadata",
+      "read": [
+        "asset_id",
+        "classification",
+        "region",
+        "quality_status",
+        "lineage_version",
+        "purpose",
+        "retention"
+      ],
+      "rule": "Metadata does not grant data access; field filtering is enforced by data adapter"
+    },
+    {
+      "system": "Incident response",
+      "provider": "DFIR-IRIS",
+      "write": [
+        "event_id",
+        "risk_id",
+        "severity",
+        "workflow_id",
+        "evidence_reference"
+      ],
+      "rule": "Deduplicate retries, minimize sensitive body, confirm delivery; unresolved failures visible"
+    },
+    {
+      "system": "Audit",
+      "provider": "PostgreSQL plus separately administered archival store",
+      "write": [
+        "event_id",
+        "principal",
+        "action_digest",
+        "policy_digest",
+        "source_versions",
+        "decision",
+        "approval_ref",
+        "outcome"
+      ],
+      "rule": "Separate evidence access; WORM retention and external signed anchor required in production"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+framework,reference,components,objective,evidence,status
+NIST AI RMF,GOVERN,CISO Assistant; Git,"Accountability, risk appetite, policies, release authority",Risk owner register and approval record,Design; named authorities missing
+NIST AI RMF,MAP,GLPI; OpenMetadata,"Intended use, affected parties, dependencies, impact",Workflow and data context,Synthetic only
+NIST AI RMF,MEASURE,MLflow; Fairlearn; tests,"Control effectiveness and business, model, fairness validation",results/summary.json; independent validation reports,Control tests demonstrated; broader validation open
+NIST AI RMF,MANAGE,OPA; Temporal; IRIS,"Treatment, operating limits, incident response and change","Policy decision, treatment and incident records",Local limits demonstrated; production processes open
+NIST SP 800-53 Rev.5,AC-3; AC-5; AC-6,Keycloak; OpenFGA; OPA,"Access enforcement, separation of duties, least privilege",Cross-tenant and reviewer authority tests,Lab demonstration; native identity and relationships open
+NIST SP 800-53 Rev.5,AU-2; AU-9,PostgreSQL; separate archive,Events and evidence protection,Atomic audit and tamper test,Local demonstrated; privileged tamper unresolved
+NIST SP 800-53 Rev.5,CA-7; CM-3,MLflow; GLPI; OTel,Monitoring and controlled changes,Validation expiry and version-binding tests,Partial
+NIST SP 800-53 Rev.5,IR-4; CP-9,IRIS; PostgreSQL backups,Incident handling and recoverability,Outbox tests; production restoration drill required,Partial
+NIST SP 800-53 Rev.5,SC-7; SI-10; SR-11,Cilium; gateway; Cosign,"Network boundary, input validity, component authenticity",Schema tests; penetration test; release attestations,Input tests only; boundary and supply chain open
+OWASP Agentic 2026,ASI01,AGT; OPA,Goal hijack containment through action limits,Unknown tool and trusted-context tests,Partial; prompt injection effectiveness not measured
+OWASP Agentic 2026,ASI02,OPA; exclusive adapter,Tool misuse constrained by exact business operation,"Allowlist, money and budget tests",Local demonstrated; adapter bypass open
+OWASP Agentic 2026,ASI03,Keycloak; OpenFGA,Identity and privilege abuse prevention,Token and tenant tests,Lab identity only; real delegation open
+OWASP Agentic 2026,ASI04,Syft; Grype; Cosign,Agentic supply chain control,Signed releases and tool manifests,Design only
+OWASP Agentic 2026,ASI05,AGT sandbox; Kubernetes; Cilium,Unexpected code execution containment,Sandbox escape and egress tests required,Not tested; no shell tool exposed in lab
+OWASP Agentic 2026,ASI06,OpenMetadata; authorization-aware retrieval,Memory and context poisoning control,"Provenance, quality and tenant-filtering tests required",Freshness only tested
+OWASP Agentic 2026,ASI07,Keycloak; SPIFFE/SPIRE; mTLS,Authenticated inter-agent communication,"Replay, identity and protocol tests required",Not tested across agents
+OWASP Agentic 2026,ASI08,Temporal; OPA; Prometheus,Cascading failure containment,Policy outage and shared-budget tests,Partial; production chaos tests required
+OWASP Agentic 2026,ASI09,Temporal review UI; CISO Assistant,Human-agent trust exploitation reduction,Action binding tested; reviewer study required,Technical binding only
+OWASP Agentic 2026,ASI10,AGT; OPA; Cilium,Rogue agent containment and revocation,Admin stop and token tests,Local stop tested; full containment open
+PRA SS1/23,Principles 1-5 subject to firm scope,GLPI; CISO Assistant; MLflow,"Inventory, responsibility, model lifecycle, validation, mitigation",Risk profile and independent validation,Applicability and independent validation pending
+UK privacy and ADM safeguards,DUAA/UK GDPR applicability review,OpenMetadata; review and appeal process,"Purpose, minimization, meaningful oversight and redress","DPIA, lawful basis, notification and challenge record",Not legally assessed
+Operational resilience,Applicable FCA/PRA requirements,GLPI; Temporal; Prometheus; IRIS,"Important business services, impact tolerance and recovery","Dependency maps, severe scenario and manual fallback drill",Design only
+ISO/IEC 42001,Management-system alignment,CISO Assistant; change and evidence systems,Organizational AI management system,"Defined scope, responsibilities, management review and audit",No clause-level conformity or certification claim
+BCBS 239,Where applicable,OpenMetadata; source adapters,Risk data quality and lineage,"Reconciliation, completeness and timeliness checks",Design only; legal scope reviewed separately

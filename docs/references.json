@@ -1,0 +1,191 @@
+[
+  {
+    "id": "1",
+    "organization": "Erdos Effect",
+    "title": "Implementing Governance for Agentic Workflows; 1 Nov 2026",
+    "url": "https://www.linkedin.com/pulse/implementing-governance-agentic-workflows-erdos-effect-vipie",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "2",
+    "organization": "NIST",
+    "title": "AI RMF Core; GOVERN, MAP, MEASURE, MANAGE",
+    "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "3",
+    "organization": "NIST",
+    "title": "AI 600-1, Generative Artificial Intelligence Profile; Jul 2024",
+    "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "4",
+    "organization": "NIST",
+    "title": "SP 800-53 Rev.5; publication page notes Release 5.2.0 updates",
+    "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "5",
+    "organization": "OWASP",
+    "title": "Top 10 for Agentic Applications 2026",
+    "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "6",
+    "organization": "FCA",
+    "title": "Operational resilience; scope and expectations",
+    "url": "https://www.fca.org.uk/firms/operational-resilience",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "7",
+    "organization": "Microsoft",
+    "title": "Agent Governance Toolkit repository and release documentation",
+    "url": "https://github.com/microsoft/agent-governance-toolkit",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "8",
+    "organization": "Keycloak",
+    "title": "Securing applications and services with OpenID Connect",
+    "url": "https://www.keycloak.org/securing-apps/oidc-layers",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "9",
+    "organization": "OpenFGA",
+    "title": "Authorization concepts",
+    "url": "https://openfga.dev/docs/authorization-concepts",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "10",
+    "organization": "OpenBao",
+    "title": "Secrets engines",
+    "url": "https://openbao.org/docs/secrets/",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "11",
+    "organization": "intuitem",
+    "title": "CISO Assistant Community; functionality and license boundaries",
+    "url": "https://github.com/intuitem/ciso-assistant-community",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "12",
+    "organization": "OpenMetadata",
+    "title": "Lineage API",
+    "url": "https://docs.open-metadata.org/v1.12.x/api-reference/lineage/index",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "13",
+    "organization": "MLflow",
+    "title": "Official documentation; registry and evaluation capabilities",
+    "url": "https://mlflow.org/docs/latest/",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "14",
+    "organization": "Temporal",
+    "title": "Workflow execution overview",
+    "url": "https://docs.temporal.io/workflow-execution",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "15",
+    "organization": "OpenTelemetry",
+    "title": "Handling sensitive data",
+    "url": "https://opentelemetry.io/docs/security/handling-sensitive-data/",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "16",
+    "organization": "DFIR-IRIS",
+    "title": "IRIS repository; versioning, deployment and licensing",
+    "url": "https://github.com/dfir-iris/iris-web",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "17",
+    "organization": "TheHive Project",
+    "title": "Archived repository; current commercial distribution notice",
+    "url": "https://github.com/TheHive-Project/TheHive",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "18",
+    "organization": "Bank of England / PRA",
+    "title": "SS1/23 Model risk management principles for banks; current publication",
+    "url": "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "19",
+    "organization": "ICO",
+    "title": "DUAA summary of changes; automated decision-making",
+    "url": "https://ico.org.uk/about-the-ico/what-we-do/legislation-we-cover/data-use-and-access-act-2025/the-data-use-and-access-act-2025-duaa-summary-of-the-changes/data-protection/",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "20",
+    "organization": "UK legislation",
+    "title": "Data (Use and Access) Act 2025, section 80; enacted text",
+    "url": "https://www.legislation.gov.uk/ukpga/2025/18/section/80/enacted",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "21",
+    "organization": "ICO",
+    "title": "Automated decision-making guidance consultation; review status",
+    "url": "https://citizen-space.ico.org.uk/regulatory-risk/adm-guidance-consultation/",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "22",
+    "organization": "ISO",
+    "title": "ISO/IEC 42001:2023 public standard overview",
+    "url": "https://www.iso.org/standard/42001",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "23",
+    "organization": "BIS / Basel Committee",
+    "title": "Risk data aggregation and risk reporting; supervisory framework",
+    "url": "https://www.bis.org/committees/bcbs/basel-framework/standard/srp/36/inforce/2019-12-15/published/2019-12-15",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "24",
+    "organization": "Open Policy Agent",
+    "title": "REST API reference",
+    "url": "https://www.openpolicyagent.org/docs/rest-api",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "25",
+    "organization": "Fairlearn",
+    "title": "Fairness assessment and mitigation; official overview",
+    "url": "https://fairlearn.org/",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "26",
+    "organization": "Prometheus",
+    "title": "Monitoring and alerting overview",
+    "url": "https://prometheus.io/docs/introduction/overview/",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "27",
+    "organization": "OWASP",
+    "title": "Agent Control Standard resource",
+    "url": "https://genai.owasp.org/resource/agent-control-standard-acs/",
+    "accessed": "2026-11-02"
+  }
+]

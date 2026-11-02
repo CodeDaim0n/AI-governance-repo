@@ -1,0 +1,17 @@
+{
+  "metrics": {
+    "fairness_difference": 0.0,
+    "accuracy": 1.0
+  },
+  "receipt": {
+    "run_id": "57eeabc7e40940cea2b5af39717ee3e8",
+    "version": "1"
+  },
+  "release": "candidate only; an independent validator must promote",
+  "observed": {
+    "native_mlflow_http_server": true,
+    "model_version_read_back": true,
+    "unapproved_candidate_not_validated": true,
+    "full_18_stack": false
+  }
+}

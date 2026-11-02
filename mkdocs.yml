@@ -1,0 +1,40 @@
+site_name: Governed Agent Fabric
+site_description: Integrated authority, controlled action and verifiable evidence for agentic workflows.
+repo_url: https://github.com/CodeDaim0n/AI-governance-repo
+repo_name: CodeDaim0n/AI-governance-repo
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  language: en
+  palette:
+    primary: blue grey
+    accent: teal
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+nav:
+  - Overview: index.md
+  - Getting started: getting-started.md
+  - Architecture: architecture.md
+  - Components: components/catalogue.md
+  - Deployment: deployment/full-stack.md
+  - API: api.md
+  - Validation: validation.md
+  - Operations: runbooks/operations.md
+  - Architecture decisions: decisions/README.md
+  - Contributing: development/contributing.md
+  - Research: research-paper.md

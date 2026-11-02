@@ -1,0 +1,13 @@
+# Local policy service only. The full enterprise product catalogue is not deployed.
+services:
+  opa:
+    image: openpolicyagent/opa:1.0.1-static
+    command: [run, --server, --addr=0.0.0.0:8181, /policies/credit.rego]
+    ports: ["127.0.0.1:8181:8181"]
+    volumes: ["../policies:/policies:ro"]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    user: "65532:65532"
+# Historical reproduction version, not a production release recommendation.
+# Qualify a supported OPA release and pin its verified image digest before use.

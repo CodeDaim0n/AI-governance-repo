@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-02T01:24:56.215833+00:00",
+  "scope": "Dedicated synthetic deployment, not regulatory certification",
+  "all_18_passed": false,
+  "passed": 0,
+  "components": [
+    {
+      "id": 1,
+      "component": "Keycloak",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 2,
+      "component": "Microsoft AGT",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 3,
+      "component": "OPA",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 4,
+      "component": "OpenFGA",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 5,
+      "component": "Temporal",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 6,
+      "component": "CISO Assistant",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 7,
+      "component": "OpenMetadata",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 8,
+      "component": "MLflow",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 9,
+      "component": "OpenBao",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 10,
+      "component": "OpenTelemetry",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 11,
+      "component": "Prometheus and Alertmanager",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 12,
+      "component": "DFIR-IRIS",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 13,
+      "component": "GLPI",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 14,
+      "component": "PostgreSQL",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 15,
+      "component": "Fairlearn",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 16,
+      "component": "Kubernetes and Cilium",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 17,
+      "component": "Syft Grype and Cosign",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    },
+    {
+      "id": 18,
+      "component": "Ollama and Qwen",
+      "status": "BLOCKED",
+      "reason": "Native host not commissioned; Docker/Kubernetes privileges and product credentials required"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 270" role="img" aria-labelledby="title desc">
+<title id="title">Governed Agent Fabric</title><desc id="desc">Integrated authority, controlled action and verifiable evidence for agentic workflows.</desc>
+<rect width="1200" height="270" rx="16" fill="#112841"/>
+<path d="M880 25V245M970 25V245M1060 25V245M1150 25V245M850 55H1170M850 135H1170M850 215H1170" stroke="#234962" stroke-width="1"/>
+<path d="M892 62L980 138L1068 62L1154 138L1068 214L980 138L892 214" fill="none" stroke="#31b8b3" stroke-width="3"/>
+<g fill="#f4fbfc" stroke="#31b8b3" stroke-width="4"><circle cx="892" cy="62" r="10"/><circle cx="980" cy="138" r="15"/><circle cx="1068" cy="62" r="10"/><circle cx="1154" cy="138" r="10"/><circle cx="1068" cy="214" r="10"/><circle cx="892" cy="214" r="10"/></g>
+<rect x="44" y="42" width="104" height="6" rx="3" fill="#31b8b3"/>
+<text x="44" y="111" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#ffffff">Governed Agent Fabric</text>
+<text x="46" y="155" font-family="Arial,sans-serif" font-size="22" fill="#b9d7e4">Authority. Controlled action. Verifiable evidence.</text>
+<text x="46" y="218" font-family="Arial,sans-serif" font-size="16" fill="#6fced0">OPEN-SOURCE REFERENCE IMPLEMENTATION · SYNTHETIC LABORATORY</text>
+</svg>

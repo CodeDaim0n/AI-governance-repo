@@ -1,0 +1,149 @@
+{
+  "scope": "Source-level component coverage only; not a safety or maturity score",
+  "components": [
+    {
+      "id": 1,
+      "component": "Keycloak",
+      "implementation_path": "fabric/enterprise/clients.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Obtain three native tokens; verify signature, issuer, audience and mapped principal."
+    },
+    {
+      "id": 2,
+      "component": "Microsoft Agent Governance Toolkit",
+      "implementation_path": "fabric/microsoft_agt.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Allow one probe; deny an unlisted tool without invoking the function."
+    },
+    {
+      "id": 3,
+      "component": "Open Policy Agent",
+      "implementation_path": "policies/credit.rego",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Check valid allow and kill-switch deny against the real policy service."
+    },
+    {
+      "id": 4,
+      "component": "OpenFGA",
+      "implementation_path": "fabric/enterprise/clients.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Allow assigned case and deny a cross-case relationship."
+    },
+    {
+      "id": 5,
+      "component": "Temporal",
+      "implementation_path": "fabric/enterprise/workflows.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Execute a native workflow through the protected gateway and inspect its result."
+    },
+    {
+      "id": 6,
+      "component": "CISO Assistant Community",
+      "implementation_path": "fabric/enterprise/clients.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Create/read back 12 stable risk references; never auto-accept or overwrite owner ratings."
+    },
+    {
+      "id": 7,
+      "component": "OpenMetadata",
+      "implementation_path": "fabric/enterprise/clients.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Read required owner/classification and verify a downstream lineage edge."
+    },
+    {
+      "id": 8,
+      "component": "MLflow",
+      "implementation_path": "fabric/enterprise/clients.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Publish candidate; authorize lab reviewer promotion; verify approved alias and expiry."
+    },
+    {
+      "id": 9,
+      "component": "OpenBao",
+      "implementation_path": "fabric/enterprise/clients.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Read gateway secrets and prove worker secret path inaccessible to the gateway token."
+    },
+    {
+      "id": 10,
+      "component": "OpenTelemetry Collector",
+      "implementation_path": "fabric/enterprise/telemetry.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Observe a real exported governed-action span and check bearer tokens are absent."
+    },
+    {
+      "id": 11,
+      "component": "Prometheus and Alertmanager",
+      "implementation_path": "fabric/enterprise/telemetry.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Read scraped decisions and deliver a synthetic alert into the acknowledged audit path."
+    },
+    {
+      "id": 12,
+      "component": "DFIR-IRIS",
+      "implementation_path": "fabric/enterprise/clients.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Create an alert in the configured lab customer and inspect native success response."
+    },
+    {
+      "id": 13,
+      "component": "GLPI",
+      "implementation_path": "fabric/enterprise/clients.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Read a dedicated synthetic service and create a remediation ticket."
+    },
+    {
+      "id": 14,
+      "component": "PostgreSQL",
+      "implementation_path": "fabric/enterprise/postgres.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Read committed target actions, verify audit chain and inspect per-sink receipts."
+    },
+    {
+      "id": 15,
+      "component": "Fairlearn",
+      "implementation_path": "fabric/enterprise/evaluate.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Compute group metrics from a synthetic fixture and publish evaluation to MLflow."
+    },
+    {
+      "id": 16,
+      "component": "Kubernetes and Cilium",
+      "implementation_path": "scripts/install_agent_sandbox.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Show a reachable target becomes blocked after policy while gateway remains reachable."
+    },
+    {
+      "id": 17,
+      "component": "Syft, Grype and Cosign",
+      "implementation_path": "scripts/supply_chain.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Generate an image SBOM, reject high/critical findings and verify its local signature."
+    },
+    {
+      "id": 18,
+      "component": "Ollama and Qwen2.5",
+      "implementation_path": "fabric/enterprise/clients.py",
+      "source_present": true,
+      "complete_stack_live_verified": false,
+      "acceptance_operation": "Run the actual model and parse a generated JSON response."
+    }
+  ]
+}

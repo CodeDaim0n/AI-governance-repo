@@ -1,0 +1,19 @@
+capability,product,license_baseline_verify_selected_release,responsibility,implementation_status,primary_source
+Identity,Keycloak,Apache-2.0,"JWT signature, issuer, audience, expiry; user and workload identity",RS256 lab tokens tested; Keycloak connector required,https://www.keycloak.org/securing-apps/oidc-layers
+Agent runtime,Microsoft Agent Governance Toolkit,MIT,Intercept tool proposals; sandbox and runtime evidence; central deny wins,Optional SDK experiment; see results/agt.json,https://github.com/microsoft/agent-governance-toolkit
+Business policy,Open Policy Agent,Apache-2.0,"Deterministic action, tenant, freshness, budget and approval decisions",Real HTTP engine tested,https://www.openpolicyagent.org/docs/rest-api
+Relationship permissions,OpenFGA,Apache-2.0,"Delegator, agent, customer and record relationships",Model provided; not deployed,https://openfga.dev/docs/authorization-concepts
+Durable workflow,Temporal,MIT server,"Durable waits, bounded retries, authenticated approval signals, recovery",Production design; local approval state tested instead,https://docs.temporal.io/workflow-execution
+Risk register,CISO Assistant Community,AGPL-3.0,"Risk ownership, assessment, treatment, exception and acceptance record",Portable risk register provided; native API integration required,https://github.com/intuitem/ciso-assistant-community
+Metadata,OpenMetadata,Apache-2.0,"Source ownership, classification, quality, lineage and freshness",Synthetic source table tested; native connector required,https://docs.open-metadata.org/v1.12.x/api-reference/lineage/index
+Model register,MLflow,Apache-2.0,"Model, prompt and evaluation version; validation evidence",Synthetic workflow validation gate tested; MLflow connector required,https://mlflow.org/docs/latest/
+Secrets,OpenBao,MPL-2.0,"Short-lived adapter credentials, revocation, PKI and key protection",Production integration required,https://openbao.org/docs/secrets/
+Telemetry,OpenTelemetry Collector,Apache-2.0,Redacted correlated spans; export to approved observability systems,"Local minimized audit tested; collector config supplied, untested",https://opentelemetry.io/docs/security/handling-sensitive-data/
+Metrics and alerting,Prometheus + Alertmanager,Apache-2.0,"Policy failures, source age, denial changes and outbox backlog",Production integration required,https://prometheus.io/docs/introduction/overview/
+Incident management,DFIR-IRIS 2.x,LGPL-3.0,"Triage, evidence, containment and recovery case",Generic incident outbox tested; native IRIS integration required,https://github.com/dfir-iris/iris-web
+Business inventory and changes,GLPI,GPL-3.0,"Service owner, criticality, dependency and change tickets",Production integration required,https://glpi-project.org/
+Evidence graph,PostgreSQL,PostgreSQL License,Versioned requirement-control-test-event-risk relationships,Local SQLite evidence chain and relational links tested,https://www.postgresql.org/docs/
+Fairness evaluation,Fairlearn,MIT,Group performance and disparity evaluation with authorized data,Required validation design; no fairness experiment performed,https://fairlearn.org/
+Workload isolation,Kubernetes + Cilium,Apache-2.0,"Default-deny network access, target-only adapter egress, identities",Production design; not deployed,https://docs.cilium.io/en/stable/security/policy/
+Supply chain,Syft + Grype + Cosign,Apache-2.0,"SBOM, vulnerability gate, signed images and policy bundles",Release acceptance requirement; not executed,https://github.com/sigstore/cosign
+Local generative model,Ollama + Qwen2.5 0.5B,MIT runtime; Apache-2.0 selected model,"Optional proposal generation, without execution credentials",Client supplied; model not downloaded or benchmarked,https://ollama.com/library/qwen2.5:0.5b

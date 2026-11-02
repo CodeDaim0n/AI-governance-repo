@@ -1,0 +1,20 @@
+{
+  "recorded": "2026-11-02",
+  "selection": "Official release metadata observed; selected images/APIs still require live qualification and digest pinning",
+  "versions": {
+    "opa": "v1.22.0",
+    "keycloak": "26.8.1",
+    "openfga": "v1.22.1",
+    "openbao": "v2.7.2",
+    "opentelemetry-collector": "v0.164.0",
+    "prometheus": "v3.15.1",
+    "alertmanager": "v0.34.2",
+    "ollama": "v0.40.13",
+    "dfir-iris": "v2.4.29",
+    "glpi": "12.0.1",
+    "openmetadata": "2.0.7-release",
+    "ciso-assistant": "v4.2.1",
+    "temporal-cli": "v1.9.1",
+    "microsoft-agt-core": "5.0.0"
+  }
+}

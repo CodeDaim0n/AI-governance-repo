@@ -1,0 +1,31 @@
+test_absolute_action_endpoint_rejected (test_contracts.NativeContracts.test_absolute_action_endpoint_rejected) ... ok
+test_agent_cannot_add_role_to_action (test_contracts.NativeContracts.test_agent_cannot_add_role_to_action) ... ok
+test_boolean_money_rejected_at_api (test_contracts.NativeContracts.test_boolean_money_rejected_at_api) ... ok
+test_exceeded_fairness_threshold_is_denied (test_contracts.NativeContracts.test_exceeded_fairness_threshold_is_denied) ... ok
+test_existing_risk_never_overwritten (test_contracts.NativeContracts.test_existing_risk_never_overwritten) ... ok
+test_expired_model_is_denied (test_contracts.NativeContracts.test_expired_model_is_denied) ... ok
+test_fga_boolean_deny (test_contracts.NativeContracts.test_fga_boolean_deny) ... ok
+test_fga_model_and_consistency_bound (test_contracts.NativeContracts.test_fga_model_and_consistency_bound) ... ok
+test_fga_string_true_does_not_grant_access (test_contracts.NativeContracts.test_fga_string_true_does_not_grant_access) ... ok
+test_local_deny_does_not_contact_remote_authorities (test_contracts.NativeContracts.test_local_deny_does_not_contact_remote_authorities) ... ok
+test_metadata_records_version (test_contracts.NativeContracts.test_metadata_records_version) ... ok
+test_metadata_requires_classification (test_contracts.NativeContracts.test_metadata_requires_classification) ... ok
+test_metadata_requires_owner (test_contracts.NativeContracts.test_metadata_requires_owner) ... ok
+test_missing_fairness_measure_is_denied (test_contracts.NativeContracts.test_missing_fairness_measure_is_denied) ... ok
+test_new_risk_does_not_set_rating_or_acceptance (test_contracts.NativeContracts.test_new_risk_does_not_set_rating_or_acceptance) ... ok
+test_product_error_body_not_exposed (test_contracts.NativeContracts.test_product_error_body_not_exposed) ... ok
+test_redirect_not_followed (test_contracts.NativeContracts.test_redirect_not_followed) ... ok
+test_relationship_deny_cannot_be_overridden (test_contracts.NativeContracts.test_relationship_deny_cannot_be_overridden) ... ok
+test_secret_path_traversal_rejected (test_contracts.NativeContracts.test_secret_path_traversal_rejected) ... ok
+test_unapproved_model_is_denied (test_contracts.NativeContracts.test_unapproved_model_is_denied) ... ok
+test_validated_release_receipt (test_contracts.NativeContracts.test_validated_release_receipt) ... ok
+test_expired_native_profile (test_contracts.TokenContracts.test_expired_native_profile) ... ok
+test_signed_mapped_identity (test_contracts.TokenContracts.test_signed_mapped_identity) ... ok
+test_unmapped_identity (test_contracts.TokenContracts.test_unmapped_identity) ... ok
+test_wrong_gateway_audience (test_contracts.TokenContracts.test_wrong_gateway_audience) ... ok
+test_wrong_issuer (test_contracts.TokenContracts.test_wrong_issuer) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.121s
+
+OK

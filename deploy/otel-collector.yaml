@@ -1,0 +1,26 @@
+# Reference configuration only; not executed. Export through TLS to approved sink.
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 127.0.0.1:4317
+processors:
+  attributes/minimize:
+    actions:
+      - key: gen_ai.prompt
+        action: delete
+      - key: gen_ai.completion
+        action: delete
+      - key: authorization
+        action: delete
+  batch: {}
+exporters:
+  debug:
+    verbosity: basic
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [attributes/minimize, batch]
+      exporters: [debug]
+# Attribute deletion is not comprehensive DLP; allowlist attributes at source.

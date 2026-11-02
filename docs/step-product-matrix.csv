@@ -1,0 +1,20 @@
+article_section,our_capability,products,accountable_role,evidence_contract,gate
+3.1.1,Business mandate,GLPI + CISO Assistant,Business owner,"Service ID, jurisdiction, objective, criticality, baseline benefit",No approved owner or scope: deployment blocked
+3.1.2,Process and dependency model,Temporal + OpenMetadata,Process owner,"Versioned activities, people, systems, decisions, failure paths",Unmapped side-effecting step: deployment blocked
+3.1.3,Delegated authority,Keycloak + OpenFGA + AGT + OPA,IAM and platform owners,"Principal, delegation chain, exact tools, scopes and limits",Unknown authority: deny action
+3.1.4,Trusted information,OpenMetadata + OpenBao,Data owner,"Classification, purpose, region, source version, quality, retention",Missing or stale authoritative fact: deny action
+3.1.5,Accountability and redress,CISO Assistant + GLPI,Business risk owner,"Decision rights, approver, affected people, appeal route",No authorized accountable role: no release
+3.1.6,Obligation applicability,CISO Assistant + Git + OPA,Compliance and legal,"Dated requirement, jurisdiction, applicability rationale, policy mapping",Unknown applicability goes to qualified review
+3.1.7,Operational assurance,MLflow + OTel + DFIR-IRIS,Validation and operations,"Config, tests, observed events, incidents and changes",Expired validation: restricted or stopped
+4.1,Completeness and conflict review,CISO Assistant + OpenMetadata,Assessor,Coverage and missing or conflicting source records,Unknown remains unknown
+4.2,Readiness decision,CISO Assistant + Temporal,Designated release authority,"Disposition, conditions, authority and dated approval",Agent advice cannot authorize release
+4.3,Control analysis by activity,CISO Assistant + OPA,Control owner,"Activity, failure scenario, enforcement point, control and test link",No effective enforcement: unresolved gap
+4.4,Risk record,CISO Assistant Community,Risk owner,"Cause, impact, rationale, uncertainty, controls, residual risk, treatment",Only owner can accept; never auto-close
+4.5,Autonomy boundary review,Keycloak + OpenFGA + AGT + OPA,IAM and business owner,"Needed versus actual permissions, task limits, delegation ceiling",No increase from parent authority or trust score
+4.6,Control implementation,OPA + AGT + OpenBao + Cilium,Platform control owner,"Enforcement code, configured product, negative test, evidence",Advisory rules are not execution controls
+4.7,Traceable assurance,CISO Assistant + PostgreSQL + OpenMetadata,Assurance owner,Requirement-control-configuration-test-event-risk links,Traceability is not compliance certification
+4.8,Validation and evaluation,MLflow + Fairlearn + unittest + OPA tests,Independent validation,"Business correctness, adversarial cases, fairness, resilience, thresholds",Unvalidated dimensions remain open
+4.9,Operations and incidents,OTel + Prometheus + Alertmanager + DFIR-IRIS,SRE and SOC,"Alerts, containment, manual service fallback, recovery and review",Control-plane outage blocks writes; fallback must be rehearsed
+4.10,Value and proportionality,CISO Assistant + MLflow + Prometheus,Business owner and finance,"Baseline task outcome, control cost, loss exposure, supervision cost",No unmeasured claims of savings
+4.11,Remediation delivery,GLPI + Git + CISO Assistant,Action owner,"Ticket, due date, dependency, acceptance test, completion evidence",Release-blocking issues require verified completion
+4.12,Versioned assessment package,Git + PostgreSQL + CISO Assistant,Records owner,"Signed artifact manifest, source snapshots, control and evaluation versions",Material changes invalidate previous approval

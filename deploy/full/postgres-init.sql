@@ -1,0 +1,2 @@
+CREATE DATABASE openfga;
+CREATE DATABASE mlflow;

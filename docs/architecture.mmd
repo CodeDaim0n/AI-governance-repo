@@ -1,0 +1,17 @@
+flowchart TD
+  A["Agent and optional Microsoft AGT"] --> G["Authenticated action gateway"]
+  I["Keycloak and OpenFGA"] --> G
+  D["KYC, core credit and OpenMetadata"] --> C["Trusted versioned context"]
+  R["CISO Assistant risk and obligations"] --> C
+  M["MLflow and GLPI validation and change"] --> C
+  C --> G
+  G --> P["OPA business-policy decision"]
+  P --> H["Temporal human review when required"]
+  H --> G
+  P --> E["Exclusive target adapter"]
+  E --> B["Business system conditional commit"]
+  E --> L["Evidence and transactional outbox"]
+  L --> R
+  L --> O["OpenTelemetry and Prometheus"]
+  O --> S["DFIR-IRIS incident and containment"]
+  S --> G

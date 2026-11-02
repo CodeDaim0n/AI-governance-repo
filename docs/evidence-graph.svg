@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="483" height="390" preserveAspectRatio="xMinYMin meet" viewBox="0 0 483 390" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="483" height="390"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-390)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="290" width="142" height="70" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="0" y="355" width="142" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="9" y="340" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,680) scale(1,-1)">Requirement</text>
+			<text x="9" y="325" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,650) scale(1,-1)">Applicability, version,</text>
+			<text x="9" y="315" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,630) scale(1,-1)">effective date and</text>
+			<text x="9" y="305" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,610) scale(1,-1)">authoritative source.</text>
+			<rect x="171" y="290" width="142" height="70" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="171" y="355" width="142" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="180" y="340" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,680) scale(1,-1)">Control</text>
+			<text x="180" y="325" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,650) scale(1,-1)">Enforcement point, owner and</text>
+			<text x="180" y="315" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,630) scale(1,-1)">permitted scope.</text>
+			<rect x="341" y="290" width="142" height="70" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="341" y="355" width="142" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="350" y="340" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,680) scale(1,-1)">Configuration</text>
+			<text x="350" y="325" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,650) scale(1,-1)">Policy digest, workload image</text>
+			<text x="350" y="315" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,630) scale(1,-1)">and source version.</text>
+			<rect x="341" y="165" width="142" height="70" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="341" y="230" width="142" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="350" y="215" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,430) scale(1,-1)">Test result</text>
+			<text x="350" y="200" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,400) scale(1,-1)">Case, expected outcome,</text>
+			<text x="350" y="190" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,380) scale(1,-1)">observed result and artifact</text>
+			<text x="350" y="180" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,360) scale(1,-1)">digest.</text>
+			<rect x="171" y="165" width="142" height="70" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="171" y="230" width="142" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="180" y="215" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,430) scale(1,-1)">Observed event</text>
+			<text x="180" y="200" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,400) scale(1,-1)">Principal, decision, action</text>
+			<text x="180" y="190" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,380) scale(1,-1)">hash, approval reference and</text>
+			<text x="180" y="180" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,360) scale(1,-1)">outcome.</text>
+			<rect x="0" y="165" width="142" height="70" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="0" y="230" width="142" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="9" y="215" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,430) scale(1,-1)">Risk</text>
+			<text x="9" y="200" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,400) scale(1,-1)">Scenario, exposure,</text>
+			<text x="9" y="190" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,380) scale(1,-1)">uncertainty, owner and</text>
+			<text x="9" y="180" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,360) scale(1,-1)">treatment.</text>
+			<rect x="0" y="35" width="224" height="75" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="0" y="105" width="224" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="9" y="90" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,180) scale(1,-1)">Incident and remediation</text>
+			<text x="9" y="75" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,150) scale(1,-1)">Evidence references, containment, root cause,</text>
+			<text x="9" y="65" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,130) scale(1,-1)">ticket, owner and completion test.</text>
+			<rect x="259" y="35" width="224" height="75" rx="6" ry="0" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="259" y="105" width="224" height="5" style="stroke: rgb(6%,15%,25%); stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,15%,25%); fill-rule: evenodd;"/>
+			<text x="268" y="90" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(6%,15%,25%); stroke:none;" transform="translate(0,180) scale(1,-1)">Review and acceptance</text>
+			<text x="268" y="75" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,150) scale(1,-1)">Human authority, rationale, conditions, expiry</text>
+			<text x="268" y="65" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,130) scale(1,-1)">and explicit evidence gaps.</text>
+			<path d="M 142,325 L 171,325 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="171 325, 166.6121 327.3971, 166.6121 322.6029" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 313,325 L 341,325 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="341 325, 336.6121 327.3971, 336.6121 322.6029" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 412,290 L 412,235 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="412 235, 414.3971 239.3879, 409.6029 239.3879" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 341,200 L 313,200 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="313 200, 317.3879 197.6029, 317.3879 202.3971" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 171,200 L 142,200 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="142 200, 146.3879 197.6029, 146.3879 202.3971" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 71,165 L 112,110 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="112 110, 111.2994 114.9507, 107.4556 112.0853" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 224,72 L 259,72 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="259 72, 254.6121 74.39713, 254.6121 69.60287" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 371,110 L 241,165 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="241 165, 244.1071 161.0826, 245.9751 165.498" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,1 @@
+agent-governance-toolkit-core==5.0.0

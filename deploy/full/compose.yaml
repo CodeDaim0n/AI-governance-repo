@@ -1,0 +1,323 @@
+name: fabric-native
+services:
+  postgres:
+    image: postgres:17.6
+    environment:
+      POSTGRES_USER: fabric
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?run configure}
+      POSTGRES_DB: fabric
+    ports:
+    - 127.0.0.1:5433:5432
+    volumes:
+    - pg:/var/lib/postgresql/data
+    - ./postgres-init.sql:/docker-entrypoint-initdb.d/00-databases.sql:ro
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U fabric -d fabric
+      interval: 5s
+      retries: 20
+    security_opt:
+    - no-new-privileges:true
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.8.1
+    command:
+    - start-dev
+    - --import-realm
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: fabric-admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:?run configure}
+      KC_HOSTNAME: http://localhost:8081
+    ports:
+    - 127.0.0.1:8081:8080
+    volumes:
+    - kc:/opt/keycloak/data
+    - ../../.local/full/realm.json:/opt/keycloak/data/import/fabric.json:ro
+    security_opt:
+    - no-new-privileges:true
+  opa:
+    image: openpolicyagent/opa:1.22.0-static
+    command:
+    - run
+    - --server
+    - --addr=0.0.0.0:8181
+    - /policies/credit.rego
+    ports:
+    - 127.0.0.1:8181:8181
+    volumes:
+    - ../../policies:/policies:ro
+    user: 65532:65532
+    read_only: true
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+  fga-migrate:
+    image: openfga/openfga:v1.22.1
+    command:
+    - migrate
+    environment:
+      OPENFGA_DATASTORE_ENGINE: postgres
+      OPENFGA_DATASTORE_URI: postgres://fabric:${POSTGRES_PASSWORD}@postgres:5432/openfga?sslmode=disable
+    depends_on:
+      postgres:
+        condition: service_healthy
+    security_opt:
+    - no-new-privileges:true
+  openfga:
+    image: openfga/openfga:v1.22.1
+    command:
+    - run
+    environment:
+      OPENFGA_DATASTORE_ENGINE: postgres
+      OPENFGA_DATASTORE_URI: postgres://fabric:${POSTGRES_PASSWORD}@postgres:5432/openfga?sslmode=disable
+      OPENFGA_AUTHN_METHOD: preshared
+      OPENFGA_AUTHN_PRESHARED_KEYS: ${FGA_TOKEN:?run configure}
+    ports:
+    - 127.0.0.1:8082:8080
+    depends_on:
+      fga-migrate:
+        condition: service_completed_successfully
+    security_opt:
+    - no-new-privileges:true
+  temporal:
+    image: temporalio/temporal:1.9.1
+    command:
+    - server
+    - start-dev
+    - --ip
+    - 0.0.0.0
+    - --db-filename
+    - /state/temporal.db
+    ports:
+    - 127.0.0.1:7233:7233
+    - 127.0.0.1:8233:8233
+    volumes:
+    - temporal:/state
+    security_opt:
+    - no-new-privileges:true
+  mlflow:
+    build: &id001
+      context: ../..
+      dockerfile: deploy/full/Dockerfile
+    environment: &id002
+      DATABASE_URL: postgresql://fabric:${POSTGRES_PASSWORD:?run configure}@postgres:5432/fabric
+      OPA_DECISION_URL: http://opa:8181/v1/data/fabric/decision
+      KEYCLOAK_URL: http://keycloak:8080
+      KEYCLOAK_ISSUER: http://localhost:8081/realms/fabric
+      KEYCLOAK_REALM: fabric
+      FGA_URL: http://openfga:8080
+      FGA_TOKEN: ${FGA_TOKEN:?run configure}
+      FGA_STORE_ID: ${FGA_STORE_ID:-}
+      FGA_MODEL_ID: ${FGA_MODEL_ID:-}
+      CISO_URL: http://host.docker.internal:8002/api
+      CISO_FOLDER_ID: ${CISO_FOLDER_ID:-}
+      CISO_ASSESSMENT_ID: ${CISO_ASSESSMENT_ID:-}
+      METADATA_URL: http://host.docker.internal:8585/api
+      METADATA_TABLE_FQN: ${METADATA_TABLE_FQN:-fabric.credit.public.cases}
+      METADATA_REQUIRED_TAG: ${METADATA_REQUIRED_TAG:-PII.Sensitive}
+      MLFLOW_URL: http://mlflow:5000
+      MODEL_NAME: fabric-credit-proposal
+      FAIRNESS_MAX_DIFFERENCE: '0.2'
+      BAO_URL: http://bao:8200
+      BAO_TOKEN: ${BAO_TOKEN:-}
+      IRIS_URL: http://host.docker.internal:8085
+      IRIS_CUSTOMER_ID: ${IRIS_CUSTOMER_ID:-1}
+      GLPI_URL: http://host.docker.internal:8086/apirest.php
+      GLPI_SERVICE_ID: ${GLPI_SERVICE_ID:-}
+      GLPI_ENTITY_ID: ${GLPI_ENTITY_ID:-0}
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_MODEL: qwen2.5:0.5b
+      TEMPORAL_ADDRESS: temporal:7233
+      GATEWAY_URL: http://gateway:8088
+      OTEL_ENDPOINT: http://otel:4318/v1/traces
+      FABRIC_LAB_MODE: 'true'
+      MODEL_TENANT: bank-a
+    extra_hosts: &id003
+    - host.docker.internal:host-gateway
+    restart: unless-stopped
+    command:
+    - mlflow
+    - server
+    - --host
+    - 0.0.0.0
+    - --port
+    - '5000'
+    - --backend-store-uri
+    - postgresql+psycopg://fabric:${POSTGRES_PASSWORD}@postgres:5432/mlflow
+    - --serve-artifacts
+    - --artifacts-destination
+    - /tmp/mlflow-artifacts
+    - --allowed-hosts
+    - mlflow:5000,localhost:5001,127.0.0.1:5001
+    ports:
+    - 127.0.0.1:5001:5000
+    volumes:
+    - mlflow-artifacts:/tmp/mlflow-artifacts
+    depends_on:
+      postgres:
+        condition: service_healthy
+    security_opt:
+    - no-new-privileges:true
+  bao:
+    image: openbao/openbao:2.7.2
+    command:
+    - server
+    - -config=/bao/config/bao.hcl
+    ports:
+    - 127.0.0.1:8200:8200
+    volumes:
+    - ./bao.hcl:/bao/config/bao.hcl:ro
+    - bao:/openbao/data
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+  otel:
+    user: ${FABRIC_UID:?run configure}:${FABRIC_GID:?run configure}
+    image: otel/opentelemetry-collector-contrib:0.164.0
+    command:
+    - --config=/etc/otel.yaml
+    volumes:
+    - ./otel.yaml:/etc/otel.yaml:ro
+    - ../../.local/full/telemetry:/evidence
+    ports:
+    - 127.0.0.1:4318:4318
+    security_opt:
+    - no-new-privileges:true
+  prometheus:
+    image: prom/prometheus:v3.15.1
+    command:
+    - --config.file=/etc/prometheus/prometheus.yaml
+    volumes:
+    - ./prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
+    - ./alerts.yaml:/etc/prometheus/alerts.yaml:ro
+    - prom:/prometheus
+    ports:
+    - 127.0.0.1:9090:9090
+    security_opt:
+    - no-new-privileges:true
+  alertmanager:
+    image: prom/alertmanager:v0.34.2
+    command:
+    - --config.file=/etc/alertmanager/config.yaml
+    volumes:
+    - ../../.local/full/alertmanager.yaml:/etc/alertmanager/config.yaml:ro
+    ports:
+    - 127.0.0.1:9093:9093
+    security_opt:
+    - no-new-privileges:true
+  ollama:
+    image: ollama/ollama:0.40.13
+    ports:
+    - 127.0.0.1:11434:11434
+    volumes:
+    - ollama:/root/.ollama
+    security_opt:
+    - no-new-privileges:true
+  gateway:
+    build: *id001
+    environment: *id002
+    extra_hosts: *id003
+    restart: unless-stopped
+    ports:
+    - 127.0.0.1:8088:8088
+    depends_on:
+      postgres:
+        condition: service_healthy
+    security_opt:
+    - no-new-privileges:true
+  worker:
+    build: *id001
+    environment:
+      DATABASE_URL: postgresql://fabric:${POSTGRES_PASSWORD:?run configure}@postgres:5432/fabric
+      OPA_DECISION_URL: http://opa:8181/v1/data/fabric/decision
+      KEYCLOAK_URL: http://keycloak:8080
+      KEYCLOAK_ISSUER: http://localhost:8081/realms/fabric
+      KEYCLOAK_REALM: fabric
+      FGA_URL: http://openfga:8080
+      FGA_TOKEN: ${FGA_TOKEN:?run configure}
+      FGA_STORE_ID: ${FGA_STORE_ID:-}
+      FGA_MODEL_ID: ${FGA_MODEL_ID:-}
+      CISO_URL: http://host.docker.internal:8002/api
+      CISO_FOLDER_ID: ${CISO_FOLDER_ID:-}
+      CISO_ASSESSMENT_ID: ${CISO_ASSESSMENT_ID:-}
+      METADATA_URL: http://host.docker.internal:8585/api
+      METADATA_TABLE_FQN: ${METADATA_TABLE_FQN:-fabric.credit.public.cases}
+      METADATA_REQUIRED_TAG: ${METADATA_REQUIRED_TAG:-PII.Sensitive}
+      MLFLOW_URL: http://mlflow:5000
+      MODEL_NAME: fabric-credit-proposal
+      FAIRNESS_MAX_DIFFERENCE: '0.2'
+      BAO_URL: http://bao:8200
+      BAO_TOKEN: ${BAO_WORKER_TOKEN:?commission first}
+      IRIS_URL: http://host.docker.internal:8085
+      IRIS_CUSTOMER_ID: ${IRIS_CUSTOMER_ID:-1}
+      GLPI_URL: http://host.docker.internal:8086/apirest.php
+      GLPI_SERVICE_ID: ${GLPI_SERVICE_ID:-}
+      GLPI_ENTITY_ID: ${GLPI_ENTITY_ID:-0}
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_MODEL: qwen2.5:0.5b
+      TEMPORAL_ADDRESS: temporal:7233
+      GATEWAY_URL: http://gateway:8088
+      OTEL_ENDPOINT: http://otel:4318/v1/traces
+      FABRIC_LAB_MODE: 'true'
+      MODEL_TENANT: bank-a
+    extra_hosts: *id003
+    restart: unless-stopped
+    command:
+    - python
+    - -m
+    - fabric.enterprise.workflows
+    security_opt:
+    - no-new-privileges:true
+  dispatch:
+    build: *id001
+    environment:
+      DATABASE_URL: postgresql://fabric:${POSTGRES_PASSWORD:?run configure}@postgres:5432/fabric
+      OPA_DECISION_URL: http://opa:8181/v1/data/fabric/decision
+      KEYCLOAK_URL: http://keycloak:8080
+      KEYCLOAK_ISSUER: http://localhost:8081/realms/fabric
+      KEYCLOAK_REALM: fabric
+      FGA_URL: http://openfga:8080
+      FGA_TOKEN: ${FGA_TOKEN:?run configure}
+      FGA_STORE_ID: ${FGA_STORE_ID:-}
+      FGA_MODEL_ID: ${FGA_MODEL_ID:-}
+      CISO_URL: http://host.docker.internal:8002/api
+      CISO_FOLDER_ID: ${CISO_FOLDER_ID:-}
+      CISO_ASSESSMENT_ID: ${CISO_ASSESSMENT_ID:-}
+      METADATA_URL: http://host.docker.internal:8585/api
+      METADATA_TABLE_FQN: ${METADATA_TABLE_FQN:-fabric.credit.public.cases}
+      METADATA_REQUIRED_TAG: ${METADATA_REQUIRED_TAG:-PII.Sensitive}
+      MLFLOW_URL: http://mlflow:5000
+      MODEL_NAME: fabric-credit-proposal
+      FAIRNESS_MAX_DIFFERENCE: '0.2'
+      BAO_URL: http://bao:8200
+      BAO_TOKEN: ${BAO_DISPATCH_TOKEN:?commission first}
+      IRIS_URL: http://host.docker.internal:8085
+      IRIS_CUSTOMER_ID: ${IRIS_CUSTOMER_ID:-1}
+      GLPI_URL: http://host.docker.internal:8086/apirest.php
+      GLPI_SERVICE_ID: ${GLPI_SERVICE_ID:-}
+      GLPI_ENTITY_ID: ${GLPI_ENTITY_ID:-0}
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_MODEL: qwen2.5:0.5b
+      TEMPORAL_ADDRESS: temporal:7233
+      GATEWAY_URL: http://gateway:8088
+      OTEL_ENDPOINT: http://otel:4318/v1/traces
+      FABRIC_LAB_MODE: 'true'
+      MODEL_TENANT: bank-a
+    extra_hosts: *id003
+    restart: unless-stopped
+    command:
+    - python
+    - -m
+    - fabric.enterprise.dispatch
+    security_opt:
+    - no-new-privileges:true
+volumes:
+  pg: {}
+  kc: {}
+  temporal: {}
+  mlflow-artifacts: {}
+  bao: {}
+  prom: {}
+  ollama: {}

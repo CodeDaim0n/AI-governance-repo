@@ -1,0 +1,10 @@
+.local/
+__pycache__/
+*.pyc
+*.db
+*.pem
+.venv/
+.venv-agt/
+site/
+.venv-native/
+.venv-docs/

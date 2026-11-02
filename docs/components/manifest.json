@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "name": "Keycloak",
+    "role": "Verified service-account JWT identity",
+    "implementation": "fabric/enterprise/clients.py",
+    "interface": "Keycloak.verify / token",
+    "acceptance": "Obtain three native tokens; verify signature, issuer, audience and mapped principal.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 2,
+    "name": "Microsoft Agent Governance Toolkit",
+    "role": "Deterministic agent-side tool interception",
+    "implementation": "fabric/microsoft_agt.py",
+    "interface": "govern wrapper",
+    "acceptance": "Allow one probe; deny an unlisted tool without invoking the function.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 3,
+    "name": "Open Policy Agent",
+    "role": "Business action/context policy",
+    "implementation": "policies/credit.rego",
+    "interface": "POST /v1/data/fabric/decision",
+    "acceptance": "Check valid allow and kill-switch deny against the real policy service.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 4,
+    "name": "OpenFGA",
+    "role": "Record relationship authorization",
+    "implementation": "fabric/enterprise/clients.py",
+    "interface": "POST /stores/{id}/check",
+    "acceptance": "Allow assigned case and deny a cross-case relationship.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 5,
+    "name": "Temporal",
+    "role": "Durable workflow, bounded retries and approval waits",
+    "implementation": "fabric/enterprise/workflows.py",
+    "interface": "Workflow signals and activities",
+    "acceptance": "Execute a native workflow through the protected gateway and inspect its result.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 6,
+    "name": "CISO Assistant Community",
+    "role": "Risk register and evidence records",
+    "implementation": "fabric/enterprise/clients.py",
+    "interface": "/api/risk-scenarios/ and /api/evidences/",
+    "acceptance": "Create/read back 12 stable risk references; never auto-accept or overwrite owner ratings.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 7,
+    "name": "OpenMetadata",
+    "role": "Data ownership, classification and lineage",
+    "implementation": "fabric/enterprise/clients.py",
+    "interface": "/api/v1/tables and /api/v1/lineage",
+    "acceptance": "Read required owner/classification and verify a downstream lineage edge.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 8,
+    "name": "MLflow",
+    "role": "Versioned evaluation, candidate and approved release",
+    "implementation": "fabric/enterprise/clients.py",
+    "interface": "MlflowClient API",
+    "acceptance": "Publish candidate; authorize lab reviewer promotion; verify approved alias and expiry.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 9,
+    "name": "OpenBao",
+    "role": "Separated runtime secret access",
+    "implementation": "fabric/enterprise/clients.py",
+    "interface": "KV v2 /v1/secret/data/fabric/{role}",
+    "acceptance": "Read gateway secrets and prove worker secret path inaccessible to the gateway token.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 10,
+    "name": "OpenTelemetry Collector",
+    "role": "Minimized exported execution spans",
+    "implementation": "fabric/enterprise/telemetry.py",
+    "interface": "OTLP HTTP /v1/traces",
+    "acceptance": "Observe a real exported governed-action span and check bearer tokens are absent.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 11,
+    "name": "Prometheus and Alertmanager",
+    "role": "Metrics, rule evaluation and authenticated alert delivery",
+    "implementation": "fabric/enterprise/telemetry.py",
+    "interface": "Prometheus query and Alertmanager alerts APIs",
+    "acceptance": "Read scraped decisions and deliver a synthetic alert into the acknowledged audit path.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 12,
+    "name": "DFIR-IRIS",
+    "role": "Native incident alert records",
+    "implementation": "fabric/enterprise/clients.py",
+    "interface": "/alerts/filter and /alerts/add",
+    "acceptance": "Create an alert in the configured lab customer and inspect native success response.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 13,
+    "name": "GLPI",
+    "role": "Service inventory and remediation tickets",
+    "implementation": "fabric/enterprise/clients.py",
+    "interface": "REST v1 initSession, Computer and Ticket",
+    "acceptance": "Read a dedicated synthetic service and create a remediation ticket.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 14,
+    "name": "PostgreSQL",
+    "role": "Transactional business state, evidence and delivery receipts",
+    "implementation": "fabric/enterprise/postgres.py",
+    "interface": "psycopg transactions and row locks",
+    "acceptance": "Read committed target actions, verify audit chain and inspect per-sink receipts.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 15,
+    "name": "Fairlearn",
+    "role": "Actual fairness metric computation",
+    "implementation": "fabric/enterprise/evaluate.py",
+    "interface": "MetricFrame with selection_rate",
+    "acceptance": "Compute group metrics from a synthetic fixture and publish evaluation to MLflow.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 16,
+    "name": "Kubernetes and Cilium",
+    "role": "Agent isolation with explicit egress",
+    "implementation": "scripts/install_agent_sandbox.py",
+    "interface": "kind, Helm, Kubernetes and CiliumNetworkPolicy",
+    "acceptance": "Show a reachable target becomes blocked after policy while gateway remains reachable.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 17,
+    "name": "Syft, Grype and Cosign",
+    "role": "Image inventory, vulnerability gate and offline signing",
+    "implementation": "scripts/supply_chain.py",
+    "interface": "Native CLIs",
+    "acceptance": "Generate an image SBOM, reject high/critical findings and verify its local signature.",
+    "deployment_status": "Not verified in this environment"
+  },
+  {
+    "id": 18,
+    "name": "Ollama and Qwen2.5",
+    "role": "Local proposal generation without execution credentials",
+    "implementation": "fabric/enterprise/clients.py",
+    "interface": "/api/pull and /api/generate",
+    "acceptance": "Run the actual model and parse a generated JSON response.",
+    "deployment_status": "Not verified in this environment"
+  }
+]

@@ -1,0 +1,16 @@
+model
+  schema 1.1
+
+type user
+
+type agent
+  relations
+    define delegator: [user]
+
+type case
+  relations
+    define operator: [user]
+    define assigned_agent: [agent]
+    define can_propose: assigned_agent
+# A second decision must intersect agent assignment with the delegating user's
+# operator relationship. This model alone is not the complete authorization rule.

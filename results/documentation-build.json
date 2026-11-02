@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-02",
+  "command": "mkdocs build --strict",
+  "status": "PASS",
+  "pages_source": "docs/",
+  "external_hosting": "Not deployed; GitHub Markdown and local search documentation supplied"
+}

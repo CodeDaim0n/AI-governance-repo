@@ -1,0 +1,609 @@
+{
+  "4.1": {
+    "workflow": "Synthetic UK credit action workflow",
+    "completeness": "Partial",
+    "missing": [
+      "Named owners",
+      "real KYC/core adapters",
+      "deployment topology evidence",
+      "legal applicability approval",
+      "representative model validation",
+      "retention schedule"
+    ]
+  },
+  "4.2": {
+    "readiness": "Restricted laboratory only",
+    "production_approval": false,
+    "authority": "Unassigned accountable human release authority"
+  },
+  "4.3": {
+    "analysis": [
+      {
+        "article_section": "3.1.1",
+        "our_capability": "Business mandate",
+        "products": "GLPI + CISO Assistant",
+        "accountable_role": "Business owner",
+        "evidence_contract": "Service ID, jurisdiction, objective, criticality, baseline benefit",
+        "gate": "No approved owner or scope: deployment blocked"
+      },
+      {
+        "article_section": "3.1.2",
+        "our_capability": "Process and dependency model",
+        "products": "Temporal + OpenMetadata",
+        "accountable_role": "Process owner",
+        "evidence_contract": "Versioned activities, people, systems, decisions, failure paths",
+        "gate": "Unmapped side-effecting step: deployment blocked"
+      },
+      {
+        "article_section": "3.1.3",
+        "our_capability": "Delegated authority",
+        "products": "Keycloak + OpenFGA + AGT + OPA",
+        "accountable_role": "IAM and platform owners",
+        "evidence_contract": "Principal, delegation chain, exact tools, scopes and limits",
+        "gate": "Unknown authority: deny action"
+      },
+      {
+        "article_section": "3.1.4",
+        "our_capability": "Trusted information",
+        "products": "OpenMetadata + OpenBao",
+        "accountable_role": "Data owner",
+        "evidence_contract": "Classification, purpose, region, source version, quality, retention",
+        "gate": "Missing or stale authoritative fact: deny action"
+      },
+      {
+        "article_section": "3.1.5",
+        "our_capability": "Accountability and redress",
+        "products": "CISO Assistant + GLPI",
+        "accountable_role": "Business risk owner",
+        "evidence_contract": "Decision rights, approver, affected people, appeal route",
+        "gate": "No authorized accountable role: no release"
+      },
+      {
+        "article_section": "3.1.6",
+        "our_capability": "Obligation applicability",
+        "products": "CISO Assistant + Git + OPA",
+        "accountable_role": "Compliance and legal",
+        "evidence_contract": "Dated requirement, jurisdiction, applicability rationale, policy mapping",
+        "gate": "Unknown applicability goes to qualified review"
+      },
+      {
+        "article_section": "3.1.7",
+        "our_capability": "Operational assurance",
+        "products": "MLflow + OTel + DFIR-IRIS",
+        "accountable_role": "Validation and operations",
+        "evidence_contract": "Config, tests, observed events, incidents and changes",
+        "gate": "Expired validation: restricted or stopped"
+      },
+      {
+        "article_section": "4.1",
+        "our_capability": "Completeness and conflict review",
+        "products": "CISO Assistant + OpenMetadata",
+        "accountable_role": "Assessor",
+        "evidence_contract": "Coverage and missing or conflicting source records",
+        "gate": "Unknown remains unknown"
+      },
+      {
+        "article_section": "4.2",
+        "our_capability": "Readiness decision",
+        "products": "CISO Assistant + Temporal",
+        "accountable_role": "Designated release authority",
+        "evidence_contract": "Disposition, conditions, authority and dated approval",
+        "gate": "Agent advice cannot authorize release"
+      },
+      {
+        "article_section": "4.3",
+        "our_capability": "Control analysis by activity",
+        "products": "CISO Assistant + OPA",
+        "accountable_role": "Control owner",
+        "evidence_contract": "Activity, failure scenario, enforcement point, control and test link",
+        "gate": "No effective enforcement: unresolved gap"
+      },
+      {
+        "article_section": "4.4",
+        "our_capability": "Risk record",
+        "products": "CISO Assistant Community",
+        "accountable_role": "Risk owner",
+        "evidence_contract": "Cause, impact, rationale, uncertainty, controls, residual risk, treatment",
+        "gate": "Only owner can accept; never auto-close"
+      },
+      {
+        "article_section": "4.5",
+        "our_capability": "Autonomy boundary review",
+        "products": "Keycloak + OpenFGA + AGT + OPA",
+        "accountable_role": "IAM and business owner",
+        "evidence_contract": "Needed versus actual permissions, task limits, delegation ceiling",
+        "gate": "No increase from parent authority or trust score"
+      },
+      {
+        "article_section": "4.6",
+        "our_capability": "Control implementation",
+        "products": "OPA + AGT + OpenBao + Cilium",
+        "accountable_role": "Platform control owner",
+        "evidence_contract": "Enforcement code, configured product, negative test, evidence",
+        "gate": "Advisory rules are not execution controls"
+      },
+      {
+        "article_section": "4.7",
+        "our_capability": "Traceable assurance",
+        "products": "CISO Assistant + PostgreSQL + OpenMetadata",
+        "accountable_role": "Assurance owner",
+        "evidence_contract": "Requirement-control-configuration-test-event-risk links",
+        "gate": "Traceability is not compliance certification"
+      },
+      {
+        "article_section": "4.8",
+        "our_capability": "Validation and evaluation",
+        "products": "MLflow + Fairlearn + unittest + OPA tests",
+        "accountable_role": "Independent validation",
+        "evidence_contract": "Business correctness, adversarial cases, fairness, resilience, thresholds",
+        "gate": "Unvalidated dimensions remain open"
+      },
+      {
+        "article_section": "4.9",
+        "our_capability": "Operations and incidents",
+        "products": "OTel + Prometheus + Alertmanager + DFIR-IRIS",
+        "accountable_role": "SRE and SOC",
+        "evidence_contract": "Alerts, containment, manual service fallback, recovery and review",
+        "gate": "Control-plane outage blocks writes; fallback must be rehearsed"
+      },
+      {
+        "article_section": "4.10",
+        "our_capability": "Value and proportionality",
+        "products": "CISO Assistant + MLflow + Prometheus",
+        "accountable_role": "Business owner and finance",
+        "evidence_contract": "Baseline task outcome, control cost, loss exposure, supervision cost",
+        "gate": "No unmeasured claims of savings"
+      },
+      {
+        "article_section": "4.11",
+        "our_capability": "Remediation delivery",
+        "products": "GLPI + Git + CISO Assistant",
+        "accountable_role": "Action owner",
+        "evidence_contract": "Ticket, due date, dependency, acceptance test, completion evidence",
+        "gate": "Release-blocking issues require verified completion"
+      },
+      {
+        "article_section": "4.12",
+        "our_capability": "Versioned assessment package",
+        "products": "Git + PostgreSQL + CISO Assistant",
+        "accountable_role": "Records owner",
+        "evidence_contract": "Signed artifact manifest, source snapshots, control and evaluation versions",
+        "gate": "Material changes invalidate previous approval"
+      }
+    ],
+    "interpretation": "Product assignments are target design, not proof of integration"
+  },
+  "4.4": {
+    "risk_register": [
+      {
+        "risk_id": "R01",
+        "title": "Cross-customer authority",
+        "workflow_id": "credit-workflow",
+        "scenario": "Agent attempts action against a different tenant record",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "Verified principal plus tenant policy",
+        "evidence_test": "test_cross_tenant",
+        "assurance_status": "Demonstrated in synthetic lab",
+        "owner_role": "IAM owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R02",
+        "title": "Altered approval",
+        "workflow_id": "credit-workflow",
+        "scenario": "Agent substitutes amount or resource state after review",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "One-use expiring approval bound to action and source versions",
+        "evidence_test": "test_approval_amount_substitution; test_approval_case_version_change",
+        "assurance_status": "Demonstrated in synthetic lab",
+        "owner_role": "Credit operations owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R03",
+        "title": "Untrusted or stale facts",
+        "workflow_id": "credit-workflow",
+        "scenario": "KYC or policy facts are stale or unavailable",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "Authoritative context freshness, expiry and hard-deny behavior",
+        "evidence_test": "test_stale_source; test_kyc_fail",
+        "assurance_status": "Synthetic facts only; real sources open",
+        "owner_role": "Data owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R04",
+        "title": "Excessive aggregate exposure",
+        "workflow_id": "credit-workflow",
+        "scenario": "Concurrent small actions exceed delegated tenant budget",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "Serialized aggregate budget plus idempotency",
+        "evidence_test": "test_concurrent_budget; test_idempotent_retry",
+        "assurance_status": "Demonstrated single-node only",
+        "owner_role": "Credit risk owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R05",
+        "title": "Enforcement bypass",
+        "workflow_id": "credit-workflow",
+        "scenario": "Agent obtains direct target credentials or a second write path",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "Network isolation, workload identity, adapter-exclusive credentials",
+        "evidence_test": "Production network penetration test required",
+        "assurance_status": "Not demonstrated",
+        "owner_role": "Security architecture owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R06",
+        "title": "Misleading human review",
+        "workflow_id": "credit-workflow",
+        "scenario": "Plausible narrative causes a reviewer to approve an unsuitable action",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "Review authoritative facts and alternatives; independent challenge",
+        "evidence_test": "Human factors study required",
+        "assurance_status": "Not demonstrated",
+        "owner_role": "Business risk owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R07",
+        "title": "Unfair or inaccurate credit result",
+        "workflow_id": "credit-workflow",
+        "scenario": "Model or data produces discriminatory or incorrect recommendation",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "Independent credit-model and group fairness validation",
+        "evidence_test": "Representative labeled data and Fairlearn evaluation required",
+        "assurance_status": "Not demonstrated",
+        "owner_role": "Independent validation owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R08",
+        "title": "Evidence compromise",
+        "workflow_id": "credit-workflow",
+        "scenario": "Privileged database operator rewrites evidence and recomputes hashes",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "External signed checkpoints, segregated WORM archive and reconciliation",
+        "evidence_test": "External anchoring and retention test required",
+        "assurance_status": "Local chain detects edits only; admin tamper unresolved",
+        "owner_role": "Records and security owners",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R09",
+        "title": "Governance service outage",
+        "workflow_id": "credit-workflow",
+        "scenario": "Fail-closed controls interrupt an important business service",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "Impact tolerance, queue limits, manual fallback and recovery drills",
+        "evidence_test": "test_policy_outage; production DR drill required",
+        "assurance_status": "Denial demonstrated; service recovery open",
+        "owner_role": "Operational resilience owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R10",
+        "title": "Downstream inconsistent outcome",
+        "workflow_id": "credit-workflow",
+        "scenario": "Target commits but remote response is lost",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "Target idempotency, expected-version commit, outbox and reconciliation",
+        "evidence_test": "Synthetic atomicity tested; real adapter fault injection required",
+        "assurance_status": "Distributed guarantee not demonstrated",
+        "owner_role": "Integration owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R11",
+        "title": "Sensitive records exposed",
+        "workflow_id": "credit-workflow",
+        "scenario": "Prompts, traces or source references leak personal data",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "Minimized event schema, retention, access and purpose controls",
+        "evidence_test": "test_no_raw_action_in_evidence; DLP validation required",
+        "assurance_status": "Partial; identifiers and hashes remain sensitive",
+        "owner_role": "Privacy owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      },
+      {
+        "risk_id": "R12",
+        "title": "Compromised dependency",
+        "workflow_id": "credit-workflow",
+        "scenario": "Tool, model, policy or package supply chain changes behavior",
+        "inherent_rating": "Not assessed",
+        "rating_rationale": "Requires organization exposure, likelihood and impact evidence; no numeric score invented",
+        "residual_rating": "Not assessed",
+        "control": "Pinned digests, SBOM, review, scanning, signed rollout and revocation",
+        "evidence_test": "Release pipeline validation required",
+        "assurance_status": "Not demonstrated",
+        "owner_role": "Platform security owner",
+        "named_owner": null,
+        "treatment_status": "Open",
+        "acceptance": {
+          "accepted": false,
+          "authority": null,
+          "expiry": null
+        },
+        "review_due": null,
+        "incident_ids": [],
+        "requirement_refs": [
+          "NIST AI RMF",
+          "OWASP Agentic 2026"
+        ],
+        "synthetic": true
+      }
+    ]
+  },
+  "4.5": {
+    "autonomy": "Synthetic ledger writes only",
+    "per_action_pence": 1000000,
+    "human_review_above_pence": 100000,
+    "aggregate_lifetime_tenant_budget_pence": 1500000,
+    "unknown": [
+      "real delegation and target privilege evidence"
+    ]
+  },
+  "4.6": {
+    "implemented": [
+      "schema validation",
+      "RS256 lab identity",
+      "OPA action and context policy",
+      "action-bound approvals",
+      "aggregate budget",
+      "idempotency",
+      "atomic local evidence",
+      "kill switch",
+      "HTTP outbox"
+    ],
+    "required": [
+      "network bypass prevention",
+      "native source and risk connectors",
+      "durable workflow",
+      "external evidence anchoring"
+    ]
+  },
+  "4.7": {
+    "mapping_file": "docs/framework-mapping.csv",
+    "assessment_status": "Evidence-limited alignment, not certification"
+  },
+  "4.8": {
+    "observed_test_results": {
+      "date": "2026-11-02",
+      "python": "3.12.14",
+      "cryptography": "50.0.2",
+      "opa": "Version: 1.0.1\nBuild Commit: a5afc5ab5074ae6b17fd0b167ff3d5053303a58c\nBuild Timestamp: 2025-01-21T19:28:53Z\nBuild Hostname: \nGo Version: go1.23.5\nPlatform: linux/amd64\nRego Version: v1\nWebAssembly: unavailable\n",
+      "tests_run": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "rego_tests": 6,
+      "rego_passed": true,
+      "scope": "Synthetic single-node control and HTTP integration tests; not a model benchmark or product certification"
+    },
+    "required": [
+      "independent business validation",
+      "fairness",
+      "human factors",
+      "enterprise penetration testing",
+      "DR drill",
+      "distributed target reconciliation"
+    ]
+  },
+  "4.9": {
+    "local": "denials queue incident events; admin stop blocks new writes",
+    "production": "SOC triage, bounded outbox, monitoring, escalation and manual service fallback required"
+  },
+  "4.10": {
+    "benefits": "Not measured",
+    "costs": "Not measured",
+    "autonomy_expansion": "Not justified by these tests"
+  },
+  "4.11": {
+    "priority_actions": [
+      {
+        "priority": "P0",
+        "action": "Enforcement bypass",
+        "owner": "Security architecture owner",
+        "status": "Open"
+      },
+      {
+        "priority": "P0",
+        "action": "Misleading human review",
+        "owner": "Business risk owner",
+        "status": "Open"
+      },
+      {
+        "priority": "P0",
+        "action": "Unfair or inaccurate credit result",
+        "owner": "Independent validation owner",
+        "status": "Open"
+      },
+      {
+        "priority": "P0",
+        "action": "Evidence compromise",
+        "owner": "Records and security owners",
+        "status": "Open"
+      },
+      {
+        "priority": "P0",
+        "action": "Compromised dependency",
+        "owner": "Platform security owner",
+        "status": "Open"
+      }
+    ]
+  },
+  "4.12": {
+    "assessment_version": "1.0",
+    "date": "2026-11-02",
+    "sources": "docs/references.json",
+    "policy": "credit-policy-1",
+    "limitations": "Self-authored local control tests; no independent audit or production observation"
+  }
+}

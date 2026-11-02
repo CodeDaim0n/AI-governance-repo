@@ -1,0 +1,12 @@
+groups:
+  - name: fabric-governance
+    rules:
+      - alert: GovernanceDependencyFailure
+        expr: increase(fabric_dependency_failures_total[2m]) > 0
+        labels: {severity: critical}
+        annotations: {summary: An authoritative governance dependency failed}
+      - alert: GovernanceEvidenceBacklog
+        expr: fabric_outbox_pending > 10
+        for: 30s
+        labels: {severity: warning}
+        annotations: {summary: Evidence delivery backlog requires investigation}

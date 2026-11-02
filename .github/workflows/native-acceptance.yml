@@ -1,0 +1,24 @@
+name: Native 18-component acceptance
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    if: github.ref == 'refs/heads/main'
+    runs-on: [self-hosted, linux, fabric-lab]
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+      - name: Require a precommissioned dedicated host
+        run: |
+          test -n "$FABRIC_COMMISSIONED_ROOT"
+          test -f "$FABRIC_COMMISSIONED_ROOT/.local/full/host-environment.json"
+          ln -s "$FABRIC_COMMISSIONED_ROOT/.local" .local
+      - name: Execute native acceptance with the commissioned environment
+        run: |
+          "$FABRIC_COMMISSIONED_ROOT/.venv-native/bin/python" scripts/accept_all_components.py
+# No hosted cloud resources, automatic deployment or recurring jobs are created.
+# Register this dedicated runner only after reviewing its isolation and privileges.
