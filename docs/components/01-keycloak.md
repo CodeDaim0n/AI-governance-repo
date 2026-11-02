@@ -1,5 +1,9 @@
 # 01. Keycloak
 
+**Official product sources:** [Official site](https://www.keycloak.org/)
+
+Identity and access management providing signed identities and access tokens for agents and reviewers.
+
 ## Role
 
 Verified service-account JWT identity.

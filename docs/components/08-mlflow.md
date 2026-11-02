@@ -1,5 +1,9 @@
 # 08. MLflow
 
+**Official product sources:** [Official site](https://mlflow.org/)
+
+Model lifecycle platform connecting versioned evaluation evidence, candidate artifacts and approved release records.
+
 ## Role
 
 Versioned evaluation, candidate and approved release.

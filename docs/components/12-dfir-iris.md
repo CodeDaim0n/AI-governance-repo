@@ -1,5 +1,9 @@
 # 12. DFIR-IRIS
 
+**Official product sources:** [Official site](https://www.dfir-iris.org/)
+
+Incident-response platform receiving customer-scoped alerts and supporting investigation, containment and recovery.
+
 ## Role
 
 Native incident alert records.

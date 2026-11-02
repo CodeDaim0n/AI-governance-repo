@@ -8,50 +8,62 @@
 
 **Connect governance decisions to the systems where agents act.**
 
-An open-source reference implementation for regulated agentic workflows: risk records, identity, policies, approvals, data lineage, validation, execution controls, evidence and incident response connected through explicit interfaces.
+Our implementation approach to the **[Erdos governance framework](https://www.linkedin.com/pulse/implementing-governance-agentic-workflows-erdos-effect-vipie)**, bringing together **18 open-source component groups** across governance, identity, policy, workflow, data, models, security and operations.
+
+The suite covers the full lifecycle: governance and risk, identity and authorization, data and model assurance, controlled execution, operational evidence, and incident response. Native adapters, shared authority rules, exact-action approvals and linked evidence connect these capabilities across products.
+
+**The architecture and integration model are domain-independent.** Business-specific rules and target operations belong in replaceable policies and adapters. The diagrams below show the generic suite and the path from an agent proposal to a governed business action.
 
 [Quickstart](docs/getting-started.md) · [Architecture](docs/architecture.md) · [All 18 components](docs/components/catalogue.md) · [Full deployment](docs/deployment/full-stack.md) · [Research paper](docs/Governed_Agent_Fabric_Research_Paper.pdf) · [Validation evidence](docs/validation.md)
 
-> **Project status:** research prototype. The original enforcement core has 51 observed checks. The expanded package contains code and deployment paths for all 18 component groups. **The complete native stack has not run in this environment**, which lacks Docker, Kubernetes and eBPF privileges. [Live status](results/all-18-live.json) records `BLOCKED`, not a fabricated pass. No production-readiness or regulatory-certification claim is made.
+> **Status:** Research implementation. All 18 component groups have integration and deployment code; complete native-stack live validation is pending. [See the recorded evidence and deployment requirements](docs/validation.md).
 
-## Why this exists
+## System architecture · all 18 components
 
-An assessment report cannot enforce permissions, prevent an unauthorized write, reconcile a lost response or accept a risk on behalf of its owner. This project connects assessment records to authoritative enterprise systems and makes the write path enforce the resulting restrictions.
+Each numbered product has its own card and responsibility. Dark cards identify our gateway, target adapter and evidence-delivery code. The diagram separates governance records, validation, trust, execution and operations.
 
-A synthetic credit process demonstrates the mechanics. It does not implement lending eligibility, affordability, AML, sanctions screening or validated credit underwriting.
+![System architecture showing all 18 component groups and their roles](docs/assets/system-architecture-18.svg)
 
-## What the implementation connects
+[Open the full-size architecture](docs/assets/system-architecture-18.svg) · [Component reference and implementation links](docs/components/catalogue.md)
 
-| Boundary | Component groups | Responsibility |
+## From proposal to an authorized effect
+
+![Execution and governance lifecycle from authenticated proposal to controlled commitment and operational response](docs/assets/execution-governance-flow.svg)
+
+[Open the full-size execution flow](docs/assets/execution-governance-flow.svg) · [Detailed architecture guide](docs/architecture.md)
+
+## Our implementation of the Erdos framework
+
+We extended the Erdos governance framework into a practical implementation approach, connecting its workflow assessment inputs and outputs to open-source products, enterprise-system interfaces and execution controls. Our focus is making the framework concrete through explicit component responsibilities, linked evidence and a reproducible synthetic laboratory.
+
+## The 18 products and platforms we brought together
+
+Our implementation approach spans governance, identity, authorization, workflow orchestration, data and model assurance, secret custody, network isolation, observability, incident response and release security. Each numbered group below represents established open-source products or specialist tools with a distinct job in the architecture.
+
+**Our engineering contribution is the composition:** defining their native interfaces, shared identifiers, authority boundaries, approval handoffs and evidence flows so they can support one governed workflow.
+
+| Diagram ID | Product and official links | Its role in our implementation |
 | --- | --- | --- |
-| Identity and authority | Keycloak, OpenFGA, OPA, Microsoft AGT | Authenticate, scope access, evaluate business restrictions and intercept tool calls. |
-| Governance records | CISO Assistant Community, GLPI, OpenMetadata, MLflow | Maintain risks, service/change records, data context and evaluated artifact versions. |
-| Controlled execution | Temporal, PostgreSQL, OpenBao, Kubernetes/Cilium | Bind approvals, commit state/evidence, protect credentials and restrict the agent's network. |
-| Operational assurance | OpenTelemetry, Prometheus/Alertmanager, DFIR-IRIS | Trace outcomes, alert on control failures and record investigation. |
-| Model and release assurance | Fairlearn, Ollama/Qwen, Syft/Grype/Cosign | Exercise evaluation, generate bounded proposals and scan/sign release artifacts. |
+| **01** | **[Keycloak](https://www.keycloak.org/)** | Identity and access management providing signed identities and access tokens for agents and reviewers. |
+| **02** | **[Microsoft Agent Governance Toolkit](https://github.com/microsoft/agent-governance-toolkit)** | Runtime governance toolkit intercepting tool calls before they enter our centrally governed execution path. |
+| **03** | **[Open Policy Agent (OPA)](https://www.openpolicyagent.org/)** | Policy engine evaluating deterministic allow/deny rules for actions, budgets, context and operational restrictions. |
+| **04** | **[OpenFGA](https://openfga.dev/)** | Fine-grained authorization service deciding whether a particular agent may act on a particular record. |
+| **05** | **[Temporal](https://temporal.io/)** | Durable workflow engine maintaining process progress, human approval waits and bounded retries. |
+| **06** | **[CISO Assistant Community](https://github.com/intuitem/ciso-assistant-community)** | Governance, risk and compliance platform holding our risk register, control ownership, treatment and linked evidence. |
+| **07** | **[OpenMetadata](https://open-metadata.org/)** | Metadata platform supplying data ownership, classification and lineage for trusted workflow context. |
+| **08** | **[MLflow](https://mlflow.org/)** | Model lifecycle platform connecting versioned evaluation evidence, candidate artifacts and approved release records. |
+| **09** | **[OpenBao](https://openbao.org/)** | Secrets-management platform separating credential access for the gateway, workflow worker and evidence dispatcher. |
+| **10** | **[OpenTelemetry](https://opentelemetry.io/)** | Observability framework exporting minimized execution spans so decisions and outcomes can be traced. |
+| **11** | **Prometheus + Alertmanager** — [Prometheus](https://prometheus.io/) · [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) | Monitoring and alerting products turning decision, failure and delivery-backlog metrics into operational signals. |
+| **12** | **[DFIR-IRIS](https://www.dfir-iris.org/)** | Incident-response platform receiving customer-scoped alerts and supporting investigation, containment and recovery. |
+| **13** | **[GLPI](https://www.glpi-project.org/en/)** | IT service-management and asset platform linking workflows to owned services and trackable remediation tickets. |
+| **14** | **[PostgreSQL](https://www.postgresql.org/)** | Transactional database coordinating business state, shared limits, approvals, audit records and delivery receipts. |
+| **15** | **[Fairlearn](https://fairlearn.org/)** | Responsible-AI evaluation library calculating group-outcome differences and producing versioned validation evidence. |
+| **16** | **Kubernetes + Cilium** — [Kubernetes](https://kubernetes.io/) · [Cilium](https://cilium.io/) | Workload and network-security platforms isolating the agent and restricting its permitted network routes. |
+| **17** | **Syft + Grype + Cosign** — [Syft](https://github.com/anchore/syft) · [Grype](https://github.com/anchore/grype) · [Cosign](https://github.com/sigstore/cosign) | Software-supply-chain tools inventorying built images, checking vulnerabilities and signing/verifying release artifacts. |
+| **18** | **Ollama + Qwen2.5** — [Ollama](https://ollama.com/) · [Qwen model](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct) | Local model runtime and language model generating bounded JSON proposals before deterministic authorization. |
 
-These are **18 component groups**, not 18 containers. Several products require supporting databases or workers. The [component catalogue](docs/components/catalogue.md) gives the native interface, implementation file, acceptance operation and remaining evidence for each.
-
-## Architecture at a glance
-
-```mermaid
-flowchart TD
-  G["Risk, policy and release authorities"] --> C["Trusted versioned context"]
-  D["Business and data systems"] --> C
-  I["Keycloak and OpenFGA"] --> E["Authenticated execution gateway"]
-  A["Agent and Microsoft AGT interception"] --> E
-  C --> E
-  E --> P["OPA business-policy decision"]
-  P --> H["Temporal exact-action approval"]
-  H --> E
-  P --> T["Exclusive target adapter"]
-  T --> B["Business state and evidence transaction"]
-  B --> O["Per-sink outbox and delivery receipts"]
-  O --> R["CISO Assistant, GLPI and DFIR-IRIS"]
-  O --> M["Telemetry, monitoring and operational review"]
-```
-
-[Detailed component diagram](docs/architecture.svg) · [Execution sequence](docs/execution-flow.svg) · [Evidence graph](docs/evidence-graph.svg)
+The numbers match the architecture diagram. These are 18 **component groups**, covering platforms, services, SDKs, evaluation libraries and security tools; several groups contain multiple products. [Explore each component’s implementation and evidence](docs/components/catalogue.md).
 
 ## Choose a starting point
 
@@ -83,6 +95,10 @@ python scripts/assess.py
 ```
 
 The native stack has a separate [dependency set](requirements-enterprise.txt) and [deployment sequence](docs/deployment/full-stack.md). Do not mistake a passing core test run for completion of the 18-component acceptance suite.
+
+### Included worked example
+
+The repository supplies a synthetic `credit.commit` adapter to exercise identity, approvals, limits, idempotency and evidence. It is a test fixture for the generic suite. Other domains supply their own typed operations, policies and source-system adapters. The example does not implement underwriting, affordability, AML or sanctions screening.
 
 ## Evidence and scope
 
@@ -124,4 +140,4 @@ Contributions should include the relevant negative test and preserve the distinc
 
 ## License and attribution
 
-Project code and original documentation use the [MIT License](LICENSE). Integrated products retain their own licenses; Community and commercial editions are not interchangeable. [Product license baselines](docs/products.csv) and [primary research references](docs/references.json) are supplied. This independent project is not affiliated with or endorsed by Microsoft, NIST, OWASP or the named product maintainers.
+Project code and original documentation use the [MIT License](LICENSE). Integrated products retain their own licenses; Community and commercial editions are not interchangeable. [Product license baselines](docs/products.csv) and [primary research references](docs/references.json) are supplied. This implementation does not imply endorsement by Microsoft, NIST, OWASP or the integrated product maintainers.

@@ -1,5 +1,9 @@
 # 03. Open Policy Agent
 
+**Official product sources:** [Official site](https://www.openpolicyagent.org/)
+
+Policy engine evaluating deterministic allow/deny rules for actions, budgets, context and operational restrictions.
+
 ## Role
 
 Business action/context policy.

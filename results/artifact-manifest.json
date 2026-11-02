@@ -47,8 +47,8 @@
       "bytes": 1091
     },
     "README.md": {
-      "sha256": "b9d3f4482db1dc6ecf67dde8edae3c3f76b2d56514b89a3c87e1739ee67e7ee8",
-      "bytes": 8804
+      "sha256": "382212525ea26e906ffc94747c648681a7967419f39d31ba51cc16e3532aa592",
+      "bytes": 12905
     },
     "SECURITY.md": {
       "sha256": "dabb96c85115e4f6c160bc7b51d33bd7f76b51af776eecc9156974e122fd4256",
@@ -99,16 +99,16 @@
       "bytes": 626
     },
     "docs/Governed_Agent_Fabric_Research_Paper.pdf": {
-      "sha256": "c237d2e67eb2b12006962d7966e173edbd24324982da4a47e0659050f12793e5",
-      "bytes": 132986
+      "sha256": "18e634bd7c8d2c3b927e7656096be8943092438cb6b7a0a8d9a09c1fce1b89de",
+      "bytes": 142729
     },
     "docs/api.md": {
       "sha256": "1f9ca265195652b6dfe979508b1d71b0dc29e0e4707fcdc52ed4c19c71de5839",
       "bytes": 3370
     },
     "docs/architecture.md": {
-      "sha256": "af4ce852af45e94a3ee73df1b0f674282cc4fad90682d25c10b4902f39d7f7e6",
-      "bytes": 3795
+      "sha256": "56bf2f4d7f6b01c53cfecfbf7b4e597f0107c22185bbe8f1a79171cb14595763",
+      "bytes": 4045
     },
     "docs/architecture.mmd": {
       "sha256": "a12fcc46d9ae595809d3615be4f3957fbfb2120c513868393b3b8be81a5d9eeb",
@@ -126,89 +126,101 @@
       "sha256": "0fdceae9a30c4c8276f2a0d1d6432f56586cba3359668124cabc2fd028e6d301",
       "bytes": 13434
     },
+    "docs/assets/execution-governance-flow.svg": {
+      "sha256": "c15a31620c5657d95e0c226f1c85fe4f044ab66fa1147c42048f92164df4b227",
+      "bytes": 8153
+    },
     "docs/assets/fabric-banner.svg": {
       "sha256": "2898a71d87bc29f9bc04a1b4ecb368616085b08b819eb655e8b47e5de4caf998",
       "bytes": 1320
     },
+    "docs/assets/system-architecture-18.svg": {
+      "sha256": "6fdfd4ba8a0d56f1c02115b994576486043198f795e38dbaf1f7b6b911702088",
+      "bytes": 28868
+    },
     "docs/components/01-keycloak.md": {
-      "sha256": "ff25f6e973ba2ef08150bc9ade4c3ce4b94db36309438c24afe8cceb24cdb090",
-      "bytes": 1781
+      "sha256": "7c79736d0fc46d2e31a9e2e80a8cb58f6c8c4488d084a93ccaadb28e24bded5d",
+      "bytes": 1959
     },
     "docs/components/02-microsoft-agent-governance-toolkit.md": {
-      "sha256": "5225a7107122d49a1598dcc085364230c63c5863e32d61b5833d393b86f0c5e5",
-      "bytes": 1691
+      "sha256": "b481699d29497a9627054dba85edc203d0161aa7ef274fc8ba5207475508ffbf",
+      "bytes": 1908
     },
     "docs/components/03-open-policy-agent.md": {
-      "sha256": "48159ff1355e490a9fa92f3221194fcd13ec703c2a55e0ad393ed65a692e5464",
-      "bytes": 1669
+      "sha256": "a810cbeb100ca14d2f61fc2281218657db52b60b0c02a05d5b6df26ea401d657",
+      "bytes": 1867
     },
     "docs/components/04-openfga.md": {
-      "sha256": "ab9f9d8f65d21cbc8de4cdb90c8290a3122ed1f2a64c817f43e3648e0c847676",
-      "bytes": 1706
+      "sha256": "0963a79c6a25e13cdc146a1e8bd96200647a94992191d5b31fb398950f080867",
+      "bytes": 1879
     },
     "docs/components/05-temporal.md": {
-      "sha256": "3d9ecc939853f1a06ae5952d74667b8c2335598914498b4535670565f897b8dd",
-      "bytes": 1803
+      "sha256": "26f67dea289e8556047842d3a92b036f327d337bd5f3a4146b5fbf7bae1fe5af",
+      "bytes": 1969
     },
     "docs/components/06-ciso-assistant-community.md": {
-      "sha256": "c4dc334513432df8168fd2c32b42ed952183790454e1e23e072b399ec6421d85",
-      "bytes": 2127
+      "sha256": "5406ec197ea343056740f2c9724c2c289ce60f94b06443dc0c461ffa83447ef6",
+      "bytes": 2353
     },
     "docs/components/07-openmetadata.md": {
-      "sha256": "3e066dbc8df104e05a1b625e70ff18121033aaac9ae343b0b4fcf09dbb12fe1a",
-      "bytes": 1808
+      "sha256": "a33962360cf5f7dc9cac41f219eb7663d07e316e6d2c81219b688d64504eb863",
+      "bytes": 1985
     },
     "docs/components/08-mlflow.md": {
-      "sha256": "9379f511e0173507e59f8b42c3607bafd7c3c45b1fec7382f67b3ff6b08866f6",
-      "bytes": 1944
+      "sha256": "15136f7c2d897107367deb6450e51642b7cf8a3e84c48e7881afb1eed2092078",
+      "bytes": 2130
     },
     "docs/components/09-openbao.md": {
-      "sha256": "a419c82b2434bd746a4c7fc37bcd83d139967e675f4e36bf77453d943603929e",
-      "bytes": 2088
+      "sha256": "4881e461624332bb851cc8a1dae7cb4e8f944f46d2919af416b23c07c0453294",
+      "bytes": 2273
     },
     "docs/components/10-opentelemetry-collector.md": {
-      "sha256": "8c1acc541c57449477f3680a74f8a4d2ea85a2f4abd1a277bcb97c809744d265",
-      "bytes": 1788
+      "sha256": "0d4458ba528571963fa81b1994812edd2e7f5dfdb0ecc1a71877a8f287d598c0",
+      "bytes": 1964
     },
     "docs/components/11-prometheus-and-alertmanager.md": {
-      "sha256": "1658a285a659753941262d0b8726b5595a25d590d1ed9b8b02c34f20e37d0bcb",
-      "bytes": 1842
+      "sha256": "651c2f7a1661ea9ae9b6394a1ef6f6b2531fb20e094ac33525dfc1e46c251a44",
+      "bytes": 2101
     },
     "docs/components/12-dfir-iris.md": {
-      "sha256": "ecfa0e31d1b5679e55ca19e0968f5357c3d5dd312f8b757341e7a34fc6c5af9c",
-      "bytes": 1768
+      "sha256": "8f6bae4391c3d8071edfd67ba70e0cccae9b30d71a1c2d4bd9388cdf91fcea2b",
+      "bytes": 1960
     },
     "docs/components/13-glpi.md": {
-      "sha256": "072844e92a0f82ab19b097a4ff8a20bdd305cbd83145842f4b9eced6d37674a5",
-      "bytes": 1774
+      "sha256": "861c364498f9e6414a5a1c2e51b89fc1af3d96d432542ad19fb63656ddb26415",
+      "bytes": 1968
     },
     "docs/components/14-postgresql.md": {
-      "sha256": "a043d435eef81c90529b3e9cb4fbeb576035d02f628e142f01342b37a86665e1",
-      "bytes": 1804
+      "sha256": "7c4824e4e4225be82c01b1965765de67b8b1382570c32eeb971dc3775d78c511",
+      "bytes": 2007
     },
     "docs/components/15-fairlearn.md": {
-      "sha256": "02a5430c2feff47933a8f22ab881769f9fec38b719960398cc185795634092da",
-      "bytes": 2147
+      "sha256": "7e5e811ae35d319a3ff5d11eecd045bf4da3994ef67dfbeac7b95837baa6274d",
+      "bytes": 2336
     },
     "docs/components/16-kubernetes-and-cilium.md": {
-      "sha256": "b4f8fbf8e19b666e23bd3533415ddf1e659f0d2794a6f4e95ec43f548d4f29e3",
-      "bytes": 1822
+      "sha256": "8339b5a35a292510e42b74344dfddb66b17d10cfd1a9bb80f35ea410ba68796c",
+      "bytes": 2029
     },
     "docs/components/17-syft-grype-and-cosign.md": {
-      "sha256": "44c45aa1246b3858ffa90c01220a9f70a4c61dffa9882439cefac3036b8c2147",
-      "bytes": 1999
+      "sha256": "61b4258c7b8f0cb34549eeabcf7028812da7cb13afff4f691051d45af604d668",
+      "bytes": 2285
     },
     "docs/components/18-ollama-and-qwen25.md": {
-      "sha256": "d996b63803a799807f581838739b4c17b3e5e2634858185edd204f6a8e4f6def",
-      "bytes": 1741
+      "sha256": "dad94d76a6dcef0e8906e86f205fb26ffbc4d3b50b589285870bc8834b65343e",
+      "bytes": 1979
     },
     "docs/components/catalogue.md": {
-      "sha256": "3f53232c5187dca2ea5d02d079db8c900fe799035cd5e2b5cdf617cb946eef35",
-      "bytes": 2310
+      "sha256": "bb473382687b58cc6dee36664ead965010069c45945806d8337f8569099cbe22",
+      "bytes": 5794
     },
     "docs/components/manifest.json": {
       "sha256": "0ceaaae6b9886bc8124d205e54e534be1b6942d6c8afc095081e95ddc619e84d",
       "bytes": 6744
+    },
+    "docs/components/product-links.json": {
+      "sha256": "63adda07f93c222d0bf8aeaa765282ec33f155276b02b3990b9f2d733a3e464a",
+      "bytes": 5963
     },
     "docs/decisions/001-central-authority.md": {
       "sha256": "71b08336a62b972361399e33c83fb944e654ac01baefdcb2dee652710f6b3390",
@@ -267,8 +279,8 @@
       "bytes": 1969
     },
     "docs/index.md": {
-      "sha256": "76b30b5ac2c44ba15a00436da807b740d0f63c1ed03e2bcd5548f395c6b45f78",
-      "bytes": 1494
+      "sha256": "20c4f7dd575dba14e675612413bbecb5341e545a371d60a42fae9fd384db7cca",
+      "bytes": 1676
     },
     "docs/integration-contracts.json": {
       "sha256": "bda6ae6c35bb460182db9ee74729b64c3092f3bde9fce908bb2dbb01a7249687",
@@ -287,8 +299,8 @@
       "bytes": 6139
     },
     "docs/research-paper.md": {
-      "sha256": "2b2166cbea19bd35a36b029f1b298d7de60672e02025c760f03d166b3c689fb0",
-      "bytes": 62377
+      "sha256": "327bca14575f090e253e65da4213efad5bceaff2ae2b0e9da9d51c117ec3a121",
+      "bytes": 63069
     },
     "docs/risk-register.csv": {
       "sha256": "996a32b2f9ab5fb7a7181a08dbbab7d32b192f49afb15ce4a2d345a5f73e85c4",
@@ -495,8 +507,8 @@
       "bytes": 632
     },
     "scripts/render_paper.py": {
-      "sha256": "f541258238327fdc16ca3f3223370be0bcf4a242069814a3c4d1de02ac98a143",
-      "bytes": 60095
+      "sha256": "16574810bf3c60f37b5d5d3e3ef8b10028bb6bf7e8efd1f43891271563c052b1",
+      "bytes": 61507
     },
     "scripts/supply_chain.py": {
       "sha256": "ff376fe496530eff8734fa5000ccfa427edd60dacc2c6fe928bee207f8b76d2b",
@@ -517,6 +529,10 @@
     "tests/test_fabric.py": {
       "sha256": "a83211e34308e890f1006d44b42144f45ae582c00407f633e5befe1a3b1e9bcb",
       "bytes": 9418
+    },
+    "tools/render_readme_diagrams.py": {
+      "sha256": "9e88da9f7e07c8b80b21a0ebc8986e672add46fa4f207968d15f1d3a646c44af",
+      "bytes": 10353
     }
   }
 }

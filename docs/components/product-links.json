@@ -1,0 +1,220 @@
+[
+  {
+    "id": 1,
+    "name": "Keycloak",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://www.keycloak.org/"
+      }
+    ],
+    "role": "Identity and access management providing signed identities and access tokens for agents and reviewers."
+  },
+  {
+    "id": 2,
+    "name": "Microsoft Agent Governance Toolkit",
+    "official_links": [
+      {
+        "label": "Official repository",
+        "url": "https://github.com/microsoft/agent-governance-toolkit"
+      }
+    ],
+    "role": "Runtime governance toolkit intercepting tool calls before they enter our centrally governed execution path."
+  },
+  {
+    "id": 3,
+    "name": "Open Policy Agent (OPA)",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://www.openpolicyagent.org/"
+      }
+    ],
+    "role": "Policy engine evaluating deterministic allow/deny rules for actions, budgets, context and operational restrictions."
+  },
+  {
+    "id": 4,
+    "name": "OpenFGA",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://openfga.dev/"
+      }
+    ],
+    "role": "Fine-grained authorization service deciding whether a particular agent may act on a particular record."
+  },
+  {
+    "id": 5,
+    "name": "Temporal",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://temporal.io/"
+      }
+    ],
+    "role": "Durable workflow engine maintaining process progress, human approval waits and bounded retries."
+  },
+  {
+    "id": 6,
+    "name": "CISO Assistant Community",
+    "official_links": [
+      {
+        "label": "Official repository",
+        "url": "https://github.com/intuitem/ciso-assistant-community"
+      }
+    ],
+    "role": "Governance, risk and compliance platform holding our risk register, control ownership, treatment and linked evidence."
+  },
+  {
+    "id": 7,
+    "name": "OpenMetadata",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://open-metadata.org/"
+      }
+    ],
+    "role": "Metadata platform supplying data ownership, classification and lineage for trusted workflow context."
+  },
+  {
+    "id": 8,
+    "name": "MLflow",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://mlflow.org/"
+      }
+    ],
+    "role": "Model lifecycle platform connecting versioned evaluation evidence, candidate artifacts and approved release records."
+  },
+  {
+    "id": 9,
+    "name": "OpenBao",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://openbao.org/"
+      }
+    ],
+    "role": "Secrets-management platform separating credential access for the gateway, workflow worker and evidence dispatcher."
+  },
+  {
+    "id": 10,
+    "name": "OpenTelemetry",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://opentelemetry.io/"
+      }
+    ],
+    "role": "Observability framework exporting minimized execution spans so decisions and outcomes can be traced."
+  },
+  {
+    "id": 11,
+    "name": "Prometheus + Alertmanager",
+    "official_links": [
+      {
+        "label": "Prometheus",
+        "url": "https://prometheus.io/"
+      },
+      {
+        "label": "Alertmanager",
+        "url": "https://prometheus.io/docs/alerting/latest/alertmanager/"
+      }
+    ],
+    "role": "Monitoring and alerting products turning decision, failure and delivery-backlog metrics into operational signals."
+  },
+  {
+    "id": 12,
+    "name": "DFIR-IRIS",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://www.dfir-iris.org/"
+      }
+    ],
+    "role": "Incident-response platform receiving customer-scoped alerts and supporting investigation, containment and recovery."
+  },
+  {
+    "id": 13,
+    "name": "GLPI",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://www.glpi-project.org/en/"
+      }
+    ],
+    "role": "IT service-management and asset platform linking workflows to owned services and trackable remediation tickets."
+  },
+  {
+    "id": 14,
+    "name": "PostgreSQL",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://www.postgresql.org/"
+      }
+    ],
+    "role": "Transactional database coordinating business state, shared limits, approvals, audit records and delivery receipts."
+  },
+  {
+    "id": 15,
+    "name": "Fairlearn",
+    "official_links": [
+      {
+        "label": "Official site",
+        "url": "https://fairlearn.org/"
+      }
+    ],
+    "role": "Responsible-AI evaluation library calculating group-outcome differences and producing versioned validation evidence."
+  },
+  {
+    "id": 16,
+    "name": "Kubernetes + Cilium",
+    "official_links": [
+      {
+        "label": "Kubernetes",
+        "url": "https://kubernetes.io/"
+      },
+      {
+        "label": "Cilium",
+        "url": "https://cilium.io/"
+      }
+    ],
+    "role": "Workload and network-security platforms isolating the agent and restricting its permitted network routes."
+  },
+  {
+    "id": 17,
+    "name": "Syft + Grype + Cosign",
+    "official_links": [
+      {
+        "label": "Syft",
+        "url": "https://github.com/anchore/syft"
+      },
+      {
+        "label": "Grype",
+        "url": "https://github.com/anchore/grype"
+      },
+      {
+        "label": "Cosign",
+        "url": "https://github.com/sigstore/cosign"
+      }
+    ],
+    "role": "Software-supply-chain tools inventorying built images, checking vulnerabilities and signing/verifying release artifacts."
+  },
+  {
+    "id": 18,
+    "name": "Ollama + Qwen2.5",
+    "official_links": [
+      {
+        "label": "Ollama",
+        "url": "https://ollama.com/"
+      },
+      {
+        "label": "Qwen model",
+        "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct"
+      }
+    ],
+    "role": "Local model runtime and language model generating bounded JSON proposals before deterministic authorization."
+  }
+]

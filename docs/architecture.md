@@ -2,11 +2,11 @@
 
 ## Design objective
 
-A governance decision must alter the permitted action path and remain traceable to a responsible owner and current evidence. Generating an assessment is one stage of that system.
+Our domain-independent implementation approach extends the Erdos framework by connecting governance assessment, accountable ownership, runtime authority and evidence across the product suite. Domain-specific policies and target adapters specialize this architecture; the included credit fixture is one worked example.
 
-![Component topology](architecture.svg)
+![All 18 components and implementation boundaries](assets/system-architecture-18.svg)
 
-The topology above shows the original lab and target boundaries. The expanded native implementation is in `fabric/enterprise/`; product-specific code and acceptance operations are listed in the [catalogue](components/catalogue.md).
+The topology above shows all 18 component groups and the project implementation boundaries. The expanded native implementation is in `fabric/enterprise/`; product-specific code and acceptance operations are listed in the [catalogue](components/catalogue.md).
 
 ## Planes and responsibilities
 
@@ -21,7 +21,7 @@ The topology above shows the original lab and target boundaries. The expanded na
 
 ## Exact-action approval
 
-![Execution flow](execution-flow.svg)
+![Execution and governance lifecycle](assets/execution-governance-flow.svg)
 
 Approval binds the actor, complete canonical action, case version, workflow version and policy version. It expires and is consumed once. Execution rechecks reviewer status and current restrictions. A changed action is a new approval request.
 

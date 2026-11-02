@@ -1,5 +1,9 @@
 # 13. GLPI
 
+**Official product sources:** [Official site](https://www.glpi-project.org/en/)
+
+IT service-management and asset platform linking workflows to owned services and trackable remediation tickets.
+
 ## Role
 
 Service inventory and remediation tickets.

@@ -1,5 +1,9 @@
 # 05. Temporal
 
+**Official product sources:** [Official site](https://temporal.io/)
+
+Durable workflow engine maintaining process progress, human approval waits and bounded retries.
+
 ## Role
 
 Durable workflow, bounded retries and approval waits.

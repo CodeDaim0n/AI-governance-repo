@@ -1,5 +1,9 @@
 # 10. OpenTelemetry Collector
 
+**Official product sources:** [Official site](https://opentelemetry.io/)
+
+Observability framework exporting minimized execution spans so decisions and outcomes can be traced.
+
 ## Role
 
 Minimized exported execution spans.

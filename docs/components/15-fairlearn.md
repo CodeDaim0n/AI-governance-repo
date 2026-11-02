@@ -1,5 +1,9 @@
 # 15. Fairlearn
 
+**Official product sources:** [Official site](https://fairlearn.org/)
+
+Responsible-AI evaluation library calculating group-outcome differences and producing versioned validation evidence.
+
 ## Role
 
 Actual fairness metric computation.

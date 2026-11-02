@@ -1,5 +1,9 @@
 # 04. OpenFGA
 
+**Official product sources:** [Official site](https://openfga.dev/)
+
+Fine-grained authorization service deciding whether a particular agent may act on a particular record.
+
 ## Role
 
 Record relationship authorization.

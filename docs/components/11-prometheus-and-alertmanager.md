@@ -1,5 +1,9 @@
 # 11. Prometheus and Alertmanager
 
+**Official product sources:** [Prometheus](https://prometheus.io/) · [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/)
+
+Monitoring and alerting products turning decision, failure and delivery-backlog metrics into operational signals.
+
 ## Role
 
 Metrics, rule evaluation and authenticated alert delivery.

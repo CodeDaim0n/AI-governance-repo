@@ -1,5 +1,9 @@
 # 02. Microsoft Agent Governance Toolkit
 
+**Official product sources:** [Official repository](https://github.com/microsoft/agent-governance-toolkit)
+
+Runtime governance toolkit intercepting tool calls before they enter our centrally governed execution path.
+
 ## Role
 
 Deterministic agent-side tool interception.

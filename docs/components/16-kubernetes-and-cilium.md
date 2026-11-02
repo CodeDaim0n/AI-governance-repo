@@ -1,5 +1,9 @@
 # 16. Kubernetes and Cilium
 
+**Official product sources:** [Kubernetes](https://kubernetes.io/) · [Cilium](https://cilium.io/)
+
+Workload and network-security platforms isolating the agent and restricting its permitted network routes.
+
 ## Role
 
 Agent isolation with explicit egress.

@@ -2,7 +2,9 @@
 
 ![Governed Agent Fabric](assets/fabric-banner.svg)
 
-Governance that connects risk, authority, action and evidence.
+Our domain-independent implementation approach extends the Erdos governance framework across the end-to-end product suite: risk, authority, assurance, action, evidence and response.
+
+![All 18 component groups](assets/system-architecture-18.svg)
 
 Start with the [quickstart](getting-started.md), inspect the [architecture](architecture.md), or open the [18-component catalogue](components/catalogue.md). For a complete installation, follow the [commissioning guide](deployment/full-stack.md).
 

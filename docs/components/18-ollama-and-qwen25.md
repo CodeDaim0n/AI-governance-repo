@@ -1,5 +1,9 @@
 # 18. Ollama and Qwen2.5
 
+**Official product sources:** [Ollama](https://ollama.com/) · [Qwen model](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct)
+
+Local model runtime and language model generating bounded JSON proposals before deterministic authorization.
+
 ## Role
 
 Local proposal generation without execution credentials.

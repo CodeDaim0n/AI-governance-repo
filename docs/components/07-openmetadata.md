@@ -1,5 +1,9 @@
 # 07. OpenMetadata
 
+**Official product sources:** [Official site](https://open-metadata.org/)
+
+Metadata platform supplying data ownership, classification and lineage for trusted workflow context.
+
 ## Role
 
 Data ownership, classification and lineage.

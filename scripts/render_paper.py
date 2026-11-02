@@ -102,9 +102,9 @@ story.append(Spacer(1,35));story.append(Paragraph('GOVERNED<br/>AGENT FABRIC',st
 p('An integrated governance reference architecture for regulated agentic workflows')
 p('<b>From workflow assessment to enforceable authority, linked risk records and operational evidence.</b>')
 story.append(Spacer(1,20))
-table(['Design scope','Evidence delivered'],[['UK banking-inspired synthetic credit workflow','42 Python integration/control tests; 6 Rego tests; 3 Microsoft AGT wrapper checks'],['Open-source product reference stack','19 article-section mappings; 18 capability/product assignments; 12 open example risks'],['Research prototype, version 1.0','Source code, reproducible test runner, machine-readable assessment and diagrams']],[220,263])
+table(['Design scope','Evidence delivered'],[['UK banking-inspired synthetic credit workflow','42 Python integration/control tests; 6 Rego tests; 3 Microsoft AGT wrapper checks'],['Open-source product reference stack','19 framework-section mappings; 18 capability/product assignments; 12 open example risks'],['Research implementation, edition 0.2','Source code, reproducible test runner, machine-readable assessment and diagrams']],[220,263])
 sub('Abstract')
-p('A workflow assessment becomes operational governance only when it changes what systems permit, records who holds authority, and remains connected to evidence of outcomes. This paper presents a compositional architecture that links enterprise records to runtime action enforcement. Microsoft Agent Governance Toolkit is evaluated as an optional interception layer, OPA as a business-policy decision service, and CISO Assistant Community Edition as the designated risk system of record.')
+p('We extended the Erdos governance framework into an implementation approach connecting workflow assessment, accountable authority and operational evidence. This paper presents the component architecture and interfaces that link enterprise records to runtime action enforcement. Microsoft Agent Governance Toolkit is evaluated as an optional interception layer, OPA as a business-policy decision service, and CISO Assistant Community Edition as the designated risk system of record.')
 p('The implemented laboratory exercises a narrow synthetic credit action, using server-owned facts, signed lab identities, exact-action approvals, serialized limits and transactional evidence. All 51 reported checks pass in the observed run. The results demonstrate specific local control behavior; they do not establish credit-model validity, fairness, distributed resilience, framework conformity or production readiness.')
 p('Prepared 2 November 2026 | Technical working paper | Not peer reviewed',small=True)
 p('No real customer data, banking systems or production credit decisions were used. Named organizational owners, regulatory applicability decisions and product deployment approvals remain unassigned.',small=True)
@@ -112,7 +112,7 @@ p('No real customer data, banking systems or production credit decisions were us
 title('CONTENTS','Paper navigation')
 table(['Section','Page'],[
 ('Research question and evidence boundary','3'),
-('What the article leaves to implement','4'),
+('Extending the Erdos framework in practice','4'),
 ('Architecture and trust boundaries','5'),
 ('Execution flow and invariants','6'),
 ('Identity, delegation and exclusive execution','7'),
@@ -132,7 +132,8 @@ table(['Section','Page'],[
 ('Limitations and conclusion','23'),
 ('Primary references','24-26'),
 ('Component role catalogue','27-29'),
-('Expanded native implementation and acceptance','30-33')],[413,70])
+('Expanded native implementation and acceptance','30-33'),
+('Official products and their implementation roles','34-35')],[413,70])
 p('Companion repository: machine-readable product and step matrices, risk register, framework crosswalk, integration contracts, source code, policy, tests and observed evidence. Diagram sources are supplied as SVG and Mermaid.',True)
 
 # 2
@@ -148,11 +149,12 @@ sub('What cannot be concluded')
 p('No generative model was run for these results. No task success, token saving, latency improvement, incident reduction or credit accuracy benefit was measured. A Qwen/Ollama proposal client is provided as an optional extension. Self-authored tests require independent challenge before they support a release decision.')
 
 # 3
-title('02','What the article leaves to implement')
-p('The Erdos Effect article, published 1 November 2026, defines workflow assessment inputs and outputs. It already recognizes operational evidence, control enforcement and accountable decisions. It should therefore be criticized as an incomplete implementation specification, rather than as ignoring governance altogether. [1]')
-table(['Implementation gap','Our architectural response'],[['Narrative facts may differ from deployed reality','Fetch facts from designated systems of record; retain timestamps, versions and missing-data status.'],['An assessment does not stop a tool call','Put mandatory enforcement at the tool gateway and target adapter; remove direct agent write credentials.'],['Human review may authorize the wrong action','Bind approval to actor, exact payload, source version, workflow version, policy version and expiry.'],['Separate systems disagree or fail','Define precedence, freshness bounds, fail-closed behavior, target receipts and reconciliation.'],['Risks can become disconnected documents','Maintain one risk identity in the risk register, with control, test, event and incident references.'],['One approved workflow can create shared exposure','Enforce aggregate budgets and cross-workflow limits at a shared authoritative service.'],['Operational telemetry can be mistaken for assurance','Require independent validation, business outcomes, customer impact and time-limited acceptance.'],['Controls may be technically bypassable','Isolate workload networks and secrets; test alternate write paths and unauthorized delegation.']],[190,293])
-sub('Fair comparison')
-p('No executable reference implementation accompanies the supplied article link. Consequently this paper does not compare execution performance against the article or present a fabricated baseline. It translates the assessment specification into architecture and tests a defined subset of the resulting controls.')
+title('02','Extending the Erdos framework in practice')
+p("The Erdos governance framework defines workflow assessment inputs and outputs, including operational evidence, enforcement and accountable decisions. In this work, we extended that structure into a product-based reference architecture and implementation package. The choices below show our practical implementation approach while preserving the framework's assessment model. [1]")
+table(['Implementation focus','Our implementation approach'],[['Authoritative system context','Fetch facts from designated systems of record; retain timestamps, versions and unknown-data status.'],['Execution controls','Place mandatory enforcement at the gateway and target adapter, with scoped target credentials.'],['Action-specific approval','Bind approval to actor, exact payload, source version, workflow version, policy version and expiry.'],['Cross-system consistency','Define source precedence, freshness, fail-closed behavior, target receipts and reconciliation.'],['Connected risk records','Maintain stable risk identities with control, test, event and incident references.'],['Shared exposure boundaries','Enforce aggregate budgets and cross-workflow limits through an authoritative service.'],['Evidence and independent validation','Connect observed controls with validation, business outcomes, customer impact and time-limited acceptance.'],['Exclusive write path','Separate agent networks and secrets; verify permitted routes and delegation boundaries.']],[190,293])
+sub('Implementation scope')
+p('We preserve the framework workflow inputs and governance outputs while making product responsibilities, interfaces, enforcement decisions and evidence paths explicit. The observations in this paper describe the supplied synthetic implementation and its stated test scope.')
+
 
 # 4
 title('03','Architecture: responsibilities and trust boundaries')
@@ -264,17 +266,17 @@ p('Before a pilot, agree policy-error and outbox-backlog alerts, maximum source 
 # 14
 title('13','Full input coverage: steps 3.1.1-3.1.7')
 steps=list(csv.DictReader((R/'docs/step-product-matrix.csv').open()))
-table(['Article ID / capability','Product responsibility','Evidence and gate'],[[x['article_section']+' / '+x['our_capability'],x['products'],x['evidence_contract']+'. '+x['gate']] for x in steps[:7]],[117,150,216])
+table(['Framework section / capability','Product responsibility','Evidence and gate'],[[x['article_section']+' / '+x['our_capability'],x['products'],x['evidence_contract']+'. '+x['gate']] for x in steps[:7]],[117,150,216])
 p('The full CSV adds the accountable role for every row. These assignments implement the integration design; product names do not imply a running connector. Every source record must have an owner, authority, version and freshness contract.',small=True)
 
 # 15
 title('14','Full output coverage: steps 4.1-4.6')
-table(['Article ID / capability','Products','Operational interpretation'],[[x['article_section']+' / '+x['our_capability'],x['products'],x['evidence_contract']+'. '+x['gate']] for x in steps[7:13]],[117,150,216])
+table(['Framework section / capability','Products','Operational interpretation'],[[x['article_section']+' / '+x['our_capability'],x['products'],x['evidence_contract']+'. '+x['gate']] for x in steps[7:13]],[117,150,216])
 p('scripts/assess.py generates structured output sections from test results, open risks and implementation status. It explicitly limits readiness to laboratory use and preserves missing evidence. It is a deterministic evidence pack generator, not an autonomous legal or compliance assessor.',small=True)
 
 # 16
 title('15','Full output coverage: steps 4.7-4.12')
-table(['Article ID / capability','Products','Operational interpretation'],[[x['article_section']+' / '+x['our_capability'],x['products'],x['evidence_contract']+'. '+x['gate']] for x in steps[13:]],[117,150,216])
+table(['Framework section / capability','Products','Operational interpretation'],[[x['article_section']+' / '+x['our_capability'],x['products'],x['evidence_contract']+'. '+x['gate']] for x in steps[13:]],[117,150,216])
 p('Monitoring does not replace assessment; remediation does not replace validation; an assessment report does not replace a release authorization. Material changes to tools, permissions, sources, policy, model or scope must trigger the appropriate reassessment and invalidate incompatible approvals.',small=True)
 
 # 17
@@ -306,7 +308,7 @@ p('The observed control run used Python 3.12.14, cryptography 50.0.2 and OPA 1.0
 title('19','Observed results and interpretation')
 table(['Check group','Observed result','What it establishes'],[['Python control and HTTP checks','42 run; 0 failures; 0 errors; 0 skipped','Specified local boundaries produced expected outcomes in this run.'],['OPA Rego policy checks','6 passed','Selected policy decisions behaved as expected under controlled inputs.'],['Microsoft AGT wrapper checks','3 assertions passed','Wrapper allow/deny works for the exercised cases; central OPA deny remains effective.'],['Concurrent shared exposure','20 requests of GBP 1,000; 15 committed, 5 denied','Serialized local lifetime tenant budget did not exceed GBP 15,000.'],['Audit write failure','Synthetic insert failure rolled back action','No local action committed without its transactionally required evidence.'],['Outbox receiver outage','Event remained undelivered for retry','Local delivery state survives a failed attempt; no native GRC/IRIS claim.']],[142,142,199])
 sub('Research interpretation')
-p('The observations support the engineering proposition that a narrow action gateway can enforce deterministic controls independently of an agent narrative. They do not show superiority to Microsoft AGT, the article, a commercial GRC platform or an enterprise control environment. No comparative cost, performance or business outcome experiment was conducted.')
+p('The observations demonstrate selected deterministic controls within our implementation approach to the Erdos framework. The experiment records how the supplied gateway behaves under its stated synthetic conditions. Comparative cost, performance and business-outcome evaluation remain future research activities.')
 sub('No statistical assurance from a perfect test run')
 p('The checks are designed examples, not a randomly sampled deployment population. A 51-of-51 result must not be interpreted as a quantified incident probability, general safety rate or complete adversarial coverage. The test author also implemented the controls, so correlated omissions remain possible.')
 sub('Evidence files')
@@ -328,7 +330,7 @@ p('No named accountable humans, real risk acceptance decisions, DPIA, independen
 sub('Next research experiments')
 p('Use a representative, authorized dataset and a fixed model/version to compare task correctness with and without mandatory action controls. Measure prevented unsafe effects, false denials, reviewer burden, end-to-end latency and recovery. Repeat against native product integrations, a malicious tool/RAG corpus, credential theft, policy drift, source outages and response-loss faults. Independent testers should define additional attacks and challenge any accepted residual exposure.')
 sub('Conclusion')
-p('The architecture turns governance requirements into a connected authority and evidence system. CISO Assistant holds the risk record; Microsoft AGT can intercept agent actions; OPA applies current business policy; trusted sources supply facts; approvals bind to exact actions; and adapters must enforce the only permitted write route. The local tests demonstrate selected mechanics of this design. Enterprise governance remains incomplete until the native integrations, independent validation, human accountability and operational recovery paths are deployed and evidenced.')
+p('Our implementation approach extends the Erdos framework into a connected authority, execution and evidence system. CISO Assistant holds the risk record; Microsoft AGT can intercept agent actions; OPA applies current business policy; trusted sources supply facts; approvals bind to exact actions; and adapters must enforce the only permitted write route. The local tests demonstrate selected mechanics of this design. Deployment readiness depends on evidenced native integrations, independent validation, human accountability and operational recovery arrangements.')
 
 refs=[
 ('1','Erdos Effect','Implementing Governance for Agentic Workflows; 1 Nov 2026','https://www.linkedin.com/pulse/implementing-governance-agentic-workflows-erdos-effect-vipie'),
@@ -407,6 +409,20 @@ sub('Reproducible entry points')
 p('Use scripts/full_stack.py preflight before deployment, configure_full.py for private lab configuration, full_stack.py for explicit deployment phases, commission_native.py for native setup, install_agent_sandbox.py and supply_chain.py for isolation/release checks, and accept_all_components.py for the complete live result. The full guide and component catalogue give the required inputs and interfaces.')
 sub('Research interpretation')
 p('The implementation now covers every named component group at source/deployment level. Successful full-stack operation remains a hypothesis to test on an appropriate host. Neither the expanded documentation nor the extra isolated evaluation experiment removes the independent validation, legal, human accountability, distributed consistency and operational resilience requirements identified in the original paper.')
+
+
+_product_links=json.loads((R/'docs/components/product-links.json').read_text())
+for _offset in [0,9]:
+ title('PRODUCT DIRECTORY',f'Products brought together {_offset+1}-{_offset+9}')
+ p('We extended the Erdos framework by composing established open-source products across complementary engineering disciplines. The links identify the actual products; the role column explains their place in our implementation approach. Deployment and validation status remain separately recorded.',True)
+ _cells=[[Paragraph('Component',styles['CellX']),Paragraph('Role in our implementation',styles['CellX']),Paragraph('Official source',styles['CellX'])]]
+ for _product in _product_links[_offset:_offset+9]:
+  _official='<br/>'.join('<link href="'+escape(z['url'])+'" color="#087f8c">'+escape(z['label'])+'</link>' for z in _product['official_links'])
+  _cells.append([Paragraph(str(_product['id']).zfill(2)+'. '+escape(_product['name']),styles['CellX']),Paragraph(escape(_product['role']),styles['CellX']),Paragraph(_official,styles['CellX'])])
+ _table=Table(_cells,colWidths=[125,255,103],repeatRows=1)
+ _table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),GREY),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,PALE]),('LEFTPADDING',(0,0),(-1,-1),7),('RIGHTPADDING',(0,0),(-1,-1),7),('TOPPADDING',(0,0),(-1,-1),9),('BOTTOMPADDING',(0,0),(-1,-1),9),('LINEBELOW',(0,0),(-1,0),.8,TEAL)]))
+ story.append(_table)
+ markdown.append('Official product directory: docs/components/product-links.json')
 
 def footer(c,doc):
  c.setStrokeColor(GREY);c.line(56,43,W-56,43)

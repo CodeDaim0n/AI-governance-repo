@@ -5,12 +5,12 @@ An integrated governance reference architecture for regulated agentic workflows
 | Design scope | Evidence delivered |
 |---|---|
 | UK banking-inspired synthetic credit workflow | 42 Python integration/control tests; 6 Rego tests; 3 Microsoft AGT wrapper checks |
-| Open-source product reference stack | 19 article-section mappings; 18 capability/product assignments; 12 open example risks |
-| Research prototype, version 1.0 | Source code, reproducible test runner, machine-readable assessment and diagrams |
+| Open-source product reference stack | 19 framework-section mappings; 18 capability/product assignments; 12 open example risks |
+| Research implementation, edition 0.2 | Source code, reproducible test runner, machine-readable assessment and diagrams |
 
 ### Abstract
 
-A workflow assessment becomes operational governance only when it changes what systems permit, records who holds authority, and remains connected to evidence of outcomes. This paper presents a compositional architecture that links enterprise records to runtime action enforcement. Microsoft Agent Governance Toolkit is evaluated as an optional interception layer, OPA as a business-policy decision service, and CISO Assistant Community Edition as the designated risk system of record.
+We extended the Erdos governance framework into an implementation approach connecting workflow assessment, accountable authority and operational evidence. This paper presents the component architecture and interfaces that link enterprise records to runtime action enforcement. Microsoft Agent Governance Toolkit is evaluated as an optional interception layer, OPA as a business-policy decision service, and CISO Assistant Community Edition as the designated risk system of record.
 
 The implemented laboratory exercises a narrow synthetic credit action, using server-owned facts, signed lab identities, exact-action approvals, serialized limits and transactional evidence. All 51 reported checks pass in the observed run. The results demonstrate specific local control behavior; they do not establish credit-model validity, fairness, distributed resilience, framework conformity or production readiness.
 
@@ -25,7 +25,7 @@ No real customer data, banking systems or production credit decisions were used.
 | Section | Page |
 |---|---|
 | Research question and evidence boundary | 3 |
-| What the article leaves to implement | 4 |
+| Extending the Erdos framework in practice | 4 |
 | Architecture and trust boundaries | 5 |
 | Execution flow and invariants | 6 |
 | Identity, delegation and exclusive execution | 7 |
@@ -46,6 +46,7 @@ No real customer data, banking systems or production credit decisions were used.
 | Primary references | 24-26 |
 | Component role catalogue | 27-29 |
 | Expanded native implementation and acceptance | 30-33 |
+| Official products and their implementation roles | 34-35 |
 
 Companion repository: machine-readable product and step matrices, risk register, framework crosswalk, integration contracts, source code, policy, tests and observed evidence. Diagram sources are supplied as SVG and Mermaid.
 
@@ -78,25 +79,25 @@ OPA 1.0.1 was run as a real local HTTP service. The Python gateway, signed-token
 No generative model was run for these results. No task success, token saving, latency improvement, incident reduction or credit accuracy benefit was measured. A Qwen/Ollama proposal client is provided as an optional extension. Self-authored tests require independent challenge before they support a release decision.
 
 
-## What the article leaves to implement
+## Extending the Erdos framework in practice
 
 
-The Erdos Effect article, published 1 November 2026, defines workflow assessment inputs and outputs. It already recognizes operational evidence, control enforcement and accountable decisions. It should therefore be criticized as an incomplete implementation specification, rather than as ignoring governance altogether. [1]
+The Erdos governance framework defines workflow assessment inputs and outputs, including operational evidence, enforcement and accountable decisions. In this work, we extended that structure into a product-based reference architecture and implementation package. The choices below show our practical implementation approach while preserving the framework's assessment model. [1]
 
-| Implementation gap | Our architectural response |
+| Implementation focus | Our implementation approach |
 |---|---|
-| Narrative facts may differ from deployed reality | Fetch facts from designated systems of record; retain timestamps, versions and missing-data status. |
-| An assessment does not stop a tool call | Put mandatory enforcement at the tool gateway and target adapter; remove direct agent write credentials. |
-| Human review may authorize the wrong action | Bind approval to actor, exact payload, source version, workflow version, policy version and expiry. |
-| Separate systems disagree or fail | Define precedence, freshness bounds, fail-closed behavior, target receipts and reconciliation. |
-| Risks can become disconnected documents | Maintain one risk identity in the risk register, with control, test, event and incident references. |
-| One approved workflow can create shared exposure | Enforce aggregate budgets and cross-workflow limits at a shared authoritative service. |
-| Operational telemetry can be mistaken for assurance | Require independent validation, business outcomes, customer impact and time-limited acceptance. |
-| Controls may be technically bypassable | Isolate workload networks and secrets; test alternate write paths and unauthorized delegation. |
+| Authoritative system context | Fetch facts from designated systems of record; retain timestamps, versions and unknown-data status. |
+| Execution controls | Place mandatory enforcement at the gateway and target adapter, with scoped target credentials. |
+| Action-specific approval | Bind approval to actor, exact payload, source version, workflow version, policy version and expiry. |
+| Cross-system consistency | Define source precedence, freshness, fail-closed behavior, target receipts and reconciliation. |
+| Connected risk records | Maintain stable risk identities with control, test, event and incident references. |
+| Shared exposure boundaries | Enforce aggregate budgets and cross-workflow limits through an authoritative service. |
+| Evidence and independent validation | Connect observed controls with validation, business outcomes, customer impact and time-limited acceptance. |
+| Exclusive write path | Separate agent networks and secrets; verify permitted routes and delegation boundaries. |
 
-### Fair comparison
+### Implementation scope
 
-No executable reference implementation accompanies the supplied article link. Consequently this paper does not compare execution performance against the article or present a fabricated baseline. It translates the assessment specification into architecture and tests a defined subset of the resulting controls.
+We preserve the framework workflow inputs and governance outputs while making product responsibilities, interfaces, enforcement decisions and evidence paths explicit. The observations in this paper describe the supplied synthetic implementation and its stated test scope.
 
 
 ## Architecture: responsibilities and trust boundaries
@@ -318,7 +319,7 @@ Before a pilot, agree policy-error and outbox-backlog alerts, maximum source age
 ## Full input coverage: steps 3.1.1-3.1.7
 
 
-| Article ID / capability | Product responsibility | Evidence and gate |
+| Framework section / capability | Product responsibility | Evidence and gate |
 |---|---|---|
 | 3.1.1 / Business mandate | GLPI + CISO Assistant | Service ID, jurisdiction, objective, criticality, baseline benefit. No approved owner or scope: deployment blocked |
 | 3.1.2 / Process and dependency model | Temporal + OpenMetadata | Versioned activities, people, systems, decisions, failure paths. Unmapped side-effecting step: deployment blocked |
@@ -334,7 +335,7 @@ The full CSV adds the accountable role for every row. These assignments implemen
 ## Full output coverage: steps 4.1-4.6
 
 
-| Article ID / capability | Products | Operational interpretation |
+| Framework section / capability | Products | Operational interpretation |
 |---|---|---|
 | 4.1 / Completeness and conflict review | CISO Assistant + OpenMetadata | Coverage and missing or conflicting source records. Unknown remains unknown |
 | 4.2 / Readiness decision | CISO Assistant + Temporal | Disposition, conditions, authority and dated approval. Agent advice cannot authorize release |
@@ -349,7 +350,7 @@ scripts/assess.py generates structured output sections from test results, open r
 ## Full output coverage: steps 4.7-4.12
 
 
-| Article ID / capability | Products | Operational interpretation |
+| Framework section / capability | Products | Operational interpretation |
 |---|---|---|
 | 4.7 / Traceable assurance | CISO Assistant + PostgreSQL + OpenMetadata | Requirement-control-configuration-test-event-risk links. Traceability is not compliance certification |
 | 4.8 / Validation and evaluation | MLflow + Fairlearn + unittest + OPA tests | Business correctness, adversarial cases, fairness, resilience, thresholds. Unvalidated dimensions remain open |
@@ -442,7 +443,7 @@ The observed control run used Python 3.12.14, cryptography 50.0.2 and OPA 1.0.1.
 
 ### Research interpretation
 
-The observations support the engineering proposition that a narrow action gateway can enforce deterministic controls independently of an agent narrative. They do not show superiority to Microsoft AGT, the article, a commercial GRC platform or an enterprise control environment. No comparative cost, performance or business outcome experiment was conducted.
+The observations demonstrate selected deterministic controls within our implementation approach to the Erdos framework. The experiment records how the supplied gateway behaves under its stated synthetic conditions. Comparative cost, performance and business-outcome evaluation remain future research activities.
 
 ### No statistical assurance from a perfect test run
 
@@ -490,7 +491,7 @@ Use a representative, authorized dataset and a fixed model/version to compare ta
 
 ### Conclusion
 
-The architecture turns governance requirements into a connected authority and evidence system. CISO Assistant holds the risk record; Microsoft AGT can intercept agent actions; OPA applies current business policy; trusted sources supply facts; approvals bind to exact actions; and adapters must enforce the only permitted write route. The local tests demonstrate selected mechanics of this design. Enterprise governance remains incomplete until the native integrations, independent validation, human accountability and operational recovery paths are deployed and evidenced.
+Our implementation approach extends the Erdos framework into a connected authority, execution and evidence system. CISO Assistant holds the risk record; Microsoft AGT can intercept agent actions; OPA applies current business policy; trusted sources supply facts; approvals bind to exact actions; and adapters must enforce the only permitted write route. The local tests demonstrate selected mechanics of this design. Deployment readiness depends on evidenced native integrations, independent validation, human accountability and operational recovery arrangements.
 
 
 ## Primary sources 1-9
@@ -879,3 +880,19 @@ Use scripts/full_stack.py preflight before deployment, configure_full.py for pri
 ### Research interpretation
 
 The implementation now covers every named component group at source/deployment level. Successful full-stack operation remains a hypothesis to test on an appropriate host. Neither the expanded documentation nor the extra isolated evaluation experiment removes the independent validation, legal, human accountability, distributed consistency and operational resilience requirements identified in the original paper.
+
+
+## Products brought together 1-9
+
+
+We extended the Erdos framework by composing established open-source products across complementary engineering disciplines. The links identify the actual products; the role column explains their place in our implementation approach. Deployment and validation status remain separately recorded.
+
+Official product directory: docs/components/product-links.json
+
+
+## Products brought together 10-18
+
+
+We extended the Erdos framework by composing established open-source products across complementary engineering disciplines. The links identify the actual products; the role column explains their place in our implementation approach. Deployment and validation status remain separately recorded.
+
+Official product directory: docs/components/product-links.json

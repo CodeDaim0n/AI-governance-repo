@@ -1,5 +1,9 @@
 # 09. OpenBao
 
+**Official product sources:** [Official site](https://openbao.org/)
+
+Secrets-management platform separating credential access for the gateway, workflow worker and evidence dispatcher.
+
 ## Role
 
 Separated runtime secret access.

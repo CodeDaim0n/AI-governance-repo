@@ -1,5 +1,9 @@
 # 14. PostgreSQL
 
+**Official product sources:** [Official site](https://www.postgresql.org/)
+
+Transactional database coordinating synthetic business state, shared budgets, approvals, audit records and delivery receipts.
+
 ## Role
 
 Transactional business state, evidence and delivery receipts.

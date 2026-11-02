@@ -1,5 +1,9 @@
 # 17. Syft, Grype and Cosign
 
+**Official product sources:** [Syft](https://github.com/anchore/syft) · [Grype](https://github.com/anchore/grype) · [Cosign](https://github.com/sigstore/cosign)
+
+Software-supply-chain tools inventorying built images, checking vulnerabilities and signing/verifying release artifacts.
+
 ## Role
 
 Image inventory, vulnerability gate and offline signing.

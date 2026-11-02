@@ -1,5 +1,9 @@
 # 06. CISO Assistant Community
 
+**Official product sources:** [Official repository](https://github.com/intuitem/ciso-assistant-community)
+
+Governance, risk and compliance platform holding our risk register, control ownership, treatment and linked evidence.
+
 ## Role
 
 Risk register and evidence records.
