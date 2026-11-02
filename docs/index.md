@@ -8,6 +8,8 @@ Our domain-independent autonomous agent fabric extends the Erdos governance fram
 
 Start with the [quickstart](getting-started.md), inspect the [architecture](architecture.md), or open the [18-component catalogue](components/catalogue.md). For a complete installation, follow the [commissioning guide](deployment/full-stack.md).
 
+For reusable workflows, start with [configurable workflow contracts](configurable-workflows.md). The shared runtime loads separate credit and access-request definitions, generates assessment/implementation packages, and enforces their configured authority, approval and budget rules. The original lab remains available for reproducing historical evidence.
+
 !!! warning "Evidence boundary"
     The original core has 51 observed checks. Actual Qwen tool loops and a connected Temporal approval/restart journey have now run in a native subset. The complete eighteen-product deployment remains unverified. Read the [native study](research/native-agent.md), [per-product evidence](validation.md) and limitations.
 

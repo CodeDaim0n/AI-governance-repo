@@ -124,6 +124,11 @@ def main():
             report["checks"]["kill_switch_denied"] = True
             assert db.verify_chain()
             report["checks"]["audit_chain_verified"] = True
+            from check_configurable_postgres import run as check_configurable, registry as configurable_registry, effect_count
+            from fabric.enterprise.configurable import ConfigurablePostgresFabric
+            from fabric.adapters import builtin_adapters
+            configurable = check_configurable(db.path)
+            report["checks"]["configurable_workflows"] = configurable
             with db.connect() as c:
                 before = c.execute("SELECT count(*) FROM actions").fetchone()[0]
                 pending = c.execute("SELECT count(*) FROM outbox WHERE delivered=0").fetchone()[0]
@@ -134,6 +139,12 @@ def main():
                 assert c.execute("SELECT count(*) FROM actions").fetchone()[0] == before
                 assert c.execute("SELECT count(*) FROM outbox WHERE delivered=0").fetchone()[0] == pending
             report["checks"]["restart_preserves_actions_audit_outbox"] = {"effects": before, "pending_outbox": pending}
+            generic = ConfigurablePostgresFabric(db.path, configurable_registry(), adapters=builtin_adapters())
+            for replay in configurable["restart_replays"]:
+                assert generic.execute(replay["actor"], replay["action"]) == replay["response"]
+            assert effect_count(generic, configurable["fixture"]["tenant"]) == configurable["expected_effect_count"]
+            assert generic.verify_chain()
+            report["checks"]["restart_preserves_configurable_receipts"] = True
             report["status"] = "PASS"
         finally:
             opa.terminate(); opa.wait(timeout=10); log.close()

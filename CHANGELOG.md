@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 - Configurable workflow contracts
+
+- Add a strict versioned registry and one reusable runtime for credit and IT access examples, with explicit transactional target adapters.
+- Generate governance assessments and implementation packages without inventing approval, risk ratings or deployment evidence.
+- Bind signed agent tasks, approval, budgets and evidence to workflow configuration; recheck authority and expiry at execution time.
+- Parameterize native relationship, metadata, model metric, inventory and evidence bindings; add generic OPA, AGT and Temporal paths.
+- Preserve existing credit-lab interfaces and historical evidence as compatibility fixtures. Generic native commissioning remains separate from local tests.
+- Fix PostgreSQL CI cluster encoding and extend native storage checks to both configurable workflows.
+
 ## 0.3.1 - Continued native acceptance
 
 - Require successful operation checks when consuming deployment-scoped isolation and release receipts; reject tampered signed SBOMs.

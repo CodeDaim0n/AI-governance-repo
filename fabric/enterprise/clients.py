@@ -2,6 +2,8 @@
 import json,os,time,hashlib
 from urllib.parse import quote
 import httpx
+from .configuration import (ConfigurationError, allowed_principals, fga_binding,
+    metadata_binding, setting, text_value, finite_number, enforce_metric_requirements)
 
 class DependencyFailure(RuntimeError): pass
 
@@ -46,6 +48,7 @@ class API:
 
 class Keycloak(API):
     def __init__(self):
+        allowed_principals()  # Invalid operator mappings fail before authentication.
         super().__init__(required('KEYCLOAK_URL'))
         self.realm=required('KEYCLOAK_REALM')
         self.issuer=required('KEYCLOAK_ISSUER')
@@ -60,7 +63,7 @@ class Keycloak(API):
             # Lab realm maps service accounts to bounded principals. Production
             # must use an immutable enterprise subject mapping, not arbitrary names.
             actor=c.get('fabric_principal')
-            if actor not in {'agent-a','agent-b','reviewer-a','reviewer-b','admin-a'}:raise ValueError('unmapped identity')
+            if actor not in allowed_principals():raise ValueError('unmapped identity')
             return actor
         except Exception as e:raise DependencyFailure('Identity verification failed') from e
     def token(self,client_id,client_secret):
@@ -72,14 +75,21 @@ class Keycloak(API):
 
 class OpenFGA(API):
     def __init__(self):super().__init__(required('FGA_URL'),{'Authorization':'Bearer '+required('FGA_TOKEN')})
-    def check(self,actor,case):
+    def check(self,actor,case,*,object_type=None,relation=None,user_type=None):
+        binding=fga_binding(object_type=object_type,relation=relation,user_type=user_type)
+        for label,value in [('actor',actor),('resource',case)]:
+            text_value(value,label)
+            if '#' in value or '*' in value:raise ConfigurationError('Invalid FGA '+label+' identifier')
         payload={'authorization_model_id':required('FGA_MODEL_ID'),
-                 'tuple_key':{'user':'user:'+actor,'relation':'operator','object':'case:'+case},
+                 'tuple_key':{'user':binding['user_type']+':'+actor,'relation':binding['relation'],
+                              'object':binding['object_type']+':'+case},
                  'consistency':'HIGHER_CONSISTENCY'}
         result=self.call('POST','/stores/'+quote(required('FGA_STORE_ID'),safe='')+'/check',payload)
         if type(result.get('allowed')) is not bool:raise DependencyFailure('Malformed relationship decision')
         return result['allowed']
     def bootstrap(self):
+        if fga_binding()!={'user_type':'user','object_type':'case','relation':'operator'}:
+            raise ConfigurationError('Lab bootstrap requires default FGA types; provision a scoped model for custom bindings')
         store=self.call('POST','/stores',{'name':'fabric-lab'})['id']
         model={'schema_version':'1.1','type_definitions':[{'type':'user'},{'type':'case','relations':{'operator':{'this':{}}},
                'metadata':{'relations':{'operator':{'directly_related_user_types':[{'type':'user'}]}}}}]}
@@ -146,15 +156,22 @@ class CISOAssistant(API):
 class OpenMetadata(API):
     def __init__(self):super().__init__(required('METADATA_URL'),{'Authorization':'Bearer '+required('METADATA_TOKEN')})
     def table(self):
-        return self.call('GET','/v1/tables/name/'+quote(required('METADATA_TABLE_FQN'),safe=''),params={'fields':'tags,owners'})
-    def assert_classified(self):
-        t=self.table();tags={x['tagFQN'] for x in t.get('tags',[])}
-        if required('METADATA_REQUIRED_TAG') not in tags:raise DependencyFailure('Required classification missing')
+        # Compatibility name for existing callers; the binding selects the entity.
+        return self.entity()
+    def entity(self,**overrides):
+        binding=metadata_binding(**overrides)
+        return self.call('GET','/v1/'+binding['entity_collection']+'/name/'+quote(binding['entity_fqn'],safe=''),params={'fields':'tags,owners'})
+    def assert_classified(self,*,entity_type=None,entity_collection=None,entity_fqn=None,required_tag=None):
+        binding=metadata_binding(entity_type=entity_type,entity_collection=entity_collection,
+                                 entity_fqn=entity_fqn,required_tag=required_tag)
+        t=self.entity(**binding);tags={x['tagFQN'] for x in t.get('tags',[])}
+        if binding['required_tag'] not in tags:raise DependencyFailure('Required classification missing')
         if not t.get('owners'):raise DependencyFailure('Data owner missing')
         return {'id':t['id'],'version':t.get('version'),'updatedAt':t.get('updatedAt')}
     def lineage(self,source_id,target_id):
-        return self.call('PUT','/v1/lineage',{'edge':{'fromEntity':{'id':source_id,'type':'table'},
-            'toEntity':{'id':target_id,'type':'table'}}})
+        entity_type=setting('METADATA_ENTITY_TYPE','table',api_identifier=True)
+        return self.call('PUT','/v1/lineage',{'edge':{'fromEntity':{'id':source_id,'type':entity_type},
+            'toEntity':{'id':target_id,'type':entity_type}}})
 
 class MLflowRegistry:
     def __init__(self):
@@ -162,21 +179,24 @@ class MLflowRegistry:
         os.environ.setdefault('MLFLOW_HTTP_REQUEST_MAX_RETRIES','0')
         from mlflow import MlflowClient
         self.client=MlflowClient(tracking_uri=required('MLFLOW_URL'))
-    def validate(self):
-        m=self.client.get_model_version_by_alias(required('MODEL_NAME'),'validated')
+    def validate(self,*,model_name=None,metric_requirements=None):
+        name=setting('MODEL_NAME',override=model_name)
+        m=self.client.get_model_version_by_alias(name,'validated')
         run=self.client.get_run(m.run_id)
-        expiry=float(run.data.tags.get('fabric.validation_expires','0'))
+        try:expiry=finite_number(float(run.data.tags.get('fabric.validation_expires','0')),'Validation expiry')
+        except (ValueError,TypeError,OverflowError) as e:raise DependencyFailure('Invalid model validation expiry') from e
         if expiry<=time.time():raise DependencyFailure('Model validation expired')
         if run.data.tags.get('fabric.independent_approval')!='true':raise DependencyFailure('Model release lacks approval')
-        if run.data.metrics.get('fairness_difference',1)>float(required('FAIRNESS_MAX_DIFFERENCE')):
-            raise DependencyFailure('Fairness threshold exceeded')
+        try:enforce_metric_requirements(run.data.metrics,metric_requirements)
+        except ConfigurationError as e:raise DependencyFailure('Model evaluation requirements not met') from e
         return {'model_version':m.version,'run_id':m.run_id,'expires':expiry}
     def publish_evaluation(self,metrics,artifact):
         import mlflow
         mlflow.set_tracking_uri(required('MLFLOW_URL'));mlflow.set_experiment('fabric-validation')
         with mlflow.start_run() as run:
             mlflow.log_metrics(metrics);mlflow.set_tags({'fabric.validation_expires':str(time.time()+3600),
-                'fabric.independent_approval':'false','fabric.dataset':'synthetic; not credit validation'})
+                'fabric.independent_approval':'false','fabric.dataset':artifact['dataset'],
+                'fabric.dataset_origin':artifact.get('dataset_origin','unspecified')})
             mlflow.log_dict(artifact,'evaluation.json');runid=run.info.run_id
         name=required('MODEL_NAME')
         try:self.client.get_registered_model(name)
@@ -208,13 +228,17 @@ class IRIS(API):
 
 class GLPI(API):
     def __init__(self):
+        setting('GLPI_SERVICE_TYPE','Computer',api_identifier=True)
         super().__init__(required('GLPI_URL'),{'App-Token':required('GLPI_APP_TOKEN'),
                                              'Authorization':'user_token '+required('GLPI_USER_TOKEN')})
         session=self.call('GET','/initSession')['session_token']
         self.client.headers['Session-Token']=session
-    def service(self):
-        record=self.call('GET','/Computer/'+quote(required('GLPI_SERVICE_ID'),safe=''))
-        if str(record.get('entities_id'))!=required('GLPI_ENTITY_ID'):raise DependencyFailure('Service inventory entity mismatch')
+    def service(self,*,service_type=None,service_id=None,entity_id=None):
+        kind=setting('GLPI_SERVICE_TYPE','Computer',override=service_type,api_identifier=True)
+        service_id=setting('GLPI_SERVICE_ID',override=service_id)
+        entity_id=setting('GLPI_ENTITY_ID',override=entity_id)
+        record=self.call('GET','/'+kind+'/'+quote(service_id,safe=''))
+        if str(record.get('entities_id'))!=entity_id:raise DependencyFailure('Service inventory entity mismatch')
         return record
     def remediation(self,title,description):
         return self.call('POST','/Ticket',{'input':{'name':title,'content':description,'type':2,

@@ -1,5 +1,24 @@
 # Validation and evidence
 
+## Configurable workflow regression — 2026-11-02
+
+The reusable path was checked in local WSL with Python 3.14.4, OPA 1.0.1 and a real PostgreSQL 16.2 cluster. The recorded run passed all jobs:
+
+| Group | Result | Evidence |
+| --- | --- | --- |
+| Core controls, configurable runtime, HTTP, agent and design tests | 100 passed; zero failures, errors or skips | `results/configurable-validation/summary.json`, `tests.log` |
+| Original and configurable Rego policy checks | 12 passed | `results/configurable-validation/rego-tests.log` |
+| Original Microsoft AGT wrapper assertions | Three passed | `results/configurable-validation/agt.json` |
+| Native adapter contracts, configuration, generic bindings and toolkit integration | 77 passed | `results/configurable-validation/enterprise.log` |
+| Real PostgreSQL storage and recovery | Passed for original controls and both configurable workflows | `results/configurable-validation/native-postgres.log` |
+| Source compilation and strict documentation build | Passed | `results/configurable-validation/run-summary.json`, `docs.log` |
+
+The configurable PostgreSQL checks exercised two independently approved workflow journeys, approval substitution denial, twelve concurrent retries producing one additional effect, and a shared budget across two actors allowing exactly ten of fifteen concurrent requests. They also checked configuration changes, audit/outbox consistency and receipt replay without additional effects after a PostgreSQL restart. The effect targets are synthetic local tables. Other native API contracts use simulated responses; these results do not establish complete eighteen-component acceptance or live-model performance.
+
+The GitHub failure was caused by a locale-free PostgreSQL cluster initialized without an explicit encoding: SQL_ASCII text was returned as bytes, leading to a `text = bytea` comparison error. The runner now initializes UTF8 and verifies server/client encoding plus a Unicode fetch-and-rebind check. A subsequent configurable regression exposed PostgreSQL's decimal result for integer usage sums; the runtime now validates and normalizes those totals before policy serialization. The initial failure evidence is retained alongside the passing rerun.
+
+Historical evidence below remains unchanged. Deployment commissioning and the independent work listed on this page still apply.
+
 ## Observed original experiment
 
 | Group | Result | Evidence |

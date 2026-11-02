@@ -29,6 +29,7 @@ markdown_extensions:
 nav:
   - Overview: index.md
   - Getting started: getting-started.md
+  - Configurable workflows: configurable-workflows.md
   - Architecture: architecture.md
   - Components: components/catalogue.md
   - Deployment: deployment/full-stack.md

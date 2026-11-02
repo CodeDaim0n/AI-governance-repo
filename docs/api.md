@@ -1,5 +1,7 @@
 # Gateway API
 
+This page describes the original credit-laboratory API. New integrations should start with the [configurable workflow API](configurable-workflows.md#authenticated-http-and-agent-execution), whose action envelope and task tools are derived from registered workflow definitions.
+
 The native gateway is `fabric.enterprise.app:app`. It exposes FastAPI's generated `/docs` and `/openapi.json` on the dedicated lab endpoint. These are available only after native commissioning; the core loopback server has a smaller interface.
 
 ## Authentication

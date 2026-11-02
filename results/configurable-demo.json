@@ -1,0 +1,50 @@
+{
+  "scope": "local synthetic adapters, no external systems or model inference",
+  "workflows": [
+    {
+      "workflow_id": "synthetic-credit",
+      "before_approval": {
+        "status": "denied",
+        "reason": "approval_required"
+      },
+      "after_approval": {
+        "status": "executed",
+        "action_id": "da4dbdd2-07b2-4602-a406-47327cbae796",
+        "workflow_id": "synthetic-credit",
+        "config_digest": "66532406f8c695d86bfa3a53a9b9bb38d344c6af59f8c0486dec6991346f7845",
+        "workflow_version": "credit-v1",
+        "receipt": {
+          "target": "local_synthetic_credit_ledger",
+          "effect_id": "da4dbdd2-07b2-4602-a406-47327cbae796",
+          "resource_id": "case-a",
+          "amount_pence": 20000
+        }
+      },
+      "retry_returns_same_receipt": true
+    },
+    {
+      "workflow_id": "it-access",
+      "before_approval": {
+        "status": "denied",
+        "reason": "approval_required"
+      },
+      "after_approval": {
+        "status": "executed",
+        "action_id": "689852c5-841e-4ad4-9391-e73c8aabb69c",
+        "workflow_id": "it-access",
+        "config_digest": "acfa2a6b516ec8a13ae64cdc73cb15cc1f7222f71b2c3f5d1272ae346e4e3a5f",
+        "workflow_version": "access-v1",
+        "receipt": {
+          "target": "local_synthetic_access_directory",
+          "effect_id": "689852c5-841e-4ad4-9391-e73c8aabb69c",
+          "resource_id": "employee-a",
+          "permission": "admin",
+          "expires_at": 1793625530.2825468
+        }
+      },
+      "retry_returns_same_receipt": true
+    }
+  ],
+  "effects": 2,
+  "audit_chain_valid": true
+}

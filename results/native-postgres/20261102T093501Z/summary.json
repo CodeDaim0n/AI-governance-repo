@@ -1,0 +1,28 @@
+{
+  "status": "FAIL",
+  "scope": "isolated real PostgreSQL + OPA; not all-18 acceptance",
+  "checks": {
+    "utf8_text_round_trip": {
+      "server_encoding": "UTF8",
+      "client_encoding": "UTF8"
+    },
+    "unapproved_release_denied": true,
+    "concurrent_retries_one_effect": {
+      "requests": 12,
+      "effects": 1
+    },
+    "changed_intent_rejected": true,
+    "cross_tenant_denied": true,
+    "reviewer_approval_exact_effect": true,
+    "concurrent_budget_enforced": {
+      "requests": 8,
+      "executed": 2,
+      "denied": 6
+    },
+    "kill_switch_denied": true,
+    "audit_chain_verified": true
+  },
+  "adapter_sha256": "47e8ed1fd35cb89db3df2554bc56df950950c51d9623e03b3adfd9f5ad79cbb6",
+  "postgres_version": "postgres (PostgreSQL) 16.2",
+  "postgres_binary_sha256": "ae05b2a1b0685f2c69b8b9eb3765b1429a5c173c64b248f7f157de2af9db768d"
+}

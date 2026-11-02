@@ -18,6 +18,17 @@ The 18 component groups contribute across that lifecycle: identity and action au
 
 [Quickstart](docs/getting-started.md) · [Architecture](docs/architecture.md) · [All 18 components](docs/components/catalogue.md) · [Full deployment](docs/deployment/full-stack.md) · [Research paper](docs/Governed_Agent_Fabric_Research_Paper.pdf) · [Validation evidence](docs/validation.md)
 
+## Configurable workflows
+
+The reusable entry point accepts versioned workflow definitions and produces a governance assessment plus an implementation package. The same runtime and authenticated agent API execute two included workflows: synthetic credit commitments and IT access grants. Their schemas, resource checks, roles, approval conditions and budgets are configuration; their target effects are explicit registered adapters.
+
+```bash
+python -m fabric.workflow_cli demo --workflow workflows/synthetic-credit.json --workflow workflows/it-access.json
+python -m fabric.workflow_cli package --workflow workflows/synthetic-credit.json --workflow workflows/it-access.json --output results/workflow-package.json
+```
+
+[Configuration, examples and migration](docs/configurable-workflows.md) explains the contract, API, extension points and mapping across all eighteen component groups. The examples use local synthetic targets. New external systems require adapters and verification; loading configuration never approves deployment. Native bindings are available for commissioning, while complete-stack acceptance remains separate and unverified. The original credit-specific interfaces remain as the compatibility laboratory for previously recorded experiments.
+
 > **Status:** Research implementation. All 18 component groups have integration and deployment code. Qwen now performs real autonomous tool calls in a native subset, and a connected approval/restart journey has run. Complete eighteen-product live acceptance remains pending. [See the recorded evidence and deployment requirements](docs/validation.md).
 
 ## System architecture · all 18 components

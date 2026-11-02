@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/anjal/OneDrive/Documents/ChatGPT/AI Governance/fabric-configurable/scripts/run_native_postgres.py", line 157, in <module>
+    main()
+    ~~~~^^
+  File "/mnt/c/Users/anjal/OneDrive/Documents/ChatGPT/AI Governance/fabric-configurable/scripts/run_native_postgres.py", line 130, in main
+    configurable = check_configurable(db.path)
+  File "/mnt/c/Users/anjal/OneDrive/Documents/ChatGPT/AI Governance/fabric-configurable/scripts/check_configurable_postgres.py", line 167, in run
+    result = _exercise(fabric, uuid.uuid4().hex[:16])
+  File "/mnt/c/Users/anjal/OneDrive/Documents/ChatGPT/AI Governance/fabric-configurable/scripts/check_configurable_postgres.py", line 80, in _exercise
+    require(response.get('status') == 'executed', 'Approved journey did not execute')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/anjal/OneDrive/Documents/ChatGPT/AI Governance/fabric-configurable/scripts/check_configurable_postgres.py", line 32, in require
+    raise AssertionError(message)
+AssertionError: Approved journey did not execute

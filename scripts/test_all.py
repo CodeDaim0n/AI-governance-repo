@@ -2,6 +2,7 @@
 import json
 import os
 import platform
+import re
 import subprocess
 import sys
 import time
@@ -26,7 +27,7 @@ with open('results/opa.log','w') as log:
   else:raise RuntimeError('OPA readiness timeout')
   with open('results/tests.log','w') as f:
    result=unittest.TextTestRunner(stream=f,verbosity=2).run(unittest.defaultTestLoader.discover('tests'))
-  summary={'date':'2026-11-02','python':platform.python_version(),'cryptography':cryptography.__version__,'opa':version,'tests_run':result.testsRun,'failures':len(result.failures),'errors':len(result.errors),'skipped':len(result.skipped),'rego_tests':6,'rego_passed':policy.returncode==0,'scope':'Synthetic single-node control and HTTP integration tests; not a model benchmark or product certification'}
+  summary={'date':'2026-11-02','python':platform.python_version(),'cryptography':cryptography.__version__,'opa':version,'tests_run':result.testsRun,'failures':len(result.failures),'errors':len(result.errors),'skipped':len(result.skipped),'rego_tests':len(re.findall(r': PASS\b',policy.stdout)),'rego_passed':policy.returncode==0,'scope':'Synthetic single-node control and HTTP integration tests; not a model benchmark or product certification'}
   Path('results/summary.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary,indent=2))
   raise SystemExit(not result.wasSuccessful())
  finally:server.terminate();server.wait(timeout=5)

@@ -1,0 +1,797 @@
+{
+  "schema_version": 1,
+  "workflow_definitions": [
+    {
+      "description": "Synthetic credit commitment with independent approval and aggregate resource and tenant budgets. Local demonstration only.",
+      "operations": {
+        "commit_credit": {
+          "adapter": "synthetic-credit",
+          "allowed_roles": [
+            "agent"
+          ],
+          "approval": {
+            "reviewer_roles": [
+              "reviewer"
+            ],
+            "ttl_seconds": 300,
+            "when": [
+              {
+                "field": "amount_pence",
+                "op": "gt",
+                "value": 10000
+              }
+            ]
+          },
+          "budgets": [
+            {
+              "limit": 100000,
+              "parameter": "amount_pence",
+              "scope": "resource"
+            },
+            {
+              "limit": 500000,
+              "parameter": "amount_pence",
+              "scope": "tenant"
+            }
+          ],
+          "description": "Record a synthetic credit commitment in the local transactional ledger.",
+          "parameters": {
+            "additionalProperties": false,
+            "properties": {
+              "amount_pence": {
+                "maximum": 100000,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "reason": {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "amount_pence",
+              "reason"
+            ],
+            "type": "object"
+          },
+          "resource_checks": [
+            {
+              "field": "kyc",
+              "op": "eq",
+              "value": "clear"
+            },
+            {
+              "field": "region",
+              "op": "eq",
+              "value": "UK"
+            }
+          ]
+        }
+      },
+      "resource_freshness_seconds": 86400,
+      "resource_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "kyc": {
+            "enum": [
+              "clear",
+              "blocked"
+            ],
+            "maxLength": 16,
+            "minLength": 1,
+            "type": "string"
+          },
+          "region": {
+            "enum": [
+              "UK",
+              "US"
+            ],
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string"
+          }
+        },
+        "required": [
+          "kyc",
+          "region"
+        ],
+        "type": "object"
+      },
+      "schema_version": 1,
+      "version": "credit-v1",
+      "workflow_id": "synthetic-credit"
+    },
+    {
+      "description": "Time-bounded synthetic IT access grants for active employees and approved applications. Local demonstration only.",
+      "operations": {
+        "grant_access": {
+          "adapter": "synthetic-access",
+          "allowed_roles": [
+            "agent"
+          ],
+          "approval": {
+            "reviewer_roles": [
+              "reviewer"
+            ],
+            "ttl_seconds": 180,
+            "when": [
+              {
+                "field": "permission",
+                "op": "eq",
+                "value": "admin"
+              },
+              {
+                "field": "duration_hours",
+                "op": "gt",
+                "value": 8
+              }
+            ]
+          },
+          "budgets": [
+            {
+              "limit": 240,
+              "parameter": "duration_hours",
+              "scope": "resource"
+            }
+          ],
+          "description": "Record an expiring synthetic access grant in the local transactional directory.",
+          "parameters": {
+            "additionalProperties": false,
+            "properties": {
+              "duration_hours": {
+                "maximum": 72,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "justification": {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              "permission": {
+                "enum": [
+                  "read",
+                  "write",
+                  "admin"
+                ],
+                "maxLength": 8,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "permission",
+              "duration_hours",
+              "justification"
+            ],
+            "type": "object"
+          },
+          "resource_checks": [
+            {
+              "field": "employee_status",
+              "op": "eq",
+              "value": "active"
+            },
+            {
+              "field": "application_approved",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        }
+      },
+      "resource_freshness_seconds": 3600,
+      "resource_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "application": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "application_approved": {
+            "type": "boolean"
+          },
+          "employee_status": {
+            "enum": [
+              "active",
+              "inactive"
+            ],
+            "maxLength": 16,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "employee_status",
+          "application",
+          "application_approved"
+        ],
+        "type": "object"
+      },
+      "schema_version": 1,
+      "version": "access-v1",
+      "workflow_id": "it-access"
+    }
+  ],
+  "assessment": {
+    "schema_version": 1,
+    "generated_at": "2026-11-02T09:23:48.096073+00:00",
+    "kind": "governance_design_and_assessment",
+    "workflows": [
+      {
+        "workflow_id": "synthetic-credit",
+        "description": "Synthetic credit commitment with independent approval and aggregate resource and tenant budgets. Local demonstration only.",
+        "config_digest": "66532406f8c695d86bfa3a53a9b9bb38d344c6af59f8c0486dec6991346f7845",
+        "sections": {
+          "4.1": {
+            "completeness": "partial",
+            "missing": [
+              "Named accountable owner and authorized release reviewer",
+              "Operating context, affected people and applicable organizational requirements",
+              "Authoritative production source and target integration",
+              "Representative process-specific validation and human oversight evidence",
+              "Retention, redress, incident response and recovery arrangements",
+              "Native deployment commissioning and independent acceptance evidence"
+            ]
+          },
+          "4.2": {
+            "readiness": "design_review_required",
+            "production_approval": false
+          },
+          "4.3": {
+            "analysis": [
+              {
+                "operation": "commit_credit",
+                "adapter": "synthetic-credit",
+                "status": "configured",
+                "allowed_roles": [
+                  "agent"
+                ],
+                "parameter_schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "amount_pence": {
+                      "maximum": 100000,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "reason": {
+                      "maxLength": 500,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount_pence",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "resource_checks": [
+                  {
+                    "field": "kyc",
+                    "op": "eq",
+                    "value": "clear"
+                  },
+                  {
+                    "field": "region",
+                    "op": "eq",
+                    "value": "UK"
+                  }
+                ],
+                "approval": {
+                  "reviewer_roles": [
+                    "reviewer"
+                  ],
+                  "ttl_seconds": 300,
+                  "when": [
+                    {
+                      "field": "amount_pence",
+                      "op": "gt",
+                      "value": 10000
+                    }
+                  ]
+                },
+                "budgets": [
+                  {
+                    "limit": 100000,
+                    "parameter": "amount_pence",
+                    "scope": "resource"
+                  },
+                  {
+                    "limit": 500000,
+                    "parameter": "amount_pence",
+                    "scope": "tenant"
+                  }
+                ],
+                "required_evidence": [
+                  "authorized positive journey",
+                  "unauthorized negative journey",
+                  "approval substitution rejection",
+                  "effect and evidence atomicity"
+                ],
+                "verification_status": "not_established_by_design_generation"
+              }
+            ]
+          },
+          "4.4": {
+            "risk_register_status": "owner_assessment_required",
+            "ratings": null,
+            "review_scenarios": [
+              "unauthorized effect",
+              "stale or incorrect source",
+              "approval substitution",
+              "duplicate effect",
+              "evidence loss"
+            ]
+          },
+          "4.5": {
+            "autonomy": "bounded_by_operation_contract",
+            "delegation": "server_owned",
+            "operations": [
+              "commit_credit"
+            ]
+          },
+          "4.6": {
+            "control_configuration": [
+              {
+                "operation": "commit_credit",
+                "adapter": "synthetic-credit",
+                "status": "configured",
+                "allowed_roles": [
+                  "agent"
+                ],
+                "parameter_schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "amount_pence": {
+                      "maximum": 100000,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "reason": {
+                      "maxLength": 500,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount_pence",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "resource_checks": [
+                  {
+                    "field": "kyc",
+                    "op": "eq",
+                    "value": "clear"
+                  },
+                  {
+                    "field": "region",
+                    "op": "eq",
+                    "value": "UK"
+                  }
+                ],
+                "approval": {
+                  "reviewer_roles": [
+                    "reviewer"
+                  ],
+                  "ttl_seconds": 300,
+                  "when": [
+                    {
+                      "field": "amount_pence",
+                      "op": "gt",
+                      "value": 10000
+                    }
+                  ]
+                },
+                "budgets": [
+                  {
+                    "limit": 100000,
+                    "parameter": "amount_pence",
+                    "scope": "resource"
+                  },
+                  {
+                    "limit": 500000,
+                    "parameter": "amount_pence",
+                    "scope": "tenant"
+                  }
+                ],
+                "required_evidence": [
+                  "authorized positive journey",
+                  "unauthorized negative journey",
+                  "approval substitution rejection",
+                  "effect and evidence atomicity"
+                ],
+                "verification_status": "not_established_by_design_generation"
+              }
+            ],
+            "enforcement": "ConfigurableFabric",
+            "remote_target_support": "requires_explicit_adapter_and_reconciliation_contract"
+          },
+          "4.7": {
+            "traceability": {
+              "workflow_id": "synthetic-credit",
+              "workflow_version": "credit-v1",
+              "config_digest": "66532406f8c695d86bfa3a53a9b9bb38d344c6af59f8c0486dec6991346f7845"
+            },
+            "assurance_status": "configuration_is_not_operational_evidence"
+          },
+          "4.8": {
+            "validation_status": "requires_separate_evidence",
+            "required": [
+              "Representative process-specific validation and human oversight evidence"
+            ]
+          },
+          "4.9": {
+            "configured": [
+              "tenant-scoped stop",
+              "transactional audit and outbox"
+            ],
+            "operating_arrangements": "unassigned"
+          },
+          "4.10": {
+            "benefits": "not_measured",
+            "costs": "not_measured"
+          },
+          "4.11": {
+            "remediation": [
+              {
+                "action": "Named accountable owner and authorized release reviewer",
+                "owner": null,
+                "status": "open"
+              },
+              {
+                "action": "Operating context, affected people and applicable organizational requirements",
+                "owner": null,
+                "status": "open"
+              },
+              {
+                "action": "Authoritative production source and target integration",
+                "owner": null,
+                "status": "open"
+              },
+              {
+                "action": "Representative process-specific validation and human oversight evidence",
+                "owner": null,
+                "status": "open"
+              },
+              {
+                "action": "Retention, redress, incident response and recovery arrangements",
+                "owner": null,
+                "status": "open"
+              },
+              {
+                "action": "Native deployment commissioning and independent acceptance evidence",
+                "owner": null,
+                "status": "open"
+              }
+            ]
+          },
+          "4.12": {
+            "schema_version": 1,
+            "config_digest": "66532406f8c695d86bfa3a53a9b9bb38d344c6af59f8c0486dec6991346f7845",
+            "evidence": [],
+            "limitations": "Generated from configuration only; no deployment or approval performed"
+          }
+        }
+      },
+      {
+        "workflow_id": "it-access",
+        "description": "Time-bounded synthetic IT access grants for active employees and approved applications. Local demonstration only.",
+        "config_digest": "acfa2a6b516ec8a13ae64cdc73cb15cc1f7222f71b2c3f5d1272ae346e4e3a5f",
+        "sections": {
+          "4.1": {
+            "completeness": "partial",
+            "missing": [
+              "Named accountable owner and authorized release reviewer",
+              "Operating context, affected people and applicable organizational requirements",
+              "Authoritative production source and target integration",
+              "Representative process-specific validation and human oversight evidence",
+              "Retention, redress, incident response and recovery arrangements",
+              "Native deployment commissioning and independent acceptance evidence"
+            ]
+          },
+          "4.2": {
+            "readiness": "design_review_required",
+            "production_approval": false
+          },
+          "4.3": {
+            "analysis": [
+              {
+                "operation": "grant_access",
+                "adapter": "synthetic-access",
+                "status": "configured",
+                "allowed_roles": [
+                  "agent"
+                ],
+                "parameter_schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "duration_hours": {
+                      "maximum": 72,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "justification": {
+                      "maxLength": 500,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "permission": {
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
+                      ],
+                      "maxLength": 8,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "permission",
+                    "duration_hours",
+                    "justification"
+                  ],
+                  "type": "object"
+                },
+                "resource_checks": [
+                  {
+                    "field": "employee_status",
+                    "op": "eq",
+                    "value": "active"
+                  },
+                  {
+                    "field": "application_approved",
+                    "op": "eq",
+                    "value": true
+                  }
+                ],
+                "approval": {
+                  "reviewer_roles": [
+                    "reviewer"
+                  ],
+                  "ttl_seconds": 180,
+                  "when": [
+                    {
+                      "field": "permission",
+                      "op": "eq",
+                      "value": "admin"
+                    },
+                    {
+                      "field": "duration_hours",
+                      "op": "gt",
+                      "value": 8
+                    }
+                  ]
+                },
+                "budgets": [
+                  {
+                    "limit": 240,
+                    "parameter": "duration_hours",
+                    "scope": "resource"
+                  }
+                ],
+                "required_evidence": [
+                  "authorized positive journey",
+                  "unauthorized negative journey",
+                  "approval substitution rejection",
+                  "effect and evidence atomicity"
+                ],
+                "verification_status": "not_established_by_design_generation"
+              }
+            ]
+          },
+          "4.4": {
+            "risk_register_status": "owner_assessment_required",
+            "ratings": null,
+            "review_scenarios": [
+              "unauthorized effect",
+              "stale or incorrect source",
+              "approval substitution",
+              "duplicate effect",
+              "evidence loss"
+            ]
+          },
+          "4.5": {
+            "autonomy": "bounded_by_operation_contract",
+            "delegation": "server_owned",
+            "operations": [
+              "grant_access"
+            ]
+          },
+          "4.6": {
+            "control_configuration": [
+              {
+                "operation": "grant_access",
+                "adapter": "synthetic-access",
+                "status": "configured",
+                "allowed_roles": [
+                  "agent"
+                ],
+                "parameter_schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "duration_hours": {
+                      "maximum": 72,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "justification": {
+                      "maxLength": 500,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "permission": {
+                      "enum": [
+                        "read",
+                        "write",
+                        "admin"
+                      ],
+                      "maxLength": 8,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "permission",
+                    "duration_hours",
+                    "justification"
+                  ],
+                  "type": "object"
+                },
+                "resource_checks": [
+                  {
+                    "field": "employee_status",
+                    "op": "eq",
+                    "value": "active"
+                  },
+                  {
+                    "field": "application_approved",
+                    "op": "eq",
+                    "value": true
+                  }
+                ],
+                "approval": {
+                  "reviewer_roles": [
+                    "reviewer"
+                  ],
+                  "ttl_seconds": 180,
+                  "when": [
+                    {
+                      "field": "permission",
+                      "op": "eq",
+                      "value": "admin"
+                    },
+                    {
+                      "field": "duration_hours",
+                      "op": "gt",
+                      "value": 8
+                    }
+                  ]
+                },
+                "budgets": [
+                  {
+                    "limit": 240,
+                    "parameter": "duration_hours",
+                    "scope": "resource"
+                  }
+                ],
+                "required_evidence": [
+                  "authorized positive journey",
+                  "unauthorized negative journey",
+                  "approval substitution rejection",
+                  "effect and evidence atomicity"
+                ],
+                "verification_status": "not_established_by_design_generation"
+              }
+            ],
+            "enforcement": "ConfigurableFabric",
+            "remote_target_support": "requires_explicit_adapter_and_reconciliation_contract"
+          },
+          "4.7": {
+            "traceability": {
+              "workflow_id": "it-access",
+              "workflow_version": "access-v1",
+              "config_digest": "acfa2a6b516ec8a13ae64cdc73cb15cc1f7222f71b2c3f5d1272ae346e4e3a5f"
+            },
+            "assurance_status": "configuration_is_not_operational_evidence"
+          },
+          "4.8": {
+            "validation_status": "requires_separate_evidence",
+            "required": [
+              "Representative process-specific validation and human oversight evidence"
+            ]
+          },
+          "4.9": {
+            "configured": [
+              "tenant-scoped stop",
+              "transactional audit and outbox"
+            ],
+            "operating_arrangements": "unassigned"
+          },
+          "4.10": {
+            "benefits": "not_measured",
+            "costs": "not_measured"
+          },
+          "4.11": {
+            "remediation": [
+              {
+                "action": "Named accountable owner and authorized release reviewer",
+                "owner": null,
+                "status": "open"
+              },
+              {
+                "action": "Operating context, affected people and applicable organizational requirements",
+                "owner": null,
+                "status": "open"
+              },
+              {
+                "action": "Authoritative production source and target integration",
+                "owner": null,
+                "status": "open"
+              },
+              {
+                "action": "Representative process-specific validation and human oversight evidence",
+                "owner": null,
+                "status": "open"
+              },
+              {
+                "action": "Retention, redress, incident response and recovery arrangements",
+                "owner": null,
+                "status": "open"
+              },
+              {
+                "action": "Native deployment commissioning and independent acceptance evidence",
+                "owner": null,
+                "status": "open"
+              }
+            ]
+          },
+          "4.12": {
+            "schema_version": 1,
+            "config_digest": "acfa2a6b516ec8a13ae64cdc73cb15cc1f7222f71b2c3f5d1272ae346e4e3a5f",
+            "evidence": [],
+            "limitations": "Generated from configuration only; no deployment or approval performed"
+          }
+        }
+      }
+    ]
+  },
+  "opa_data": {
+    "fabric_workflows": {
+      "synthetic-credit": {
+        "enabled": false,
+        "config_digest": "66532406f8c695d86bfa3a53a9b9bb38d344c6af59f8c0486dec6991346f7845",
+        "allowed_operations": [
+          "commit_credit"
+        ],
+        "allowed_roles": [
+          "agent"
+        ],
+        "allowed_tenants": []
+      },
+      "it-access": {
+        "enabled": false,
+        "config_digest": "acfa2a6b516ec8a13ae64cdc73cb15cc1f7222f71b2c3f5d1272ae346e4e3a5f",
+        "allowed_operations": [
+          "grant_access"
+        ],
+        "allowed_roles": [
+          "agent"
+        ],
+        "allowed_tenants": []
+      }
+    }
+  },
+  "deployment_status": "unapproved",
+  "secrets_included": false,
+  "required_adapter_ids": [
+    "synthetic-access",
+    "synthetic-credit"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "workflows": {
+    "synthetic-credit": {
+      "required_capabilities": ["opa", "relationships", "metadata", "model", "inventory"],
+      "opa_decision_url": "http://127.0.0.1:8181/v1/data/fabric_configurable/decision",
+      "fga_user_type": "user",
+      "fga_object_type": "resource",
+      "fga_relation": "operator",
+      "metadata_entity_type": "table",
+      "metadata_entity_collection": "tables",
+      "metadata_entity_fqn": "replace_with_credit_source_fqn",
+      "metadata_required_tag": "replace_with_approved_classification",
+      "model_tenant": "replace_with_tenant",
+      "model_name": "replace_with_model_name",
+      "model_metric_requirements": {"accuracy": {"min": 0.9}},
+      "glpi_service_type": "Computer",
+      "glpi_service_id": "replace_with_service_id",
+      "glpi_entity_id": "replace_with_entity_id"
+    },
+    "it-access": {
+      "required_capabilities": ["opa", "relationships", "metadata", "model", "inventory"],
+      "opa_decision_url": "http://127.0.0.1:8181/v1/data/fabric_configurable/decision",
+      "fga_user_type": "user",
+      "fga_object_type": "resource",
+      "fga_relation": "operator",
+      "metadata_entity_type": "table",
+      "metadata_entity_collection": "tables",
+      "metadata_entity_fqn": "replace_with_access_source_fqn",
+      "metadata_required_tag": "replace_with_approved_classification",
+      "model_tenant": "replace_with_tenant",
+      "model_name": "replace_with_model_name",
+      "model_metric_requirements": {"accuracy": {"min": 0.9}},
+      "glpi_service_type": "Computer",
+      "glpi_service_id": "replace_with_service_id",
+      "glpi_entity_id": "replace_with_entity_id"
+    }
+  }
+}

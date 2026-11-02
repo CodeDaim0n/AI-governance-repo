@@ -1,0 +1,30 @@
+{
+  "scope": "Local WSL regression; native PostgreSQL and OPA, synthetic targets; other native APIs simulated",
+  "python": "3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]",
+  "jobs": {
+    "compile": {
+      "exit_code": 0,
+      "seconds": 1.43
+    },
+    "core": {
+      "exit_code": 0,
+      "seconds": 17.46
+    },
+    "agt": {
+      "exit_code": 0,
+      "seconds": 2.23
+    },
+    "enterprise": {
+      "exit_code": 0,
+      "seconds": 3.39
+    },
+    "native-postgres": {
+      "exit_code": 0,
+      "seconds": 6.75
+    },
+    "docs": {
+      "exit_code": 0,
+      "seconds": 8.25
+    }
+  }
+}
