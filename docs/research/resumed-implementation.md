@@ -6,7 +6,7 @@ The previous working tree contained the native Qwen task loop, task-scoped gatew
 
 - External Cilium and supply-chain receipts must identify the current deployment and source commit, explicitly report success and contain successful operation checks. Matching provenance alone cannot turn a failed receipt into a pass.
 - Built-image release acceptance now verifies that Cosign rejects a modified SBOM as well as verifying its original signature. The configured vulnerability gate remains mandatory.
-- A real PostgreSQL/OPA runner exercises parallel retries, exact approval, changed-intent rejection, cross-tenant denial, shared-budget races, kill switch, audit integrity and database restart durability. The existing CI workflow runs it against its installed PostgreSQL binaries; logs are retained as artifacts.
+- A real PostgreSQL/OPA runner exercises parallel retries, exact approval, changed-intent rejection, cross-tenant denial, shared-budget races, kill switch, audit integrity and database restart durability. The existing CI workflow is configured to run it against its installed PostgreSQL binaries and retain logs as artifacts. That added CI check has not run yet.
 - A real Collector runner checks SDK-to-OTLP delivery, matches the exported trace ID, preserves a decision attribute and removes authorization and prompt/completion attributes. Its sampler is explicitly always-on so inherited sampling cannot silently omit the acceptance span.
 - Lab OPA launchers disable optional anonymous outbound telemetry.
 

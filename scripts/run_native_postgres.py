@@ -52,7 +52,7 @@ def main():
             os.chown(local, user.pw_uid, user.pw_gid)
         def pg(*command):
             return subprocess.run([str(pg_bin / command[0]), *map(str, command[1:])],
-                                  cwd=local, capture_output=True, text=True, check=True, **identity)
+                                  cwd=local, capture_output=True, text=True, check=True, timeout=60, **identity)
         pg("initdb", "-D", local / "data", "--auth-local=trust", "--auth-host=reject", "--no-locale", "-U", "postgres")
         pg("pg_ctl", "-D", local / "data", "-l", local / "server.log", "-o", f"-h '' -k {local} -p 55439", "-w", "start")
         with socket.socket() as s:
@@ -116,7 +116,7 @@ def main():
                 before = c.execute("SELECT count(*) FROM actions").fetchone()[0]
                 pending = c.execute("SELECT count(*) FROM outbox WHERE delivered=0").fetchone()[0]
             assert pending > 0
-            pg("pg_ctl", "-D", local / "data", "-m", "fast", "-w", "restart")
+            pg("pg_ctl", "-D", local / "data", "-l", local / "server.log", "-m", "fast", "-w", "restart")
             assert db.verify_chain()
             with db.connect() as c:
                 assert c.execute("SELECT count(*) FROM actions").fetchone()[0] == before
