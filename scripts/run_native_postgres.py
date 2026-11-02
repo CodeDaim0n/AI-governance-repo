@@ -53,7 +53,8 @@ def main():
         def pg(*command):
             return subprocess.run([str(pg_bin / command[0]), *map(str, command[1:])],
                                   cwd=local, capture_output=True, text=True, check=True, timeout=60, **identity)
-        pg("initdb", "-D", local / "data", "--auth-local=trust", "--auth-host=reject", "--no-locale", "-U", "postgres")
+        # --no-locale alone selects SQL_ASCII, making psycopg return text as bytes.
+        pg("initdb", "-D", local / "data", "--auth-local=trust", "--auth-host=reject", "--no-locale", "--encoding=UTF8", "-U", "postgres")
         pg("pg_ctl", "-D", local / "data", "-l", local / "server.log", "-o", f"-h '' -k {local} -p 55439", "-w", "start")
         with socket.socket() as s:
             s.bind(("127.0.0.1", 0)); port = s.getsockname()[1]
@@ -68,6 +69,17 @@ def main():
             else:
                 raise RuntimeError("OPA did not start")
             db = PostgresFabric(f"host={local} port=55439 user=postgres dbname=postgres", OPA(f"http://127.0.0.1:{port}/v1/data/fabric/decision"))
+            with db.connect() as c:
+                server_encoding = c.execute("SHOW server_encoding").fetchone()[0]
+                client_encoding = c.execute("SHOW client_encoding").fetchone()[0]
+                assert server_encoding == "UTF8", f"Expected UTF8 server encoding, got {server_encoding!r}"
+                assert client_encoding == "UTF8", f"Expected UTF8 client encoding, got {client_encoding!r}"
+                sample = "crédit-東京"
+                fetched = c.execute("SELECT ?::text", (sample,)).fetchone()[0]
+                assert isinstance(fetched, str) and fetched == sample
+                # Rebind fetched text, as tenant values are reused in authority queries.
+                assert c.execute("SELECT ?::text = ?", (sample, fetched)).fetchone()[0] is True
+            report["checks"]["utf8_text_round_trip"] = {"server_encoding": server_encoding, "client_encoding": client_encoding}
             db.seed()
             action = {"case_id": "case-a", "tool": "credit.commit", "amount_pence": 50000, "idempotency_key": "same-action"}
             assert db.execute("agent-a", action)["status"] == "denied"
