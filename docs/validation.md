@@ -1,5 +1,27 @@
 # Validation and evidence
 
+## Natural-language designer regression — 2026-11-02
+
+The extended local WSL regression passed 129 core tests, 12 Rego checks, three original AGT assertions, 77 native contract/configuration tests, real PostgreSQL concurrency and recovery, compilation and strict documentation build. See `results/designer-validation/run-summary.json` and the accompanying logs. The 29 new designer/CLI tests exercise unrelated-domain drafts, unknown inputs, exact source quotation checks, reference integrity, category-specific identifiers, proposed authority, malformed responses and Unicode, bounded repair context and diagnostics, transport failures, provider metadata and reasoning fields, safe logging, safe diagram rendering and artifact export. Their model responses are simulations, not live inference results.
+
+Natural-language output remains a model interpretation for human review. The tests establish selected mechanical boundaries; they do not establish that every relevant risk is identified, that quoted source claims are true, or that a model's interpretation follows from those quotations. No generated design grants execution or deployment authority.
+
+## Native designer observations — 2026-11-02
+
+The local Ollama `qwen3:8b` model was exercised against synthetic vendor-onboarding and museum-loan descriptions. Complete records are under `results/workflow-designer/`, including model identity, input and implementation hashes, attempts, accepted artifacts, and optional raw provider responses. The table records development observations across changing prompts and validation code; it is not a benchmark or a controlled comparison of reasoning modes.
+
+| Run directory | Vendor onboarding | Museum loan |
+| --- | --- | --- |
+| `20261102-prose-intake` | Failed: unsupported provider metadata, then timeout | Interrupted; no completed result |
+| `20261102-prose-intake-fixed` | Failed: duplicate identifiers | Interrupted; no completed result |
+| `20261102-prefixed-designs` | Failed: invalid references and ownership | Interrupted; no completed result |
+| `20261102-reasoning-designs` | Mechanical pass after correction; 288.70 seconds | Failed references after two attempts; 353.09 seconds |
+| `20261102-complete-graphs` | Mechanical pass on first attempt; 173.05 seconds | Failed exact quotations and references after two attempts; 465.34 seconds |
+
+The latest vendor draft has six steps, three risks and three proposed controls. Independent assistant source comparison found material defects: vendor addition precedes the final accept/reject outcome, missing/conflicting records lack an explicit hold/resume path, final authority and sequencing are inferred as stated, some controls do not enforce their linked risks, and validation proposals remain underspecified. The comparison is recorded in `20261102-complete-graphs/source-comparison.json`; it is an assistant review, not human approval. No accepted museum design was emitted. Earlier failures and the earlier vendor comparison are retained.
+
+These results support a **review-assisted prototype**, not reliable unattended governance design for arbitrary processes. Schema, quotation and reference checks reject some malformed drafts, but they cannot establish source fidelity, complete risk coverage or effective control design. Native records retain the source hashes used at generation time; the subsequent malformed-Unicode parser guard is covered by automated regression and does not change the generation prompt or schema.
+
 ## Configurable workflow regression — 2026-11-02
 
 The reusable path was checked in local WSL with Python 3.14.4, OPA 1.0.1 and a real PostgreSQL 16.2 cluster. The recorded run passed all jobs:

@@ -20,6 +20,12 @@ The 18 component groups contribute across that lifecycle: identity and action au
 
 ## Configurable workflows
 
+Natural-language intake is available through the [workflow designer](docs/workflow-designer.md). It uses a configured Ollama model to turn a process description into a reviewable governance draft, a workflow graph, questions, risk/control proposals and component mappings. The [illustrated generalisation briefing](docs/Governed_Agent_Fabric_Generalisation.pdf) connects the original Erdos framework to these engineering extensions and all eighteen component groups.
+
+```bash
+python -m fabric.workflow_cli design --description-file examples/workflow-descriptions/vendor-onboarding.txt --model qwen3:8b --thinking --timeout 600 --output results/vendor-design.json --report results/vendor-design.md
+```
+
 The reusable entry point accepts versioned workflow definitions and produces a governance assessment plus an implementation package. The same runtime and authenticated agent API execute two included workflows: synthetic credit commitments and IT access grants. Their schemas, resource checks, roles, approval conditions and budgets are configuration; their target effects are explicit registered adapters.
 
 ```bash

@@ -30,6 +30,8 @@ nav:
   - Overview: index.md
   - Getting started: getting-started.md
   - Configurable workflows: configurable-workflows.md
+  - Workflow designer: workflow-designer.md
+  - Framework extension map: framework-extension-map.md
   - Architecture: architecture.md
   - Components: components/catalogue.md
   - Deployment: deployment/full-stack.md

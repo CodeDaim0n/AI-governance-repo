@@ -1,0 +1,8 @@
+{
+  "scope": "Live designer validation with category-specific identifiers and bounded repair context",
+  "completed_case": "vendor-onboarding",
+  "observed_result": "The first draft referenced undefined entities; the correction removed an actor while retaining references to it. Both drafts failed strict validation. Complete responses and hashes are preserved.",
+  "remaining_case": "museum-loan",
+  "remaining_case_status": "interrupted_by_operator_for_complete_validation_diagnostics",
+  "note": "The completed failure is preserved in run-summary.json. The remaining case was not counted as a success or failure. Later runs use separate output directories."
+}

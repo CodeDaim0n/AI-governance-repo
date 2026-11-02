@@ -2,6 +2,8 @@
 
 The configurable path separates workflow contracts, shared enforcement and target adapters. It generates a reviewable governance design and assessment, then executes supported operations through the same engine. Loading a JSON definition does not approve a deployment, provision an identity, grant a resource permission or register executable code.
 
+Start with the [workflow designer](workflow-designer.md) when the input is a natural-language process description. It generates a draft governance design and identifies questions and implementation gaps. The structured runtime contract below is the subsequent engineering artifact; natural-language design does not automatically approve or execute it.
+
 The shipped credit and access examples use local synthetic targets. Their approval, schema, concurrency, isolation and evidence checks are exercised locally. The new native bindings require commissioning and acceptance against real products; previous credit-lab evidence does not establish their deployment readiness.
 
 ## Run and inspect the examples

@@ -10,6 +10,8 @@ Start with the [quickstart](getting-started.md), inspect the [architecture](arch
 
 For reusable workflows, start with [configurable workflow contracts](configurable-workflows.md). The shared runtime loads separate credit and access-request definitions, generates assessment/implementation packages, and enforces their configured authority, approval and budget rules. The original lab remains available for reproducing historical evidence.
 
+For a process described in ordinary language, use the [governance designer](workflow-designer.md). Read the [illustrated generalisation briefing](Governed_Agent_Fabric_Generalisation.pdf) and [framework extension map](framework-extension-map.md) to follow the original assessment model into our design, implementation and evidence paths.
+
 !!! warning "Evidence boundary"
     The original core has 51 observed checks. Actual Qwen tool loops and a connected Temporal approval/restart journey have now run in a native subset. The complete eighteen-product deployment remains unverified. Read the [native study](research/native-agent.md), [per-product evidence](validation.md) and limitations.
 

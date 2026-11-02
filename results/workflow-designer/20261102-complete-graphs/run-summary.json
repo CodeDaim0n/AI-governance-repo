@@ -1,0 +1,97 @@
+{
+  "scope": "Real Ollama design generation from synthetic descriptions; no business effects or native deployment",
+  "started_at": "2026-11-02T11:31:13Z",
+  "model": "qwen3:8b",
+  "thinking_requested": true,
+  "model_identity": {
+    "status": "observed_in_server_catalogue",
+    "name": "qwen3:8b",
+    "digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "8.2B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 40960,
+      "embedding_length": 4096,
+      "runner": "ggml"
+    }
+  },
+  "raw_responses_recorded": true,
+  "source_digest_basis": "Working-tree file bytes; checkout line-ending normalization can change these hashes",
+  "source_sha256": {
+    "fabric\\designer.py": "33eb7e5c8037e160ecbdf2969f8b070028d1518be66d60a34016c6b1c4b8fa6a",
+    "fabric\\framework.py": "18bc424578a9c5edaeece5188bde1e3756f5d948d3d77f7dae0585dac4a7e04f",
+    "fabric\\workflow_cli.py": "e163f2e05a6fa3c9e84f284ef3f8f8efcbd963aae1de3df59276721f4ef8690e"
+  },
+  "cases": [
+    {
+      "input": "examples\\workflow-descriptions\\vendor-onboarding.txt",
+      "name": "vendor-onboarding",
+      "status": "PASS",
+      "input_sha256": "13a31d0411266d76fbd0bb5388bdb795f1f213f3e2d029f6f19e6e0120d2f02a",
+      "design_status": "draft_requires_review",
+      "step_count": 6,
+      "risk_count": 3,
+      "control_count": 3,
+      "review": "requires_substantive_human_review",
+      "seconds": 173.05,
+      "model_responses": [
+        {
+          "file": "vendor-onboarding-response-1.json",
+          "sha256": "642e0308d230ab64d84e10c199c39f88fbefab2a5e7e6f6a6ed0f45f216ece99"
+        }
+      ]
+    },
+    {
+      "input": "examples\\workflow-descriptions\\museum-loan.txt",
+      "name": "museum-loan",
+      "status": "FAIL",
+      "input_sha256": "43795519bd464437679e498814a671e8ad001f3e72f563c5dc749a7016b14b19",
+      "error": "model_design_validation_failed",
+      "attempts": [
+        {
+          "attempt": 1,
+          "response_sha256": "ebdd609eb79867d07b91498636bbd29a284bb9c1aae7e4c518ae7e2b49557e04",
+          "outcome": "invalid",
+          "error": "quote_not_grounded:ev-handover-scheduling",
+          "validation_errors": [
+            "quote_not_grounded:ev-handover-scheduling",
+            "invalid_reference:requirements[0]",
+            "invalid_reference:requirements[1]",
+            "invalid_reference:requirements[2]",
+            "invalid_reference:edge.to"
+          ],
+          "repair_draft_retained": true
+        },
+        {
+          "attempt": 2,
+          "response_sha256": "97b13271bb89ca1d9c40f6710d1d8ad618566073db7dd870134d043dbd81e97f",
+          "outcome": "invalid",
+          "error": "quote_not_grounded:ev-retention-periods",
+          "validation_errors": [
+            "quote_not_grounded:ev-retention-periods",
+            "quote_not_grounded:ev-exception-approvals",
+            "invalid_reference:step-registrar-checks.output_data_ids"
+          ],
+          "repair_draft_retained": true
+        }
+      ],
+      "seconds": 465.34,
+      "model_responses": [
+        {
+          "file": "museum-loan-response-1.json",
+          "sha256": "ebdd609eb79867d07b91498636bbd29a284bb9c1aae7e4c518ae7e2b49557e04"
+        },
+        {
+          "file": "museum-loan-response-2.json",
+          "sha256": "97b13271bb89ca1d9c40f6710d1d8ad618566073db7dd870134d043dbd81e97f"
+        }
+      ]
+    }
+  ]
+}

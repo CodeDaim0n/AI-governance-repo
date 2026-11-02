@@ -1,0 +1,66 @@
+{
+  "scope": "Real Ollama design generation from synthetic descriptions; no business effects or native deployment",
+  "started_at": "2026-11-02T11:04:09Z",
+  "model": "qwen3:8b",
+  "model_identity": {
+    "status": "observed_in_server_catalogue",
+    "name": "qwen3:8b",
+    "digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "8.2B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 40960,
+      "embedding_length": 4096,
+      "runner": "ggml"
+    }
+  },
+  "raw_responses_recorded": true,
+  "source_digest_basis": "Working-tree file bytes; checkout line-ending normalization can change these hashes",
+  "source_sha256": {
+    "fabric\\designer.py": "165c5033dfb72a07a59b4e80e9634be98175f85d6d9622f744a6d566faed770a",
+    "fabric\\framework.py": "18bc424578a9c5edaeece5188bde1e3756f5d948d3d77f7dae0585dac4a7e04f",
+    "fabric\\workflow_cli.py": "cc6d91239c3473d7a59548573493736277fb4d853d3feef784dceb3ff8dbc83d"
+  },
+  "cases": [
+    {
+      "input": "examples\\workflow-descriptions\\vendor-onboarding.txt",
+      "name": "vendor-onboarding",
+      "status": "FAIL",
+      "input_sha256": "13a31d0411266d76fbd0bb5388bdb795f1f213f3e2d029f6f19e6e0120d2f02a",
+      "error": "model_design_validation_failed",
+      "attempts": [
+        {
+          "attempt": 1,
+          "response_sha256": "3aba5fbe4ea5ad127a0253b9ee450ec921aa28232714a92bb9b86771367aed77",
+          "outcome": "invalid",
+          "error": "invalid_reference:gap-1",
+          "repair_draft_retained": true
+        },
+        {
+          "attempt": 2,
+          "response_sha256": "ae06db0306cc107428415888c6953459e852cd699654596d5c4e9d9ef9c7184b",
+          "outcome": "invalid",
+          "error": "invalid_reference:step-2.actor_ids",
+          "repair_draft_retained": true
+        }
+      ],
+      "seconds": 405.01,
+      "model_responses": [
+        {
+          "file": "vendor-onboarding-response-1.json",
+          "sha256": "3aba5fbe4ea5ad127a0253b9ee450ec921aa28232714a92bb9b86771367aed77"
+        },
+        {
+          "file": "vendor-onboarding-response-2.json",
+          "sha256": "ae06db0306cc107428415888c6953459e852cd699654596d5c4e9d9ef9c7184b"
+        }
+      ]
+    }
+  ]
+}

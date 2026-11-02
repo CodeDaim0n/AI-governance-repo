@@ -1,0 +1,30 @@
+{
+  "scope": "Local WSL regression including designer contract tests with simulated model responses; native PostgreSQL and OPA; synthetic targets; other native APIs simulated",
+  "python": "3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]",
+  "jobs": {
+    "compile": {
+      "exit_code": 0,
+      "seconds": 1.23
+    },
+    "core": {
+      "exit_code": 0,
+      "seconds": 20.53
+    },
+    "agt": {
+      "exit_code": 0,
+      "seconds": 3.55
+    },
+    "enterprise": {
+      "exit_code": 0,
+      "seconds": 5.81
+    },
+    "native-postgres": {
+      "exit_code": 0,
+      "seconds": 9.37
+    },
+    "docs": {
+      "exit_code": 0,
+      "seconds": 10.17
+    }
+  }
+}

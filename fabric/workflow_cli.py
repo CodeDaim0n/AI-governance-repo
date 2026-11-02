@@ -1,4 +1,4 @@
-"""Validate workflows, export governance packages, or run explicit synthetic demos."""
+"""Design governance from prose, validate contracts, export packages, or run demos."""
 import argparse
 import json
 from pathlib import Path
@@ -43,20 +43,50 @@ def demo(registry):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("validate", "assess", "package", "demo"))
-    parser.add_argument("--workflow", action="append", required=True)
+    parser.add_argument("command", choices=("design", "validate", "assess", "package", "demo"))
+    parser.add_argument("--workflow", action="append", help="Validated runtime definition; repeat for multiple workflows")
+    description = parser.add_mutually_exclusive_group()
+    description.add_argument("--description", help="Natural-language workflow description for design")
+    description.add_argument("--description-file", type=Path, help="UTF-8 workflow description for design")
+    parser.add_argument("--model", help="Installed Ollama model for design, for example qwen3:8b")
+    parser.add_argument("--thinking", action="store_true", help="Request model reasoning for design; may need a longer time budget")
+    parser.add_argument("--ollama-url", default="http://127.0.0.1:11434", help="Operator-selected Ollama endpoint")
+    parser.add_argument("--timeout", type=float, default=180, help="Design request time budget in seconds")
     parser.add_argument("--output", help="Optional JSON output path")
     parser.add_argument("--report", help="Optional Markdown assessment report path")
     parser.add_argument("--opa-data", help="Optional disabled OPA deployment manifest for review")
     args = parser.parse_args()
-    registry = WorkflowRegistry.from_paths(args.workflow)
+    if args.command == "design":
+        if args.workflow or args.opa_data:
+            parser.error("design accepts prose and produces a review draft; --workflow and --opa-data belong to runtime packaging")
+        if not args.model or (args.description is None and args.description_file is None):
+            parser.error("design requires --model and either --description or --description-file")
+        from .designer import DesignerError, WorkflowDesigner, render_design_report
+        try:
+            if args.description_file is not None:
+                if args.description_file.stat().st_size > 200000:
+                    parser.error("description file exceeds 200000 bytes")
+                source = args.description_file.read_text(encoding="utf-8-sig")
+            else:
+                source = args.description
+            result = WorkflowDesigner(args.ollama_url, args.model, timeout=args.timeout, thinking=args.thinking).design(source)
+        except (OSError, UnicodeError, DesignerError, ValueError) as exc:
+            parser.error(str(exc))
+        report = render_design_report(result) if args.report else None
+    else:
+        if not args.workflow:
+            parser.error("this command requires at least one --workflow")
+        if args.description is not None or args.description_file is not None or args.model or args.thinking:
+            parser.error("description and model arguments are available only for design")
+        registry = WorkflowRegistry.from_paths(args.workflow)
+        report = render_report(assess(registry)) if args.report else None
     if args.command == "validate":
         result = {"valid": True, "workflows": {key: item.digest for key, item in registry.workflows.items()}}
     elif args.command == "assess":
         result = assess(registry)
     elif args.command == "package":
         result = implementation_package(registry)
-    else:
+    elif args.command == "demo":
         result = demo(registry)
     output = json.dumps(result, indent=2, allow_nan=False) + "\n"
     if args.output:
@@ -69,7 +99,7 @@ def main():
     if args.report:
         target = Path(args.report)
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(render_report(assess(registry)), encoding="utf-8")
+        target.write_text(report, encoding="utf-8")
     if args.opa_data:
         target = Path(args.opa_data)
         target.parent.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,2098 @@
+{
+  "schema_version": 1,
+  "kind": "workflow_governance_design",
+  "status": "draft_requires_review",
+  "source": {
+    "kind": "user_workflow_description",
+    "text": "Synthetic example: vendor onboarding for a small manufacturing company.\n\nA procurement employee submits a supplier request with a quotation, company details and a proposed order value. An AI assistant reads the quotation and supplier record, compares the request with the approved supplier list, and prepares a recommendation. Supplier documents are external, untrusted material. The assistant must not treat instructions in those documents as company policy.\n\nThe procurement manager reviews the recommendation. Finance verifies bank details through a separate established channel. Only an authorised procurement employee can add a vendor to the purchasing system. The assistant cannot change bank details, add a vendor, place an order or send a payment. Requests involving missing or conflicting records are paused for review. A rejection returns the request to the requester with an explanation; acceptance creates a reviewed onboarding record, not an order.\n\nThe expected benefit is less time spent preparing each review. We have no measured baseline or evaluation results yet. The workflow will use a supplier register and a purchasing system, but the exact products and API permissions are not yet defined. Operating countries, document retention periods, escalation deadlines, record ownership and budget thresholds still need to be decided.\n",
+    "sha256": "13a31d0411266d76fbd0bb5388bdb795f1f213f3e2d029f6f19e6e0120d2f02a"
+  },
+  "workflow": {
+    "summary": "procurement employee submits supplier request; ai assistant reviews against approved list; procurement manager and finance verify details; final decision creates onboarding record without order placement",
+    "title": "vendor onboarding for small manufacturing company",
+    "interpretation_status": "model_interpretation_requires_confirmation"
+  },
+  "evidence": [
+    {
+      "id": "ev-1",
+      "quote": "A procurement employee submits a supplier request with a quotation, company details and a proposed order value.",
+      "start": 73,
+      "end": 184,
+      "offset_unit": "unicode_codepoints",
+      "verification": "exact_quote_presence_only"
+    },
+    {
+      "id": "ev-2",
+      "quote": "An AI assistant reads the quotation and supplier record, compares the request with the approved supplier list, and prepares a recommendation.",
+      "start": 185,
+      "end": 326,
+      "offset_unit": "unicode_codepoints",
+      "verification": "exact_quote_presence_only"
+    },
+    {
+      "id": "ev-3",
+      "quote": "The procurement manager reviews the recommendation.",
+      "start": 461,
+      "end": 512,
+      "offset_unit": "unicode_codepoints",
+      "verification": "exact_quote_presence_only"
+    },
+    {
+      "id": "ev-4",
+      "quote": "Finance verifies bank details through a separate established channel.",
+      "start": 513,
+      "end": 582,
+      "offset_unit": "unicode_codepoints",
+      "verification": "exact_quote_presence_only"
+    },
+    {
+      "id": "ev-5",
+      "quote": "Only an authorised procurement employee can add a vendor to the purchasing system.",
+      "start": 583,
+      "end": 665,
+      "offset_unit": "unicode_codepoints",
+      "verification": "exact_quote_presence_only"
+    },
+    {
+      "id": "ev-6",
+      "quote": "Requests involving missing or conflicting records are paused for review.",
+      "start": 756,
+      "end": 828,
+      "offset_unit": "unicode_codepoints",
+      "verification": "exact_quote_presence_only"
+    },
+    {
+      "id": "ev-7",
+      "quote": "The expected benefit is less time spent preparing each review.",
+      "start": 963,
+      "end": 1025,
+      "offset_unit": "unicode_codepoints",
+      "verification": "exact_quote_presence_only"
+    }
+  ],
+  "facts": [
+    {
+      "evidence_ids": [
+        "ev-1",
+        "ev-2",
+        "ev-3",
+        "ev-4",
+        "ev-5",
+        "ev-6",
+        "ev-7"
+      ],
+      "id": "fact-1",
+      "status": "source_statement_not_verified_fact"
+    },
+    {
+      "evidence_ids": [
+        "ev-2",
+        "ev-5"
+      ],
+      "id": "fact-2",
+      "status": "source_statement_not_verified_fact"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "asm-1",
+      "rationale": "ev-2",
+      "statement": "AI assistant's comparison of supplier records with approved list is accurate and complete.",
+      "status": "requires_confirmation"
+    },
+    {
+      "id": "asm-2",
+      "rationale": "ev-3",
+      "statement": "Procurement manager's review is sufficient to validate recommendation.",
+      "status": "requires_confirmation"
+    }
+  ],
+  "graph": {
+    "actors": [
+      {
+        "evidence_ids": [
+          "ev-1",
+          "ev-5"
+        ],
+        "id": "actor-procurement-employee",
+        "kind": "human",
+        "label": "Procurement Employee",
+        "source_state": "stated"
+      },
+      {
+        "evidence_ids": [
+          "ev-2"
+        ],
+        "id": "actor-ai-assistant",
+        "kind": "ai",
+        "label": "AI Assistant",
+        "source_state": "stated"
+      },
+      {
+        "evidence_ids": [
+          "ev-3"
+        ],
+        "id": "actor-procurement-manager",
+        "kind": "human",
+        "label": "Procurement Manager",
+        "source_state": "stated"
+      },
+      {
+        "evidence_ids": [
+          "ev-4"
+        ],
+        "id": "actor-finance",
+        "kind": "human",
+        "label": "Finance",
+        "source_state": "stated"
+      }
+    ],
+    "data": [
+      {
+        "classification": "unknown",
+        "description": "Includes quotation, company details, and proposed order value",
+        "evidence_ids": [
+          "ev-1"
+        ],
+        "id": "data-supplier-request",
+        "label": "Supplier Request",
+        "source_state": "stated"
+      },
+      {
+        "classification": "unknown",
+        "description": "Pre-approved vendors for comparison",
+        "evidence_ids": [
+          "ev-2"
+        ],
+        "id": "data-approved-supplier-list",
+        "label": "Approved Supplier List",
+        "source_state": "stated"
+      }
+    ],
+    "tools": [
+      {
+        "evidence_ids": [
+          "ev-2"
+        ],
+        "id": "tool-ai-assistant",
+        "label": "AI Assistant",
+        "mode": "read",
+        "purpose": "Compare supplier records with approved list",
+        "source_state": "stated"
+      },
+      {
+        "evidence_ids": [
+          "ev-5"
+        ],
+        "id": "tool-purchasing-system",
+        "label": "Purchasing System",
+        "mode": "read",
+        "purpose": "Vendor addition and order management",
+        "source_state": "stated"
+      }
+    ],
+    "steps": [
+      {
+        "actor_ids": [
+          "actor-procurement-employee"
+        ],
+        "description": "Procurement employee submits request with quotation and details",
+        "evidence_ids": [
+          "ev-1"
+        ],
+        "id": "step-1",
+        "input_data_ids": [
+          "data-supplier-request"
+        ],
+        "label": "Supplier Request Submission",
+        "output_data_ids": [
+          "data-supplier-request"
+        ],
+        "source_state": "stated",
+        "tool_ids": [
+          "tool-ai-assistant"
+        ]
+      },
+      {
+        "actor_ids": [
+          "actor-ai-assistant"
+        ],
+        "description": "AI compares request with approved list and prepares recommendation",
+        "evidence_ids": [
+          "ev-2"
+        ],
+        "id": "step-2",
+        "input_data_ids": [
+          "data-supplier-request",
+          "data-approved-supplier-list"
+        ],
+        "label": "AI Recommendation",
+        "output_data_ids": [
+          "data-supplier-request"
+        ],
+        "source_state": "stated",
+        "tool_ids": [
+          "tool-ai-assistant"
+        ]
+      },
+      {
+        "actor_ids": [
+          "actor-procurement-manager"
+        ],
+        "description": "Manager reviews AI recommendation for approval",
+        "evidence_ids": [
+          "ev-3"
+        ],
+        "id": "step-3",
+        "input_data_ids": [
+          "data-supplier-request"
+        ],
+        "label": "Procurement Manager Review",
+        "output_data_ids": [
+          "data-supplier-request"
+        ],
+        "source_state": "stated",
+        "tool_ids": []
+      },
+      {
+        "actor_ids": [
+          "actor-finance"
+        ],
+        "description": "Finance checks bank details through established channel",
+        "evidence_ids": [
+          "ev-4"
+        ],
+        "id": "step-4",
+        "input_data_ids": [
+          "data-supplier-request"
+        ],
+        "label": "Finance Verification",
+        "output_data_ids": [
+          "data-supplier-request"
+        ],
+        "source_state": "stated",
+        "tool_ids": []
+      },
+      {
+        "actor_ids": [
+          "actor-procurement-employee"
+        ],
+        "description": "Acceptance creates onboarding record; rejection returns request",
+        "evidence_ids": [
+          "ev-6"
+        ],
+        "id": "step-5",
+        "input_data_ids": [
+          "data-supplier-request"
+        ],
+        "label": "Final Decision",
+        "output_data_ids": [
+          "data-supplier-request"
+        ],
+        "source_state": "stated",
+        "tool_ids": []
+      }
+    ],
+    "decisions": [
+      {
+        "authority_actor_ids": [
+          "actor-ai-assistant"
+        ],
+        "criteria": [
+          "ev-2"
+        ],
+        "evidence_ids": [
+          "ev-2"
+        ],
+        "id": "decision-ai-recommendation",
+        "question": "Should the supplier be recommended based on approved list match?",
+        "source_state": "stated",
+        "step_id": "step-2"
+      },
+      {
+        "authority_actor_ids": [
+          "actor-procurement-manager"
+        ],
+        "criteria": [
+          "ev-3"
+        ],
+        "evidence_ids": [
+          "ev-3"
+        ],
+        "id": "decision-manager-approval",
+        "question": "Should the recommendation be approved for onboarding?",
+        "source_state": "stated",
+        "step_id": "step-3"
+      },
+      {
+        "authority_actor_ids": [
+          "actor-finance"
+        ],
+        "criteria": [
+          "ev-4"
+        ],
+        "evidence_ids": [
+          "ev-4"
+        ],
+        "id": "decision-finance-verification",
+        "question": "Are bank details valid and verified?",
+        "source_state": "stated",
+        "step_id": "step-4"
+      }
+    ],
+    "edges": [
+      {
+        "condition": "request submitted",
+        "evidence_ids": [
+          "ev-1"
+        ],
+        "from_step_id": "step-1",
+        "source_state": "stated",
+        "to_step_id": "step-2"
+      },
+      {
+        "condition": "recommendation prepared",
+        "evidence_ids": [
+          "ev-2"
+        ],
+        "from_step_id": "step-2",
+        "source_state": "stated",
+        "to_step_id": "step-3"
+      },
+      {
+        "condition": "manager approval",
+        "evidence_ids": [
+          "ev-3"
+        ],
+        "from_step_id": "step-3",
+        "source_state": "stated",
+        "to_step_id": "step-4"
+      },
+      {
+        "condition": "verification complete",
+        "evidence_ids": [
+          "ev-4"
+        ],
+        "from_step_id": "step-4",
+        "source_state": "stated",
+        "to_step_id": "step-5"
+      },
+      {
+        "condition": "conflicting records",
+        "evidence_ids": [
+          "ev-6"
+        ],
+        "from_step_id": "step-2",
+        "source_state": "stated",
+        "to_step_id": "step-5"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "evidence_ids": [
+        "ev-1"
+      ],
+      "id": "req-1",
+      "kind": "policy",
+      "source_state": "stated",
+      "statement": "Procurement employee must submit complete supplier request",
+      "verification_status": "source_claim_or_proposal_unverified",
+      "applicability_verified": false
+    },
+    {
+      "evidence_ids": [
+        "ev-2"
+      ],
+      "id": "req-2",
+      "kind": "policy",
+      "source_state": "stated",
+      "statement": "AI assistant must compare against approved supplier list",
+      "verification_status": "source_claim_or_proposal_unverified",
+      "applicability_verified": false
+    }
+  ],
+  "existing_controls": [
+    {
+      "description": "AI assistant cannot modify vendor records or place orders",
+      "evidence_ids": [
+        "ev-2",
+        "ev-5"
+      ],
+      "id": "existing-1",
+      "source_state": "stated",
+      "step_ids": [
+        "step-2"
+      ],
+      "verification_status": "not_independently_verified"
+    },
+    {
+      "description": "Only authorised procurement employee can add vendor",
+      "evidence_ids": [
+        "ev-5"
+      ],
+      "id": "existing-2",
+      "source_state": "stated",
+      "step_ids": [
+        "step-5"
+      ],
+      "verification_status": "not_independently_verified"
+    }
+  ],
+  "risks": [
+    {
+      "data_ids": [
+        "data-approved-supplier-list"
+      ],
+      "evidence_ids": [
+        "ev-2"
+      ],
+      "id": "risk-1",
+      "impact": "Potential vendor fraud",
+      "proposed_priority": "high",
+      "scenario": "AI incorrectly recommends unapproved supplier",
+      "step_ids": [
+        "step-2"
+      ],
+      "title": "AI Misclassification",
+      "uncertainty": "asm-1",
+      "status": "proposed_for_owner_assessment",
+      "residual_risk_accepted": false,
+      "control_ids": [
+        "ctrl-1"
+      ]
+    },
+    {
+      "data_ids": [
+        "data-supplier-request"
+      ],
+      "evidence_ids": [
+        "ev-3"
+      ],
+      "id": "risk-2",
+      "impact": "Invalid vendor onboarding",
+      "proposed_priority": "medium",
+      "scenario": "Procurement manager approves flawed recommendation",
+      "step_ids": [
+        "step-3"
+      ],
+      "title": "Manager Oversight",
+      "uncertainty": "asm-2",
+      "status": "proposed_for_owner_assessment",
+      "residual_risk_accepted": false,
+      "control_ids": [
+        "ctrl-2"
+      ]
+    },
+    {
+      "data_ids": [
+        "data-supplier-request"
+      ],
+      "evidence_ids": [
+        "ev-4"
+      ],
+      "id": "risk-3",
+      "impact": "Payment fraud or failed transactions",
+      "proposed_priority": "high",
+      "scenario": "Bank details not verified properly",
+      "step_ids": [
+        "step-4"
+      ],
+      "title": "Finance Verification Failure",
+      "uncertainty": "unknown",
+      "status": "proposed_for_owner_assessment",
+      "residual_risk_accepted": false,
+      "control_ids": [
+        "ctrl-3"
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "enforcement_point": "step-2",
+      "family": "data_quality",
+      "id": "ctrl-1",
+      "owner_actor_ids": [
+        "actor-procurement-manager"
+      ],
+      "recommendation": "AI must validate supplier against approved list",
+      "risk_ids": [
+        "risk-1"
+      ],
+      "step_ids": [
+        "step-2"
+      ],
+      "validation": "submit altered quotation; expect denial or hold, verify no vendor addition",
+      "status": "proposed",
+      "verification_status": "implementation_and_testing_not_verified",
+      "component_ids": [
+        "07",
+        "09"
+      ],
+      "mapping_basis": "project_engineering_interpretation"
+    },
+    {
+      "enforcement_point": "step-3",
+      "family": "human_approval",
+      "id": "ctrl-2",
+      "owner_actor_ids": [
+        "actor-procurement-manager"
+      ],
+      "recommendation": "Procurement manager must review AI recommendation",
+      "risk_ids": [
+        "risk-2"
+      ],
+      "step_ids": [
+        "step-3"
+      ],
+      "validation": "submit conflicting records; expect pause for review",
+      "status": "proposed",
+      "verification_status": "implementation_and_testing_not_verified",
+      "component_ids": [
+        "01",
+        "03",
+        "05",
+        "06"
+      ],
+      "mapping_basis": "project_engineering_interpretation"
+    },
+    {
+      "enforcement_point": "step-4",
+      "family": "data_quality",
+      "id": "ctrl-3",
+      "owner_actor_ids": [
+        "actor-finance"
+      ],
+      "recommendation": "Finance must verify bank details through established channel",
+      "risk_ids": [
+        "risk-3"
+      ],
+      "step_ids": [
+        "step-4"
+      ],
+      "validation": "submit altered bank details; expect verification failure",
+      "status": "proposed",
+      "verification_status": "implementation_and_testing_not_verified",
+      "component_ids": [
+        "07",
+        "09"
+      ],
+      "mapping_basis": "project_engineering_interpretation"
+    }
+  ],
+  "gaps": [
+    {
+      "blocking": true,
+      "description": "Exact products and API permissions for purchasing system are undefined",
+      "id": "gap-1",
+      "question_ids": [
+        "question-1"
+      ],
+      "related_ids": [
+        "tool-purchasing-system"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "blocking": true,
+      "id": "question-1",
+      "question": "What are the exact products and API permissions for the purchasing system?",
+      "related_ids": [
+        "gap-1"
+      ]
+    },
+    {
+      "blocking": true,
+      "id": "question-2",
+      "question": "What operating countries and document retention periods are required?",
+      "related_ids": [
+        "gap-1"
+      ]
+    },
+    {
+      "blocking": true,
+      "id": "question-3",
+      "question": "Who will own the onboarding records and what are the budget thresholds?",
+      "related_ids": [
+        "gap-1"
+      ]
+    }
+  ],
+  "human_authority": {
+    "accountable_actor_ids": [
+      "actor-procurement-manager",
+      "actor-finance"
+    ],
+    "approval_points": [
+      {
+        "control_ids": [
+          "ctrl-2"
+        ],
+        "reason": "manager must approve recommendation",
+        "recommended_actor_ids": [
+          "actor-procurement-manager"
+        ],
+        "step_id": "step-3"
+      },
+      {
+        "control_ids": [
+          "ctrl-3"
+        ],
+        "reason": "finance must verify bank details",
+        "recommended_actor_ids": [
+          "actor-finance"
+        ],
+        "step_id": "step-4"
+      }
+    ],
+    "escalation": "unknown",
+    "reviewer_actor_ids": [
+      "actor-procurement-manager",
+      "actor-finance"
+    ],
+    "status": "proposed_mapping_not_appointment",
+    "release_approved": false
+  },
+  "readiness": {
+    "status": "draft_requires_review",
+    "production_ready": false,
+    "deployment_approved": false,
+    "analysis_coverage": "initial_concise_draft_not_exhaustive",
+    "legal_compliance": "not_determined",
+    "source_quote_presence_checked": true,
+    "source_truth_or_entailment_verified": false,
+    "control_effectiveness_verified": false,
+    "blocking_gap_ids": [
+      "gap-1"
+    ],
+    "blocking_question_ids": [
+      "question-1",
+      "question-2",
+      "question-3"
+    ],
+    "mandatory_review_ids": [
+      "implementation-source-context",
+      "implementation-authority",
+      "implementation-adapters",
+      "implementation-control-tests",
+      "implementation-release"
+    ],
+    "recommendation": "Review the draft and resolve implementation and assurance gaps before considering release."
+  },
+  "components": [
+    {
+      "evidence_paths": [
+        "fabric/enterprise/clients.py",
+        "results/native-component-status.json"
+      ],
+      "id": "01",
+      "implementation_status": "Configurable identity allowlist and native client shipped; historical native subset recorded; new deployment commissioning required.",
+      "name": "Keycloak",
+      "role": "Authenticate people and service accounts before the runtime resolves their stored role and tenant.",
+      "workflow_specific": "Realm, audience, permitted principal claims and trusted role/tenant provisioning.",
+      "proposed_control_ids": [
+        "ctrl-2"
+      ],
+      "selection_status": "proposed_mapping",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/microsoft_agt.py",
+        "results/configurable-validation/agt.json"
+      ],
+      "id": "02",
+      "implementation_status": "Configurable wrapper and real installed-toolkit tests shipped; same-process interception is not workload isolation.",
+      "name": "Microsoft Agent Governance Toolkit",
+      "role": "Intercept proposed tool calls using an operation allowlist before independent gateway enforcement.",
+      "workflow_specific": "Loaded operation identifiers, workload identity and optional interceptor activation.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "policies/configurable.rego",
+        "results/configurable-validation/rego-tests.log"
+      ],
+      "id": "03",
+      "implementation_status": "Generic Rego policy and local OPA tests shipped; generated deployment manifests begin disabled.",
+      "name": "Open Policy Agent",
+      "role": "Evaluate administrator-owned action policy and approved configuration identity.",
+      "workflow_specific": "Policy package, deployed digest, enabled operations, permitted roles and tenants.",
+      "proposed_control_ids": [
+        "ctrl-2"
+      ],
+      "selection_status": "proposed_mapping",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/configurable.py",
+        "tests/enterprise/test_configurable_native.py",
+        "results/native-component-status.json"
+      ],
+      "id": "04",
+      "implementation_status": "Validated per-workflow bindings and simulated native contracts shipped; historical native subset does not commission new tuples.",
+      "name": "OpenFGA",
+      "role": "Check an actor's relationship to a resource scoped by workflow and tenant.",
+      "workflow_specific": "Authorization model, subject/object types, relation and commissioned resource tuples.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/configurable_workflows.py",
+        "results/native-component-status.json"
+      ],
+      "id": "05",
+      "implementation_status": "Generic activity/workflow code and simulated contracts shipped; prior lab journey recorded; generic native acceptance remains separate.",
+      "name": "Temporal",
+      "role": "Keep workflow progress and approval waits durable while submitting actions to the gateway.",
+      "workflow_specific": "Task queue, worker delegation, intended operation and approval timeout.",
+      "proposed_control_ids": [
+        "ctrl-2"
+      ],
+      "selection_status": "proposed_mapping",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/dispatch.py",
+        "fabric/enterprise/clients.py",
+        "results/native-ciso.json"
+      ],
+      "id": "06",
+      "implementation_status": "Native client and workflow-specific dispatch risk links shipped; isolated historical HTTP operations recorded; production ownership remains unassigned.",
+      "name": "CISO Assistant Community",
+      "role": "Maintain accountable risk/control records and attach execution evidence without automatically accepting risk.",
+      "workflow_specific": "Assessment and folder scope, risk identifiers, owners and treatment/acceptance authority.",
+      "proposed_control_ids": [
+        "ctrl-2"
+      ],
+      "selection_status": "proposed_mapping",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/clients.py",
+        "tests/enterprise/test_configuration.py",
+        "results/native-component-status.json"
+      ],
+      "id": "07",
+      "implementation_status": "Configurable client and simulated contracts shipped; live product commissioning remains unverified.",
+      "name": "OpenMetadata",
+      "role": "Supply required ownership and classification checks for a selected information asset.",
+      "workflow_specific": "Entity type, collection, qualified name, required tag and source governance arrangements.",
+      "proposed_control_ids": [
+        "ctrl-1",
+        "ctrl-3"
+      ],
+      "selection_status": "proposed_mapping",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/clients.py",
+        "fabric/enterprise/evaluate.py",
+        "results/local-native-evaluation.json"
+      ],
+      "id": "08",
+      "implementation_status": "Shared validation/promotion gates shipped; historical synthetic candidate write/read-back recorded; served-model provenance requires commissioning.",
+      "name": "MLflow",
+      "role": "Record evaluations and enforce a configured approved-release prerequisite with finite metric gates.",
+      "workflow_specific": "Registered model, tenant scope, metric bounds, independent reviewer and validation expiry.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/clients.py",
+        "results/native-component-status.json"
+      ],
+      "id": "09",
+      "implementation_status": "Native secret client and historical subset operations recorded; new deployment policies and rotation need verification.",
+      "name": "OpenBao",
+      "role": "Keep service credentials in an operator-managed secret store, outside workflow and model inputs.",
+      "workflow_specific": "Secret paths, workload policies, credential lifetime and separate service identities.",
+      "proposed_control_ids": [
+        "ctrl-1",
+        "ctrl-3"
+      ],
+      "selection_status": "proposed_mapping",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/telemetry.py",
+        "results/native-telemetry/20261102T071551Z/summary.json"
+      ],
+      "id": "10",
+      "implementation_status": "Existing telemetry code and isolated compatibility-version experiment recorded; generic instrumentation and deployment-pinned collector are not commissioned.",
+      "name": "OpenTelemetry Collector",
+      "role": "Export minimized operational traces to help correlate decisions and service failures.",
+      "workflow_specific": "Instrumentation, permitted attributes, exporters, retention and access controls.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/telemetry.py",
+        "results/native-component-status.json"
+      ],
+      "id": "11",
+      "implementation_status": "Existing monitoring integration and historical native subset recorded; generic deployment instrumentation and alert acceptance remain required.",
+      "name": "Prometheus and Alertmanager",
+      "role": "Observe service metrics and route threshold breaches to authenticated operational handlers.",
+      "workflow_specific": "Metrics, alert thresholds, escalation routes, service objectives and response owners.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/dispatch.py",
+        "fabric/enterprise/clients.py",
+        "results/native-component-status.json"
+      ],
+      "id": "12",
+      "implementation_status": "Native alert client and generic dispatch contracts shipped; live product commissioning remains unverified.",
+      "name": "DFIR-IRIS",
+      "role": "Receive correlated incident alerts for investigation and response.",
+      "workflow_specific": "Customer scope, workflow correlation, severity policy and incident ownership.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/clients.py",
+        "fabric/enterprise/dispatch.py",
+        "results/native-component-status.json"
+      ],
+      "id": "13",
+      "implementation_status": "Configurable inventory client and ticket dispatch contracts shipped; live product commissioning remains unverified.",
+      "name": "GLPI",
+      "role": "Check service inventory scope and create trackable remediation tickets.",
+      "workflow_specific": "Service resource type/identifier, organizational entity, support owner and ticket routing.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/runtime.py",
+        "fabric/enterprise/configurable.py",
+        "results/native-postgres/20261102T093819Z/summary.json"
+      ],
+      "id": "14",
+      "implementation_status": "Both generic workflows passed isolated real PostgreSQL concurrency/approval/restart checks with synthetic targets; complete-stack acceptance remains unverified.",
+      "name": "PostgreSQL",
+      "role": "Serialize governed local effects with approvals, usage, idempotent receipts, audit and outbox records.",
+      "workflow_specific": "Provisioned identities/resources, reviewed deployment records, database roles and operational recovery.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/enterprise/evaluate.py",
+        "results/local-native-evaluation.json"
+      ],
+      "id": "15",
+      "implementation_status": "Supplied-data evaluator shipped; historical eight-record metric/MLflow experiment recorded; no business fairness or Qwen validation follows from that fixture.",
+      "name": "Fairlearn",
+      "role": "Compute supported group metrics over an explicitly supplied binary-classification dataset.",
+      "workflow_specific": "Representative population, labels, group definitions, valid metrics, acceptance limits and independent evaluation.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "deploy/kubernetes",
+        "results/native-component-status.json"
+      ],
+      "id": "16",
+      "implementation_status": "Legacy deployment patterns supplied; generic adaptation and live isolation acceptance remain unverified.",
+      "name": "Kubernetes and Cilium",
+      "role": "Provide deployment and network-isolation patterns intended to keep execution on the governed path.",
+      "workflow_specific": "Service accounts, topology, gateway/target routes, privileges and before/after isolation tests.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "results/native-supply-chain/summary.json",
+        "results/native-component-status.json"
+      ],
+      "id": "17",
+      "implementation_status": "Historical directory scan/signature checks recorded, with a failed vulnerability gate; built-image and generic release acceptance remain incomplete.",
+      "name": "Syft, Grype and Cosign",
+      "role": "Inventory dependencies, evaluate vulnerabilities and verify signed release artifacts.",
+      "workflow_specific": "Built artifact, SBOM, vulnerability policy, signing trust and release acceptance.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    },
+    {
+      "evidence_paths": [
+        "fabric/configurable_agent.py",
+        "results/native-component-status.json"
+      ],
+      "id": "18",
+      "implementation_status": "Generic tool loop and simulated response tests shipped; historical real Qwen subset runs recorded; no new generic live-model performance claim.",
+      "name": "Ollama and Qwen",
+      "role": "Generate bounded tool proposals and process observations while the gateway independently controls effects.",
+      "workflow_specific": "Inference endpoint/model, task-generated schemas, call/time limits and model-release provenance.",
+      "proposed_control_ids": [],
+      "selection_status": "review_applicability",
+      "required_for_this_workflow": "undetermined",
+      "deployment_status": "not_verified_for_this_workflow"
+    }
+  ],
+  "framework_inputs": {
+    "3.1.1": {
+      "id": "3.1.1",
+      "title": "Purpose and context",
+      "description": "Objective, boundaries, operating setting and success measures.",
+      "status": "requires_review",
+      "candidate_evidence_ids": [
+        "ev-1",
+        "ev-2",
+        "ev-3",
+        "ev-4",
+        "ev-5",
+        "ev-6",
+        "ev-7"
+      ],
+      "candidate_entity_ids": [
+        "fact-1",
+        "fact-2"
+      ],
+      "completeness": "not_established",
+      "question_ids": [
+        "question-1",
+        "question-2",
+        "question-3"
+      ],
+      "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+    },
+    "3.1.2": {
+      "id": "3.1.2",
+      "title": "Process structure",
+      "description": "Activities, actors, dependencies, handoffs and exceptions.",
+      "status": "requires_review",
+      "candidate_evidence_ids": [
+        "ev-1",
+        "ev-2",
+        "ev-3",
+        "ev-4",
+        "ev-5",
+        "ev-6"
+      ],
+      "candidate_entity_ids": [
+        "step-1",
+        "step-2",
+        "step-3",
+        "step-4",
+        "step-5",
+        "decision-ai-recommendation",
+        "decision-manager-approval",
+        "decision-finance-verification",
+        "actor-procurement-employee",
+        "actor-ai-assistant",
+        "actor-procurement-manager",
+        "actor-finance"
+      ],
+      "completeness": "not_established",
+      "question_ids": [
+        "question-1",
+        "question-2",
+        "question-3"
+      ],
+      "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+    },
+    "3.1.3": {
+      "id": "3.1.3",
+      "title": "AI authority",
+      "description": "Intended duties, actual permissions and delegation limits.",
+      "status": "requires_review",
+      "candidate_evidence_ids": [
+        "ev-1",
+        "ev-2",
+        "ev-3",
+        "ev-4",
+        "ev-5"
+      ],
+      "candidate_entity_ids": [
+        "actor-procurement-employee",
+        "actor-ai-assistant",
+        "actor-procurement-manager",
+        "actor-finance",
+        "tool-ai-assistant",
+        "tool-purchasing-system",
+        "decision-ai-recommendation",
+        "decision-manager-approval",
+        "decision-finance-verification",
+        "req-1",
+        "req-2"
+      ],
+      "completeness": "not_established",
+      "question_ids": [
+        "question-1",
+        "question-2",
+        "question-3"
+      ],
+      "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+    },
+    "3.1.4": {
+      "id": "3.1.4",
+      "title": "Information context",
+      "description": "Provenance, sensitivity, reliability, movement and retention.",
+      "status": "requires_review",
+      "candidate_evidence_ids": [
+        "ev-1",
+        "ev-2"
+      ],
+      "candidate_entity_ids": [
+        "data-supplier-request",
+        "data-approved-supplier-list"
+      ],
+      "completeness": "not_established",
+      "question_ids": [
+        "question-1",
+        "question-2",
+        "question-3"
+      ],
+      "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+    },
+    "3.1.5": {
+      "id": "3.1.5",
+      "title": "Accountability and impact",
+      "description": "Owners, affected people, consequences and redress.",
+      "status": "requires_review",
+      "candidate_evidence_ids": [
+        "ev-1",
+        "ev-2",
+        "ev-3",
+        "ev-4",
+        "ev-5"
+      ],
+      "candidate_entity_ids": [
+        "actor-procurement-employee",
+        "actor-ai-assistant",
+        "actor-procurement-manager",
+        "actor-finance",
+        "decision-ai-recommendation",
+        "decision-manager-approval",
+        "decision-finance-verification"
+      ],
+      "completeness": "not_established",
+      "question_ids": [
+        "question-1",
+        "question-2",
+        "question-3"
+      ],
+      "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+    },
+    "3.1.6": {
+      "id": "3.1.6",
+      "title": "Assessment criteria",
+      "description": "Versioned obligations, applicability, limits and approval rules.",
+      "status": "requires_review",
+      "candidate_evidence_ids": [
+        "ev-1",
+        "ev-2"
+      ],
+      "candidate_entity_ids": [
+        "req-1",
+        "req-2"
+      ],
+      "completeness": "not_established",
+      "question_ids": [
+        "question-1",
+        "question-2",
+        "question-3"
+      ],
+      "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+    },
+    "3.1.7": {
+      "id": "3.1.7",
+      "title": "Safeguards and evidence",
+      "description": "Controls, tests, run records, incidents and changes.",
+      "status": "requires_review",
+      "candidate_evidence_ids": [
+        "ev-2",
+        "ev-5"
+      ],
+      "candidate_entity_ids": [
+        "existing-1",
+        "existing-2"
+      ],
+      "completeness": "not_established",
+      "question_ids": [
+        "question-1",
+        "question-2",
+        "question-3"
+      ],
+      "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+    }
+  },
+  "framework_outputs": {
+    "4.1": {
+      "id": "4.1",
+      "title": "Understanding and gaps",
+      "description": "Interpretation, missing facts, assumptions and conflicting evidence.",
+      "status": "draft_requires_review",
+      "content": {
+        "source_input_coverage": {
+          "3.1.1": {
+            "id": "3.1.1",
+            "title": "Purpose and context",
+            "description": "Objective, boundaries, operating setting and success measures.",
+            "status": "requires_review",
+            "candidate_evidence_ids": [
+              "ev-1",
+              "ev-2",
+              "ev-3",
+              "ev-4",
+              "ev-5",
+              "ev-6",
+              "ev-7"
+            ],
+            "candidate_entity_ids": [
+              "fact-1",
+              "fact-2"
+            ],
+            "completeness": "not_established",
+            "question_ids": [
+              "question-1",
+              "question-2",
+              "question-3"
+            ],
+            "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+          },
+          "3.1.2": {
+            "id": "3.1.2",
+            "title": "Process structure",
+            "description": "Activities, actors, dependencies, handoffs and exceptions.",
+            "status": "requires_review",
+            "candidate_evidence_ids": [
+              "ev-1",
+              "ev-2",
+              "ev-3",
+              "ev-4",
+              "ev-5",
+              "ev-6"
+            ],
+            "candidate_entity_ids": [
+              "step-1",
+              "step-2",
+              "step-3",
+              "step-4",
+              "step-5",
+              "decision-ai-recommendation",
+              "decision-manager-approval",
+              "decision-finance-verification",
+              "actor-procurement-employee",
+              "actor-ai-assistant",
+              "actor-procurement-manager",
+              "actor-finance"
+            ],
+            "completeness": "not_established",
+            "question_ids": [
+              "question-1",
+              "question-2",
+              "question-3"
+            ],
+            "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+          },
+          "3.1.3": {
+            "id": "3.1.3",
+            "title": "AI authority",
+            "description": "Intended duties, actual permissions and delegation limits.",
+            "status": "requires_review",
+            "candidate_evidence_ids": [
+              "ev-1",
+              "ev-2",
+              "ev-3",
+              "ev-4",
+              "ev-5"
+            ],
+            "candidate_entity_ids": [
+              "actor-procurement-employee",
+              "actor-ai-assistant",
+              "actor-procurement-manager",
+              "actor-finance",
+              "tool-ai-assistant",
+              "tool-purchasing-system",
+              "decision-ai-recommendation",
+              "decision-manager-approval",
+              "decision-finance-verification",
+              "req-1",
+              "req-2"
+            ],
+            "completeness": "not_established",
+            "question_ids": [
+              "question-1",
+              "question-2",
+              "question-3"
+            ],
+            "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+          },
+          "3.1.4": {
+            "id": "3.1.4",
+            "title": "Information context",
+            "description": "Provenance, sensitivity, reliability, movement and retention.",
+            "status": "requires_review",
+            "candidate_evidence_ids": [
+              "ev-1",
+              "ev-2"
+            ],
+            "candidate_entity_ids": [
+              "data-supplier-request",
+              "data-approved-supplier-list"
+            ],
+            "completeness": "not_established",
+            "question_ids": [
+              "question-1",
+              "question-2",
+              "question-3"
+            ],
+            "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+          },
+          "3.1.5": {
+            "id": "3.1.5",
+            "title": "Accountability and impact",
+            "description": "Owners, affected people, consequences and redress.",
+            "status": "requires_review",
+            "candidate_evidence_ids": [
+              "ev-1",
+              "ev-2",
+              "ev-3",
+              "ev-4",
+              "ev-5"
+            ],
+            "candidate_entity_ids": [
+              "actor-procurement-employee",
+              "actor-ai-assistant",
+              "actor-procurement-manager",
+              "actor-finance",
+              "decision-ai-recommendation",
+              "decision-manager-approval",
+              "decision-finance-verification"
+            ],
+            "completeness": "not_established",
+            "question_ids": [
+              "question-1",
+              "question-2",
+              "question-3"
+            ],
+            "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+          },
+          "3.1.6": {
+            "id": "3.1.6",
+            "title": "Assessment criteria",
+            "description": "Versioned obligations, applicability, limits and approval rules.",
+            "status": "requires_review",
+            "candidate_evidence_ids": [
+              "ev-1",
+              "ev-2"
+            ],
+            "candidate_entity_ids": [
+              "req-1",
+              "req-2"
+            ],
+            "completeness": "not_established",
+            "question_ids": [
+              "question-1",
+              "question-2",
+              "question-3"
+            ],
+            "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+          },
+          "3.1.7": {
+            "id": "3.1.7",
+            "title": "Safeguards and evidence",
+            "description": "Controls, tests, run records, incidents and changes.",
+            "status": "requires_review",
+            "candidate_evidence_ids": [
+              "ev-2",
+              "ev-5"
+            ],
+            "candidate_entity_ids": [
+              "existing-1",
+              "existing-2"
+            ],
+            "completeness": "not_established",
+            "question_ids": [
+              "question-1",
+              "question-2",
+              "question-3"
+            ],
+            "mapping_basis": "candidate_references_for_human_review_not_completeness_proof"
+          }
+        },
+        "fact_ids": [
+          "fact-1",
+          "fact-2"
+        ],
+        "assumptions": [
+          {
+            "id": "asm-1",
+            "rationale": "ev-2",
+            "statement": "AI assistant's comparison of supplier records with approved list is accurate and complete."
+          },
+          {
+            "id": "asm-2",
+            "rationale": "ev-3",
+            "statement": "Procurement manager's review is sufficient to validate recommendation."
+          }
+        ],
+        "gaps": [
+          {
+            "blocking": true,
+            "description": "Exact products and API permissions for purchasing system are undefined",
+            "id": "gap-1",
+            "question_ids": [
+              "question-1"
+            ],
+            "related_ids": [
+              "tool-purchasing-system"
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "blocking": true,
+            "id": "question-1",
+            "question": "What are the exact products and API permissions for the purchasing system?",
+            "related_ids": [
+              "gap-1"
+            ]
+          },
+          {
+            "blocking": true,
+            "id": "question-2",
+            "question": "What operating countries and document retention periods are required?",
+            "related_ids": [
+              "gap-1"
+            ]
+          },
+          {
+            "blocking": true,
+            "id": "question-3",
+            "question": "Who will own the onboarding records and what are the budget thresholds?",
+            "related_ids": [
+              "gap-1"
+            ]
+          }
+        ]
+      }
+    },
+    "4.2": {
+      "id": "4.2",
+      "title": "Decision advice",
+      "description": "Readiness recommendation and conditions for accountable approval.",
+      "status": "draft_requires_review",
+      "content": {
+        "status": "draft_requires_review",
+        "production_ready": false,
+        "deployment_approved": false,
+        "analysis_coverage": "initial_concise_draft_not_exhaustive",
+        "legal_compliance": "not_determined",
+        "source_quote_presence_checked": true,
+        "source_truth_or_entailment_verified": false,
+        "control_effectiveness_verified": false,
+        "blocking_gap_ids": [
+          "gap-1"
+        ],
+        "blocking_question_ids": [
+          "question-1",
+          "question-2",
+          "question-3"
+        ],
+        "mandatory_review_ids": [
+          "implementation-source-context",
+          "implementation-authority",
+          "implementation-adapters",
+          "implementation-control-tests",
+          "implementation-release"
+        ],
+        "recommendation": "Review the draft and resolve implementation and assurance gaps before considering release."
+      }
+    },
+    "4.3": {
+      "id": "4.3",
+      "title": "Analysis by step",
+      "description": "Locate exposure, safeguards and findings within activities.",
+      "status": "draft_requires_review",
+      "content": {
+        "steps": [
+          {
+            "step_id": "step-1",
+            "risk_ids": [],
+            "control_ids": []
+          },
+          {
+            "step_id": "step-2",
+            "risk_ids": [
+              "risk-1"
+            ],
+            "control_ids": [
+              "ctrl-1"
+            ]
+          },
+          {
+            "step_id": "step-3",
+            "risk_ids": [
+              "risk-2"
+            ],
+            "control_ids": [
+              "ctrl-2"
+            ]
+          },
+          {
+            "step_id": "step-4",
+            "risk_ids": [
+              "risk-3"
+            ],
+            "control_ids": [
+              "ctrl-3"
+            ]
+          },
+          {
+            "step_id": "step-5",
+            "risk_ids": [],
+            "control_ids": []
+          }
+        ]
+      }
+    },
+    "4.4": {
+      "id": "4.4",
+      "title": "Risk records",
+      "description": "Failure scenarios, uncertainty, ownership and treatment.",
+      "status": "draft_requires_review",
+      "content": {
+        "risks": [
+          {
+            "data_ids": [
+              "data-approved-supplier-list"
+            ],
+            "evidence_ids": [
+              "ev-2"
+            ],
+            "id": "risk-1",
+            "impact": "Potential vendor fraud",
+            "proposed_priority": "high",
+            "scenario": "AI incorrectly recommends unapproved supplier",
+            "step_ids": [
+              "step-2"
+            ],
+            "title": "AI Misclassification",
+            "uncertainty": "asm-1",
+            "status": "proposed_for_owner_assessment",
+            "residual_risk_accepted": false,
+            "control_ids": [
+              "ctrl-1"
+            ]
+          },
+          {
+            "data_ids": [
+              "data-supplier-request"
+            ],
+            "evidence_ids": [
+              "ev-3"
+            ],
+            "id": "risk-2",
+            "impact": "Invalid vendor onboarding",
+            "proposed_priority": "medium",
+            "scenario": "Procurement manager approves flawed recommendation",
+            "step_ids": [
+              "step-3"
+            ],
+            "title": "Manager Oversight",
+            "uncertainty": "asm-2",
+            "status": "proposed_for_owner_assessment",
+            "residual_risk_accepted": false,
+            "control_ids": [
+              "ctrl-2"
+            ]
+          },
+          {
+            "data_ids": [
+              "data-supplier-request"
+            ],
+            "evidence_ids": [
+              "ev-4"
+            ],
+            "id": "risk-3",
+            "impact": "Payment fraud or failed transactions",
+            "proposed_priority": "high",
+            "scenario": "Bank details not verified properly",
+            "step_ids": [
+              "step-4"
+            ],
+            "title": "Finance Verification Failure",
+            "uncertainty": "unknown",
+            "status": "proposed_for_owner_assessment",
+            "residual_risk_accepted": false,
+            "control_ids": [
+              "ctrl-3"
+            ]
+          }
+        ],
+        "risk_acceptance": "requires_accountable_owner_decision"
+      }
+    },
+    "4.5": {
+      "id": "4.5",
+      "title": "Autonomy boundaries",
+      "description": "Compare needed authority with permissions actually available.",
+      "status": "draft_requires_review",
+      "content": {
+        "actors": [
+          {
+            "evidence_ids": [
+              "ev-1",
+              "ev-5"
+            ],
+            "id": "actor-procurement-employee",
+            "kind": "human",
+            "label": "Procurement Employee",
+            "source_state": "stated"
+          },
+          {
+            "evidence_ids": [
+              "ev-2"
+            ],
+            "id": "actor-ai-assistant",
+            "kind": "ai",
+            "label": "AI Assistant",
+            "source_state": "stated"
+          },
+          {
+            "evidence_ids": [
+              "ev-3"
+            ],
+            "id": "actor-procurement-manager",
+            "kind": "human",
+            "label": "Procurement Manager",
+            "source_state": "stated"
+          },
+          {
+            "evidence_ids": [
+              "ev-4"
+            ],
+            "id": "actor-finance",
+            "kind": "human",
+            "label": "Finance",
+            "source_state": "stated"
+          }
+        ],
+        "tools": [
+          {
+            "evidence_ids": [
+              "ev-2"
+            ],
+            "id": "tool-ai-assistant",
+            "label": "AI Assistant",
+            "mode": "read",
+            "purpose": "Compare supplier records with approved list",
+            "source_state": "stated"
+          },
+          {
+            "evidence_ids": [
+              "ev-5"
+            ],
+            "id": "tool-purchasing-system",
+            "label": "Purchasing System",
+            "mode": "read",
+            "purpose": "Vendor addition and order management",
+            "source_state": "stated"
+          }
+        ],
+        "decisions": [
+          {
+            "authority_actor_ids": [
+              "actor-ai-assistant"
+            ],
+            "criteria": [
+              "ev-2"
+            ],
+            "evidence_ids": [
+              "ev-2"
+            ],
+            "id": "decision-ai-recommendation",
+            "question": "Should the supplier be recommended based on approved list match?",
+            "source_state": "stated",
+            "step_id": "step-2"
+          },
+          {
+            "authority_actor_ids": [
+              "actor-procurement-manager"
+            ],
+            "criteria": [
+              "ev-3"
+            ],
+            "evidence_ids": [
+              "ev-3"
+            ],
+            "id": "decision-manager-approval",
+            "question": "Should the recommendation be approved for onboarding?",
+            "source_state": "stated",
+            "step_id": "step-3"
+          },
+          {
+            "authority_actor_ids": [
+              "actor-finance"
+            ],
+            "criteria": [
+              "ev-4"
+            ],
+            "evidence_ids": [
+              "ev-4"
+            ],
+            "id": "decision-finance-verification",
+            "question": "Are bank details valid and verified?",
+            "source_state": "stated",
+            "step_id": "step-4"
+          }
+        ],
+        "human_authority": {
+          "accountable_actor_ids": [
+            "actor-procurement-manager",
+            "actor-finance"
+          ],
+          "approval_points": [
+            {
+              "control_ids": [
+                "ctrl-2"
+              ],
+              "reason": "manager must approve recommendation",
+              "recommended_actor_ids": [
+                "actor-procurement-manager"
+              ],
+              "step_id": "step-3"
+            },
+            {
+              "control_ids": [
+                "ctrl-3"
+              ],
+              "reason": "finance must verify bank details",
+              "recommended_actor_ids": [
+                "actor-finance"
+              ],
+              "step_id": "step-4"
+            }
+          ],
+          "escalation": "unknown",
+          "reviewer_actor_ids": [
+            "actor-procurement-manager",
+            "actor-finance"
+          ],
+          "status": "proposed_mapping_not_appointment",
+          "release_approved": false
+        },
+        "actual_permissions_verified": false
+      }
+    },
+    "4.6": {
+      "id": "4.6",
+      "title": "Control designs",
+      "description": "Define enforcement, responsibility, verification and evidence.",
+      "status": "draft_requires_review",
+      "content": {
+        "controls": [
+          {
+            "enforcement_point": "step-2",
+            "family": "data_quality",
+            "id": "ctrl-1",
+            "owner_actor_ids": [
+              "actor-procurement-manager"
+            ],
+            "recommendation": "AI must validate supplier against approved list",
+            "risk_ids": [
+              "risk-1"
+            ],
+            "step_ids": [
+              "step-2"
+            ],
+            "validation": "submit altered quotation; expect denial or hold, verify no vendor addition",
+            "status": "proposed",
+            "verification_status": "implementation_and_testing_not_verified",
+            "component_ids": [
+              "07",
+              "09"
+            ],
+            "mapping_basis": "project_engineering_interpretation"
+          },
+          {
+            "enforcement_point": "step-3",
+            "family": "human_approval",
+            "id": "ctrl-2",
+            "owner_actor_ids": [
+              "actor-procurement-manager"
+            ],
+            "recommendation": "Procurement manager must review AI recommendation",
+            "risk_ids": [
+              "risk-2"
+            ],
+            "step_ids": [
+              "step-3"
+            ],
+            "validation": "submit conflicting records; expect pause for review",
+            "status": "proposed",
+            "verification_status": "implementation_and_testing_not_verified",
+            "component_ids": [
+              "01",
+              "03",
+              "05",
+              "06"
+            ],
+            "mapping_basis": "project_engineering_interpretation"
+          },
+          {
+            "enforcement_point": "step-4",
+            "family": "data_quality",
+            "id": "ctrl-3",
+            "owner_actor_ids": [
+              "actor-finance"
+            ],
+            "recommendation": "Finance must verify bank details through established channel",
+            "risk_ids": [
+              "risk-3"
+            ],
+            "step_ids": [
+              "step-4"
+            ],
+            "validation": "submit altered bank details; expect verification failure",
+            "status": "proposed",
+            "verification_status": "implementation_and_testing_not_verified",
+            "component_ids": [
+              "07",
+              "09"
+            ],
+            "mapping_basis": "project_engineering_interpretation"
+          }
+        ],
+        "implementation_gaps": [
+          {
+            "id": "implementation-source-context",
+            "status": "open",
+            "description": "Confirm the extracted graph, source assertions, classifications, missing facts and proposed assumptions with the process and data owners."
+          },
+          {
+            "id": "implementation-authority",
+            "status": "open",
+            "description": "Verify accountable people, delegated permissions, independent reviewers, escalation and release authority; proposed role names do not appoint anyone."
+          },
+          {
+            "id": "implementation-adapters",
+            "status": "open",
+            "description": "Select and review real source/target adapters and their transaction, idempotency, recovery and reconciliation contracts. No adapter has been generated or enabled."
+          },
+          {
+            "id": "implementation-control-tests",
+            "status": "open",
+            "description": "Translate accepted controls into validated configuration and enforcement, then run representative positive, negative, failure and recovery tests."
+          },
+          {
+            "id": "implementation-release",
+            "status": "open",
+            "description": "Commission required components, collect independent operational evidence and obtain the designated human release decision."
+          }
+        ]
+      }
+    },
+    "4.7": {
+      "id": "4.7",
+      "title": "Requirements traceability",
+      "description": "Link criteria, controls and supporting evidence.",
+      "status": "draft_requires_review",
+      "content": {
+        "requirements": [
+          {
+            "evidence_ids": [
+              "ev-1"
+            ],
+            "id": "req-1",
+            "kind": "policy",
+            "source_state": "stated",
+            "statement": "Procurement employee must submit complete supplier request",
+            "verification_status": "source_claim_or_proposal_unverified",
+            "applicability_verified": false
+          },
+          {
+            "evidence_ids": [
+              "ev-2"
+            ],
+            "id": "req-2",
+            "kind": "policy",
+            "source_state": "stated",
+            "statement": "AI assistant must compare against approved supplier list",
+            "verification_status": "source_claim_or_proposal_unverified",
+            "applicability_verified": false
+          }
+        ],
+        "risk_control_links": [
+          {
+            "risk_id": "risk-1",
+            "control_ids": [
+              "ctrl-1"
+            ],
+            "source_evidence_ids": [
+              "ev-2"
+            ]
+          },
+          {
+            "risk_id": "risk-2",
+            "control_ids": [
+              "ctrl-2"
+            ],
+            "source_evidence_ids": [
+              "ev-3"
+            ]
+          },
+          {
+            "risk_id": "risk-3",
+            "control_ids": [
+              "ctrl-3"
+            ],
+            "source_evidence_ids": [
+              "ev-4"
+            ]
+          }
+        ],
+        "requirement_control_mapping": "requires_review_no_automatic_applicability_claim"
+      }
+    },
+    "4.8": {
+      "id": "4.8",
+      "title": "Validation design",
+      "description": "Specify scenarios, measures, acceptance criteria and evaluators.",
+      "status": "draft_requires_review",
+      "content": {
+        "tests": [
+          {
+            "control_id": "ctrl-1",
+            "proposed_test": "submit altered quotation; expect denial or hold, verify no vendor addition",
+            "execution_status": "not_run"
+          },
+          {
+            "control_id": "ctrl-2",
+            "proposed_test": "submit conflicting records; expect pause for review",
+            "execution_status": "not_run"
+          },
+          {
+            "control_id": "ctrl-3",
+            "proposed_test": "submit altered bank details; expect verification failure",
+            "execution_status": "not_run"
+          }
+        ],
+        "acceptance_authority": "independent_human_reviewer",
+        "measured_results": []
+      }
+    },
+    "4.9": {
+      "id": "4.9",
+      "title": "Operational response",
+      "description": "Plan observation, intervention, recovery and review.",
+      "status": "draft_requires_review",
+      "content": {
+        "proposed_control_ids": [],
+        "escalation": "unknown",
+        "recovery_rehearsed": false
+      }
+    },
+    "4.10": {
+      "id": "4.10",
+      "title": "Value and restraint",
+      "description": "Weigh benefits against control costs and exposure.",
+      "status": "draft_requires_review",
+      "content": {
+        "benefits_measured": false,
+        "costs_measured": false,
+        "proportionality_assessed": false,
+        "review_required": "Establish baseline outcomes, failure exposure, supervision cost and control cost before claiming value."
+      }
+    },
+    "4.11": {
+      "id": "4.11",
+      "title": "Remediation priorities",
+      "description": "Assign changes, dependencies, deadlines and completion proof.",
+      "status": "draft_requires_review",
+      "content": {
+        "gaps": [
+          {
+            "blocking": true,
+            "description": "Exact products and API permissions for purchasing system are undefined",
+            "id": "gap-1",
+            "question_ids": [
+              "question-1"
+            ],
+            "related_ids": [
+              "tool-purchasing-system"
+            ]
+          }
+        ],
+        "implementation_gaps": [
+          {
+            "id": "implementation-source-context",
+            "status": "open",
+            "description": "Confirm the extracted graph, source assertions, classifications, missing facts and proposed assumptions with the process and data owners."
+          },
+          {
+            "id": "implementation-authority",
+            "status": "open",
+            "description": "Verify accountable people, delegated permissions, independent reviewers, escalation and release authority; proposed role names do not appoint anyone."
+          },
+          {
+            "id": "implementation-adapters",
+            "status": "open",
+            "description": "Select and review real source/target adapters and their transaction, idempotency, recovery and reconciliation contracts. No adapter has been generated or enabled."
+          },
+          {
+            "id": "implementation-control-tests",
+            "status": "open",
+            "description": "Translate accepted controls into validated configuration and enforcement, then run representative positive, negative, failure and recovery tests."
+          },
+          {
+            "id": "implementation-release",
+            "status": "open",
+            "description": "Commission required components, collect independent operational evidence and obtain the designated human release decision."
+          }
+        ],
+        "ownership_and_due_dates": "require_human_assignment"
+      }
+    },
+    "4.12": {
+      "id": "4.12",
+      "title": "Assessment history",
+      "description": "Preserve versions, decisions, expiry and reassessment triggers.",
+      "status": "draft_requires_review",
+      "content": {
+        "source_sha256": "13a31d0411266d76fbd0bb5388bdb795f1f213f3e2d029f6f19e6e0120d2f02a",
+        "assessment_version": "natural-language-designer-1",
+        "release_decisions": [],
+        "reassessment_triggers": [
+          "source or workflow change",
+          "authority or control change",
+          "new incident or evaluation evidence",
+          "material model or component change"
+        ]
+      }
+    }
+  },
+  "framework_source": {
+    "accessed_date": "2026-11-02",
+    "author": "Erdos Effect",
+    "interpretation_boundary": "The source already includes implementable controls, enforcement, evaluation and operational evidence. This catalog adds our engineering mappings and scoped implementation status.",
+    "label_style": "Paraphrased labels; original numeric section references retained.",
+    "original_shared_url": "https://lnkd.in/p/ei3YEcEx",
+    "publication_date": "2026-11-01",
+    "title": "Implementing Governance for Agentic Workflows",
+    "url": "https://www.linkedin.com/pulse/implementing-governance-agentic-workflows-erdos-effect-vipie",
+    "verification_method": "Complete public article body and publication metadata read directly; independently checked in browser."
+  },
+  "implementation_gaps": [
+    {
+      "id": "implementation-source-context",
+      "status": "open",
+      "description": "Confirm the extracted graph, source assertions, classifications, missing facts and proposed assumptions with the process and data owners."
+    },
+    {
+      "id": "implementation-authority",
+      "status": "open",
+      "description": "Verify accountable people, delegated permissions, independent reviewers, escalation and release authority; proposed role names do not appoint anyone."
+    },
+    {
+      "id": "implementation-adapters",
+      "status": "open",
+      "description": "Select and review real source/target adapters and their transaction, idempotency, recovery and reconciliation contracts. No adapter has been generated or enabled."
+    },
+    {
+      "id": "implementation-control-tests",
+      "status": "open",
+      "description": "Translate accepted controls into validated configuration and enforcement, then run representative positive, negative, failure and recovery tests."
+    },
+    {
+      "id": "implementation-release",
+      "status": "open",
+      "description": "Commission required components, collect independent operational evidence and obtain the designated human release decision."
+    }
+  ],
+  "execution": {
+    "allowed": false,
+    "runtime_definitions": [],
+    "reason": "This design artifact cannot execute, provision, approve or deploy a workflow."
+  },
+  "provenance": {
+    "designer_version": "natural-language-designer-1",
+    "generated_at": "2026-11-02T11:21:45.687340+00:00",
+    "model": {
+      "requested_model": "qwen3:8b",
+      "identity_attested": false,
+      "reported_model": "qwen3:8b",
+      "reported_created_at": "2026-11-02T11:21:45.6826724Z",
+      "reported_done_reason": "stop",
+      "total_duration": 145359125700,
+      "load_duration": 12662600,
+      "prompt_eval_count": 3448,
+      "prompt_eval_cached_count": 1173,
+      "prompt_eval_duration": 1166216000,
+      "eval_count": 3298,
+      "eval_duration": 143888534000,
+      "test_transport": false,
+      "requested_thinking": true
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "response_sha256": "e3f8af1ea22d1534518b83a4dbca6f9f36ee2da30ba5a831302c7bdead338fb6",
+        "outcome": "invalid",
+        "error": "nonhuman_control_owner:ctrl-1",
+        "validation_errors": [
+          "nonhuman_control_owner:ctrl-1"
+        ],
+        "repair_draft_retained": true
+      },
+      {
+        "attempt": 2,
+        "response_sha256": "fa914963d4789e84fe21b1fee4232c4583140a0def8544ec4c21b1d8f3ae4357",
+        "outcome": "validated"
+      }
+    ],
+    "elapsed_seconds": 288.687,
+    "model_transport": "ollama_http",
+    "prompt_sha256": "d887da1f790dc2e3f9e8723636aaa7b373c86f1220131ac6621beded8975e9c8",
+    "model_schema_sha256": "6366d7885f814768940fdb66bc9756e6f9d38ba3990a82c45e7d278bd1553ccd",
+    "model_draft_sha256": "70a83fad14d00cd11640587bfd4091012ef70568a0d0905abd057c94296bcca9",
+    "validation_scope": "bounded_structure_references_and_exact_quote_presence; not semantic correctness, legal applicability or operational evidence",
+    "artifact_sha256": "0cfd0ac7db4bd0959c278ac0f7512f61394f6dbf8f3cfa69025f91fd114e6aa6"
+  }
+}
