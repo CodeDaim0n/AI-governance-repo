@@ -1,7 +1,7 @@
 {
   "date": "2026-11-02",
   "python": "3.12.14",
-  "cryptography": "49.0.0",
+  "cryptography": "50.0.2",
   "opa": "Version: 1.0.1\nBuild Commit: a5afc5ab5074ae6b17fd0b167ff3d5053303a58c\nBuild Timestamp: 2025-01-21T19:28:53Z\nBuild Hostname: \nGo Version: go1.23.5\nPlatform: linux/amd64\nRego Version: v1\nWebAssembly: unavailable\n",
   "tests_run": 42,
   "failures": 0,
