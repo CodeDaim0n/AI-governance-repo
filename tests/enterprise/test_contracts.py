@@ -68,6 +68,26 @@ class NativeContracts(unittest.TestCase):
   c=self.client(CISOAssistant,handler)
   c.create_risk({'risk_id':'R01','title':'Test','scenario':'Test','control':'Test','assurance_status':'Unverified'})
   for key in ['accepted','residual_risk','current_proba','current_impact','treatment']:self.assertNotIn(key,payload[0])
+ def test_ciso_relations_merge_from_detail_not_lightweight_list(self):
+  patches=[]
+  def handler(r):
+   path=r.url.path
+   if r.method=='PATCH':patches.append((path,json.loads(r.content)));return httpx.Response(200,json={'id':'updated'})
+   if path=='/api/risk-scenarios/':body={'results':[{'id':'r','ref_id':'R01','risk_assessment':'assessment'}]}
+   elif path=='/api/risk-scenarios/r/':body={'id':'r','folder':'folder','risk_assessment':'assessment','applied_controls':['owner-control']}
+   elif path=='/api/applied-controls/':body={'results':[{'id':'c','name':'Fabric assessment R01 control','folder':'folder'}]}
+   elif path=='/api/applied-controls/c/':body={'id':'c','folder':'folder','evidences':['owner-evidence']}
+   elif path=='/api/evidences/':body={'results':[{'id':'new-evidence','name':'Fabric event evt','folder':'folder'}]}
+   else:raise AssertionError(path)
+   return httpx.Response(200,json=body)
+  c=self.client(CISOAssistant,handler);c.control_for_risk({'risk_id':'R01','control':'fixture'});c.evidence('evt',{'risk_ids':['R01']})
+  self.assertEqual(patches,[('/api/risk-scenarios/r/',{'applied_controls':['owner-control','c']}),('/api/applied-controls/c/',{'evidences':['owner-evidence','new-evidence']})])
+ def test_ciso_wrong_detail_scope_fails_without_patch(self):
+  methods=[]
+  def handler(r):methods.append(r.method);return httpx.Response(200,json={'id':'c','folder':'wrong-folder','evidences':[]})
+  c=self.client(CISOAssistant,handler)
+  with self.assertRaises(DependencyFailure):c.detail('applied-controls',{'id':'c'})
+  self.assertEqual(methods,['GET'])
  def test_metadata_requires_owner(self):
   c=self.client(OpenMetadata,lambda r:httpx.Response(200,json={'id':'t','tags':[{'tagFQN':'PII.Sensitive'}]}))
   with self.assertRaises(DependencyFailure):c.assert_classified()

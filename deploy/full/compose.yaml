@@ -39,6 +39,7 @@ services:
     image: openpolicyagent/opa:1.22.0-static
     command:
     - run
+    - --disable-telemetry
     - --server
     - --addr=0.0.0.0:8181
     - /policies/credit.rego
@@ -127,10 +128,11 @@ services:
       GLPI_SERVICE_ID: ${GLPI_SERVICE_ID:-}
       GLPI_ENTITY_ID: ${GLPI_ENTITY_ID:-0}
       OLLAMA_URL: http://ollama:11434
-      OLLAMA_MODEL: qwen2.5:0.5b
+      OLLAMA_MODEL: qwen3:4b-instruct
       TEMPORAL_ADDRESS: temporal:7233
       GATEWAY_URL: http://gateway:8088
       OTEL_ENDPOINT: http://otel:4318/v1/traces
+      OTEL_TRACES_SAMPLER: parentbased_always_on
       FABRIC_LAB_MODE: 'true'
       MODEL_TENANT: bank-a
     extra_hosts: &id003
@@ -256,10 +258,11 @@ services:
       GLPI_SERVICE_ID: ${GLPI_SERVICE_ID:-}
       GLPI_ENTITY_ID: ${GLPI_ENTITY_ID:-0}
       OLLAMA_URL: http://ollama:11434
-      OLLAMA_MODEL: qwen2.5:0.5b
+      OLLAMA_MODEL: qwen3:4b-instruct
       TEMPORAL_ADDRESS: temporal:7233
       GATEWAY_URL: http://gateway:8088
       OTEL_ENDPOINT: http://otel:4318/v1/traces
+      OTEL_TRACES_SAMPLER: parentbased_always_on
       FABRIC_LAB_MODE: 'true'
       MODEL_TENANT: bank-a
     extra_hosts: *id003
@@ -299,10 +302,11 @@ services:
       GLPI_SERVICE_ID: ${GLPI_SERVICE_ID:-}
       GLPI_ENTITY_ID: ${GLPI_ENTITY_ID:-0}
       OLLAMA_URL: http://ollama:11434
-      OLLAMA_MODEL: qwen2.5:0.5b
+      OLLAMA_MODEL: qwen3:4b-instruct
       TEMPORAL_ADDRESS: temporal:7233
       GATEWAY_URL: http://gateway:8088
       OTEL_ENDPOINT: http://otel:4318/v1/traces
+      OTEL_TRACES_SAMPLER: parentbased_always_on
       FABRIC_LAB_MODE: 'true'
       MODEL_TENANT: bank-a
     extra_hosts: *id003

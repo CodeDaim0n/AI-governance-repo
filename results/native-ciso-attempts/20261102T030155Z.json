@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "scope": "Actual CISO Assistant Community v4.2.1 HTTP risk/control/evidence operations; isolated SQLite; synthetic bootstrap administrator, not a production owner or least-privilege qualification",
+  "real_human_acceptance": false,
+  "bootstrap_uses": "official ORM fixture and private token; integration operations through actual REST API",
+  "python": "3.14.8",
+  "error_type": "AssertionError",
+  "message": ""
+}

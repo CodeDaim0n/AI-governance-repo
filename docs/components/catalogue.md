@@ -21,7 +21,7 @@ The expanded implementation covers all **18 component groups** below. Native cli
 | 15 | Fairlearn | Actual fairness metric computation | [Reference](15-fairlearn.md) |
 | 16 | Kubernetes and Cilium | Agent isolation with explicit egress | [Reference](16-kubernetes-and-cilium.md) |
 | 17 | Syft, Grype and Cosign | Image inventory, vulnerability gate and offline signing | [Reference](17-syft-grype-and-cosign.md) |
-| 18 | Ollama and Qwen2.5 | Local proposal generation without execution credentials | [Reference](18-ollama-and-qwen25.md) |
+| 18 | Ollama and Qwen | Local proposal generation without execution credentials | [Reference](18-ollama-and-qwen25.md) |
 
 ## Established products behind the component map
 
@@ -46,4 +46,4 @@ Official links introduce what each product is; the reference page explains its s
 | 15 | [Fairlearn](https://fairlearn.org/) | Responsible-AI evaluation library calculating group-outcome differences and producing versioned validation evidence. |
 | 16 | [Kubernetes](https://kubernetes.io/) · [Cilium](https://cilium.io/) | Workload and network-security platforms isolating the agent and restricting its permitted network routes. |
 | 17 | [Syft](https://github.com/anchore/syft) · [Grype](https://github.com/anchore/grype) · [Cosign](https://github.com/sigstore/cosign) | Software-supply-chain tools inventorying built images, checking vulnerabilities and signing/verifying release artifacts. |
-| 18 | [Ollama](https://ollama.com/) · [Qwen model](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct) | Local model runtime and language model generating bounded JSON proposals before deterministic authorization. |
+| 18 | [Ollama](https://ollama.com/) · [Qwen model](https://huggingface.co/Qwen) | Local agent inference and bounded tool selection; observations drive the next step while the gateway independently authorizes effects. |

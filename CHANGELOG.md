@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.3.1 - Continued native acceptance
+
+- Require successful operation checks when consuming deployment-scoped isolation and release receipts; reject tampered signed SBOMs.
+- Add real PostgreSQL concurrency/approval/restart acceptance to the existing CI workflow.
+- Observe SDK-to-Collector OTLP delivery and attribute minimization using an explicitly pinned, isolated compatibility release; preserve the deployment-pinned Collector failure.
+- Disable optional OPA anonymous telemetry in lab launchers and retain host capability blockers.
+- Pass 44 adapter/agent/acceptance contracts, 42 core tests, six policy tests and three AGT checks locally.
+
+## 0.3 - Native autonomous execution research
+
+- Added a bounded Qwen tool loop, task-scoped enterprise routes, authorized inspection and an exact-intent write boundary.
+- Connected approval-required agent calls to durable Temporal workflows and separate reviewer authorization.
+- Recorded 78 native scenario trials across retained baseline and exploratory configurations, plus actual model initiation/resumption around a worker/server restart.
+- Preserved model failures, task-availability losses under injection, Collector startup failures and a failed dependency release gate.
+- Added native release/model locks, raw synthetic transcripts, per-product observations and a reproducible research appendix.
+- Added an autonomous-cycle architecture diagram and clarified how all eighteen product groups contribute across execution and lifecycle governance.
+
+
 ## 0.2.0 — Native integration package, 2 November 2026
 
 - Add native product clients, PostgreSQL storage, Temporal workflows, scoped OpenBao secrets, telemetry and downstream delivery receipts.

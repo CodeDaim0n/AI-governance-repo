@@ -1,0 +1,36 @@
+[
+  {
+    "receiver": "fabric",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "NativeAgentExperiment",
+          "run_id": "20261102T024311Z"
+        },
+        "annotations": {
+          "summary": "Synthetic integration probe"
+        },
+        "startsAt": "2026-11-01T21:48:08.868633121-05:00",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "",
+        "fingerprint": "a7056c7e960fc85b"
+      }
+    ],
+    "notification_reason": "first notification",
+    "groupLabels": {},
+    "commonLabels": {
+      "alertname": "NativeAgentExperiment",
+      "run_id": "20261102T024311Z"
+    },
+    "commonAnnotations": {
+      "summary": "Synthetic integration probe"
+    },
+    "routeLabels": {},
+    "externalURL": "http://a404edc76f3f:9093",
+    "version": "4",
+    "groupKey": "{}:{}",
+    "truncatedAlerts": 0
+  }
+]

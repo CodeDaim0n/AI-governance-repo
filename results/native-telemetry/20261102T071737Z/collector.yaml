@@ -1,0 +1,29 @@
+exporters:
+  file:
+    path: /workspace/scratch/b97110570a09/governed-agent-fabric/results/native-telemetry/20261102T071737Z/traces.jsonl
+processors:
+  attributes/minimize:
+    actions:
+    - action: delete
+      key: authorization
+    - action: delete
+      key: gen_ai.prompt
+    - action: delete
+      key: gen_ai.completion
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 127.0.0.1:34693
+service:
+  pipelines:
+    traces:
+      exporters:
+      - file
+      processors:
+      - attributes/minimize
+      receivers:
+      - otlp
+  telemetry:
+    metrics:
+      level: none

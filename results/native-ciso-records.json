@@ -1,0 +1,2364 @@
+{
+  "risk_records": [
+    {
+      "id": "c947906c-76da-4694-8735-54262e99fb96",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Cross-customer authority",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R01 control",
+          "id": "5d1728c4-075c-4aca-a1f6-dd928ef163c8"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:04.773580Z",
+      "updated_at": "2026-11-02T03:02:05.063716Z",
+      "name": "Cross-customer authority",
+      "description": "Agent attempts action against a different tenant record\nControl: Verified principal plus tenant policy\nAssurance: Demonstrated in synthetic lab",
+      "existing_controls": "",
+      "ref_id": "R01",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "fca5c531-1371-4024-b782-be63295f7f1b",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Altered approval",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R02 control",
+          "id": "600db1cb-14ba-4e04-ac87-c14d09c947c1"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:05.226672Z",
+      "updated_at": "2026-11-02T03:02:05.487073Z",
+      "name": "Altered approval",
+      "description": "Agent substitutes amount or resource state after review\nControl: One-use expiring approval bound to action and source versions\nAssurance: Demonstrated in synthetic lab",
+      "existing_controls": "",
+      "ref_id": "R02",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "9defaacf-8655-436d-a442-eb7e57b5b247",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Untrusted or stale facts",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R03 control",
+          "id": "3135c453-da3e-46ae-bef7-ada72aa050ad"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:05.647736Z",
+      "updated_at": "2026-11-02T03:02:06.198186Z",
+      "name": "Untrusted or stale facts",
+      "description": "KYC or policy facts are stale or unavailable\nControl: Authoritative context freshness, expiry and hard-deny behavior\nAssurance: Synthetic facts only; real sources open",
+      "existing_controls": "",
+      "ref_id": "R03",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "39aa38f5-2946-4f66-b2bf-86306ff4cecf",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Excessive aggregate exposure",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R04 control",
+          "id": "9c448109-3a60-4541-8504-d33db8bfb716"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:06.367160Z",
+      "updated_at": "2026-11-02T03:02:06.630981Z",
+      "name": "Excessive aggregate exposure",
+      "description": "Concurrent small actions exceed delegated tenant budget\nControl: Serialized aggregate budget plus idempotency\nAssurance: Demonstrated single-node only",
+      "existing_controls": "",
+      "ref_id": "R04",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "41078be7-3609-4f88-8bc8-79a74a22f210",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Enforcement bypass",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R05 control",
+          "id": "871f046b-20e3-48bd-94ec-4bf0a2863063"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:06.794924Z",
+      "updated_at": "2026-11-02T03:02:07.086344Z",
+      "name": "Enforcement bypass",
+      "description": "Agent obtains direct target credentials or a second write path\nControl: Network isolation, workload identity, adapter-exclusive credentials\nAssurance: Not demonstrated",
+      "existing_controls": "",
+      "ref_id": "R05",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "c6c135ae-55b6-4847-a920-1bfe4b3205e2",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Misleading human review",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R06 control",
+          "id": "b3d05335-107c-4a27-937e-84e9b3db4a51"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:07.281213Z",
+      "updated_at": "2026-11-02T03:02:07.552267Z",
+      "name": "Misleading human review",
+      "description": "Plausible narrative causes a reviewer to approve an unsuitable action\nControl: Review authoritative facts and alternatives; independent challenge\nAssurance: Not demonstrated",
+      "existing_controls": "",
+      "ref_id": "R06",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "cb43ecd9-3810-4134-bf0b-35321e3b3938",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Unfair or inaccurate credit result",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R07 control",
+          "id": "19a97863-8ffd-41dc-981a-4bda0d8b12ff"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:07.718679Z",
+      "updated_at": "2026-11-02T03:02:08.013471Z",
+      "name": "Unfair or inaccurate credit result",
+      "description": "Model or data produces discriminatory or incorrect recommendation\nControl: Independent credit-model and group fairness validation\nAssurance: Not demonstrated",
+      "existing_controls": "",
+      "ref_id": "R07",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "653ad59a-9d17-4035-abca-832b3e882f06",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Evidence compromise",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R08 control",
+          "id": "f25597f6-96ec-48b6-8224-f28ef5267ede"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:08.203741Z",
+      "updated_at": "2026-11-02T03:02:08.509768Z",
+      "name": "Evidence compromise",
+      "description": "Privileged database operator rewrites evidence and recomputes hashes\nControl: External signed checkpoints, segregated WORM archive and reconciliation\nAssurance: Local chain detects edits only; admin tamper unresolved",
+      "existing_controls": "",
+      "ref_id": "R08",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "61f8a160-2cd3-4e11-981c-bc789a462ff6",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Governance service outage",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R09 control",
+          "id": "189e0839-8bfc-474f-839a-e8bd612623b9"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:08.698253Z",
+      "updated_at": "2026-11-02T03:02:09.010319Z",
+      "name": "Governance service outage",
+      "description": "Fail-closed controls interrupt an important business service\nControl: Impact tolerance, queue limits, manual fallback and recovery drills\nAssurance: Denial demonstrated; service recovery open",
+      "existing_controls": "",
+      "ref_id": "R09",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "d1778d89-a44f-4616-b6e1-540f94402ca6",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Downstream inconsistent outcome",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R10 control",
+          "id": "19428e72-0e10-4e8f-b8c7-bcd01ee4bb25"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:09.231756Z",
+      "updated_at": "2026-11-02T03:02:09.540317Z",
+      "name": "Downstream inconsistent outcome",
+      "description": "Target commits but remote response is lost\nControl: Target idempotency, expected-version commit, outbox and reconciliation\nAssurance: Distributed guarantee not demonstrated",
+      "existing_controls": "",
+      "ref_id": "R10",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "46010533-2447-477c-bcfb-50bf90e309fc",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Sensitive records exposed",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R11 control",
+          "id": "61c87cb8-a385-4983-a1ec-36c8280a008f"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:09.711520Z",
+      "updated_at": "2026-11-02T03:02:10.033908Z",
+      "name": "Sensitive records exposed",
+      "description": "Prompts, traces or source references leak personal data\nControl: Minimized event schema, retention, access and purpose controls\nAssurance: Partial; identifiers and hashes remain sensitive",
+      "existing_controls": "",
+      "ref_id": "R11",
+      "justification": null,
+      "vulnerabilities": []
+    },
+    {
+      "id": "9e7892f5-e9dc-4407-b946-fe9be3d309ae",
+      "risk_matrix": {
+        "str": "Synthetic demonstration matrix - not approved calibration",
+        "id": "cadaa206-57f9-4e49-877c-5d7e4340a456"
+      },
+      "str": "Governed Agent Fabric synthetic native experiment/Synthetic agent-fabric engineering risks - 1.0/Compromised dependency",
+      "risk_assessment": {
+        "str": "Synthetic agent-fabric engineering risks - 1.0",
+        "id": "060e386c-7945-461d-84cf-abd5ae3e07a7",
+        "name": "Synthetic agent-fabric engineering risks",
+        "is_locked": false
+      },
+      "folder": {
+        "str": "Governed Agent Fabric synthetic native experiment",
+        "id": "b11d5d1c-0818-4d23-acd4-d5b5ddfaba50"
+      },
+      "version": "1.0",
+      "operational_scenario": null,
+      "threats": [],
+      "assets": [],
+      "qualifications": [],
+      "risk_origin": null,
+      "antecedent_scenarios": [],
+      "treatment": "open",
+      "inherent_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "inherent_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "strength_of_knowledge": {
+        "name": "--",
+        "description": "The strength of the knowledge supporting the assessment is undefined"
+      },
+      "applied_controls": [
+        {
+          "str": "Fabric 060e386c-7945-461d-84cf-abd5ae3e07a7 R12 control",
+          "id": "8182fd61-a669-4e7d-b36b-a8873024eba8"
+        }
+      ],
+      "existing_applied_controls": [],
+      "incidents": [],
+      "owner": [],
+      "security_exceptions": [],
+      "filtering_labels": [],
+      "within_tolerance": "--",
+      "created_at": "2026-11-02T03:02:10.208048Z",
+      "updated_at": "2026-11-02T03:02:10.506158Z",
+      "name": "Compromised dependency",
+      "description": "Tool, model, policy or package supply chain changes behavior\nControl: Pinned digests, SBOM, review, scanning, signed rollout and revocation\nAssurance: Not demonstrated",
+      "existing_controls": "",
+      "ref_id": "R12",
+      "justification": null,
+      "vulnerabilities": []
+    }
+  ],
+  "control_ids": [
+    "5d1728c4-075c-4aca-a1f6-dd928ef163c8",
+    "600db1cb-14ba-4e04-ac87-c14d09c947c1",
+    "3135c453-da3e-46ae-bef7-ada72aa050ad",
+    "9c448109-3a60-4541-8504-d33db8bfb716",
+    "871f046b-20e3-48bd-94ec-4bf0a2863063",
+    "b3d05335-107c-4a27-937e-84e9b3db4a51",
+    "19a97863-8ffd-41dc-981a-4bda0d8b12ff",
+    "f25597f6-96ec-48b6-8224-f28ef5267ede",
+    "189e0839-8bfc-474f-839a-e8bd612623b9",
+    "19428e72-0e10-4e8f-b8c7-bcd01ee4bb25",
+    "61c87cb8-a385-4983-a1ec-36c8280a008f",
+    "8182fd61-a669-4e7d-b36b-a8873024eba8"
+  ],
+  "evidence_id": "5ee73e75-6519-49c1-bc3d-c27fa467404f",
+  "dependency_gate_evidence_id": "458cad43-13a6-47c0-9a1c-af35bebac368",
+  "ratings_and_acceptance_before": {
+    "c947906c-76da-4694-8735-54262e99fb96": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "fca5c531-1371-4024-b782-be63295f7f1b": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "9defaacf-8655-436d-a442-eb7e57b5b247": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "39aa38f5-2946-4f66-b2bf-86306ff4cecf": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "41078be7-3609-4f88-8bc8-79a74a22f210": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "c6c135ae-55b6-4847-a920-1bfe4b3205e2": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "cb43ecd9-3810-4134-bf0b-35321e3b3938": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "653ad59a-9d17-4035-abca-832b3e882f06": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "61f8a160-2cd3-4e11-981c-bc789a462ff6": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "d1778d89-a44f-4616-b6e1-540f94402ca6": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "46010533-2447-477c-bcfb-50bf90e309fc": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "9e7892f5-e9dc-4407-b946-fe9be3d309ae": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    }
+  },
+  "ratings_and_acceptance_after": {
+    "c947906c-76da-4694-8735-54262e99fb96": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "fca5c531-1371-4024-b782-be63295f7f1b": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "9defaacf-8655-436d-a442-eb7e57b5b247": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "39aa38f5-2946-4f66-b2bf-86306ff4cecf": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "41078be7-3609-4f88-8bc8-79a74a22f210": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "c6c135ae-55b6-4847-a920-1bfe4b3205e2": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "cb43ecd9-3810-4134-bf0b-35321e3b3938": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "653ad59a-9d17-4035-abca-832b3e882f06": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "61f8a160-2cd3-4e11-981c-bc789a462ff6": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "d1778d89-a44f-4616-b6e1-540f94402ca6": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "46010533-2447-477c-bcfb-50bf90e309fc": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    },
+    "9e7892f5-e9dc-4407-b946-fe9be3d309ae": {
+      "treatment": "open",
+      "current_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "current_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "residual_proba": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_impact": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1
+      },
+      "residual_level": {
+        "abbreviation": "--",
+        "name": "--",
+        "description": "not rated",
+        "value": -1,
+        "hexcolor": "#A9A9A9"
+      },
+      "risk_acceptance": null,
+      "existing_controls": "",
+      "risk_owners": null
+    }
+  }
+}

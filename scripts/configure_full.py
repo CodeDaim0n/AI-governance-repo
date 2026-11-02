@@ -11,8 +11,8 @@ clients=[]
 for client,actor in [('fabric-agent','agent-a'),('fabric-other-agent','agent-b'),('fabric-reviewer','reviewer-a'),('fabric-admin','admin-a')]:
  secret=secrets.token_urlsafe(32);values[client.upper().replace('-','_')+'_SECRET']=secret
  clients.append({'clientId':client,'secret':secret,'enabled':True,'publicClient':False,'serviceAccountsEnabled':True,
-  'standardFlowEnabled':False,'directAccessGrantsEnabled':False,'protocol':'openid-connect','protocolMappers':[
-   {'name':'audience','protocol':'openid-connect','protocolMapper':'oidc-audience-mapper','config':{'included.client.audience':'fabric-gateway','access.token.claim':'true'}},
+  'standardFlowEnabled':False,'directAccessGrantsEnabled':False,'fullScopeAllowed':False,'protocol':'openid-connect','protocolMappers':[
+   {'name':'audience','protocol':'openid-connect','protocolMapper':'oidc-audience-mapper','config':{'included.custom.audience':'fabric-gateway','access.token.claim':'true'}},
    {'name':'principal','protocol':'openid-connect','protocolMapper':'oidc-hardcoded-claim-mapper','config':{'claim.name':'fabric_principal','claim.value':actor,'jsonType.label':'String','access.token.claim':'true'}}]})
 def private(path,data):
  fd=os.open(path,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)

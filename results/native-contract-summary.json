@@ -1,9 +1,9 @@
 {
   "date": "2026-11-02",
-  "tests": 26,
+  "tests": 40,
   "failures": 0,
   "errors": 0,
   "status": "PASS",
   "evidence": "native-contract-tests.log",
-  "scope": "Explicitly simulated HTTP and signed test JWTs; not native remote integration"
+  "scope": "28 native adapter contracts and 12 agent/tool/task boundary contracts; explicit simulated services. Live product observations are separate."
 }

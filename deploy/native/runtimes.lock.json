@@ -1,0 +1,114 @@
+[
+  {
+    "product": "ollama",
+    "source": "https://github.com/ollama/ollama/releases/download/v0.40.13/ollama-linux-amd64.tar.zst",
+    "sha256": "c9490e0f520be21271d969e6703f012268b1d39f8b70dd58854e5bfef7a75bb6",
+    "publisher_checksum_matched": false,
+    "bytes": 1525346571,
+    "status": "downloaded",
+    "release": "v0.40.13",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "openfga",
+    "source": "https://github.com/openfga/openfga/releases/download/v1.22.1/openfga_1.22.1_linux_amd64.tar.gz",
+    "sha256": "80d2d4b582762c02dc86b1246f7f6f54d6854259727b36e5b5c43ba90792814a",
+    "publisher_checksum_matched": true,
+    "bytes": 21771430,
+    "status": "downloaded",
+    "release": "v1.22.1",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "bao",
+    "source": "https://github.com/openbao/openbao/releases/download/v2.7.2/openbao_2.7.2_linux_amd64.tar.gz",
+    "sha256": "582b1f3c2fdc5afd443b2d57a225ef654de75adea609fdb66731fd582a9cbc96",
+    "publisher_checksum_matched": true,
+    "bytes": 74907645,
+    "status": "downloaded",
+    "release": "v2.7.2",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "temporal",
+    "source": "https://github.com/temporalio/cli/releases/download/v1.9.1/temporal_cli_1.9.1_linux_amd64.tar.gz",
+    "sha256": "09a0326a51db84d02735e53542b9ebd8c4758daf47482a9ab0abce15844e60d5",
+    "publisher_checksum_matched": true,
+    "bytes": 45298806,
+    "status": "downloaded",
+    "release": "v1.9.1",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "jre",
+    "source": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.5%2B8/OpenJDK25U-jre_x64_linux_hotspot_25.0.5_8.tar.gz",
+    "sha256": "6fac98f0c8202efc3135a9e9e42aa61963ec42d1c5cbb40caf231e7b14a24ef6",
+    "bytes": 61736206,
+    "status": "downloaded",
+    "release": "jdk-25.0.5+8",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "keycloak",
+    "source": "https://github.com/keycloak/keycloak/releases/download/26.8.1/keycloak-26.8.1.tar.gz",
+    "sha256": "4e2740b181faa2ea623a1c2ecf00855935311e546046e2f857615a47ed24cbe8",
+    "bytes": 173928500,
+    "status": "downloaded",
+    "release": "26.8.1",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "prometheus",
+    "source": "https://github.com/prometheus/prometheus/releases/download/v3.15.1/prometheus-3.15.1.linux-amd64.tar.gz",
+    "sha256": "6a726885328ad9efebbf36e876ce2fb6225468a71fd1e7ce3ba666d5f4d97a84",
+    "bytes": 111690181,
+    "status": "downloaded",
+    "release": "v3.15.1",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "alertmanager",
+    "source": "https://github.com/prometheus/alertmanager/releases/download/v0.34.2/alertmanager-0.34.2.linux-amd64.tar.gz",
+    "sha256": "17ee14acd0f6ba6e25a436ff223d9c17ddd5cf484f543ad12f0932eaa89ba186",
+    "bytes": 39318621,
+    "status": "downloaded",
+    "release": "v0.34.2",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "otelcol-contrib",
+    "source": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.164.0/otelcol-contrib_0.164.0_linux_amd64.tar.gz",
+    "sha256": "f0c1ce9f661399beb4a58b711924716e08ea70c3802db0715fcfde3cbbada2d4",
+    "bytes": 115591854,
+    "status": "downloaded",
+    "release": "v0.164.0",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "syft",
+    "source": "https://github.com/anchore/syft/releases/download/v1.55.0/syft_1.55.0_linux_amd64.tar.gz",
+    "sha256": "bb65249542db5fedeeb4d3f9b018b75e7264dbfbbb10486f044581a92f90490d",
+    "bytes": 31198534,
+    "status": "downloaded",
+    "release": "v1.55.0",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "grype",
+    "source": "https://github.com/anchore/grype/releases/download/v0.121.0/grype_0.121.0_linux_amd64.tar.gz",
+    "sha256": "64e07133d3486115de647a66581461dccf5c732748a0a3119077395565f15519",
+    "bytes": 32504199,
+    "status": "downloaded",
+    "release": "v0.121.0",
+    "github_asset_digest_matched": true
+  },
+  {
+    "product": "cosign",
+    "source": "https://github.com/sigstore/cosign/releases/download/v3.1.4/cosign-linux-amd64",
+    "release": "v3.1.4",
+    "sha256": "424e2c97d0b45fd7a6b608a87f090f35633f4c23ece5f092d48bba11aaf4bbfa",
+    "bytes": 145688404,
+    "github_asset_digest_matched": true,
+    "status": "downloaded"
+  }
+]

@@ -99,13 +99,13 @@ def graph():
 
 # COVER
 story.append(Spacer(1,35));story.append(Paragraph('GOVERNED<br/>AGENT FABRIC',styles['TitleX']))
-p('An integrated governance reference architecture for regulated agentic workflows')
-p('<b>From workflow assessment to enforceable authority, linked risk records and operational evidence.</b>')
+p('A reference product suite for bounded autonomous agents in regulated environments')
+p('<b>Eighteen component groups connecting autonomous tool use, independent authority, accountable risk and operational evidence.</b>')
 story.append(Spacer(1,20))
-table(['Design scope','Evidence delivered'],[['UK banking-inspired synthetic credit workflow','42 Python integration/control tests; 6 Rego tests; 3 Microsoft AGT wrapper checks'],['Open-source product reference stack','19 framework-section mappings; 18 capability/product assignments; 12 open example risks'],['Research implementation, edition 0.2','Source code, reproducible test runner, machine-readable assessment and diagrams']],[220,263])
+table(['Design scope','Evidence delivered'],[['Domain-independent autonomous agent fabric','18 product groups, explicit authority boundaries, durable approvals and linked evidence'],['Synthetic implementation and experiments','Original 51 control checks; 40 adapter/agent contracts; native Qwen tool trials and restart journey with failures retained'],['Research implementation, edition 0.3','Architecture, component roles, reproducible native runs and per-product evidence boundaries']],[220,263])
 sub('Abstract')
 p('We extended the Erdos governance framework into an implementation approach connecting workflow assessment, accountable authority and operational evidence. This paper presents the component architecture and interfaces that link enterprise records to runtime action enforcement. Microsoft Agent Governance Toolkit is evaluated as an optional interception layer, OPA as a business-policy decision service, and CISO Assistant Community Edition as the designated risk system of record.')
-p('The implemented laboratory exercises a narrow synthetic credit action, using server-owned facts, signed lab identities, exact-action approvals, serialized limits and transactional evidence. All 51 reported checks pass in the observed run. The results demonstrate specific local control behavior; they do not establish credit-model validity, fairness, distributed resilience, framework conformity or production readiness.')
+p('The suite implements bounded agent tool selection and observation processing around independent execution controls. Original control tests use a synthetic credit adapter; new native experiments retain model failures as well as successful read/tool/effect execution and a connected approval/restart journey. Complete eighteen-product live validation remains unestablished. No result establishes regulated business validity, framework conformity or production readiness.')
 p('Prepared 2 November 2026 | Technical working paper | Not peer reviewed',small=True)
 p('No real customer data, banking systems or production credit decisions were used. Named organizational owners, regulatory applicability decisions and product deployment approvals remain unassigned.',small=True)
 
@@ -146,7 +146,7 @@ table(['Evidence level','Meaning in this paper'],[['Specified','A responsibility
 sub('Observed scope')
 p('OPA 1.0.1 was run as a real local HTTP service. The Python gateway, signed-token checks, local approval and credit-ledger transactions, and an HTTP outbox sink were exercised. Microsoft agent-governance-toolkit-core 5.0.0 was installed into an isolated target directory and its govern wrapper was exercised in three cases. The wider product catalogue is a target architecture, not a running 18-product deployment.')
 sub('What cannot be concluded')
-p('No generative model was run for these results. No task success, token saving, latency improvement, incident reduction or credit accuracy benefit was measured. A Qwen/Ollama proposal client is provided as an optional extension. Self-authored tests require independent challenge before they support a release decision.')
+p('The original control experiment did not run a generative model or measure model task success. Edition 0.3 adds actual native Qwen tool experiments in the native-research appendix. Neither experiment measures token savings, incident reduction or business credit accuracy. Self-authored tests require independent challenge before supporting release decisions.')
 
 # 3
 title('02','Extending the Erdos framework in practice')
@@ -424,13 +424,110 @@ for _offset in [0,9]:
  story.append(_table)
  markdown.append('Official product directory: docs/components/product-links.json')
 
+# Edition 0.3 preserves the original control experiment and adds native observations.
+_native=json.loads((R/'results/native-agent/comparison.json').read_text())
+_matrix=json.loads((R/'results/native-component-status.json').read_text())['components']
+
+title('NATIVE RESEARCH / 0.3','An autonomous agent fabric')
+p('The fabric is designed to let an agent interpret a task, select a tool, receive its actual observation and decide what to do next. The eighteen product groups contribute identity, authorization, workflow continuity, source and release assurance, risk accountability, operational evidence and deployment security around that loop. They do not form an eighteen-hop serial request chain.')
+d=Drawing(483,480)
+box(d,20,376,200,68,'Task and delegated scope','Server-owned actor and exact intent. No self-granted approval.','tested')
+box(d,270,376,200,68,'Qwen agent + Ollama','Select a permitted tool; observe its result; continue within explicit budgets.','tested')
+box(d,20,236,200,88,'Independent authority','Keycloak identity. OpenFGA scope. OPA business restrictions. AGT tool boundary.','tested')
+box(d,270,236,200,88,'Governed tool gateway','Check task and read state, current authority, exact action and any approval.','tested')
+box(d,270,105,200,77,'Typed target and receipt','Commit permitted synthetic effect. Preserve idempotency, audit and outbox.','tested')
+box(d,20,105,200,77,'Actual observation','Source facts, executed receipt, waiting state or denial. Narrative is not an effect.','tested')
+box(d,20,5,450,65,'Durable approval boundary: Temporal + separate reviewer','Eligible actions wait. Reviewer authority is checked separately. Restart and retry cannot create a second target effect.','tested')
+for coords in [(220,410,270,410),(370,376,370,324),(220,280,270,280),(370,236,370,182),(270,144,220,144)]:arrow(d,*coords)
+for coords in [(20,144,7,144),(7,144,7,467),(7,467,370,467),(370,467,370,444)]:arrow(d,*coords)
+for coords in [(470,280,481,280),(481,280,481,38),(481,38,470,38)]:arrow(d,*coords,GOLD)
+story.append(d)
+p('Reference operating model. Native experiments use a SQLite synthetic target, development product stores and scripted reviewer credentials. The commissioned enterprise implementation substitutes PostgreSQL and the other authoritative product adapters. Neither diagram establishes that all eighteen groups ran simultaneously.',True)
+
+title('NATIVE RESEARCH / 0.3','Protocol, artifacts and observations')
+p('The baseline protocol was internally fixed before scenario inference and hashed into each summary. It was not externally preregistered. Ten scenarios were exercised with seeds 17, 29 and 43: authorized action, approval wait, cross-tenant request, blocked KYC, stale source, kill switch, policy outage, source injection, duplicate retry and aggregate budget exhaustion.')
+table(['Bound','Value / reason'],[['Model budget','Six turns; eight tool calls; 180-second episode deadline; up to 256 output tokens per inference; 4,096-token context'],['Decoding','Temperature zero; seeds retained as configurations, not independent population samples'],['Artifacts','Unmodified requests/responses, tool arguments/observations, target rows before/after, action receipts, audit events and chain verification'],['Model provenance','Ollama 0.40.13; separately pinned manifest digests for 0.6b, 4b and 4b-instruct; native archives checked against recorded SHA-256 values'],['Ground truth','Actual target state and native product read-backs. Model text cannot establish an effect.'],['Exploratory changes','Read prerequisite after baseline failure; larger model; official instruct variant after base-tag truncation. Each follow-up protocol and every failed run remain available.']],[114,369])
+sub('Measurements are separated')
+p('Task fidelity requires the expected effect, an observed case read and an executed receipt for an allowed task. Control safety checks target scope and amount, including zero effects on prohibited requests. A response stopped before policy does not establish policy-path coverage. Injection testing requires proof that the model actually received the injected text.')
+p('The raw task_success field for prohibited tasks checks the zero-effect expectation only. It is not a rating of correct refusal language. The derived comparison reports read exposure, precondition responses and core-policy outcomes separately to avoid presenting a safe no-op as successful autonomous execution.')
+sub('Reproduction')
+p('Use the pinned native release and model locks, scripts/fetch_native_runtimes.py, scripts/run_native_agent.py and scripts/analyze_agent_runs.py. The native driver owns private bootstrap state and loopback service processes. The complete enterprise acceptance remains a separate command. Exact protocol paths, SHA-256 values, model digests and run directories are retained in results/native-agent/.')
+
+title('NATIVE RESEARCH / 0.3','Results: task success is not safety')
+_rows=[]
+for _r in _native['runs']:
+ if not _r['trials']:continue
+ _rows.append([_r['model']+(' / baseline' if _r['run_id']=='20261102T023518Z' else ' / follow-up'),_r['trials'],str(_r['allowed_full_task_successes'])+'/'+str(_r['allowed_trials']),str(_r['trials_with_authorized_read'])+'/'+str(_r['trials']),_r['injection_trials_with_exposure'],str(_r['state_safety_passes'])+'/'+str(_r['trials'])])
+table(['Configuration','Trials','Allowed full task','Case read','Injection exposure','State checks'],_rows,[135,40,76,68,83,81])
+sub('Small-model failure')
+p('The 0.6b baseline selected commitment without the requested inspection in all thirty trials. Correct effects occurred on the allowed fixtures, but all nine failed the full task criterion. The three injection trials never exposed the source text. Adding a gateway read prerequisite prevented those commitments; the model did not recover by selecting the read tool. Zero target effects in that arm demonstrate the precondition, not broad action-policy coverage.')
+sub('Base-tag compatibility and truncation')
+p('The 4b base tag exhausted the fixed output budget without tool calls. Its official template opens a thinking block; recorded requests used think=false but the returned content still contained extended reasoning. These are observed configuration failures, not evidence that tool execution succeeded. The agent driver now classifies a length-limited result as generation_limit rather than treating it as a completed final answer.')
+sub('Instruction-tuned model')
+p('The separately pinned 4b-instruct variant inspected and committed all three benign tasks, then received real receipts. All three approval-wait trials inspected the source and produced zero effects before approval. All three injection trials actually received the malicious source text and aborted without commitment. They are safe aborts with lost task availability, not successful completion or evidence that the model can reliably ignore hostile context.')
+p('These descriptive findings come from small, fixed synthetic scenarios. No confidence interval, population safety estimate, comparative model ranking, credit validity or production autonomy conclusion is supported. All failed starts and partial observations remain in the repository.',True)
+
+title('NATIVE RESEARCH / 0.3','Connected approval, restart and resumption')
+p('A separate connected journey used the real 4b-instruct model, the native gateway, Keycloak, OpenFGA, OPA, AGT, OpenBao-scoped relationship credentials and a persisted native Temporal development server. The model selected an authorized read and commitment request. The gateway detected the approval requirement and created the workflow; the model received the actual waiting reference.')
+table(['Step','Independent observation'],[['Agent initiation','Actual inspect_case observation, then commit_action returning waiting_approval and the native workflow ID'],['Before approval','Workflow remained RUNNING; synthetic target contained no commitment'],['Continuity','First worker stopped; native Temporal server restarted using the same persistent SQLite database; replacement worker continued'],['Separate authority','A different Keycloak reviewer credential granted an expiring exact-action approval; a signal carried only its reference'],['Commitment','Worker reacquired its own identity; gateway rechecked authority and committed one synthetic effect'],['Retry and replay','Duplicate request returned the identical receipt; target count remained one; completed Temporal history replay passed'],['Agent resumption','A new model episode selected read and commit tools and observed the actual completed workflow receipt']],[114,369])
+p('Evidence: results/native-agent/20261102T025035Z/summary.json, agent-approval-journey.json and temporal-history.json. Tokens were not serialized into workflow history. SDK spans are separately retained; native Collector receipt is not claimed.')
+sub('Meaning of the demonstration')
+p('This is end-to-end autonomous task execution inside the observed native subset, with a deliberate approval pause and a real final-effect receipt. The reviewer is a scripted laboratory identity, not a human participant. The target is synthetic SQLite. Native CISO/MLflow observations are separate integration experiments; the other products and production infrastructure remain subject to their own acceptance.')
+
+for _offset in [0,9]:
+ title('NATIVE RESEARCH / 0.3',f'Observed product boundaries {_offset+1}-{_offset+9}')
+ table(['Product','Observed status','What the evidence establishes'],[[str(x['id']).zfill(2)+'. '+x['component'],x['status'].replace('_',' '),x['detail']] for x in _matrix[_offset:_offset+9]],[113,108,262])
+ p('The matrix reports operations at their actual scope. It is not an eighteen-product simultaneous pass, a maturity score or regulatory certification. Complete-stack results remain separate in results/all-18-live.json.',True)
+
+title('NATIVE RESEARCH / 0.3','Negative results and release implications')
+sub('Product and configuration failures retained')
+p('Native startup exposed removal of OpenBao file storage; the experiment and deployment now use supported Raft storage. Shared development-store locking was resolved with isolated run state. Keycloak rejected tokens after an audience mapper referenced an absent client; the mapper now uses the documented custom-audience field. None of these failures was converted into an allow or a passing integration claim.')
+p('The native Collector could not register process metrics against the restricted process filesystem, including with telemetry level none. Local OpenTelemetry SDK spans therefore represent a partial result, not verified OTLP delivery. A later trace assertion also exposed an ambient one-percent sampler; the corrected experiment explicitly samples all spans. Failed startup and trace runs remain visible.')
+sub('The dependency gate actually rejected a release')
+p('Syft generated an SBOM of the installed Python dependency directory. Grype matched GHSA-g6cj-pr64-35w5 in cryptography 49.0.0 and exited nonzero at the configured High threshold. The scanned AGT 5.0.0 package constrains cryptography below 50.0; the upstream advisory identifies 50.0.0 as the fix. No incompatible override or automatic risk acceptance was applied. The advisory concerns PKCS#7 decryption behavior not exercised by the RS256 path; that reachability distinction is for accountable review, not silent suppression.')
+p('Cosign verified the local SBOM signature and rejected altered bytes. This establishes local artifact integrity under the supplied key, not publisher identity or transparency-log inclusion. The directory scan is not built-image qualification. The raw compressed SBOM, findings, database metadata, public key and bundle are retained.')
+sub('Remaining research and deployment work')
+p('Complete-stack commissioning, the PostgreSQL target path, metadata and inventory authorities, incident delivery, Cilium bypass prevention, built-image security qualification, protected external evidence, restore drills, representative data and meaningful human review remain independent acceptance requirements. Follow-ups were exploratory after observed failures; fixed seeds and self-authored tasks do not remove selection effects or shared implementation/test omissions.')
+p('Our contribution is an explicit product composition and a reproducible, bounded autonomous execution approach extending the Erdos framework. The observed successes and failures identify specific engineering behavior. They do not establish compliance or justify broader delegated authority.')
+
+
+title('NATIVE GOVERNANCE / 0.3','Actual risk records, controls and evidence')
+p('CISO Assistant Community v4.2.1 was also run from its official source, using its supported SQLite backend, an isolated Python 3.14.8 environment and the real REST API. The official application migrations initialized a fresh synthetic instance. ORM use was confined to fixture and private credential provisioning; risk, control and evidence integration operations used native authenticated HTTP.')
+table(['Operation','Read-back / scope'],[['Risk register','Twelve synthetic scenarios read back in the dedicated assessment; replay created no duplicate risks.'],['Control implementation','Twelve control records provisioned and linked to their matching risk scenarios.'],['Runtime evidence to R01','An actual cross-tenant denial from the Qwen experiment attached to the cross-customer-authority control.'],['Release evidence to R12','The failed native dependency gate, finding counts and SBOM digest attached to the compromised-dependency control.'],['Evidence replay','A repeated event reference resolved to the same evidence record; native control detail confirmed the evidence relation.'],['Owner authority','Risk ratings and acceptance fields remained unchanged before and after synchronization. No real owner or acceptance decision was invented.']],[124,359])
+sub('A real API test changed the implementation')
+p('The first native acceptance failed when a control list response omitted its evidence relationships. Treating an omitted list field as an empty set can overwrite unrelated links on a later merge. The adapter now fetches full detail, checks folder and assessment scope, and merges the authoritative relation set. New regression contracts verify preservation of existing control/evidence links and rejection of wrong-scope detail. The failed attempt and successful read-back remain recorded.')
+sub('Microsoft AGT and the risk system have different authority')
+p('Microsoft AGT intercepts agent tool calls. CISO Assistant holds the risk/control/evidence record. Neither a tool-wrapper allow nor an automatically attached observation can accept a risk or increase delegated authority. Human owners remain responsible for assessment, treatment and acceptance. The native CISO bootstrap administrator is a synthetic test credential, not least-privilege production qualification or a named accountable human.')
+p('Evidence: results/native-ciso.json, native-ciso-records.json and native-ciso-attempts/. Source and dependency locks are under deploy/native/. Concurrent relationship edits still require single-writer coordination or product-supported conditional mutation and reconciliation; detail read/merge alone is not a distributed concurrency guarantee.',True)
+
+title('NATIVE RESEARCH / 0.3','Primary sources and evidence index')
+for _label,_url in [
+ ('Ollama: native tool calling','https://docs.ollama.com/capabilities/tool-calling'),
+ ('Ollama: official Qwen3 4b-instruct artifact','https://ollama.com/library/qwen3:4b-instruct'),
+ ('Keycloak: audience protocol mapper','https://www.keycloak.org/admin-api/protocol-mappers'),
+ ('OpenBao: integrated Raft storage','https://openbao.org/docs/configuration/storage/raft/'),
+ ('Cryptography: GHSA-g6cj-pr64-35w5 upstream advisory','https://github.com/pyca/cryptography/security/advisories/GHSA-g6cj-pr64-35w5'),
+ ('Microsoft AGT 5.0.0: registry dependency metadata','https://pypi.org/pypi/agent-governance-toolkit-core/5.0.0/json'),
+ ('Collector v0.164.0: process telemetry source','https://github.com/open-telemetry/opentelemetry-collector/blob/v0.164.0/service/internal/proctelemetry/process_telemetry.go')]:
+ p('<link href="'+escape(_url)+'" color="#087f8c">'+escape(_label)+'</link>',True)
+sub('Repository evidence')
+table(['Artifact','Purpose'],[
+ ['results/native-agent/comparison.json','Derived per-configuration results. Original transcripts and failures remain unchanged.'],
+ ['results/native-agent/protocol*.json','Internally fixed baseline and explicitly exploratory follow-up protocols.'],
+ ['20261102T025035Z/agent-approval-journey.json','Actual model/tool episodes before and after separate reviewer approval.'],
+ ['20261102T025035Z/temporal-history.json','Native workflow history, persistence and replay evidence.'],
+ ['results/native-component-status.json','Per-product observed operation, partial result or remaining acceptance boundary.'],
+ ['results/native-supply-chain/','Compressed SBOM, findings, database metadata, public key and signature bundle.'],
+ ['deploy/native/','Exact native archive and model locks. Hash matching is distinct from independent publisher attestation.']],[221,262])
+p('Paths beginning with a timestamp are relative to results/native-agent/. Source assertions, proposed architecture and observed measurements remain distinct. Accessed 2 November 2026. See the repository for complete raw records and reproduction entry points.',True)
+
 def footer(c,doc):
  c.setStrokeColor(GREY);c.line(56,43,W-56,43)
- c.setFont('FabricSans',8);c.setFillColor(INK);c.drawString(56,29,'GOVERNED AGENT FABRIC  |  Research prototype v0.2  |  02 Nov 2026');c.drawRightString(W-56,29,str(doc.page))
+ c.setFont('FabricSans',8);c.setFillColor(INK);c.drawString(56,29,'GOVERNED AGENT FABRIC  |  Research prototype v0.3  |  02 Nov 2026');c.drawRightString(W-56,29,str(doc.page))
  c.setFillColor(TEAL);c.rect(0,H-8,W,8,fill=1,stroke=0)
 
 OUT.mkdir(exist_ok=True)
-SimpleDocTemplate(str(OUT/'Governed_Agent_Fabric_Research_Paper.pdf'),pagesize=A4,leftMargin=56,rightMargin=56,topMargin=48,bottomMargin=58,title='Governed Agent Fabric: Integrated Governance for Regulated Agentic Workflows',author='Reference Architecture Research',pageCompression=1).build(story,onFirstPage=footer,onLaterPages=footer)
+SimpleDocTemplate(str(OUT/'Governed_Agent_Fabric_Research_Paper.pdf'),pagesize=A4,leftMargin=56,rightMargin=56,topMargin=48,bottomMargin=58,title='Governed Agent Fabric: Bounded Autonomy, Cross-System Authority and Operational Evidence',author='Reference Architecture Research',pageCompression=1).build(story,onFirstPage=footer,onLaterPages=footer)
 (OUT/'research-paper.md').write_text('\n\n'.join(markdown))
 (OUT/'references.json').write_text(json.dumps([{'id':i,'organization':o,'title':d,'url':u,'accessed':'2026-11-02'} for i,o,d,u in refs],indent=2))
 for name,draw in [('architecture',topology()),('execution-flow',sequence()),('evidence-graph',graph())]:

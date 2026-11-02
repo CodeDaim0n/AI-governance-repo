@@ -1,0 +1,14 @@
+{
+  "ready": false,
+  "blockers": [
+    "missing executable: docker",
+    "missing executable: kind",
+    "missing executable: kubectl",
+    "missing executable: helm",
+    "missing executable: syft",
+    "missing executable: grype",
+    "missing executable: cosign"
+  ],
+  "host_requirement": "Dedicated Linux host; 32 GiB RAM and 80 GiB free disk recommended; Docker privileges and kernel eBPF support required",
+  "no_services_started": true
+}

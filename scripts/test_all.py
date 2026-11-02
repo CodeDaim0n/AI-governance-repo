@@ -16,7 +16,7 @@ policy=subprocess.run([opa,'test','policies','-v'],capture_output=True,text=True
 Path('results/rego-tests.log').write_text(policy.stdout+policy.stderr)
 if policy.returncode:raise SystemExit(policy.returncode)
 with open('results/opa.log','w') as log:
- server=subprocess.Popen([opa,'run','--server','--addr=127.0.0.1:8181','policies/credit.rego'],stdout=log,stderr=log)
+ server=subprocess.Popen([opa,'run','--disable-telemetry','--server','--addr=127.0.0.1:8181','policies/credit.rego'],stdout=log,stderr=log)
  try:
   for _ in range(50):
    if server.poll() is not None:raise RuntimeError('OPA startup failed; see results/opa.log')

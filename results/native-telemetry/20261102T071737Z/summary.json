@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "scope": "isolated native OTLP delivery and attribute minimization; not all-18 acceptance",
+  "version": "otelcol-contrib version 0.164.0",
+  "binary_sha256": "57911a9d902cfe2c287dac09fcee4b054630b4ec248fa190a3115d860a32f81f",
+  "error_type": "RuntimeError",
+  "reason": "Collector exited during startup"
+}

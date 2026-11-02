@@ -95,7 +95,7 @@ def main():
    return {'metrics':evaluation['metrics'],'dataset':'eight synthetic records; plumbing only','candidate_logged_to_mlflow':True}
   record(15,fairness)
   def gateway(path,body=None,who='agent-a',params=None):
-   r=httpx.post('http://localhost:8088'+path,json=body,params=params,headers={'Authorization':'Bearer '+context['tokens'][who]},timeout=30);r.raise_for_status();return r.json()
+   r=httpx.post('http://localhost:8088'+path,json=body,params=params,headers={'Authorization':'Bearer '+context['tokens'][who]},timeout=230 if path.endswith('/run') else 30);r.raise_for_status();return r.json()
   def mlflow():
    version=context['candidate'];gateway('/models/'+str(version)+'/approve',who='reviewer-a')
    proof=MLflowRegistry().validate();assert str(proof['model_version'])==str(version);return proof
@@ -114,10 +114,19 @@ def main():
    return {'workflow_id':started['workflow_id'],'committed':True,'approval_signal_checked':True,'cross_tenant_denied':True}
   record(5,temporal)
   def ollama():
-   client=Ollama()
-   try:r=client.propose('Return only this JSON object: {"integration_probe":"fabric"}');assert isinstance(r['proposal'],dict) and r['model']
-   finally:client.close()
-   return {'actual_model':r['model'],'generated_json':True,'output_tokens':r['output_tokens']}
+   # Actual agent tool loop through the commissioned gateway, not one-shot JSON.
+   gateway('/lab/refresh-case',who='admin-a',params={'case_id':'case-a'})
+   action={'case_id':'case-a','tool':'credit.commit','amount_pence':50000,'idempotency_key':'agent-accept-'+str(uuid.uuid4())}
+   task=gateway('/agent/tasks',{'action':action})
+   result=gateway('/agent/tasks/'+task['task_id']+'/run')['agent']
+   events=result['tool_events']
+   assert any(e['name']=='inspect_case' and e['observation'].get('status')=='observed' for e in events)
+   assert any(e['name']=='commit_action' and e['observation'].get('status')=='executed' for e in events)
+   db=PostgresFabric(os.environ['DATABASE_URL'])
+   with db.connect() as c:
+    row=c.execute('SELECT count(*),COALESCE(SUM(amount),0) FROM actions WHERE actor=? AND idem=?',('agent-a',action['idempotency_key'])).fetchone()
+   assert row[0]==1 and row[1]==50000
+   return {'actual_model':result['model'],'native_agent_loop':True,'authorized_read_observed':True,'executed_receipt_observed':True,'postgres_effect_count':1,'tool_names':[e['name'] for e in events]}
   record(18,ollama)
   def telemetry():
    file=L/'telemetry/traces.json'
@@ -158,14 +167,13 @@ def main():
    return {'audit_chain_checked':True,'business_actions':actions,'downstream_delivery_receipts':receipts}
   record(14,pg)
   for n,file in [(16,'cilium-live.json'),(17,'supply-chain-live.json')]:
-   def read_evidence(file=file):
+   def read_evidence(file=file,n=n):
     p=R/'results'/file
     if not p.exists():raise RuntimeError('Required live test has not run')
     proof=json.loads(p.read_text())
-    assert proof['deployment_id']==(L/'deployment-id').read_text().strip()
     import subprocess
-    assert proof['source_commit']==subprocess.check_output(['git','-C',str(R),'rev-parse','HEAD'],text=True).strip()
-    return proof
+    from fabric.enterprise.acceptance import validate_receipt
+    return validate_receipt(n,proof,(L/'deployment-id').read_text().strip(),subprocess.check_output(['git','-C',str(R),'rev-parse','HEAD'],text=True).strip())
    record(n,read_evidence)
  summary={'date':__import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat(),'scope':'Dedicated synthetic deployment, not regulatory certification',
    'all_18_passed':len(results)==18 and all(x['status']=='PASS' for x in results.values()),

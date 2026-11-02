@@ -37,4 +37,5 @@ nav:
   - Operations: runbooks/operations.md
   - Architecture decisions: decisions/README.md
   - Contributing: development/contributing.md
+  - Autonomous agent experiment: research/native-agent.md
   - Research: research-paper.md

@@ -1,0 +1,9 @@
+{
+  "status": "BLOCKED",
+  "scope": "isolated real PostgreSQL + OPA; not all-18 acceptance",
+  "checks": {},
+  "adapter_sha256": "80ff88df39f035cf25f03855e6ae87a066d976ff41943bad5e671f8e38e5e7d3",
+  "postgres_version": "postgres (PostgreSQL) 16.2",
+  "postgres_binary_sha256": "ae05b2a1b0685f2c69b8b9eb3765b1429a5c173c64b248f7f157de2af9db768d",
+  "reason": "Host maps only root; PostgreSQL requires an unprivileged process. No user or root-safety bypass attempted."
+}

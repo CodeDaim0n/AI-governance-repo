@@ -6,17 +6,19 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-087f8c.svg)](LICENSE)
 ![Status: Research prototype](https://img.shields.io/badge/status-research%20prototype-112841.svg)
 
-**Connect governance decisions to the systems where agents act.**
+**An autonomous agent fabric, governed from task to tool execution and operational evidence.**
 
 Our implementation approach to the **[Erdos governance framework](https://www.linkedin.com/pulse/implementing-governance-agentic-workflows-erdos-effect-vipie)**, bringing together **18 open-source component groups** across governance, identity, policy, workflow, data, models, security and operations.
 
-The suite covers the full lifecycle: governance and risk, identity and authorization, data and model assurance, controlled execution, operational evidence, and incident response. Native adapters, shared authority rules, exact-action approvals and linked evidence connect these capabilities across products.
+The fabric is designed to let an agent interpret a task, choose tools, read authorized context, act through a governed gateway, observe the result and continue. Permitted low-risk actions can complete autonomously. Actions requiring approval pause for a separate reviewer; hard denials stop execution.
+
+The 18 component groups contribute across that lifecycle: identity and action authorization, durable workflow, data and model assurance, risk ownership, evidence, monitoring, incident response, and deployment security. Some participate in every tool call; others govern releases or consume operational evidence. They are a coordinated product architecture, not an 18-hop serial request chain.
 
 **The architecture and integration model are domain-independent.** Business-specific rules and target operations belong in replaceable policies and adapters. The diagrams below show the generic suite and the path from an agent proposal to a governed business action.
 
 [Quickstart](docs/getting-started.md) · [Architecture](docs/architecture.md) · [All 18 components](docs/components/catalogue.md) · [Full deployment](docs/deployment/full-stack.md) · [Research paper](docs/Governed_Agent_Fabric_Research_Paper.pdf) · [Validation evidence](docs/validation.md)
 
-> **Status:** Research implementation. All 18 component groups have integration and deployment code; complete native-stack live validation is pending. [See the recorded evidence and deployment requirements](docs/validation.md).
+> **Status:** Research implementation. All 18 component groups have integration and deployment code. Qwen now performs real autonomous tool calls in a native subset, and a connected approval/restart journey has run. Complete eighteen-product live acceptance remains pending. [See the recorded evidence and deployment requirements](docs/validation.md).
 
 ## System architecture · all 18 components
 
@@ -30,7 +32,15 @@ Each numbered product has its own card and responsibility. Dark cards identify o
 
 ![Execution and governance lifecycle from authenticated proposal to controlled commitment and operational response](docs/assets/execution-governance-flow.svg)
 
-[Open the full-size execution flow](docs/assets/execution-governance-flow.svg) · [Detailed architecture guide](docs/architecture.md)
+[Open the full-size execution flow](docs/assets/execution-governance-flow.svg) · [Detailed architecture guide](docs/architecture.md) · [Autonomous agent experiment](docs/research/native-agent.md)
+
+## Autonomous execution with independent authority
+
+![Autonomous agent cycle, governed tools, approval boundary and verified effects](docs/assets/autonomous-agent-cycle.svg)
+
+The model chooses its next tool from an allowlist and receives the actual tool result as its next observation. It cannot choose its authenticated identity, approve itself, change policy, or obtain target credentials. The gateway checks authority independently of the model and commits through a typed target adapter. Durable workflows preserve approval waits and retries. Risk, assurance and operational products supply the surrounding controls and evidence.
+
+[What the experiment proves—and what it does not](docs/research/native-agent.md). The reference architecture covers all 18 component groups; native subset experiments and complete-stack acceptance are reported separately.
 
 ## Our implementation of the Erdos framework
 
@@ -61,7 +71,7 @@ Our implementation approach spans governance, identity, authorization, workflow 
 | **15** | **[Fairlearn](https://fairlearn.org/)** | Responsible-AI evaluation library calculating group-outcome differences and producing versioned validation evidence. |
 | **16** | **Kubernetes + Cilium** — [Kubernetes](https://kubernetes.io/) · [Cilium](https://cilium.io/) | Workload and network-security platforms isolating the agent and restricting its permitted network routes. |
 | **17** | **Syft + Grype + Cosign** — [Syft](https://github.com/anchore/syft) · [Grype](https://github.com/anchore/grype) · [Cosign](https://github.com/sigstore/cosign) | Software-supply-chain tools inventorying built images, checking vulnerabilities and signing/verifying release artifacts. |
-| **18** | **Ollama + Qwen2.5** — [Ollama](https://ollama.com/) · [Qwen model](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct) | Local model runtime and language model generating bounded JSON proposals before deterministic authorization. |
+| **18** | **Ollama + Qwen** — [Ollama](https://ollama.com/) · [Qwen model](https://huggingface.co/Qwen) | Local agent inference and bounded tool selection; observations drive the next step while the gateway independently authorizes effects. |
 
 The numbers match the architecture diagram. These are 18 **component groups**, covering platforms, services, SDKs, evaluation libraries and security tools; several groups contain multiple products. [Explore each component’s implementation and evidence](docs/components/catalogue.md).
 
@@ -107,8 +117,13 @@ The repository supplies a synthetic `credit.commit` adapter to exercise identity
 | Original Python control and HTTP checks | 42 passed; [result](results/summary.json), [log](results/tests.log) |
 | Original OPA policy checks | 6 passed; [log](results/rego-tests.log) |
 | Original Microsoft AGT wrapper checks | 3 passed; [result](results/agt.json) |
-| Expanded native adapter contracts | 26 passed using simulated HTTP; [log](results/native-contract-tests.log) |
+| Expanded native adapter, agent/task and acceptance contracts | 44 passed using explicit simulations; [log](results/resume-contract-tests.log) |
 | Isolated Fairlearn → MLflow HTTP path | Evaluation stored/read back; candidate remained unapproved; [result](results/local-native-evaluation.json) |
+| Native Qwen agent and approval journey | Real read/tool/effect observations; native Temporal restart and reviewer continuation; [research findings](docs/research/native-agent.md) |
+| Native risk register and evidence | CISO Assistant: 12 risks and controls, actual runtime/release evidence links, ratings unchanged; [result](results/native-ciso.json) |
+| Per-product observed operations | [Native evidence matrix](results/native-component-status.json); each scope reported separately |
+| Collector delivery and minimization | Real SDK → OTLP → Collector file read-back passed in an isolated 0.130.0 compatibility experiment; [scope and reproduction](docs/research/resumed-implementation.md) |
+| Dependency release gate | High finding retained; release gate failed; [scan evidence](results/native-supply-chain/summary.json) |
 | Complete native-stack acceptance | [Machine-readable live status](results/all-18-live.json); not run successfully here |
 | Production observation and independent validation | Not performed |
 

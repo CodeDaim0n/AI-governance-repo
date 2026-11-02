@@ -1,0 +1,28 @@
+2026-11-02T02:17:38.751-0500	info	otelconftelemetry/metrics.go:29	Internal metrics telemetry disabled	{"resource": {"service.instance.id": "5cbacf0a-2fd6-4b87-8bff-e0b4a2846281", "service.name": "otelcol-contrib", "service.version": "0.164.0"}}
+2026-11-02T02:17:38.751-0500	info	otelconftelemetry/tracer.go:47	Internal trace telemetry disabled	{"resource": {"service.instance.id": "5cbacf0a-2fd6-4b87-8bff-e0b4a2846281", "service.name": "otelcol-contrib", "service.version": "0.164.0"}}
+2026-11-02T02:17:38.751-0500	error	service@v0.164.0/service.go:156	error found during service initialization	{"resource": {"service.instance.id": "5cbacf0a-2fd6-4b87-8bff-e0b4a2846281", "service.name": "otelcol-contrib", "service.version": "0.164.0"}, "error": "failed to register process metrics: process does not exist"}
+go.opentelemetry.io/collector/service.New.func1
+	go.opentelemetry.io/collector/service@v0.164.0/service.go:156
+go.opentelemetry.io/collector/service.New
+	go.opentelemetry.io/collector/service@v0.164.0/service.go:224
+go.opentelemetry.io/collector/otelcol.(*Collector).setupConfigurationComponents
+	go.opentelemetry.io/collector/otelcol@v0.164.0/collector.go:232
+go.opentelemetry.io/collector/otelcol.(*Collector).Run
+	go.opentelemetry.io/collector/otelcol@v0.164.0/collector.go:430
+go.opentelemetry.io/collector/otelcol.NewCommand.func1
+	go.opentelemetry.io/collector/otelcol@v0.164.0/command.go:41
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.10.2/command.go:1015
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.10.2/command.go:1148
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.10.2/command.go:1071
+main.runInteractive
+	github.com/open-telemetry/opentelemetry-collector-releases/contrib/main.go:72
+main.run
+	github.com/open-telemetry/opentelemetry-collector-releases/contrib/main_others.go:10
+main.main
+	github.com/open-telemetry/opentelemetry-collector-releases/contrib/main.go:63
+runtime.main
+	runtime/proc.go:290
+Error: failed to register process metrics: process does not exist

@@ -1,0 +1,237 @@
+{
+  "scope": "per-component observed operations, not simultaneous all-18 success",
+  "complete_stack_verified": false,
+  "native_component_statuses_are_not_certification": true,
+  "components": [
+    {
+      "id": 1,
+      "component": "Keycloak",
+      "status": "OBSERVED_NATIVE_SUBSET",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-agent/20261102T023022Z/summary.json",
+        "results/native-agent/20261102T023239Z/summary.json",
+        "results/native-agent/20261102T023518Z/summary.json",
+        "results/native-agent/20261102T023833Z/summary.json",
+        "results/native-agent/20261102T024311Z/summary.json",
+        "results/native-agent/20261102T024826Z/summary.json",
+        "results/native-agent/20261102T025035Z/summary.json"
+      ],
+      "detail": "Native operation/read-back in the explicitly scoped SQLite-target experiment; development stores. Not complete-stack qualification."
+    },
+    {
+      "id": 2,
+      "component": "Microsoft Agent Governance Toolkit",
+      "status": "OBSERVED_NATIVE_SUBSET",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-agent/20261102T023518Z/summary.json",
+        "results/native-agent/20261102T023833Z/summary.json",
+        "results/native-agent/20261102T024311Z/summary.json",
+        "results/native-agent/20261102T024826Z/summary.json",
+        "results/native-agent/20261102T025035Z/summary.json"
+      ],
+      "detail": "Native operation/read-back in the explicitly scoped SQLite-target experiment; development stores. Not complete-stack qualification."
+    },
+    {
+      "id": 3,
+      "component": "Open Policy Agent",
+      "status": "OBSERVED_NATIVE_SUBSET",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-agent/20261102T023518Z/summary.json",
+        "results/native-agent/20261102T023833Z/summary.json",
+        "results/native-agent/20261102T024311Z/summary.json",
+        "results/native-agent/20261102T024826Z/summary.json",
+        "results/native-agent/20261102T025035Z/summary.json"
+      ],
+      "detail": "Native operation/read-back in the explicitly scoped SQLite-target experiment; development stores. Not complete-stack qualification."
+    },
+    {
+      "id": 4,
+      "component": "OpenFGA",
+      "status": "OBSERVED_NATIVE_SUBSET",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-agent/20261102T022717Z/summary.json",
+        "results/native-agent/20261102T022938Z/summary.json",
+        "results/native-agent/20261102T023022Z/summary.json",
+        "results/native-agent/20261102T023239Z/summary.json",
+        "results/native-agent/20261102T023518Z/summary.json",
+        "results/native-agent/20261102T023833Z/summary.json",
+        "results/native-agent/20261102T024311Z/summary.json",
+        "results/native-agent/20261102T024826Z/summary.json",
+        "results/native-agent/20261102T025035Z/summary.json"
+      ],
+      "detail": "Native operation/read-back in the explicitly scoped SQLite-target experiment; development stores. Not complete-stack qualification."
+    },
+    {
+      "id": 5,
+      "component": "Temporal",
+      "status": "OBSERVED_NATIVE_SUBSET",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-agent/20261102T023518Z/summary.json",
+        "results/native-agent/20261102T024311Z/summary.json",
+        "results/native-agent/20261102T024826Z/summary.json",
+        "results/native-agent/20261102T025035Z/summary.json"
+      ],
+      "detail": "Native operation/read-back in the explicitly scoped SQLite-target experiment; development stores. Not complete-stack qualification."
+    },
+    {
+      "id": 6,
+      "component": "CISO Assistant Community",
+      "status": "OBSERVED_ISOLATED_NATIVE",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-ciso.json"
+      ],
+      "detail": "Actual CISO Assistant Community v4.2.1 HTTP risk/control/evidence operations; isolated SQLite; synthetic bootstrap administrator, not a production owner or least-privilege qualification"
+    },
+    {
+      "id": 7,
+      "component": "OpenMetadata",
+      "status": "NOT_COMMISSIONED",
+      "native_observed": false,
+      "complete_stack_verified": false,
+      "evidence": [],
+      "detail": "Source/deployment and contract implementation present; live product operation not observed here."
+    },
+    {
+      "id": 8,
+      "component": "MLflow",
+      "status": "OBSERVED_ISOLATED_NATIVE",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/local-native-evaluation.json"
+      ],
+      "detail": "Actual Fairlearn to MLflow HTTP write and read-back; eight-row fixture, unapproved candidate. Not Qwen fairness or predictive-model validation."
+    },
+    {
+      "id": 9,
+      "component": "OpenBao",
+      "status": "OBSERVED_NATIVE_SUBSET",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-agent/20261102T022717Z/summary.json",
+        "results/native-agent/20261102T022938Z/summary.json",
+        "results/native-agent/20261102T023022Z/summary.json",
+        "results/native-agent/20261102T023239Z/summary.json",
+        "results/native-agent/20261102T023518Z/summary.json",
+        "results/native-agent/20261102T023833Z/summary.json",
+        "results/native-agent/20261102T024311Z/summary.json",
+        "results/native-agent/20261102T024826Z/summary.json",
+        "results/native-agent/20261102T025035Z/summary.json"
+      ],
+      "detail": "Native operation/read-back in the explicitly scoped SQLite-target experiment; development stores. Not complete-stack qualification."
+    },
+    {
+      "id": 10,
+      "component": "OpenTelemetry Collector",
+      "status": "OBSERVED_ISOLATED_NATIVE",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-telemetry/20261102T071551Z/summary.json",
+        "results/native-telemetry/20261102T071551Z/traces.jsonl"
+      ],
+      "detail": "otelcol-contrib version 0.130.0: actual SDK OTLP delivery/read-back and sensitive-attribute removal. Isolated compatibility experiment; deployment-pinned 0.164.0 remains blocked on restricted procfs."
+    },
+    {
+      "id": 11,
+      "component": "Prometheus and Alertmanager",
+      "status": "OBSERVED_NATIVE_SUBSET",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-agent/20261102T023518Z/summary.json",
+        "results/native-agent/20261102T024311Z/summary.json",
+        "results/native-agent/20261102T024826Z/summary.json",
+        "results/native-agent/20261102T025035Z/summary.json"
+      ],
+      "detail": "Native operation/read-back in the explicitly scoped SQLite-target experiment; development stores. Not complete-stack qualification."
+    },
+    {
+      "id": 12,
+      "component": "DFIR-IRIS",
+      "status": "NOT_COMMISSIONED",
+      "native_observed": false,
+      "complete_stack_verified": false,
+      "evidence": [],
+      "detail": "Source/deployment and contract implementation present; live product operation not observed here."
+    },
+    {
+      "id": 13,
+      "component": "GLPI",
+      "status": "NOT_COMMISSIONED",
+      "native_observed": false,
+      "complete_stack_verified": false,
+      "evidence": [],
+      "detail": "Source/deployment and contract implementation present; live product operation not observed here."
+    },
+    {
+      "id": 14,
+      "component": "PostgreSQL",
+      "status": "BLOCKED",
+      "native_observed": false,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-postgres/20261102T071551Z/summary.json"
+      ],
+      "detail": "Host maps only root; PostgreSQL requires an unprivileged process. No user or root-safety bypass attempted."
+    },
+    {
+      "id": 15,
+      "component": "Fairlearn",
+      "status": "OBSERVED_ISOLATED_NATIVE",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/local-native-evaluation.json"
+      ],
+      "detail": "Actual Fairlearn to MLflow HTTP write and read-back; eight-row fixture, unapproved candidate. Not Qwen fairness or predictive-model validation."
+    },
+    {
+      "id": 16,
+      "component": "Kubernetes and Cilium",
+      "status": "HOST_BLOCKED",
+      "native_observed": false,
+      "complete_stack_verified": false,
+      "evidence": [],
+      "detail": "No Kubernetes/container runtime, network-management or eBPF capabilities. Before/after Cilium enforcement acceptance not run."
+    },
+    {
+      "id": 17,
+      "component": "Syft, Grype and Cosign",
+      "status": "GATE_FAILED_PARTIAL",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-supply-chain/summary.json"
+      ],
+      "detail": "Actual dependency-directory SBOM and vulnerability scan, local signature verification and tamper rejection. High gate failed. Built-image acceptance not run."
+    },
+    {
+      "id": 18,
+      "component": "Ollama and Qwen",
+      "status": "OBSERVED_NATIVE_SUBSET",
+      "native_observed": true,
+      "complete_stack_verified": false,
+      "evidence": [
+        "results/native-agent/20261102T023518Z/summary.json",
+        "results/native-agent/20261102T023833Z/summary.json",
+        "results/native-agent/20261102T024311Z/summary.json",
+        "results/native-agent/20261102T024826Z/summary.json"
+      ],
+      "detail": "Native operation/read-back in the explicitly scoped SQLite-target experiment; development stores. Not complete-stack qualification."
+    }
+  ]
+}

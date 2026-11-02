@@ -1,0 +1,26 @@
+{
+  "scope": "Verified copies of sources matching the connected journey hashes, retained before later formatting",
+  "files": [
+    {
+      "source": "fabric/agent.py",
+      "reported_sha256": "f04c1796a5fb74b06dd66a5919726aef1c3420f94b9359bdf45e5d7b76599dec",
+      "current_sha256": "f04c1796a5fb74b06dd66a5919726aef1c3420f94b9359bdf45e5d7b76599dec",
+      "matched": true,
+      "snapshot": "results/native-agent/20261102T025035Z/source/fabric/agent.py"
+    },
+    {
+      "source": "fabric/native_lab.py",
+      "reported_sha256": "373c341bce14e21e2444b95c1f6c577304d2e4cff24810c13739103a8c2835d2",
+      "current_sha256": "373c341bce14e21e2444b95c1f6c577304d2e4cff24810c13739103a8c2835d2",
+      "matched": true,
+      "snapshot": "results/native-agent/20261102T025035Z/source/fabric/native_lab.py"
+    },
+    {
+      "source": "scripts/run_native_agent.py",
+      "reported_sha256": "a683255c2b06a54929857b56300e9c1b95ef66cc4dc4a1250c5aa4ca444985d6",
+      "current_sha256": "a683255c2b06a54929857b56300e9c1b95ef66cc4dc4a1250c5aa4ca444985d6",
+      "matched": true,
+      "snapshot": "results/native-agent/20261102T025035Z/source/scripts/run_native_agent.py"
+    }
+  ]
+}

@@ -34,6 +34,7 @@ async def lifespan(app):
  app.state.fabric=PostgresFabric(required('DATABASE_URL'),EnterprisePolicy(required('OPA_DECISION_URL')))
  with app.state.fabric.tx() as c:
   c.execute('CREATE TABLE IF NOT EXISTS workflow_requests(id TEXT PRIMARY KEY,actor TEXT,action TEXT)')
+  c.execute('CREATE TABLE IF NOT EXISTS agent_tasks(id TEXT PRIMARY KEY,actor TEXT,action TEXT,created DOUBLE PRECISION,expires DOUBLE PRECISION,inspected INT,approval_id TEXT,workflow_id TEXT)')
  yield
  app.state.identity.close()
 app=FastAPI(title='Governed Agent Fabric native stack',lifespan=lifespan)
@@ -153,3 +154,7 @@ def lab_refresh(case_id:str,authorization:str|None=Header(default=None)):
   c.execute('UPDATE cases SET updated=?,version=version+1 WHERE id=?',(time.time(),case_id))
   app.state.fabric.event(c,{'actor':who,'outcome':'synthetic_case_refreshed','scope':'lab only'})
  return {'refreshed':case_id,'synthetic':True}
+
+# Autonomous tool loop; source/intent boundaries apply independently of prompts.
+from .agent_routes import install as install_agent_routes
+install_agent_routes(app,actor,run_action,Action,Execute)

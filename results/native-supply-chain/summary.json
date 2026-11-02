@@ -1,0 +1,143 @@
+{
+  "scope": "installed Python dependency directory, NOT built container image",
+  "source": "/tmp/fabric-enterprise-deps",
+  "gate_threshold": "high",
+  "versions": {
+    "syft": "Application:   syft\nVersion:       1.55.0\nBuildDate:     2026-10-19T18:54:46Z\nGitCommit:     f15c3343e29dfb20cf6d82c820e7090b49808c96\nGitDescription: v1.55.0\nPlatform:      linux/amd64\nGoVersion:     go1.26.8\nCompiler:      gc\nSchemaVersion: 16.1.11\n",
+    "grype": "Application:         grype\nVersion:             0.121.0\nBuildDate:           2026-10-19T20:26:34Z\nGitCommit:           afe2742527d98d822da06c9f32eed86fe3d193e0\nGitDescription:      v0.121.0\nPlatform:            linux/amd64\nGoVersion:           go1.26.8\nCompiler:            gc\nSyft Version:        v1.55.0\nSupported DB Schema: 6\n",
+    "cosign": "  ______   ______        _______. __    _______ .__   __.\n /      | /  __  \\      /       ||  |  /  _____||  \\ |  |\n|  ,----'|  |  |  |    |   (----`|  | |  |  __  |   \\|  |\n|  |     |  |  |  |     \\   \\    |  | |  | |_ | |  . `  |\n|  `----.|  `--'  | .----)   |   |  | |  |__| | |  |\\   |\n \\______| \\______/  |_______/    |__|  \\______| |__| \\__|\ncosign: A tool for Container Signing, Verification and Storage in an OCI registry\n\nGitVersion:    v3.1.4\nGitCommit:     0e48502cf5ef34e2e60bbd3617aa19945712f705\nGitTreeState:  clean\nBuildDate:     2026-10-20T17:33:02Z\nGoVersion:     go1.27.3\nCompiler:      gc\nPlatform:      linux/amd64\n\n"
+  },
+  "scan_exit_code": 2,
+  "scan_stderr": "[0001]  WARN go binary packages were found but none carry function symbols; go vulnerability matching falls back to module granularity and may report false positives. if scanning an SBOM, regenerate it with symbol capture enabled for more precise results.\n[0109] ERROR discovered vulnerabilities at or above the severity threshold\n",
+  "findings_by_severity": {
+    "High": 1
+  },
+  "matches": 1,
+  "database": {
+    "status": {
+      "schemaVersion": "v6.1.10",
+      "from": "https://grype.anchore.io/databases/v6/vulnerability-db_v6.1.10_2026-11-01T00:24:34Z_1793514012.tar.zst?checksum=sha256%3Ad0e1af9e6491440e1a671d0a0aafc32c5c7cb5cda787dcec3482799ef298f31c",
+      "built": "2026-11-01T06:20:12Z",
+      "path": "/workspace/scratch/b97110570a09/governed-agent-fabric/.local/native/supply-chain/grype-db/6/vulnerability.db",
+      "valid": true
+    },
+    "providers": {
+      "alma": {
+        "captured": "2026-11-01T00:24:39Z",
+        "input": "xxh64:d398731e6455b022"
+      },
+      "alpine": {
+        "captured": "2026-11-01T00:24:47Z",
+        "input": "xxh64:c40c8985935df81b"
+      },
+      "amazon": {
+        "captured": "2026-11-01T00:24:37Z",
+        "input": "xxh64:ee129200b14d5c8a"
+      },
+      "arch": {
+        "captured": "2026-11-01T00:24:47Z",
+        "input": "xxh64:14f6c24dd6cd12c8"
+      },
+      "bitnami": {
+        "captured": "2026-11-01T00:24:34Z",
+        "input": "xxh64:971619846357ae10"
+      },
+      "chainguard": {
+        "captured": "2026-11-01T00:24:48Z",
+        "input": "xxh64:dfbf78c7fc58a603"
+      },
+      "chainguard-libraries": {
+        "captured": "2026-11-01T00:24:50Z",
+        "input": "xxh64:db9c34dd1b7bc8d0"
+      },
+      "debian": {
+        "captured": "2026-11-01T00:24:52Z",
+        "input": "xxh64:078c82a49c8cb529"
+      },
+      "echo": {
+        "captured": "2026-11-01T00:24:41Z",
+        "input": "xxh64:1d0df98736854a48"
+      },
+      "eol": {
+        "captured": "2026-11-01T00:24:59Z",
+        "input": "xxh64:0f2164b3e62ba44b"
+      },
+      "epss": {
+        "captured": "2026-11-01T00:25:00Z",
+        "input": "xxh64:0d4c3b8d2c2e5188"
+      },
+      "fedora": {
+        "captured": "2026-11-01T00:24:40Z",
+        "input": "xxh64:28fe3d1d8ae41f9b"
+      },
+      "github": {
+        "captured": "2026-11-01T00:24:57Z",
+        "input": "xxh64:076a86d2dc5c9e83"
+      },
+      "govulndb": {
+        "captured": "2026-11-01T00:24:45Z",
+        "input": "xxh64:56e169604e12196e"
+      },
+      "hummingbird": {
+        "captured": "2026-11-01T00:27:26Z",
+        "input": "xxh64:e86abd0466410fb6"
+      },
+      "kev": {
+        "captured": "2026-11-01T00:25:06Z",
+        "input": "xxh64:cb0f4041bd51c379"
+      },
+      "mariner": {
+        "captured": "2026-11-01T00:24:56Z",
+        "input": "xxh64:003337efdc7e1888"
+      },
+      "minimos": {
+        "captured": "2026-11-01T00:24:56Z",
+        "input": "xxh64:219c30ffded7a12c"
+      },
+      "nvd": {
+        "captured": "2026-11-01T00:25:41Z",
+        "input": "xxh64:75e41eec415fdb0a"
+      },
+      "oracle": {
+        "captured": "2026-11-01T00:24:42Z",
+        "input": "xxh64:0546c2dd11a85c07"
+      },
+      "photon": {
+        "captured": "2026-11-01T00:24:37Z",
+        "input": "xxh64:8dbfd0c521fd470a"
+      },
+      "rhel": {
+        "captured": "2026-11-01T01:08:40Z",
+        "input": "xxh64:57c5e6a7f9f134ff"
+      },
+      "secureos": {
+        "captured": "2026-11-01T00:24:34Z",
+        "input": "xxh64:ac7fa7f44e8ed7dd"
+      },
+      "sles": {
+        "captured": "2026-11-01T00:26:56Z",
+        "input": "xxh64:025a1565b2cc7cdf"
+      },
+      "ubuntu": {
+        "captured": "2026-11-01T00:25:58Z",
+        "input": "xxh64:9ab4d29f0ea6275d"
+      },
+      "wolfi": {
+        "captured": "2026-11-01T00:25:02Z",
+        "input": "xxh64:d27b08e998baab8e"
+      }
+    }
+  },
+  "vulnerability_gate": "FAIL",
+  "key_generation_exit": 0,
+  "sign_exit": 0,
+  "sign_stderr": "Using payload from: /workspace/scratch/b97110570a09/governed-agent-fabric/.local/native/supply-chain/dependencies.spdx.json\nSigning artifact...\nWrote bundle to file /workspace/scratch/b97110570a09/governed-agent-fabric/.local/native/supply-chain/sbom.bundle\n",
+  "verification_exit": 0,
+  "verification_log": "WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for the blob.\nVerified OK\n",
+  "tampered_verification_exit": 1,
+  "tamper_rejected": true,
+  "dependencies.spdx.json_sha256": "4ff1dedf1114cf1f9e4c915c73747cf2697c46c4228d7cea4c7e308109edfba0",
+  "vulnerabilities.json_sha256": "2e798548c934716cf9b61d2f5b8100883834a5072e5228fc49db53826d86277a",
+  "release_qualified": false,
+  "limitations": "Directory scan and local signature only. Built-image, deployment provenance and transparency-log qualification not performed. Findings are retained; no exceptions auto-approved."
+}

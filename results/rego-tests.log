@@ -1,9 +1,9 @@
 policies/credit_test.rego:
-data.fabric_test.test_allow: PASS (1.758738ms)
-data.fabric_test.test_cross_tenant: PASS (483.953µs)
-data.fabric_test.test_approval: PASS (671.929µs)
-data.fabric_test.test_kill: PASS (1.872887ms)
-data.fabric_test.test_budget: PASS (590.038µs)
-data.fabric_test.test_stale: PASS (536.44µs)
+data.fabric_test.test_allow: PASS (719.058µs)
+data.fabric_test.test_cross_tenant: PASS (647.593µs)
+data.fabric_test.test_approval: PASS (439.347µs)
+data.fabric_test.test_kill: PASS (433.828µs)
+data.fabric_test.test_budget: PASS (9.987309ms)
+data.fabric_test.test_stale: PASS (477.152µs)
 --------------------------------------------------------------------------------
 PASS: 6/6

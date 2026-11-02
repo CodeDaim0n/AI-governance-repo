@@ -1,0 +1,93 @@
+{
+  "run_id": "20261102T023022Z",
+  "protocol_sha256": "14974e5388c954b19e7d1a8b0c25395351ce0edb42f232985383902c7ed91ea7",
+  "scope": "native subset; SQLite synthetic ledger; development-mode product stores; not all-18 acceptance",
+  "host": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "cpu_count": 9,
+    "memory_limit_bytes": "8589934592"
+  },
+  "components": {
+    "9": {
+      "status": "PASS",
+      "evidence": {
+        "kv2_read": true,
+        "cross_role_read_denied": true,
+        "storage": "single-node Raft; initialized and unsealed by private lab controller"
+      }
+    },
+    "4": {
+      "status": "PASS",
+      "evidence": {
+        "native_tuple_write_and_allow": true,
+        "cross_case_deny": true,
+        "datastore": "memory development mode"
+      }
+    },
+    "1": {
+      "status": "PASS",
+      "evidence": {
+        "signed_client_credentials_verified": 3,
+        "tampered_signature_denied": true,
+        "jwks_signature_issuer_audience_principal_checked": true,
+        "store": "Keycloak dev-mem"
+      }
+    }
+  },
+  "trials": [],
+  "model": {
+    "tags": {
+      "models": [
+        {
+          "name": "qwen3:0.6b",
+          "model": "qwen3:0.6b",
+          "modified_at": "2026-11-01T21:30:27.557590767-05:00",
+          "size": 522653767,
+          "digest": "7df6b6e09427a769808717c0a93cadc4ae99ed4eb8bf5ca557c90846becea435",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3",
+            "families": [
+              "qwen3"
+            ],
+            "parameter_size": "751.63M",
+            "quantization_level": "Q4_K_M",
+            "context_length": 40960,
+            "embedding_length": 1024,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools",
+            "thinking"
+          ]
+        }
+      ]
+    },
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "751.63M",
+      "quantization_level": "Q4_K_M"
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "thinking"
+    ],
+    "runtime_version": {
+      "version": "0.40.13"
+    }
+  },
+  "status": "failed",
+  "error": {
+    "type": "RuntimeError",
+    "message": "Service readiness deadline: http://127.0.0.1:4318/v1/traces"
+  }
+}

@@ -154,11 +154,11 @@
   },
   {
     "id": 18,
-    "name": "Ollama and Qwen2.5",
-    "role": "Local proposal generation without execution credentials",
-    "implementation": "fabric/enterprise/clients.py",
-    "interface": "/api/pull and /api/generate",
-    "acceptance": "Run the actual model and parse a generated JSON response.",
+    "name": "Ollama and Qwen",
+    "role": "Local autonomous tool loop without target or reviewer credentials",
+    "implementation": "fabric/agent.py",
+    "interface": "/api/chat native tool calls; task-scoped authenticated HTTP tools",
+    "acceptance": "Observe an authorized case read and actual commit receipt from the autonomous tool loop; verify one PostgreSQL effect independently.",
     "deployment_status": "Not verified in this environment"
   }
 ]

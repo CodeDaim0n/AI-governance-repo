@@ -47,3 +47,13 @@ Retry a request with the same actor, tenant, idempotency key and unchanged paylo
 ## Input and evidence privacy
 
 Bodies and bearer tokens are excluded from runtime trace attributes. Events use minimized references and digests. These remain potentially sensitive and require retention and access controls; neither hashing nor dropping two trace fields provides anonymization or comprehensive DLP.
+
+## Autonomous task execution
+
+The native gateway provides `POST /agent/tasks` with the same action/approval schema as `/execute`, then `POST /agent/tasks/{task_id}/run` using the same authenticated actor. Task state is server-owned, expires after ten minutes and cannot be read by a different actor. Tool routes `/inspect` and `/agent/execute` require the caller's bearer token and an `X-Fabric-Task` header supplied by the agent driver, never by generated tool arguments.
+
+The inspection route checks tenant and native OpenFGA access. The commitment route checks the exact stored intent and read precondition, then invokes the existing AGT/policy/target boundary. A sole approval requirement starts a stable Temporal workflow; it returns `waiting_approval` and a workflow reference. The existing reviewer route grants an exact-action approval. A subsequent agent run can observe the completed workflow receipt. Other denials remain denials.
+
+`/propose` remains a separate one-shot proposal interface; it does not demonstrate autonomous execution. See the [agent experiment and evidence boundaries](research/native-agent.md).
+
+`GET /agent/tasks/{task_id}` and the `execution` field returned by `/run` derive status from the bound target ledger receipt. A model claiming success without an effect is returned as `not_executed`; generated narrative is never promoted into authoritative execution status.

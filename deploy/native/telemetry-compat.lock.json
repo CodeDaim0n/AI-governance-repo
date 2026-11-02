@@ -1,0 +1,10 @@
+[
+  {
+    "product": "otelcol-contrib",
+    "release": "v0.130.0",
+    "source": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.130.0/otelcol-contrib_0.130.0_linux_amd64.tar.gz",
+    "sha256": "292ac0d698e80282ec3d848238ffd6976c3cb97c3c169dec955754efc2293e71",
+    "github_asset_digest_matched": true,
+    "scope": "Optional isolated compatibility experiment only. Does not change the deployment-pinned Collector or qualify this older release."
+  }
+]

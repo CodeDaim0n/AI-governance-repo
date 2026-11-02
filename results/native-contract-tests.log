@@ -1,6 +1,22 @@
+/tmp/fabric-enterprise-deps/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_calls_budget_limits_same_reply_and_future_turns (test_agent.AgentBoundary.test_calls_budget_limits_same_reply_and_future_turns) ... ok
+test_malformed_function_denied_without_crash (test_agent.AgentBoundary.test_malformed_function_denied_without_crash) ... ok
+test_no_tool_call_is_final_not_fabricated_success (test_agent.AgentBoundary.test_no_tool_call_is_final_not_fabricated_success) ... ok
+test_reviewer_fields_rejected (test_agent.AgentBoundary.test_reviewer_fields_rejected) ... ok
+test_token_only_sent_to_gateway_never_model (test_agent.AgentBoundary.test_token_only_sent_to_gateway_never_model) ... ok
+test_unknown_tool_never_crosses_gateway (test_agent.AgentBoundary.test_unknown_tool_never_crosses_gateway) ... ok
+test_expiry_rechecked_and_reviewers_cannot_create_agent_task (test_agent_routes.Routes.test_expiry_rechecked_and_reviewers_cannot_create_agent_task) ... ok
+test_inspection_must_match_bound_case_and_relationship (test_agent_routes.Routes.test_inspection_must_match_bound_case_and_relationship) ... ok
+test_model_success_narrative_does_not_become_execution_status (test_agent_routes.Routes.test_model_success_narrative_does_not_become_execution_status) ... ok
+test_other_principal_cannot_read_task_or_change_intent (test_agent_routes.Routes.test_other_principal_cannot_read_task_or_change_intent) ... ok
+test_read_precondition_and_exact_commit (test_agent_routes.Routes.test_read_precondition_and_exact_commit) ... ok
+test_unlisted_tool_fields_and_missing_task_cannot_execute (test_agent_routes.Routes.test_unlisted_tool_fields_and_missing_task_cannot_execute) ... ok
 test_absolute_action_endpoint_rejected (test_contracts.NativeContracts.test_absolute_action_endpoint_rejected) ... ok
 test_agent_cannot_add_role_to_action (test_contracts.NativeContracts.test_agent_cannot_add_role_to_action) ... ok
 test_boolean_money_rejected_at_api (test_contracts.NativeContracts.test_boolean_money_rejected_at_api) ... ok
+test_ciso_relations_merge_from_detail_not_lightweight_list (test_contracts.NativeContracts.test_ciso_relations_merge_from_detail_not_lightweight_list) ... ok
+test_ciso_wrong_detail_scope_fails_without_patch (test_contracts.NativeContracts.test_ciso_wrong_detail_scope_fails_without_patch) ... ok
 test_exceeded_fairness_threshold_is_denied (test_contracts.NativeContracts.test_exceeded_fairness_threshold_is_denied) ... ok
 test_existing_risk_never_overwritten (test_contracts.NativeContracts.test_existing_risk_never_overwritten) ... ok
 test_expired_model_is_denied (test_contracts.NativeContracts.test_expired_model_is_denied) ... ok
@@ -26,6 +42,6 @@ test_wrong_gateway_audience (test_contracts.TokenContracts.test_wrong_gateway_au
 test_wrong_issuer (test_contracts.TokenContracts.test_wrong_issuer) ... ok
 
 ----------------------------------------------------------------------
-Ran 26 tests in 0.121s
+Ran 40 tests in 0.530s
 
 OK

@@ -1,0 +1,9 @@
+policies/credit_test.rego:
+data.fabric_test.test_allow: PASS (691.797µs)
+data.fabric_test.test_cross_tenant: PASS (684.437µs)
+data.fabric_test.test_approval: PASS (1.16573ms)
+data.fabric_test.test_kill: PASS (747.139µs)
+data.fabric_test.test_budget: PASS (640.693µs)
+data.fabric_test.test_stale: PASS (945.471µs)
+--------------------------------------------------------------------------------
+PASS: 6/6

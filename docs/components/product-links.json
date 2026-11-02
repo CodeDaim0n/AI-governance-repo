@@ -204,17 +204,17 @@
   },
   {
     "id": 18,
-    "name": "Ollama + Qwen2.5",
+    "name": "Ollama + Qwen",
     "official_links": [
       {
         "label": "Ollama",
         "url": "https://ollama.com/"
       },
       {
-        "label": "Qwen model",
-        "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct"
+        "label": "Qwen models",
+        "url": "https://huggingface.co/Qwen"
       }
     ],
-    "role": "Local model runtime and language model generating bounded JSON proposals before deterministic authorization."
+    "role": "Local agent inference and bounded tool selection; observations drive the next step while the gateway independently authorizes effects."
   }
 ]

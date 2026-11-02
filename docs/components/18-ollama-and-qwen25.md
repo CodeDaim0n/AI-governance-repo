@@ -1,27 +1,28 @@
-# 18. Ollama and Qwen2.5
+# 18. Ollama and Qwen
 
-**Official product sources:** [Ollama](https://ollama.com/) · [Qwen model](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct)
+**Official product sources:** [Ollama](https://ollama.com/) · [Qwen model](https://huggingface.co/Qwen)
 
-Local model runtime and language model generating bounded JSON proposals before deterministic authorization.
+Local agent inference and bounded tool selection; observations drive the next step while the gateway independently authorizes effects.
 
 ## Role
 
-Local proposal generation without execution credentials.
+Autonomous tool selection and observation processing without target or reviewer credentials.
 
 ## Implementation
 
-- Native integration: `fabric/enterprise/clients.py`.
-- Interface: `/api/pull and /api/generate`.
+- Autonomous agent loop: `fabric/agent.py`; native experiment gateway: `fabric/native_lab.py`.
+- Single-proposal enterprise interface: `fabric/enterprise/clients.py`.
+- Interface: `/api/pull`, `/api/chat` with native tools, and `/api/generate` for the separate proposal interface.
 - Deployment: [full commissioning guide](../deployment/full-stack.md).
 - Live acceptance: component `18` in `scripts/accept_all_components.py`.
 
 ## Acceptance operation
 
-Run the actual model and parse a generated JSON response.
+Run the actual model in a bounded tool loop, retain unmodified requests/responses, verify tool observations and check effects independently from model narration.
 
 ## Current evidence
 
-The expanded native path has not run successfully in the available environment. A native health response, import success or adapter contract test does not satisfy the acceptance operation. Consult `results/all-18-live.json` for the current recorded result.
+See the [native agent experiment](../research/native-agent.md) and its per-trial transcripts. The complete eighteen-product acceptance remains separately recorded in `results/all-18-live.json`; a subset run does not establish that result.
 
 ## Authority and failure handling
 
@@ -35,6 +36,6 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 `OLLAMA_URL and OLLAMA_MODEL`
 
-Only a JSON proposal is returned. The gateway rejects changes to caller-bounded intent and never accepts model-generated identity, source status, authority or approval.
+The enterprise `/propose` endpoint returns one JSON proposal. The separate native agent experiment uses `/api/chat` tool calls and actual observations across model turns. The gateway rejects changes to caller-bounded intent and never accepts model-generated identity, source status, authority or approval.
 
 [View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)

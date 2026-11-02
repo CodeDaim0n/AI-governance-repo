@@ -1,0 +1,54 @@
+[
+  {
+    "artifact": "results/native-agent/20261102T023518Z/traces.jsonl",
+    "input_sha256": "49a12408905494304af865bca5b02715c0f0e818da6e5b1746cc9ce7849f6397",
+    "published_sha256": "d78c6ecacacd579fe03c6efd3913355f7f29f49b560059f5eb4d2c710103b3de",
+    "spans": 1,
+    "removed_resource_keys": [
+      "cluster",
+      "region",
+      "runtime_source",
+      "service.instance.id"
+    ],
+    "transformation": "Resource attribute allowlist and canonical JSONL; span IDs, timestamps, outcomes and operations retained."
+  },
+  {
+    "artifact": "results/native-agent/20261102T024311Z/traces.jsonl",
+    "input_sha256": "7c507f1309bdd948e00433931d66e4a37716963fd307386cfccd3d122fcd7d9e",
+    "published_sha256": "09bbace1d8a548e7394d05d7487686430489e8228bb55b2744c5ed0d2dd1dc77",
+    "spans": 1,
+    "removed_resource_keys": [
+      "cluster",
+      "region",
+      "runtime_source",
+      "service.instance.id"
+    ],
+    "transformation": "Resource attribute allowlist and canonical JSONL; span IDs, timestamps, outcomes and operations retained."
+  },
+  {
+    "artifact": "results/native-agent/20261102T024826Z/traces.jsonl",
+    "input_sha256": "cbb497fe155208a8ecc4fcb767e140899ab2a134d23d39d9ddbcc0f5e0c45d78",
+    "published_sha256": "56803e1698327be5c284b4aa079d2e5e70452d6726f37c3db6ed007b8dd4c13b",
+    "spans": 16,
+    "removed_resource_keys": [
+      "cluster",
+      "region",
+      "runtime_source",
+      "service.instance.id"
+    ],
+    "transformation": "Resource attribute allowlist and canonical JSONL; span IDs, timestamps, outcomes and operations retained."
+  },
+  {
+    "artifact": "results/native-agent/20261102T025035Z/traces.jsonl",
+    "input_sha256": "f5ed3f2122711b89fea687df012229e16d0e184c3ef56173a33f8f8e01241f20",
+    "published_sha256": "52237145101b3c85798b8dc5de12246455048d42ad446bc13b4e350699751da1",
+    "spans": 8,
+    "removed_resource_keys": [
+      "cluster",
+      "region",
+      "runtime_source",
+      "service.instance.id"
+    ],
+    "transformation": "Resource attribute allowlist and canonical JSONL; span IDs, timestamps, outcomes and operations retained."
+  }
+]

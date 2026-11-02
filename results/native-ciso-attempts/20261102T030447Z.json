@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "Actual CISO Assistant Community v4.2.1 HTTP risk/control/evidence operations; isolated SQLite; synthetic bootstrap administrator, not a production owner or least-privilege qualification",
+  "real_human_acceptance": false,
+  "bootstrap_uses": "official ORM fixture and private token; integration operations through actual REST API",
+  "python": "3.14.8",
+  "risks_read_back": 12,
+  "controls_created": 12,
+  "idempotent_risk_replay": true,
+  "observed_agent_denial_attached": true,
+  "evidence_duplicate_same_id": true,
+  "control_evidence_link_read_back": true,
+  "ratings_and_acceptance_unchanged": true,
+  "records_artifact": "results/native-ciso-records.json",
+  "source_provenance": {
+    "product": "CISO Assistant Community",
+    "tag": "v4.2.1",
+    "source": "https://github.com/intuitem/ciso-assistant-community/archive/refs/tags/v4.2.1.tar.gz",
+    "archive_sha256": "1d892a2e5976f56861b83fc9f288b8d263a28db2f8c2965bc922089a60e454a1",
+    "bytes": 118160297
+  }
+}

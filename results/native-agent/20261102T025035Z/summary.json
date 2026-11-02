@@ -1,0 +1,195 @@
+{
+  "run_id": "20261102T025035Z",
+  "protocol_sha256": "860438173693d7299367547fa34fa6373e792a3c09e8a5c3d3e9b6f7f34d987c",
+  "protocol_file": "results/native-agent/protocol-v5.json",
+  "source_sha256": {
+    "fabric/agent.py": "f04c1796a5fb74b06dd66a5919726aef1c3420f94b9359bdf45e5d7b76599dec",
+    "fabric/native_lab.py": "373c341bce14e21e2444b95c1f6c577304d2e4cff24810c13739103a8c2835d2",
+    "scripts/run_native_agent.py": "a683255c2b06a54929857b56300e9c1b95ef66cc4dc4a1250c5aa4ca444985d6"
+  },
+  "scope": "native subset; SQLite synthetic ledger; development-mode product stores; not all-18 acceptance",
+  "host": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "cpu_count": 9,
+    "memory_limit_bytes": "8589934592"
+  },
+  "components": {
+    "9": {
+      "status": "PASS",
+      "evidence": {
+        "kv2_read": true,
+        "cross_role_read_denied": true,
+        "storage": "single-node Raft; initialized and unsealed by private lab controller"
+      }
+    },
+    "4": {
+      "status": "PASS",
+      "evidence": {
+        "native_tuple_write_and_allow": true,
+        "cross_case_deny": true,
+        "datastore": "memory development mode"
+      }
+    },
+    "1": {
+      "status": "PASS",
+      "evidence": {
+        "signed_client_credentials_verified": 3,
+        "tampered_signature_denied": true,
+        "jwks_signature_issuer_audience_principal_checked": true,
+        "store": "Keycloak dev-mem"
+      }
+    },
+    "10": {
+      "status": "PARTIAL",
+      "evidence": {
+        "collector_start_failed": true,
+        "error": "native Collector cannot register process metrics in restricted procfs; level none also failed",
+        "sdk_export": "local file only; no OTLP delivery asserted",
+        "sdk_spans_exported": true,
+        "span_file": "results/native-agent/20261102T025035Z/traces.jsonl",
+        "bearer_tokens_absent": true
+      }
+    },
+    "3": {
+      "status": "PASS",
+      "evidence": {
+        "native_opa_allow": true,
+        "kill_switch_denial": "kill_switch"
+      }
+    },
+    "2": {
+      "status": "PASS",
+      "evidence": {
+        "native_gateway_tool_allowed": true,
+        "unlisted_tool_denied": true,
+        "package_version": "5.0.0"
+      }
+    },
+    "11": {
+      "status": "PASS",
+      "evidence": {
+        "native_prometheus_scrape_readback": true,
+        "native_alertmanager_webhook_received": true,
+        "receiver": "loopback synthetic receiver; no enterprise incident sync asserted"
+      }
+    },
+    "5": {
+      "status": "PASS",
+      "evidence": {
+        "workflow_id": "native-20261102T025035Z",
+        "waited_without_effect": true,
+        "worker_replaced": true,
+        "server_restarted_same_db": true,
+        "separate_reviewer_authorization": true,
+        "effect_count": 1,
+        "duplicate_receipt_same": true,
+        "history_replay_passed": true,
+        "history_contains_no_bearer_tokens": true,
+        "human_participant_study": false,
+        "agent_triggered_workflow_and_observed_final_receipt": true
+      }
+    }
+  },
+  "trials": [],
+  "model": {
+    "tags": {
+      "models": [
+        {
+          "name": "qwen3:4b-instruct",
+          "model": "qwen3:4b-instruct",
+          "modified_at": "2026-11-01T21:50:44.491721813-05:00",
+          "size": 2497293803,
+          "digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3",
+            "families": [
+              "qwen3"
+            ],
+            "parameter_size": "4.0B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 2560,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "tools",
+            "thinking",
+            "completion"
+          ]
+        },
+        {
+          "name": "qwen3:4b",
+          "model": "qwen3:4b",
+          "modified_at": "2026-11-01T21:43:14.923891474-05:00",
+          "size": 2497293931,
+          "digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3",
+            "families": [
+              "qwen3"
+            ],
+            "parameter_size": "4.0B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 2560,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "qwen3:0.6b",
+          "model": "qwen3:0.6b",
+          "modified_at": "2026-11-01T21:38:39.032840648-05:00",
+          "size": 522653767,
+          "digest": "7df6b6e09427a769808717c0a93cadc4ae99ed4eb8bf5ca557c90846becea435",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3",
+            "families": [
+              "qwen3"
+            ],
+            "parameter_size": "751.63M",
+            "quantization_level": "Q4_K_M",
+            "context_length": 40960,
+            "embedding_length": 1024,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools",
+            "thinking"
+          ]
+        }
+      ]
+    },
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "4.0B",
+      "quantization_level": "Q4_K_M"
+    },
+    "capabilities": [
+      "tools",
+      "thinking",
+      "completion"
+    ],
+    "runtime_version": {
+      "version": "0.40.13"
+    }
+  },
+  "status": "completed"
+}

@@ -5,7 +5,7 @@ from fabric.core import Fabric
 from fabric.microsoft_agt import wrap
 from agentmesh.governance import GovernanceDenied
 opa=os.environ.get('OPA_BIN','opa')
-p=subprocess.Popen([opa,'run','--server','--addr=127.0.0.1:8181','policies/credit.rego'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+p=subprocess.Popen([opa,'run','--disable-telemetry','--server','--addr=127.0.0.1:8181','policies/credit.rego'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
 try:
  for _ in range(50):
   try:

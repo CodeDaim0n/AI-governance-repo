@@ -110,8 +110,15 @@ class CISOAssistant(API):
     @staticmethod
     def ids(values):
         return [str(x['id'] if isinstance(x,dict) else x) for x in values]
+    def detail(self,collection,record):
+        item=self.call('GET','/'+collection+'/'+quote(str(record['id']),safe='')+'/')
+        if str(item.get('id'))!=str(record['id']) or self.object_id(item.get('folder'))!=required('CISO_FOLDER_ID'):
+            raise DependencyFailure('CISO detail scope mismatch')
+        return item
     def control_for_risk(self,risk):
-        scenario=self.create_risk(risk);name=self.control_name(risk['risk_id'])
+        scenario=self.detail('risk-scenarios',self.create_risk(risk));name=self.control_name(risk['risk_id'])
+        if self.object_id(scenario.get('risk_assessment'))!=required('CISO_ASSESSMENT_ID'):
+            raise DependencyFailure('CISO detail assessment mismatch')
         controls=[x for x in self.pages('/applied-controls/') if x.get('name')==name and self.object_id(x.get('folder'))==required('CISO_FOLDER_ID')]
         control=controls[0] if controls else self.call('POST','/applied-controls/',{
             'name':name,'description':risk['control'],'folder':required('CISO_FOLDER_ID')})
@@ -128,6 +135,9 @@ class CISOAssistant(API):
         for rid in record.get('risk_ids',[]):
             controls=[x for x in self.pages('/applied-controls/') if x.get('name')==self.control_name(rid) and self.object_id(x.get('folder'))==required('CISO_FOLDER_ID')]
             for control in controls:
+                # List serializers can omit relations. Merge from detail rather
+                # than treating a missing summary field as an empty relation set.
+                control=self.detail('applied-controls',control)
                 linked=self.ids(control.get('evidences',[]))
                 if str(evidence['id']) not in linked:
                     self.call('PATCH','/applied-controls/'+str(control['id'])+'/',{'evidences':linked+[str(evidence['id'])]})
@@ -215,7 +225,13 @@ class GLPI(API):
 
 class Ollama(API):
     def __init__(self):super().__init__(required('OLLAMA_URL'))
-    def pull(self):return self.call('POST','/api/pull',{'name':required('OLLAMA_MODEL'),'stream':False})
+    def pull(self):
+        # Cold model downloads are commissioning operations, not 10-second API calls.
+        try:
+            with httpx.Client(timeout=httpx.Timeout(900,connect=10),follow_redirects=False,trust_env=False) as c:
+                r=c.post(self.base+'/api/pull',json={'model':required('OLLAMA_MODEL'),'stream':False})
+                r.raise_for_status();return r.json()
+        except (httpx.HTTPError,ValueError) as e:raise DependencyFailure('Ollama model pull failed') from e
     def propose(self,request):
         # Only a proposal. Identity, approval, source status and budget cannot be set.
         body={'model':required('OLLAMA_MODEL'),'prompt':request,'stream':False,'format':'json',

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3:0.6b",
+  "digest": "7df6b6e09427a769808717c0a93cadc4ae99ed4eb8bf5ca557c90846becea435",
+  "runtime": "Ollama 0.40.13",
+  "parameter_size": "751.63M",
+  "quantization": "Q4_K_M",
+  "verification": "Compare native /api/tags digest before inference; reject drift."
+}

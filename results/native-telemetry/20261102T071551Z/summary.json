@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "isolated native OTLP delivery and attribute minimization; not all-18 acceptance",
+  "version": "otelcol-contrib version 0.130.0",
+  "binary_sha256": "2edee53868db522de89a65432d5c930c1b6e3aca6efaa7109419c36d25a3157a",
+  "checks": {
+    "actual_otlp_trace_read_back": true,
+    "trace_id_matches": true,
+    "allowed_outcome_preserved": true,
+    "sensitive_attributes_removed": [
+      "authorization",
+      "gen_ai.prompt",
+      "gen_ai.completion"
+    ]
+  },
+  "trace_file": "results/native-telemetry/20261102T071551Z/traces.jsonl"
+}

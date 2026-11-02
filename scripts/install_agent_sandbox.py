@@ -56,6 +56,6 @@ def main():
   time.sleep(1)
  if not blocked:raise RuntimeError('Cilium failed to block the previously reachable target')
  kube('-n','fabric-lab','exec','agent','--','python','-c',"import urllib.request;urllib.request.urlopen('http://fabric-host:8088/health',timeout=5).read()")
- receipt={'deployment_id':(L/'deployment-id').read_text().strip(),'source_commit':output('git','-C',str(R),'rev-parse','HEAD'),'component':'16 Kubernetes and Cilium','before_policy':'target reachable','after_policy':'target blocked','gateway':'reachable','cluster':name}
+ receipt={'status':'PASS','deployment_id':(L/'deployment-id').read_text().strip(),'source_commit':output('git','-C',str(R),'rev-parse','HEAD'),'component':'16 Kubernetes and Cilium','before_policy':'target reachable','after_policy':'target blocked','gateway':'reachable','cluster':name}
  (R/'results/cilium-live.json').write_text(json.dumps(receipt,indent=2));print(json.dumps(receipt))
 if __name__=='__main__':main()

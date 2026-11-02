@@ -1,0 +1,47 @@
+test_expired (test_fabric.AuthTests.test_expired) ... ok
+test_forged_signature (test_fabric.AuthTests.test_forged_signature) ... ok
+test_http_signed_and_unsigned (test_fabric.AuthTests.test_http_signed_and_unsigned) ... ok
+test_signed_identity (test_fabric.AuthTests.test_signed_identity) ... ok
+test_unsigned (test_fabric.AuthTests.test_unsigned) ... ok
+test_wrong_audience (test_fabric.AuthTests.test_wrong_audience) ... ok
+test_approval_amount_substitution (test_fabric.FabricTests.test_approval_amount_substitution) ... ok
+test_approval_case_version_change (test_fabric.FabricTests.test_approval_case_version_change) ... ok
+test_approval_executes (test_fabric.FabricTests.test_approval_executes) ... ok
+test_approval_workflow_version_change (test_fabric.FabricTests.test_approval_workflow_version_change) ... ok
+test_audit_atomicity (test_fabric.FabricTests.test_audit_atomicity) ... ok
+test_audit_tamper (test_fabric.FabricTests.test_audit_tamper) ... ok
+test_bad_policy_response (test_fabric.FabricTests.test_bad_policy_response) ... ok
+test_concurrent_budget (test_fabric.FabricTests.test_concurrent_budget) ... ok
+test_cross_tenant (test_fabric.FabricTests.test_cross_tenant) ... ok
+test_cumulative_budget (test_fabric.FabricTests.test_cumulative_budget) ... ok
+test_expired_approval (test_fabric.FabricTests.test_expired_approval) ... ok
+test_future_source (test_fabric.FabricTests.test_future_source) ... ok
+test_hard_limit_not_overridable (test_fabric.FabricTests.test_hard_limit_not_overridable) ... ok
+test_human_gate (test_fabric.FabricTests.test_human_gate) ... ok
+test_idempotency_conflict (test_fabric.FabricTests.test_idempotency_conflict) ... ok
+test_idempotent_retry (test_fabric.FabricTests.test_idempotent_retry) ... ok
+test_integer_money (test_fabric.FabricTests.test_integer_money) ... ok
+test_kill_authority (test_fabric.FabricTests.test_kill_authority) ... ok
+test_kill_switch (test_fabric.FabricTests.test_kill_switch) ... ok
+test_kyc_fail (test_fabric.FabricTests.test_kyc_fail) ... ok
+test_low_value_executes (test_fabric.FabricTests.test_low_value_executes) ... ok
+test_missing_case (test_fabric.FabricTests.test_missing_case) ... ok
+test_no_raw_action_in_evidence (test_fabric.FabricTests.test_no_raw_action_in_evidence) ... ok
+test_outbox_delivery (test_fabric.FabricTests.test_outbox_delivery) ... ok
+test_outbox_outage_preserves_event (test_fabric.FabricTests.test_outbox_outage_preserves_event) ... ok
+test_policy_outage (test_fabric.FabricTests.test_policy_outage) ... ok
+test_prompt_cannot_grant_identity (test_fabric.FabricTests.test_prompt_cannot_grant_identity) ... ok
+test_region (test_fabric.FabricTests.test_region) ... ok
+test_restart_persistence (test_fabric.FabricTests.test_restart_persistence) ... ok
+test_reviewer_revocation (test_fabric.FabricTests.test_reviewer_revocation) ... ok
+test_self_approval (test_fabric.FabricTests.test_self_approval) ... ok
+test_stale_source (test_fabric.FabricTests.test_stale_source) ... ok
+test_unlisted_tool (test_fabric.FabricTests.test_unlisted_tool) ... ok
+test_validation_expired (test_fabric.FabricTests.test_validation_expired) ... ok
+test_workflow_revoked (test_fabric.FabricTests.test_workflow_revoked) ... ok
+test_wrong_reviewer_tenant (test_fabric.FabricTests.test_wrong_reviewer_tenant) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 2.325s
+
+OK

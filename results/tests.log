@@ -42,6 +42,6 @@ test_workflow_revoked (test_fabric.FabricTests.test_workflow_revoked) ... ok
 test_wrong_reviewer_tenant (test_fabric.FabricTests.test_wrong_reviewer_tenant) ... ok
 
 ----------------------------------------------------------------------
-Ran 42 tests in 2.029s
+Ran 42 tests in 2.242s
 
 OK

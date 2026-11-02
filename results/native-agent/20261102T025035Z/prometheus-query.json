@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "data": {
+    "resultType": "vector",
+    "result": [
+      {
+        "metric": {
+          "__name__": "fabric_native_decisions_total",
+          "instance": "127.0.0.1:8088",
+          "job": "fabric-native",
+          "outcome": "executed"
+        },
+        "value": [
+          1793587893.133,
+          "1"
+        ]
+      }
+    ]
+  }
+}

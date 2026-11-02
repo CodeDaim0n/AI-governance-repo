@@ -2,14 +2,16 @@
 
 ![Governed Agent Fabric](assets/fabric-banner.svg)
 
-Our domain-independent implementation approach extends the Erdos governance framework across the end-to-end product suite: risk, authority, assurance, action, evidence and response.
+Our domain-independent autonomous agent fabric extends the Erdos governance framework across risk, authority, assurance, action, evidence and response. The agent chooses tools, observes real results and continues within delegated authority; the surrounding products enforce controls and support operations.
 
 ![All 18 component groups](assets/system-architecture-18.svg)
 
 Start with the [quickstart](getting-started.md), inspect the [architecture](architecture.md), or open the [18-component catalogue](components/catalogue.md). For a complete installation, follow the [commissioning guide](deployment/full-stack.md).
 
 !!! warning "Evidence boundary"
-    The original core has 51 observed checks. The expanded 18-component native deployment is implemented in code but is not verified running here. The available environment has no container or Kubernetes privileges. Read [validation](validation.md) before interpreting any result as assurance.
+    The original core has 51 observed checks. Actual Qwen tool loops and a connected Temporal approval/restart journey have now run in a native subset. The complete eighteen-product deployment remains unverified. Read the [native study](research/native-agent.md), [per-product evidence](validation.md) and limitations.
+
+![Autonomous agent cycle](assets/autonomous-agent-cycle.svg)
 
 The [research paper](Governed_Agent_Fabric_Research_Paper.pdf) discusses the rationale, standards, experiment and limitations. The [risk register](risk-register.json), [step/product matrix](step-product-matrix.csv), [integration contracts](integration-contracts.json) and [framework mapping](framework-mapping.csv) are machine-readable companion artifacts.
 

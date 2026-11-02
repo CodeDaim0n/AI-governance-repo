@@ -29,7 +29,7 @@ def main():
  'FGA_URL':'http://localhost:8082','CISO_URL':'http://localhost:8002/api','METADATA_URL':'http://localhost:8585/api',
  'BAO_URL':'http://localhost:8200','IRIS_URL':'http://localhost:8085','IRIS_CUSTOMER_ID':str(credentials.get('IRIS_CUSTOMER_ID','1')),
  'GLPI_URL':'http://localhost:8086/apirest.php','GLPI_ENTITY_ID':'0','OLLAMA_URL':'http://localhost:11434',
- 'OLLAMA_MODEL':'qwen2.5:0.5b','MLFLOW_URL':'http://localhost:5001','MODEL_NAME':'fabric-credit-proposal','MODEL_TENANT':'bank-a',
+ 'OLLAMA_MODEL':'qwen3:4b-instruct','MLFLOW_URL':'http://localhost:5001','MODEL_NAME':'fabric-credit-proposal','MODEL_TENANT':'bank-a',
  'METADATA_TABLE_FQN':'fabric.credit.public.cases','METADATA_REQUIRED_TAG':'PII.Sensitive','FAIRNESS_MAX_DIFFERENCE':'0.2'}
  os.environ.update(local)
  # Initialize and unseal OpenBao only on a fresh dedicated installation.

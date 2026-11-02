@@ -2,7 +2,7 @@
 services:
   opa:
     image: openpolicyagent/opa:1.0.1-static
-    command: [run, --server, --addr=0.0.0.0:8181, /policies/credit.rego]
+    command: [run, --disable-telemetry, --server, --addr=0.0.0.0:8181, /policies/credit.rego]
     ports: ["127.0.0.1:8181:8181"]
     volumes: ["../policies:/policies:ro"]
     read_only: true

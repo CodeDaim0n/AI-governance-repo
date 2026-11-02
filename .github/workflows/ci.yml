@@ -26,6 +26,10 @@ jobs:
         run: OPA_BIN="$PWD/.local/opa" python scripts/test_agt.py
       - name: Check native adapter contracts
         run: python -m unittest discover -s tests/enterprise -v
+      - name: Exercise real PostgreSQL concurrency, approval and recovery
+        run: |
+          PG_BIN=$(pg_config --bindir)
+          python scripts/run_native_postgres.py --pg-bin "$PG_BIN" --opa "$PWD/.local/opa"
       - name: Build searchable documentation
         run: mkdocs build --strict
       - name: Preserve synthetic verification logs
