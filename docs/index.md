@@ -25,4 +25,4 @@ The [research paper](Governed_Agent_Fabric_Research_Paper.pdf) discusses the rat
 - **Implementation:** quickstart → full deployment → API → live acceptance.
 - **Operations:** deployment → operations runbook → security reporting → evidence interpretation.
 
-See [the repository](https://github.com/CodeDaim0n/AI-governance-repo) for code, issues and version history.
+See [the repository](https://github.com/CodeDaim0n/governed-agent-fabric) for code, issues and version history.

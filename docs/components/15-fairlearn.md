@@ -41,4 +41,4 @@ The eight synthetic records only prove the MetricFrame/evaluation pipeline runs.
 
 Fixture metrics exercise real Fairlearn code but do not establish fair lending or independent model validation. A representative governed dataset is a separate requirement.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/evaluate.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/evaluate.py) · [All components](catalogue.md)

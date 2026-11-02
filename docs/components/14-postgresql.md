@@ -37,4 +37,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 The single global guard serializes the small synthetic workload. Production needs measured latency/capacity, appropriately scoped locks/roles, high availability and restoration tests.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/postgres.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/postgres.py) · [All components](catalogue.md)

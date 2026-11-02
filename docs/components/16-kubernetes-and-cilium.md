@@ -37,4 +37,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 The agent pod has no Kubernetes service-account token, host network or target credentials. Isolation receipts must match the commissioned deployment ID and source commit.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/scripts/install_agent_sandbox.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/scripts/install_agent_sandbox.py) · [All components](catalogue.md)

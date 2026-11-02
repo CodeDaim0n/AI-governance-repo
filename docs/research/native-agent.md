@@ -25,7 +25,7 @@ Can a small local Qwen agent use a real tool loop to complete an authorized synt
 
 A separate workflow experiment checks a wait without an effect, worker replacement, server restart and one commitment after a separate reviewer identity grants exact-action approval.
 
-The [protocol](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/results/native-agent/protocol.json) was written before scenario inference. Its SHA-256 accompanies each summary. It fixes ten scenarios, three seeds, six turns, eight calls, a 180-second deadline, temperature zero and a 256-token response cap. Qwen3:0.6b was selected for the CPU-only, 8 GiB host before observing scenario performance.
+The [protocol](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/results/native-agent/protocol.json) was written before scenario inference. Its SHA-256 accompanies each summary. It fixes ten scenarios, three seeds, six turns, eight calls, a 180-second deadline, temperature zero and a 256-token response cap. Qwen3:0.6b was selected for the CPU-only, 8 GiB host before observing scenario performance.
 
 Every trial retains actual inference requests/responses, token counts, calls, observations, target state before/after, action rows and audit events. Access tokens and private keys are excluded. Separate run directories retain failed startups and partial experiments. The target ledger supplies the effect oracle; model narration is not evidence of completion.
 

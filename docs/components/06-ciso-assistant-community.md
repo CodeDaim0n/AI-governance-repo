@@ -41,4 +41,4 @@ The agent creates a proposed risk and attaches evidence. It cannot accept risk, 
 
 Local scope checks prevent reusing a matching risk reference from a different assessment. Risk/control/evidence links are synchronized; accepted ratings are not overwritten.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)

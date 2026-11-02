@@ -37,4 +37,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 The dedicated worker is delegated only to agent-a. Activities obtain tokens outside workflow history. The development server is persisted for the lab but is not an HA production topology.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/workflows.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/workflows.py) · [All components](catalogue.md)

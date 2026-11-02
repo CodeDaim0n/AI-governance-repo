@@ -41,4 +41,4 @@ The lab verifies an offline local signature. It deliberately does not claim publ
 
 The image vulnerability gate must succeed before signing. Offline local signatures do not establish transparency-log inclusion or trusted-builder provenance. Receipts are bound to deployment and source.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/scripts/supply_chain.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/scripts/supply_chain.py) · [All components](catalogue.md)

@@ -542,7 +542,7 @@ start(24,'Provenance and use','A document that can<br/>be challenged and updated
       'This briefing is an architecture and implementation account. Its sources, examples and status boundaries are intentionally visible.',
       'Prepared '+STATUS['date']+'. Editable source: scripts/build_generalisation_briefing.py. Vector diagrams are original to this briefing.')
 article='https://www.linkedin.com/pulse/implementing-governance-agentic-workflows-erdos-effect-vipie'
-repo='https://github.com/CodeDaim0n/AI-governance-repo'
+repo='https://github.com/CodeDaim0n/governed-agent-fabric'
 p('<b>1 / Framework source.</b> Erdos Effect, <i>Implementing Governance for Agentic Workflows</i>, published 1 November 2026. The full public article was verified during this task. Section IDs preserve the crosswalk; labels here are short paraphrases and engineering interpretations, not a reproduction of the article.',M,211,CW,10.6,14.3)
 p(f'<link href="{article}" color="{TEAL}">Read the original framework article</link>',M,287,CW,10.3,14)
 p('<b>2 / Original implementation and evidence.</b> The research repository at commit <b>098f75fb1be3</b> supplies the original architecture, component catalogue, native laboratory records and explicit incomplete-stack status. Earlier component observations do not qualify the new generic path.',M,324,CW,10.6,14.3)

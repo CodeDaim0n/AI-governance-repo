@@ -37,4 +37,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 Only bounded outcome attributes are recorded. Exported spans are checked separately from liveness; product names, prompts, tokens or source records must not become arbitrary trace labels.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/telemetry.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/telemetry.py) · [All components](catalogue.md)

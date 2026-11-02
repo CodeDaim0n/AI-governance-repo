@@ -2,7 +2,7 @@
 
 # Governed Agent Fabric
 
-[![Validation](https://github.com/CodeDaim0n/AI-governance-repo/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeDaim0n/AI-governance-repo/actions/workflows/ci.yml)
+[![Validation](https://github.com/CodeDaim0n/governed-agent-fabric/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeDaim0n/governed-agent-fabric/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-087f8c.svg)](LICENSE)
 ![Status: Research prototype](https://img.shields.io/badge/status-research%20prototype-112841.svg)
 
@@ -111,8 +111,8 @@ The numbers match the architecture diagram. These are 18 **component groups**, c
 Python 3.11+ and an official OPA binary are required. The fetch helper pins the exact historical binary used in the original experiment; it is not a recommendation to deploy that release in production.
 
 ```bash
-git clone https://github.com/CodeDaim0n/AI-governance-repo.git
-cd AI-governance-repo
+git clone https://github.com/CodeDaim0n/governed-agent-fabric.git
+cd governed-agent-fabric
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt

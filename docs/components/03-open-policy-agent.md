@@ -37,4 +37,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 The logical policy version is checked; production also needs a verified signed bundle digest and controlled rollout.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/policies/credit.rego) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/policies/credit.rego) · [All components](catalogue.md)
