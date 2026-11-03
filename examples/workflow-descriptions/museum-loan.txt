@@ -1,0 +1,7 @@
+Synthetic example: a museum processes requests to lend an object to another museum.
+
+A curator receives a loan request naming an object, destination and proposed dates. An AI assistant reads the request, the catalogue entry and the conservation report, then drafts a suitability summary and a proposed checklist. A conservator assesses the object's condition. The registrar checks availability, insurance and transport arrangements. The lending committee makes the final loan decision. The assistant may prepare documents but cannot approve a loan, sign an agreement, publish an object's storage location or instruct a courier.
+
+If conservation evidence is missing, the case stays pending until the conservator responds. If the dates conflict with an existing exhibition, the registrar proposes alternatives. After approval, the registrar schedules the handover and records return-condition checks. A cancellation closes the request with a recorded reason. Access to precise storage locations is restricted to authorised museum staff.
+
+We want faster preparation without compromising care or accountability. There are no measured results yet. We have not selected a catalogue API, defined retention periods or documented who may approve exceptions. No monetary limits, statutory duties or deployment approvals should be assumed from this description.

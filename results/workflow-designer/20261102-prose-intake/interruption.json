@@ -1,0 +1,8 @@
+{
+  "scope": "Initial live designer validation",
+  "completed_case": "vendor-onboarding",
+  "observed_result": "The provider response contained a cache-token metadata field that the initial allowlist did not recognize; the bounded correction attempt timed out.",
+  "remaining_case": "museum-loan",
+  "remaining_case_status": "interrupted_by_operator_for_provider_compatibility_fix",
+  "note": "The first failure is preserved in run-summary.json. The remaining case was not counted as a success or failure. Later runs use separate output directories."
+}

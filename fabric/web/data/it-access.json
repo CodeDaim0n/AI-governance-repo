@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "workflow_id": "it-access",
+  "version": "access-v1",
+  "description": "Time-bounded synthetic IT access grants for active employees and approved applications. Local demonstration only.",
+  "resource_schema": {
+    "type": "object",
+    "properties": {
+      "employee_status": {"type": "string", "minLength": 1, "maxLength": 16, "enum": ["active", "inactive"]},
+      "application": {"type": "string", "minLength": 1, "maxLength": 128},
+      "application_approved": {"type": "boolean"}
+    },
+    "required": ["employee_status", "application", "application_approved"],
+    "additionalProperties": false
+  },
+  "resource_freshness_seconds": 3600,
+  "operations": {
+    "grant_access": {
+      "description": "Record an expiring synthetic access grant in the local transactional directory.",
+      "adapter": "synthetic-access",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "permission": {"type": "string", "minLength": 1, "maxLength": 8, "enum": ["read", "write", "admin"]},
+          "duration_hours": {"type": "integer", "minimum": 1, "maximum": 72},
+          "justification": {"type": "string", "minLength": 1, "maxLength": 500}
+        },
+        "required": ["permission", "duration_hours", "justification"],
+        "additionalProperties": false
+      },
+      "allowed_roles": ["agent"],
+      "resource_checks": [
+        {"field": "employee_status", "op": "eq", "value": "active"},
+        {"field": "application_approved", "op": "eq", "value": true}
+      ],
+      "approval": {
+        "reviewer_roles": ["reviewer"],
+        "ttl_seconds": 180,
+        "when": [
+          {"field": "permission", "op": "eq", "value": "admin"},
+          {"field": "duration_hours", "op": "gt", "value": 8}
+        ]
+      },
+      "budgets": [{"parameter": "duration_hours", "limit": 240, "scope": "resource"}]
+    }
+  }
+}

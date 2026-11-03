@@ -1,0 +1,12 @@
+{
+  "package": "agent-governance-toolkit-core",
+  "version": "5.0.0",
+  "tests": 3,
+  "passed": 3,
+  "cases": [
+    "AGT allow followed by OPA allow",
+    "AGT default deny unknown tool",
+    "AGT allow followed by independent OPA tenant denial"
+  ],
+  "scope": "govern wrapper only; no identity mesh, sandbox or performance validation"
+}

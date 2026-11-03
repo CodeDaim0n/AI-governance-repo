@@ -1,7 +1,7 @@
 site_name: Governed Agent Fabric
 site_description: Integrated authority, controlled action and verifiable evidence for agentic workflows.
-repo_url: https://github.com/CodeDaim0n/AI-governance-repo
-repo_name: CodeDaim0n/AI-governance-repo
+repo_url: https://github.com/CodeDaim0n/governed-agent-fabric
+repo_name: CodeDaim0n/governed-agent-fabric
 edit_uri: edit/main/docs/
 theme:
   name: material
@@ -29,6 +29,10 @@ markdown_extensions:
 nav:
   - Overview: index.md
   - Getting started: getting-started.md
+  - Fabric Studio UI: studio.md
+  - Configurable workflows: configurable-workflows.md
+  - Workflow designer: workflow-designer.md
+  - Framework extension map: framework-extension-map.md
   - Architecture: architecture.md
   - Components: components/catalogue.md
   - Deployment: deployment/full-stack.md

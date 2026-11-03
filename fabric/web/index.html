@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Design, review and test governed workflows with Governed Agent Fabric Studio.">
+  <title>Fabric Studio · Governed Agent Fabric</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to workspace</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#design" aria-label="Fabric Studio home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M5 10 20 2l15 8v20l-15 8L5 30Z"/><path d="m5 10 15 8 15-8M20 18v20M5 21l15 8 15-8"/></svg>
+        <span>Fabric<span class="brand-sub">GOVERNANCE STUDIO</span></span>
+      </a>
+      <div class="workspace-tag"><span class="status-dot"></span> Local workspace</div>
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="main-nav" aria-label="Workspace">
+        <a href="#design" data-view="design" aria-current="page"><span class="nav-icon">✧</span>Design studio</a>
+        <a href="#packages" data-view="packages"><span class="nav-icon">▤</span>Workflow packages</a>
+        <a href="#components" data-view="components"><span class="nav-icon">◇</span>Component library</a>
+        <a href="#lab" data-view="lab"><span class="nav-icon">▷</span>Execution lab</a>
+      </nav>
+      <div class="sidebar-note"><span class="eyebrow">THE WORKING PRINCIPLE</span><p>Shared controls.<br>Workflow-specific rules.<br>Evidence at every step.</p><div class="tiny-rule"></div><span>Built for review, configuration and bounded execution.</span></div>
+      <a class="repo-link" href="https://github.com/CodeDaim0n/governed-agent-fabric" target="_blank" rel="noreferrer">Explore the project <span aria-hidden="true">↗</span></a>
+      <div class="sidebar-footer">Governed Agent Fabric <span class="badge">Research prototype</span></div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar"><span id="breadcrumb">Workspace <span>/</span> Design studio</span><div class="row"><span class="privacy-label">Session-only workspace</span><span class="avatar" aria-label="Local operator">LO</span></div></header>
+      <main id="main" tabindex="-1">
+        <div id="connection-error" class="notice notice-warning" role="alert" hidden></div>
+
+        <section id="view-design" class="view" aria-labelledby="design-title">
+          <div class="page-heading"><div><p class="eyebrow">01 / UNDERSTAND &amp; DESIGN</p><h1 id="design-title">Governance starts with<br class="desktop-break"> your workflow.</h1><p class="page-description">Describe how work happens. Turn it into a governance draft<br class="desktop-break"> your team can inspect, challenge and build on.</p></div><span class="edition-tag">FABRIC STUDIO <span>01</span></span></div>
+          <div class="journey-strip" aria-label="Governance lifecycle"><span class="current"><b>01</b> Describe</span><span aria-hidden="true">→</span><span><b>02</b> Review design</span><span aria-hidden="true">→</span><span><b>03</b> Configure</span><span aria-hidden="true">→</span><span><b>04</b> Test execution</span></div>
+          <div class="design-grid">
+            <form id="design-form" class="panel composer">
+              <div class="panel-header"><div><h2>Your process, in your words</h2><p class="muted">Include people, decisions, systems and exceptions.</p></div><span class="badge badge-teal">AI-assisted design</span></div>
+              <div class="panel-body">
+                <div class="example-row"><span class="muted">Start with an example</span><button type="button" class="example-chip" data-example="vendor-onboarding">Vendor onboarding <span>↗</span></button><button type="button" class="example-chip" data-example="museum-loan">Museum loan <span>↗</span></button></div>
+                <label class="field-label" for="description">Workflow description</label>
+                <textarea id="description" class="textarea description-input" maxlength="12000" required placeholder="What starts this process? Who is involved?&#10;&#10;Describe the steps, what the AI may do, where a person must decide, and what should happen when information is missing or something goes wrong."></textarea>
+                <div class="input-footer"><label class="file-link" for="description-file">↑ Import a text file<input id="description-file" type="file" accept=".txt,text/plain" class="visually-hidden"></label><span id="char-count" class="muted">0 / 12,000 characters</span></div>
+                <div class="model-panel"><div class="model-top"><span class="field-label">Your AI connection</span><button type="button" id="refresh-models" class="text-button">Check connection ↻</button></div><div class="model-fields"><div class="field"><label for="model" class="visually-hidden">Ollama model</label><input id="model" class="input" list="model-options" placeholder="e.g. qwen3:8b" required maxlength="200" autocomplete="off"><datalist id="model-options"></datalist></div><label class="check-label"><input id="thinking" type="checkbox" checked> Request reasoning</label></div><p id="model-status" class="model-status" role="status">Checking the configured model service…</p></div>
+                <div class="composer-actions"><div class="helper-note">Your description is sent to the configured model.<br>Drafts are held in server memory. Download to keep a copy.</div><button id="generate" class="button button-primary" type="submit">Generate governance draft <span aria-hidden="true">→</span></button></div>
+                <div id="design-progress" class="progress-panel" role="status" hidden><span class="spinner" aria-hidden="true"></span><div><strong id="progress-title">Designing your governance draft</strong><p id="progress-detail">Waiting for the model. This can take several minutes.</p></div></div>
+                <div id="design-error" class="notice notice-warning" role="alert" hidden></div>
+              </div>
+            </form>
+            <aside class="deliverables"><div class="dark-panel"><p class="eyebrow">WHAT YOU GET</p><h2>A design you<br>can work with.</h2><div class="deliverable"><span>01</span><div><h3>Workflow map</h3><p>Actors, decisions and how steps connect.</p></div></div><div class="deliverable"><span>02</span><div><h3>Risks &amp; controls</h3><p>Proposed safeguards linked to your process.</p></div></div><div class="deliverable"><span>03</span><div><h3>Review questions</h3><p>Gaps, assumptions and human decisions.</p></div></div><div class="deliverable"><span>04</span><div><h3>Implementation direction</h3><p>Component responsibilities and validation needs.</p></div></div><div class="dark-panel-footer">Download JSON + a readable report</div></div><div class="review-note"><span class="small-symbol">◇</span><div><strong>A draft for accountable review</strong><p>AI can misinterpret a process. Review its proposals before turning them into approved controls.</p></div></div></aside>
+          </div>
+          <section id="design-result" class="result-section" aria-label="Generated governance draft" hidden></section>
+          <div class="next-actions"><a href="#packages"><span class="mini-icon">▤</span><div><strong>Already have a workflow definition?</strong><span>Configure a template or import JSON</span></div><span>↗</span></a><a href="#lab"><span class="mini-icon">▷</span><div><strong>See the controls in action</strong><span>Try two workflows in the execution lab</span></div><span>↗</span></a></div>
+        </section>
+
+        <section id="view-packages" class="view" aria-label="Workflow packages" hidden></section>
+
+        <section id="view-components" class="view" aria-labelledby="components-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">03 / CHOOSE YOUR CAPABILITIES</p><h1 id="components-title">One fabric. Your toolset.</h1><p class="page-description">Explore the 18 component groups and plan where your existing tools fit.</p></div><span class="edition-tag">COMPONENT LIBRARY <span>18</span></span></div>
+          <div class="notice">Each product fills a governance role. An alternative needs a compatible adapter and integration tests. Selecting a tool here creates a plan; it does not connect or deploy it.</div>
+          <div class="catalog-toolbar"><div class="field search-field"><label for="component-search" class="visually-hidden">Search components</label><input id="component-search" class="input" placeholder="Search identity, policy, evidence, or a product…" type="search"></div><span id="component-count" class="muted"></span><button id="export-components" class="button button-secondary">Export selection plan ↓</button></div>
+          <div id="component-grid" class="component-grid"></div>
+        </section>
+
+        <section id="view-lab" class="view" aria-labelledby="lab-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">04 / EXERCISE THE CONTROLS</p><h1 id="lab-title">Two workflows.<br>One enforcement engine.</h1><p class="page-description">Run the actual local demo and inspect its results.</p></div><span class="edition-tag">EXECUTION LAB <span>02</span></span></div>
+          <div class="notice">This lab creates a fresh, temporary database with synthetic targets and demo identities. It performs no real credit or access changes and uses no AI model. The demo simulates the separate reviewer.</div>
+          <div class="grid-two lab-options"><label class="panel lab-option"><input type="checkbox" name="lab-workflow" value="synthetic-credit" checked><div><span class="eyebrow">FINANCE / SYNTHETIC</span><h2>Credit commitment</h2><p>A £200 request needs independent approval before the ledger changes.</p><span class="badge">Adapter: synthetic-credit</span></div></label><label class="panel lab-option"><input type="checkbox" name="lab-workflow" value="it-access" checked><div><span class="eyebrow">IT OPERATIONS / SYNTHETIC</span><h2>IT access grant</h2><p>A four-hour admin grant needs independent approval before access is recorded.</p><span class="badge">Adapter: synthetic-access</span></div></label></div>
+          <div class="panel lab-run"><div><h2>What this run checks</h2><p class="muted">Approval required → reviewed action executes → matching retry returns the same receipt.</p></div><button id="run-demo" class="button button-primary">Run isolated demo <span aria-hidden="true">▷</span></button></div>
+          <div id="lab-error" class="notice notice-warning" role="alert" hidden></div>
+          <section id="lab-results" class="result-section" aria-label="Execution results" aria-live="polite" hidden></section>
+        </section>
+        <footer class="workspace-footer"><span>Designed for human accountability.</span><span>Design drafts · Reviewed configuration · Verified effects</span></footer>
+      </main>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: /mnt/c/Users/anjal/OneDrive/Documents/ChatGPT/AI Governance/fabric-configurable/site
+INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+  - components/01-keycloak.md
+  - components/02-microsoft-agent-governance-toolkit.md
+  - components/03-open-policy-agent.md
+  - components/04-openfga.md
+  - components/05-temporal.md
+  - components/06-ciso-assistant-community.md
+  - components/07-openmetadata.md
+  - components/08-mlflow.md
+  - components/09-openbao.md
+  - components/10-opentelemetry-collector.md
+  - components/11-prometheus-and-alertmanager.md
+  - components/12-dfir-iris.md
+  - components/13-glpi.md
+  - components/14-postgresql.md
+  - components/15-fairlearn.md
+  - components/16-kubernetes-and-cilium.md
+  - components/17-syft-grype-and-cosign.md
+  - components/18-ollama-and-qwen25.md
+  - decisions/001-central-authority.md
+  - decisions/002-risk-system-of-record.md
+  - decisions/003-native-deployment-evidence.md
+  - decisions/004-transaction-boundary.md
+  - examples/configurable-assessment.md
+  - research/resumed-implementation.md
+INFO    -  Documentation built in 7.92 seconds

@@ -41,4 +41,4 @@ Gateway, workflow worker and dispatcher read different OpenBao paths using diffe
 
 Roles read distinct paths. The lab token duration is 24 hours and automatic renewal is not supplied. Keep lab root/unseal material offline and qualify production key custody.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)

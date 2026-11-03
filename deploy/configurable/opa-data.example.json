@@ -1,0 +1,26 @@
+{
+  "fabric_workflows": {
+    "synthetic-credit": {
+      "enabled": false,
+      "config_digest": "66532406f8c695d86bfa3a53a9b9bb38d344c6af59f8c0486dec6991346f7845",
+      "allowed_operations": [
+        "commit_credit"
+      ],
+      "allowed_roles": [
+        "agent"
+      ],
+      "allowed_tenants": []
+    },
+    "it-access": {
+      "enabled": false,
+      "config_digest": "acfa2a6b516ec8a13ae64cdc73cb15cc1f7222f71b2c3f5d1272ae346e4e3a5f",
+      "allowed_operations": [
+        "grant_access"
+      ],
+      "allowed_roles": [
+        "agent"
+      ],
+      "allowed_tenants": []
+    }
+  }
+}

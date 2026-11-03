@@ -8,3 +8,6 @@ __pycache__/
 site/
 .venv-native/
 .venv-docs/
+.venv-studio/
+build/
+*.egg-info/

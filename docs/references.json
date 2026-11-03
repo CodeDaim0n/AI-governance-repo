@@ -187,5 +187,68 @@
     "title": "Agent Control Standard resource",
     "url": "https://genai.owasp.org/resource/agent-control-standard-acs/",
     "accessed": "2026-11-02"
+  },
+  {
+    "id": "28",
+    "organization": "Ollama",
+    "title": "Structured outputs: schema-constrained generation and independent response validation",
+    "url": "https://docs.ollama.com/capabilities/structured-outputs",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "29",
+    "organization": "Ollama",
+    "title": "Chat API: structured format, response metadata and model options",
+    "url": "https://docs.ollama.com/api/chat",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "30",
+    "organization": "Ollama",
+    "title": "Thinking: model-specific controls and separate response fields",
+    "url": "https://docs.ollama.com/capabilities/thinking",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "N1",
+    "title": "Ollama: native tool calling",
+    "url": "https://docs.ollama.com/capabilities/tool-calling",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "N2",
+    "title": "Ollama: official Qwen3 4b-instruct artifact",
+    "url": "https://ollama.com/library/qwen3:4b-instruct",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "N3",
+    "title": "Keycloak: audience protocol mapper",
+    "url": "https://www.keycloak.org/admin-api/protocol-mappers",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "N4",
+    "title": "OpenBao: integrated Raft storage",
+    "url": "https://openbao.org/docs/configuration/storage/raft/",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "N5",
+    "title": "Cryptography: GHSA-g6cj-pr64-35w5 upstream advisory",
+    "url": "https://github.com/pyca/cryptography/security/advisories/GHSA-g6cj-pr64-35w5",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "N6",
+    "title": "Microsoft AGT 5.0.0: registry dependency metadata",
+    "url": "https://pypi.org/pypi/agent-governance-toolkit-core/5.0.0/json",
+    "accessed": "2026-11-02"
+  },
+  {
+    "id": "N7",
+    "title": "Collector v0.164.0: process telemetry source",
+    "url": "https://github.com/open-telemetry/opentelemetry-collector/blob/v0.164.0/service/internal/proctelemetry/process_telemetry.go",
+    "accessed": "2026-11-02"
   }
 ]

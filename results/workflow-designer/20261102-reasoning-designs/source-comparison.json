@@ -1,0 +1,28 @@
+{
+  "kind": "assistant_source_comparison",
+  "scope": "Independent assistant comparison of generated synthetic examples against their supplied descriptions. This is not accountable human approval, legal assessment or independent operational assurance.",
+  "mechanical_pass_is_semantic_approval": false,
+  "approval_granted": false,
+  "cases": [
+    {
+      "name": "vendor-onboarding",
+      "artifact_sha256": "0cfd0ac7db4bd0959c278ac0f7512f61394f6dbf8f3cfa69025f91fd114e6aa6",
+      "disposition": "requires_material_revision",
+      "captures": [
+        "The four described actor roles, supplier submission and comparison, manager review, separate-channel finance verification, and the no-order outcome.",
+        "Plausible draft risks and explicit unknown API, country, retention, ownership and budget context.",
+        "Mandatory draft status, unverified interpretations and no execution or deployment authority."
+      ],
+      "findings": [
+        {"area": "exception_routes", "detail": "The conflicting-record edge leads from AI recommendation directly to the final-decision node. The source requires a pause. Missing-record holds and explicit acceptance/rejection paths need correction."},
+        {"area": "authority", "detail": "Manager review becomes a defined approval sequence and employee vendor-write permission becomes final-decision authority, both presented as stated. The source does not establish these details."},
+        {"area": "omitted_controls", "detail": "The design omits explicit treatment of instructions in untrusted supplier documents and the AI restrictions on bank-detail changes and payments. Add independent enforcement and negative tests."},
+        {"area": "source_entailment", "detail": "Some real quotations do not establish the attached interpretation: the final step cites the pause quotation, and the forbidden-actions safeguard omits its direct source sentence. Narrative process statements are classified as policy without policy evidence."},
+        {"area": "tool_permissions", "detail": "The purchasing system is marked read/stated although permissions are explicitly unknown and vendor addition is a write activity."},
+        {"area": "assumptions", "detail": "AI accuracy/completeness and review sufficiency appear as assumptions. Replace them with unresolved evaluation criteria and evidence questions."},
+        {"area": "validation_design", "detail": "Tests need precise invalid inputs, controlled positive cases, exact-version approval bypass checks, observable evidence and explicit no-effect assertions. An altered quotation is not necessarily invalid."},
+        {"area": "data_and_escalation", "detail": "Recommendation, finance verification, onboarding record and rejection explanation are collapsed into the request. Escalation ownership, route and deadlines need explicit questions."}
+      ]
+    }
+  ]
+}

@@ -37,4 +37,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 The lab model exercises direct case assignment. A complete delegating-user/agent/task permission intersection is still required for production delegation.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)

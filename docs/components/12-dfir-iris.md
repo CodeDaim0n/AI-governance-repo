@@ -37,4 +37,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 Use a dedicated authorized lab customer. The selected 2.4.29 release and customer-scope behavior require live qualification; do not reuse the older vulnerable release solely for convenience.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)

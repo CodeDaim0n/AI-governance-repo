@@ -1,0 +1,17 @@
+policies/configurable_test.rego:
+data.fabric_configurable_test.test_approved_binding: PASS (35.120526ms)
+data.fabric_configurable_test.test_unknown_workflow: PASS (547.875µs)
+data.fabric_configurable_test.test_changed_config: PASS (558.177µs)
+data.fabric_configurable_test.test_other_tenant: PASS (594.64µs)
+data.fabric_configurable_test.test_unapproved_deployment: PASS (2.837011ms)
+data.fabric_configurable_test.test_unlisted_operation: PASS (550.082µs)
+
+policies/credit_test.rego:
+data.fabric_test.test_allow: PASS (876.662µs)
+data.fabric_test.test_cross_tenant: PASS (987.275µs)
+data.fabric_test.test_approval: PASS (887.794µs)
+data.fabric_test.test_kill: PASS (7.197527ms)
+data.fabric_test.test_budget: PASS (372.486µs)
+data.fabric_test.test_stale: PASS (276.13µs)
+--------------------------------------------------------------------------------
+PASS: 12/12

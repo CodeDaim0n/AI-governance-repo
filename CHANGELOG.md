@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.6.0 - Fabric Studio
+
+- Add a local browser workspace for AI-assisted governance design, workflow packages, component planning and isolated execution demos.
+- Reuse the validated designer, package generator and synthetic runtime through a bounded, session-protected loopback API.
+- Include a searchable component library, editable workflow templates and JSON/Markdown downloads without granting deployment or execution authority to generated drafts.
+
+## 0.5.0 - Natural-language governance design
+
+- Accept workflow descriptions through an Ollama-backed designer with a bounded schema, exact source quotations, validated graph references and explicit review questions.
+- Generate workflow-specific risk/control proposals, all eighteen component responsibilities and a crosswalk to the original seven input areas and twelve assessment outputs.
+- Preserve the distinction between source claims, proposed controls and operational evidence; generated designs have no execution or deployment authority.
+- Add procurement and museum examples, a reproducible live-model recorder, and an illustrated framework-to-implementation briefing with editable diagram source.
+- Update the research paper with reusable runtime and designer methods, retained positive/negative observations, current scoped evidence, two new vector diagrams and generated navigation.
+
+## 0.4.0 - Configurable workflow contracts
+
+- Add a strict versioned registry and one reusable runtime for credit and IT access examples, with explicit transactional target adapters.
+- Generate governance assessments and implementation packages without inventing approval, risk ratings or deployment evidence.
+- Bind signed agent tasks, approval, budgets and evidence to workflow configuration; recheck authority and expiry at execution time.
+- Parameterize native relationship, metadata, model metric, inventory and evidence bindings; add generic OPA, AGT and Temporal paths.
+- Preserve existing credit-lab interfaces and historical evidence as compatibility fixtures. Generic native commissioning remains separate from local tests.
+- Fix PostgreSQL CI cluster encoding and extend native storage checks to both configurable workflows.
+
 ## 0.3.1 - Continued native acceptance
 
 - Require successful operation checks when consuming deployment-scoped isolation and release receipts; reject tampered signed SBOMs.

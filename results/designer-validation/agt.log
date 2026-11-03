@@ -1,0 +1,14 @@
+/mnt/c/Users/anjal/OneDrive/Documents/ChatGPT/AI Governance/fabric-configurable/scripts/test_agt.py:6: DeprecationWarning: agentmesh-platform is deprecated and will be removed in a future release. Use agent-governance-toolkit-core instead. See https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/package-consolidation/MIGRATION.md
+  from agentmesh.governance import GovernanceDenied
+{
+  "package": "agent-governance-toolkit-core",
+  "version": "5.0.0",
+  "tests": 3,
+  "passed": 3,
+  "cases": [
+    "AGT allow followed by OPA allow",
+    "AGT default deny unknown tool",
+    "AGT allow followed by independent OPA tenant denial"
+  ],
+  "scope": "govern wrapper only; no identity mesh, sandbox or performance validation"
+}

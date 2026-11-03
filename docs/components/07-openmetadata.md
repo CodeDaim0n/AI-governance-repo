@@ -37,4 +37,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 The bootstrap uses a metadata-only custom database service. It does not ingest a source password or grant the agent data access. The runtime requires an owner and configured classification.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)

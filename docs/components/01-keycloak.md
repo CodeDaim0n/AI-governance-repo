@@ -37,4 +37,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 The lab uses client-credential service accounts with hard-coded, signed principal mappings. A production immutable-subject mapping, rotation, revocation and delegated-user model must be qualified.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)

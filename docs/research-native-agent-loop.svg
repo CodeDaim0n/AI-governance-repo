@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="483" height="480" preserveAspectRatio="xMinYMin meet" viewBox="0 0 483 480" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="483" height="480"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-480)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="20" y="376" width="200" height="68" rx="6" ry="0" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="20" y="439" width="200" height="5" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<text x="29" y="424" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,848) scale(1,-1)">Task and delegated scope</text>
+			<text x="29" y="409" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,818) scale(1,-1)">Server-owned actor and exact intent. No</text>
+			<text x="29" y="399" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,798) scale(1,-1)">self-granted approval.</text>
+			<rect x="270" y="376" width="200" height="68" rx="6" ry="0" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="270" y="439" width="200" height="5" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<text x="279" y="424" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,848) scale(1,-1)">Qwen agent + Ollama</text>
+			<text x="279" y="409" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,818) scale(1,-1)">Select a permitted tool; observe its result;</text>
+			<text x="279" y="399" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,798) scale(1,-1)">continue within explicit budgets.</text>
+			<rect x="20" y="236" width="200" height="88" rx="6" ry="0" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="20" y="319" width="200" height="5" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<text x="29" y="304" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,608) scale(1,-1)">Independent authority</text>
+			<text x="29" y="289" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,578) scale(1,-1)">Keycloak identity. OpenFGA scope. OPA</text>
+			<text x="29" y="279" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,558) scale(1,-1)">business restrictions. AGT tool boundary.</text>
+			<rect x="270" y="236" width="200" height="88" rx="6" ry="0" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="270" y="319" width="200" height="5" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<text x="279" y="304" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,608) scale(1,-1)">Governed tool gateway</text>
+			<text x="279" y="289" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,578) scale(1,-1)">Check task and read state, current authority,</text>
+			<text x="279" y="279" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,558) scale(1,-1)">exact action and any approval.</text>
+			<rect x="270" y="105" width="200" height="77" rx="6" ry="0" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="270" y="177" width="200" height="5" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<text x="279" y="162" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,324) scale(1,-1)">Typed target and receipt</text>
+			<text x="279" y="147" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,294) scale(1,-1)">Commit permitted synthetic effect. Preserve</text>
+			<text x="279" y="137" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,274) scale(1,-1)">idempotency, audit and outbox.</text>
+			<rect x="20" y="105" width="200" height="77" rx="6" ry="0" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="20" y="177" width="200" height="5" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<text x="29" y="162" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,324) scale(1,-1)">Actual observation</text>
+			<text x="29" y="147" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,294) scale(1,-1)">Source facts, executed receipt, waiting state or</text>
+			<text x="29" y="137" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,274) scale(1,-1)">denial. Narrative is not an effect.</text>
+			<rect x="20" y="5" width="450" height="65" rx="6" ry="0" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<rect x="20" y="65" width="450" height="5" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<text x="29" y="50" style="font-family: FabricSansBold; font-size: 9px;fill: rgb(3%,49%,54%); stroke:none;" transform="translate(0,100) scale(1,-1)">Durable approval boundary: Temporal + separate reviewer</text>
+			<text x="29" y="35" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,70) scale(1,-1)">Eligible actions wait. Reviewer authority is checked separately. Restart and retry cannot create a second target</text>
+			<text x="29" y="25" style="font-family: FabricSans; font-size: 7.5px;fill: rgb(14%,21%,29%); stroke:none;" transform="translate(0,50) scale(1,-1)">effect.</text>
+			<path d="M 220,410 L 270,410 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="270 410, 265.6121 412.3971, 265.6121 407.6029" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 370,376 L 370,324 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="370 324, 372.3971 328.3879, 367.6029 328.3879" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 220,280 L 270,280 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="270 280, 265.6121 282.3971, 265.6121 277.6029" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 370,236 L 370,182 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="370 182, 372.3971 186.3879, 367.6029 186.3879" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 270,144 L 220,144 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="220 144, 224.3879 141.6029, 224.3879 146.3971" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 20,144 L 7,144 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="7 144, 11.38791 141.6029, 11.38791 146.3971" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 7,144 L 7,467 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="7 467, 4.602872 462.6121, 9.397128 462.6121" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 7,467 L 370,467 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="370 467, 365.6121 469.3971, 365.6121 464.6029" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 370,467 L 370,444 Z" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="370 444, 372.3971 448.3879, 367.6029 448.3879" style="stroke: rgb(3%,49%,54%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 470,280 L 481,280 Z" style="stroke: rgb(84%,59%,21%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="481 280, 476.6121 282.3971, 476.6121 277.6029" style="stroke: rgb(84%,59%,21%); stroke-linecap: butt; stroke-width: 1; fill: rgb(84%,59%,21%); fill-rule: evenodd;"/>
+			<path d="M 481,280 L 481,38 Z" style="stroke: rgb(84%,59%,21%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="481 38, 483.3971 42.38791, 478.6029 42.38791" style="stroke: rgb(84%,59%,21%); stroke-linecap: butt; stroke-width: 1; fill: rgb(84%,59%,21%); fill-rule: evenodd;"/>
+			<path d="M 481,38 L 470,38 Z" style="stroke: rgb(84%,59%,21%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="470 38, 474.3879 35.60287, 474.3879 40.39713" style="stroke: rgb(84%,59%,21%); stroke-linecap: butt; stroke-width: 1; fill: rgb(84%,59%,21%); fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

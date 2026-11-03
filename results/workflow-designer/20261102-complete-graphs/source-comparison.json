@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "kind": "assistant_source_comparison",
+  "reviewer": {
+    "type": "ai_assistant",
+    "role": "independent source-comparison reviewer",
+    "human_approval": false,
+    "approval_authority": "none"
+  },
+  "reviewed_at": "2026-11-02T11:35:19+00:00",
+  "scope": "Compare generated drafts with supplied synthetic descriptions. This is an assistant review, not human approval, factual verification, execution testing or a claim of exhaustive risk coverage.",
+  "overall_status": "requires_substantive_revision",
+  "cases": [
+    {
+      "case": "vendor-onboarding",
+      "source_path": "examples/workflow-descriptions/vendor-onboarding.txt",
+      "source_file_sha256": "13a31d0411266d76fbd0bb5388bdb795f1f213f3e2d029f6f19e6e0120d2f02a",
+      "design_path": "results/workflow-designer/20261102-complete-graphs/vendor-onboarding.json",
+      "design_file_sha256": "9cf2a53dc0dac1834d8f9e746ccec0cc73f4afc9e6f7c9cd7df7abcb70494207",
+      "design_artifact_sha256": "d19016d63ec03cabf1d882eec5bc08e4ac6a23f390289bdfe48d869d796a595a",
+      "mechanical_validation": "recorded_as_validated_on_first_attempt; not rerun by this reviewer",
+      "semantic_review": "requires_substantive_revision_before_implementation",
+      "human_approved": false,
+      "captures": [
+        "Four source roles remain distinct; the assistant is AI and proposed accountable owners are human.",
+        "Submission, supplier comparison, manager review, separate-channel finance verification, authorized vendor addition and onboarding outcome are represented.",
+        "The source prohibition on AI business effects is quoted; prompt injection and unauthorized vendor addition now appear as explicit risks.",
+        "Tool access modes remain unknown, the onboarding record has its own data entity, and a rejection return edge is present.",
+        "API permissions, retention, escalation deadlines, record ownership and thresholds have blocking questions.",
+        "The artifact remains a draft, with no execution definitions, deployment approval, measured benefits or verified control effectiveness."
+      ],
+      "findings": [
+        {
+          "id": "vendor-ordering",
+          "priority": "high",
+          "design_refs": ["/graph/steps/4", "/graph/steps/5", "/graph/edges/4", "/graph/decisions/3"],
+          "issue": "Vendor addition precedes the accept/reject decision, so the described rejection route can occur after the vendor has already been added. The source does not establish this ordering or authorize an effect before acceptance.",
+          "required_revision": "Have the owner specify acceptance authority and prerequisites; separate acceptance from the authorized vendor-write effect and ensure rejection cannot perform that effect. Mark inferred ordering as proposed until confirmed."
+        },
+        {
+          "id": "vendor-exception-route",
+          "priority": "high",
+          "design_refs": ["/graph/edges/5", "/graph/edges/6", "/graph/steps/5"],
+          "issue": "Missing/conflicting records route directly from AI analysis to request resolution. No explicit paused state, review completion or resume condition is represented. Rejection returns to submission but does not represent the required explanation; the resolution step has an onboarding-record output for both outcomes.",
+          "required_revision": "Represent hold, resolution and resume conditions explicitly, and separate rejected-with-explanation from accepted-with-reviewed-record outcomes. Confirm where finance and manager checks occur after a hold."
+        },
+        {
+          "id": "vendor-control-risk-fit",
+          "priority": "high",
+          "design_refs": ["/risks/0", "/risks/1", "/controls/0", "/controls/1", "/requirements/1"],
+          "issue": "The unauthorized-vendor-addition risk is linked only to finance bank verification; that control does not enforce the assistant's write restriction. Prompt injection has only a generic manager-review control. Explicit prevention of AI bank changes, orders and payments is not fully specified in proposed controls.",
+          "required_revision": "Add independently enforced action/permission boundaries for every forbidden AI effect, a tailored untrusted-document handling control, and tests of direct calls and injected instructions. Keep finance channel verification as a separate fraud control."
+        },
+        {
+          "id": "vendor-authority-and-entailment",
+          "priority": "medium",
+          "design_refs": ["/graph/steps/5", "/graph/decisions/3", "/graph/edges", "/requirements", "/risks/0/evidence_ids"],
+          "issue": "The draft marks manager-plus-finance final acceptance authority and a serial review sequence as stated, although the source does not assign that final authority or fully define ordering. Requirements are labelled policy without an identified policy source. The prompt-injection risk cites the recommendation and forbidden-effects quotations, not the source's untrusted-instructions sentence.",
+          "required_revision": "Distinguish stated duties from proposed process/authority decisions, ask who owns final acceptance, classify source constraints without implying formal policy provenance, and attach directly relevant quotations."
+        },
+        {
+          "id": "vendor-test-specificity",
+          "priority": "medium",
+          "design_refs": ["/controls/0/validation", "/controls/1/validation", "/controls/2/validation", "/graph/decisions"],
+          "issue": "The tests use unspecified altered inputs and expected denial/hold without decision criteria or correlated evidence. An altered request or bank detail is not necessarily invalid. Decision criteria contain evidence IDs instead of actionable acceptance rules.",
+          "required_revision": "Define invalid field/channel/authorization cases, positive controls, expected decisions, preserved target state and required audit evidence. Include stale-review, missing independent verification, prompt-injection and forbidden-effect cases."
+        },
+        {
+          "id": "vendor-information-and-context",
+          "priority": "medium",
+          "design_refs": ["/graph/data", "/graph/steps", "/questions", "/human_authority/escalation"],
+          "issue": "Recommendation, bank-verification evidence, rejection explanation and source-record versions remain collapsed into the request or absent. Operating countries are quoted as unresolved but have no targeted question. Escalation is unknown without an owner/route question; no workflow-specific evaluation or review-time baseline plan is supplied.",
+          "required_revision": "Add the information needed to review and bind each decision, targeted country/escalation questions, and an evaluation plan covering recommendation correctness, reviewer effectiveness and the stated time-saving benefit."
+        }
+      ],
+      "conclusion": "Improved and reviewable initial draft with clearer risks, unknown permissions and rejection routing. Important graph ordering, authority and control-design defects remain. Mechanical acceptance is not semantic approval or implementation readiness."
+    },
+    {
+      "case": "museum-loan",
+      "source_path": "examples/workflow-descriptions/museum-loan.txt",
+      "source_file_sha256": "43795519bd464437679e498814a671e8ad001f3e72f563c5dc749a7016b14b19",
+      "run_record": "results/workflow-designer/20261102-complete-graphs/run-summary.json",
+      "mechanical_validation": "failed_after_two_attempts",
+      "elapsed_seconds": 465.34,
+      "error": "model_design_validation_failed",
+      "attempt_outcomes": [
+        {
+          "attempt": 1,
+          "errors": ["quote_not_grounded:ev-handover-scheduling", "invalid_reference:requirements[0]", "invalid_reference:requirements[1]", "invalid_reference:requirements[2]", "invalid_reference:edge.to"]
+        },
+        {
+          "attempt": 2,
+          "errors": ["quote_not_grounded:ev-retention-periods", "quote_not_grounded:ev-exception-approvals", "invalid_reference:step-registrar-checks.output_data_ids"]
+        }
+      ],
+      "accepted_design_artifact": false,
+      "source_comparison_performed": false,
+      "invalid_raw_drafts_reviewed": false,
+      "semantic_review": "not_performed_no_accepted_artifact",
+      "semantic_approval": false,
+      "human_approved": false,
+      "conclusion": "No accepted museum design was produced. This record reports the observed mechanical failure only; it grants no semantic or human approval. Invalid raw responses were not reviewed or promoted into a design."
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "status": "PASS",
+  "scope": "isolated real PostgreSQL + OPA; not all-18 acceptance",
+  "checks": {
+    "utf8_text_round_trip": {
+      "server_encoding": "UTF8",
+      "client_encoding": "UTF8"
+    },
+    "unapproved_release_denied": true,
+    "concurrent_retries_one_effect": {
+      "requests": 12,
+      "effects": 1
+    },
+    "changed_intent_rejected": true,
+    "cross_tenant_denied": true,
+    "reviewer_approval_exact_effect": true,
+    "concurrent_budget_enforced": {
+      "requests": 8,
+      "executed": 2,
+      "denied": 6
+    },
+    "kill_switch_denied": true,
+    "audit_chain_verified": true,
+    "configurable_workflows": {
+      "status": "PASS",
+      "scope": "Real PostgreSQL storage with synthetic local targets; no model or other native-service acceptance",
+      "postgres_version": "PostgreSQL 16.2 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11), 64-bit",
+      "server_encoding": "UTF8",
+      "fixture": {
+        "tenant": "acceptance-804c629ac1d447f2",
+        "actors": [
+          "agent-804c629ac1d447f2",
+          "agent2-804c629ac1d447f2"
+        ],
+        "reviewer": "reviewer-804c629ac1d447f2"
+      },
+      "expected_effect_count": 13,
+      "checks": {
+        "two_configured_approval_journeys": [
+          {
+            "workflow_id": "synthetic-credit",
+            "denied_before_approval": true,
+            "config_digest": "66532406f8c695d86bfa3a53a9b9bb38d344c6af59f8c0486dec6991346f7845",
+            "receipt": {
+              "target": "local_synthetic_credit_ledger",
+              "effect_id": "8b9dd640-ffc4-4aca-a2dc-7797400c1d22",
+              "resource_id": "credit-804c629ac1d447f2",
+              "amount_pence": 20000
+            },
+            "retry_returns_same_receipt": true
+          },
+          {
+            "workflow_id": "it-access",
+            "denied_before_approval": true,
+            "config_digest": "acfa2a6b516ec8a13ae64cdc73cb15cc1f7222f71b2c3f5d1272ae346e4e3a5f",
+            "receipt": {
+              "target": "local_synthetic_access_directory",
+              "effect_id": "bc869337-61e7-4224-9f60-bfbcd70d1052",
+              "resource_id": "access-804c629ac1d447f2",
+              "permission": "admin",
+              "expires_at": 1793630577.2467341
+            },
+            "retry_returns_same_receipt": true
+          }
+        ],
+        "approval_substitution_denied": true,
+        "concurrent_duplicate_one_effect": {
+          "requests": 12,
+          "additional_effects": 1
+        },
+        "shared_resource_budget_race": {
+          "actors": 2,
+          "requests": 15,
+          "executed": 10,
+          "denied": 5,
+          "spent": 100000
+        },
+        "changed_configuration_denied": true,
+        "audit_integrity_and_config_binding": {
+          "chain_valid": true,
+          "executed_events": 13,
+          "outbox_effects": 13
+        }
+      },
+      "restart_replays": [
+        {
+          "actor": "agent-804c629ac1d447f2",
+          "action": {
+            "workflow_id": "synthetic-credit",
+            "operation": "commit_credit",
+            "resource_id": "credit-804c629ac1d447f2",
+            "parameters": {
+              "amount_pence": 20000,
+              "reason": "Synthetic PostgreSQL acceptance"
+            },
+            "idempotency_key": "approval-credit"
+          },
+          "response": {
+            "status": "executed",
+            "action_id": "8b9dd640-ffc4-4aca-a2dc-7797400c1d22",
+            "workflow_id": "synthetic-credit",
+            "config_digest": "66532406f8c695d86bfa3a53a9b9bb38d344c6af59f8c0486dec6991346f7845",
+            "workflow_version": "credit-v1",
+            "receipt": {
+              "target": "local_synthetic_credit_ledger",
+              "effect_id": "8b9dd640-ffc4-4aca-a2dc-7797400c1d22",
+              "resource_id": "credit-804c629ac1d447f2",
+              "amount_pence": 20000
+            }
+          }
+        },
+        {
+          "actor": "agent-804c629ac1d447f2",
+          "action": {
+            "workflow_id": "it-access",
+            "operation": "grant_access",
+            "resource_id": "access-804c629ac1d447f2",
+            "parameters": {
+              "permission": "admin",
+              "duration_hours": 4,
+              "justification": "Synthetic PostgreSQL acceptance"
+            },
+            "idempotency_key": "approval-access"
+          },
+          "response": {
+            "status": "executed",
+            "action_id": "bc869337-61e7-4224-9f60-bfbcd70d1052",
+            "workflow_id": "it-access",
+            "config_digest": "acfa2a6b516ec8a13ae64cdc73cb15cc1f7222f71b2c3f5d1272ae346e4e3a5f",
+            "workflow_version": "access-v1",
+            "receipt": {
+              "target": "local_synthetic_access_directory",
+              "effect_id": "bc869337-61e7-4224-9f60-bfbcd70d1052",
+              "resource_id": "access-804c629ac1d447f2",
+              "permission": "admin",
+              "expires_at": 1793630577.2467341
+            }
+          }
+        },
+        {
+          "actor": "agent-804c629ac1d447f2",
+          "action": {
+            "workflow_id": "synthetic-credit",
+            "operation": "commit_credit",
+            "resource_id": "credit-804c629ac1d447f2",
+            "parameters": {
+              "amount_pence": 1000,
+              "reason": "Synthetic PostgreSQL acceptance"
+            },
+            "idempotency_key": "concurrent-duplicate"
+          },
+          "response": {
+            "status": "executed",
+            "action_id": "7fd23fc9-8a96-4e10-97b7-9dd096d456db",
+            "workflow_id": "synthetic-credit",
+            "config_digest": "66532406f8c695d86bfa3a53a9b9bb38d344c6af59f8c0486dec6991346f7845",
+            "workflow_version": "credit-v1",
+            "receipt": {
+              "target": "local_synthetic_credit_ledger",
+              "effect_id": "7fd23fc9-8a96-4e10-97b7-9dd096d456db",
+              "resource_id": "credit-804c629ac1d447f2",
+              "amount_pence": 1000
+            }
+          }
+        }
+      ]
+    },
+    "restart_preserves_actions_audit_outbox": {
+      "effects": 9,
+      "pending_outbox": 36
+    },
+    "restart_preserves_configurable_receipts": true
+  },
+  "adapter_sha256": "47e8ed1fd35cb89db3df2554bc56df950950c51d9623e03b3adfd9f5ad79cbb6",
+  "postgres_version": "postgres (PostgreSQL) 16.2",
+  "postgres_binary_sha256": "ae05b2a1b0685f2c69b8b9eb3765b1429a5c173c64b248f7f157de2af9db768d"
+}

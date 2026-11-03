@@ -1,0 +1,8 @@
+{
+  "scope": "Second live designer validation, after provider metadata compatibility fix",
+  "completed_case": "vendor-onboarding",
+  "observed_result": "Both model drafts reused identifiers across entity categories and failed strict validation. Complete responses and hashes are preserved.",
+  "remaining_case": "museum-loan",
+  "remaining_case_status": "interrupted_by_operator_for_generation_and_repair_improvements",
+  "note": "The completed failure is preserved in run-summary.json. The remaining case was not counted as a success or failure. Later runs use separate output directories."
+}

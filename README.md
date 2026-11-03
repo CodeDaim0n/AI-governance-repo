@@ -2,7 +2,7 @@
 
 # Governed Agent Fabric
 
-[![Validation](https://github.com/CodeDaim0n/AI-governance-repo/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeDaim0n/AI-governance-repo/actions/workflows/ci.yml)
+[![Validation](https://github.com/CodeDaim0n/governed-agent-fabric/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeDaim0n/governed-agent-fabric/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-087f8c.svg)](LICENSE)
 ![Status: Research prototype](https://img.shields.io/badge/status-research%20prototype-112841.svg)
 
@@ -17,6 +17,36 @@ The 18 component groups contribute across that lifecycle: identity and action au
 **The architecture and integration model are domain-independent.** Business-specific rules and target operations belong in replaceable policies and adapters. The diagrams below show the generic suite and the path from an agent proposal to a governed business action.
 
 [Quickstart](docs/getting-started.md) · [Architecture](docs/architecture.md) · [All 18 components](docs/components/catalogue.md) · [Full deployment](docs/deployment/full-stack.md) · [Research paper](docs/Governed_Agent_Fabric_Research_Paper.pdf) · [Validation evidence](docs/validation.md)
+
+## Open Fabric Studio
+
+Use the local browser interface to describe a process, inspect its AI-generated governance draft, configure a workflow package, plan component replacements and run the isolated execution demo.
+
+```bash
+python -m pip install -e .
+python -m fabric.studio
+```
+
+Open the loopback URL printed by the server (default `http://127.0.0.1:8765`). AI design uses your configured Ollama service; workflow packaging, the component library and synthetic execution lab also work without a model. The UI is a local operator workspace. Shared deployment requires separate authentication and operational hardening. [Studio guide](docs/studio.md).
+
+**On Windows:** install Python 3.11 or newer, then double-click `Start-Studio.cmd`. The launcher creates a dedicated environment, installs the project and opens Studio in your default browser. First-time setup needs an internet connection. Keep its terminal open while using Studio; press Ctrl+C to stop it.
+
+## Configurable workflows
+
+Natural-language intake is available through the [workflow designer](docs/workflow-designer.md). It uses a configured Ollama model to turn a process description into a reviewable governance draft, a workflow graph, questions, risk/control proposals and component mappings. The [illustrated generalisation briefing](docs/Governed_Agent_Fabric_Generalisation.pdf) connects the original Erdos framework to these engineering extensions and all eighteen component groups.
+
+```bash
+python -m fabric.workflow_cli design --description-file examples/workflow-descriptions/vendor-onboarding.txt --model qwen3:8b --thinking --timeout 600 --output results/vendor-design.json --report results/vendor-design.md
+```
+
+The reusable entry point accepts versioned workflow definitions and produces a governance assessment plus an implementation package. The same runtime and authenticated agent API execute two included workflows: synthetic credit commitments and IT access grants. Their schemas, resource checks, roles, approval conditions and budgets are configuration; their target effects are explicit registered adapters.
+
+```bash
+python -m fabric.workflow_cli demo --workflow workflows/synthetic-credit.json --workflow workflows/it-access.json
+python -m fabric.workflow_cli package --workflow workflows/synthetic-credit.json --workflow workflows/it-access.json --output results/workflow-package.json
+```
+
+[Configuration, examples and migration](docs/configurable-workflows.md) explains the contract, API, extension points and mapping across all eighteen component groups. The examples use local synthetic targets. New external systems require adapters and verification; loading configuration never approves deployment. Native bindings are available for commissioning, while complete-stack acceptance remains separate and unverified. The original credit-specific interfaces remain as the compatibility laboratory for previously recorded experiments.
 
 > **Status:** Research implementation. All 18 component groups have integration and deployment code. Qwen now performs real autonomous tool calls in a native subset, and a connected approval/restart journey has run. Complete eighteen-product live acceptance remains pending. [See the recorded evidence and deployment requirements](docs/validation.md).
 
@@ -94,8 +124,8 @@ The numbers match the architecture diagram. These are 18 **component groups**, c
 Python 3.11+ and an official OPA binary are required. The fetch helper pins the exact historical binary used in the original experiment; it is not a recommendation to deploy that release in production.
 
 ```bash
-git clone https://github.com/CodeDaim0n/AI-governance-repo.git
-cd AI-governance-repo
+git clone https://github.com/CodeDaim0n/governed-agent-fabric.git
+cd governed-agent-fabric
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt

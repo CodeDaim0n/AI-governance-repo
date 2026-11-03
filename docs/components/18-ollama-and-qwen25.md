@@ -38,4 +38,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 The enterprise `/propose` endpoint returns one JSON proposal. The separate native agent experiment uses `/api/chat` tool calls and actual observations across model turns. The gateway rejects changes to caller-bounded intent and never accepts model-generated identity, source status, authority or approval.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)

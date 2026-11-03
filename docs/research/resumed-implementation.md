@@ -6,13 +6,13 @@ The previous working tree contained the native Qwen task loop, task-scoped gatew
 
 - External Cilium and supply-chain receipts must identify the current deployment and source commit, explicitly report success and contain successful operation checks. Matching provenance alone cannot turn a failed receipt into a pass.
 - Built-image release acceptance now verifies that Cosign rejects a modified SBOM as well as verifying its original signature. The configured vulnerability gate remains mandatory.
-- A real PostgreSQL/OPA runner exercises parallel retries, exact approval, changed-intent rejection, cross-tenant denial, shared-budget races, kill switch, audit integrity and database restart durability. The existing CI workflow is configured to run it against its installed PostgreSQL binaries and retain logs as artifacts. That added CI check has not run yet.
+- A real PostgreSQL/OPA runner exercises parallel retries, exact approval, changed-intent rejection, cross-tenant denial, shared-budget races, kill switch, audit integrity and database restart durability. CI runs it against its installed PostgreSQL binaries and retains logs as artifacts. For commit `43f4e51`, both the [push validation run](https://github.com/CodeDaim0n/governed-agent-fabric/actions/runs/41439547701) and the [pull-request validation run](https://github.com/CodeDaim0n/governed-agent-fabric/actions/runs/41439553948) succeeded. These are scoped repository checks, not complete-stack acceptance.
 - A real Collector runner checks SDK-to-OTLP delivery, matches the exported trace ID, preserves a decision attribute and removes authorization and prompt/completion attributes. Its sampler is explicitly always-on so inherited sampling cannot silently omit the acceptance span.
 - Lab OPA launchers disable optional anonymous outbound telemetry.
 
 ## Collector observation
 
-The stock 0.164.0 binary still fails during process-metric registration on this host. Reading its upstream source confirmed that the process registration occurs even with internal metrics disabled. The stock 0.130.0 source skips that registration when metrics are disabled. An isolated experiment used that older official release with a verified archive digest; it did not patch the binary or fabricate process statistics.
+In the restricted-host experiment on 2 November 2026, the stock 0.164.0 binary failed during process-metric registration. Reading its upstream source confirmed that the process registration occurs even with internal metrics disabled. The stock 0.130.0 source skips that registration when metrics are disabled. An isolated experiment used that older official release with a verified archive digest; it did not patch the binary or fabricate process statistics.
 
 The compatibility run passed: one SDK span was exported through actual OTLP/HTTP, the Collector file contained the matching trace, the decision outcome remained and three sensitive attributes were removed. Failed attempts remain alongside the successful attempt in `results/native-telemetry/`. The compatibility lock and experiment do not replace the deployment-pinned release or qualify an old release for production.
 
@@ -33,7 +33,9 @@ PYTHONPATH=. python scripts/run_native_postgres.py \
   --pg-bin "$(pg_config --bindir)" --opa /absolute/path/to/opa
 ```
 
-The runner creates its own disposable database, exposes only a private Unix socket, and uses an unprivileged process. It never targets an existing database or creates a system user. This local host maps only UID zero, so PostgreSQL startup is reported `BLOCKED`; the runner does not bypass PostgreSQL's root restriction. Its isolated CI result must be read independently of complete-stack acceptance.
+The runner creates its own disposable database, exposes only a private Unix socket, and uses an unprivileged process. It never targets an existing database or creates a system user. The initial restricted-host attempt on 2 November 2026 mapped only UID zero and reported PostgreSQL startup as `BLOCKED`; the runner did not bypass PostgreSQL's root restriction. That historical result remains in `results/native-postgres/20261102T071551Z/summary.json`.
+
+Later WSL runs used a real PostgreSQL 16.2 server and OPA successfully. The recorded `PASS` in `results/native-postgres/20261102T114531Z/summary.json` includes both configurable workflows, synthetic credit and IT access, with exact approvals, concurrent retry and budget checks, audit/outbox consistency, and receipt replay after database restart. Their business effects are synthetic local tables. This later storage evidence and the successful CI checks do not commission the other products or establish complete-stack acceptance.
 
 ## Remaining complete-stack work
 
@@ -47,4 +49,4 @@ The runner creates its own disposable database, exposes only a private Unix sock
 | Syft/Grype/Cosign | Resolve the recorded dependency gate failure and qualify the actual built image. Directory signatures are insufficient. |
 | All products together | Commission the dedicated host and run `scripts/accept_all_components.py`. |
 
-`results/all-18-live.json` remains the complete-deployment result; `results/native-component-status.json` records separate product observations. Neither contracts nor isolated success replace complete acceptance. This host has an 8 GiB memory limit, no container runtime or Kubernetes tools, and insufficient capacity for the documented complete deployment. No production or cloud resources were provisioned.
+`results/all-18-live.json` remains the complete-deployment result; `results/native-component-status.json` records separate product observations, including historical host limitations. Neither contracts nor isolated success replace complete acceptance. The earlier restricted environment on 2 November 2026 had an 8 GiB memory limit, no container runtime or Kubernetes tools, and insufficient capacity for the documented complete deployment. The later PostgreSQL runs used a separate WSL environment; they do not remove those earlier limitations or demonstrate the full deployment. No production or cloud resources were provisioned.

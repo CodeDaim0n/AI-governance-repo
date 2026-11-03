@@ -1,18 +1,20 @@
-A reference product suite for bounded autonomous agents in regulated environments
+# Governed Agent Fabric
 
-<b>Eighteen component groups connecting autonomous tool use, independent authority, accountable risk and operational evidence.</b>
+Reusable workflow governance: from process description to bounded execution
 
-| Design scope | Evidence delivered |
+**A review-assisted designer and configurable enforcement fabric, with explicit authority and evidence boundaries.**
+
+| Research implementation, edition 0.5 | Evidence and scope |
 |---|---|
-| Domain-independent autonomous agent fabric | 18 product groups, explicit authority boundaries, durable approvals and linked evidence |
-| Synthetic implementation and experiments | Original 51 control checks; 40 adapter/agent contracts; native Qwen tool trials and restart journey with failures retained |
-| Research implementation, edition 0.3 | Architecture, component roles, reproducible native runs and per-product evidence boundaries |
+| Reusable enforcement and 18 component roles | Shared runtime; synthetic credit and IT-access configurations; reviewed effect adapters |
+| Current regression | 129 core tests including 29 designer/CLI tests; 12 Rego checks; 77 enterprise contracts; 3 AGT assertions |
+| Workflow-to-governance design | Live prose-design observations with failures and source-comparison findings retained |
 
 ### Abstract
 
-We extended the Erdos governance framework into an implementation approach connecting workflow assessment, accountable authority and operational evidence. This paper presents the component architecture and interfaces that link enterprise records to runtime action enforcement. Microsoft Agent Governance Toolkit is evaluated as an optional interception layer, OPA as a business-policy decision service, and CISO Assistant Community Edition as the designated risk system of record.
+We extend the Erdos workflow-assessment framework into a reusable engineering composition: a natural-language governance designer, versioned workflow contracts, shared enforcement, registered effect adapters and operational evidence. The designer proposes a workflow graph, risks, controls and questions; accountable review and engineering connect supported designs to execution. The same runtime supports synthetic credit and IT-access operations through distinct configuration.
 
-The suite implements bounded agent tool selection and observation processing around independent execution controls. Original control tests use a synthetic credit adapter; new native experiments retain model failures as well as successful read/tool/effect execution and a connected approval/restart journey. Complete eighteen-product live validation remains unestablished. No result establishes regulated business validity, framework conformity or production readiness.
+Evaluation separates simulated contracts, real OPA/PostgreSQL checks and live model observations. The latest vendor-onboarding draft passed mechanical validation but source comparison found material governance defects; museum drafts were rejected. This supports a review-assisted prototype, not unattended design. Historical control and native-agent results remain separately scoped. Complete eighteen-product acceptance, business validity and production readiness remain unestablished.
 
 Prepared 2 November 2026 | Technical working paper | Not peer reviewed
 
@@ -22,33 +24,63 @@ No real customer data, banking systems or production credit decisions were used.
 ## Paper navigation
 
 
-| Section | Page |
-|---|---|
-| Research question and evidence boundary | 3 |
-| Extending the Erdos framework in practice | 4 |
-| Architecture and trust boundaries | 5 |
-| Execution flow and invariants | 6 |
-| Identity, delegation and exclusive execution | 7 |
-| Microsoft AGT: adoption and integration | 8 |
-| Risk register and accountable acceptance | 9 |
-| Worked approval-substitution risk | 10 |
-| Data, model and business-system authority | 11 |
-| Workflow, approvals and distributed effects | 12 |
-| Evidence graph, retention and integrity | 13 |
-| Telemetry, incidents and resilience | 14 |
-| All input and output steps mapped | 15-17 |
-| Framework alignment and regulatory scope | 18 |
-| OWASP threats and evidence gaps | 19 |
-| Experimental method and reproduction | 20 |
-| Observed results and interpretation | 21 |
-| Deployment roadmap | 22 |
-| Limitations and conclusion | 23 |
-| Primary references | 24-26 |
-| Component role catalogue | 27-29 |
-| Expanded native implementation and acceptance | 30-33 |
-| Official products and their implementation roles | 34-35 |
+Edition 0.5 adds the reusable runtime, prose designer and current evidence first. Original control results and later native experiments retain their own scope and historical labels. Page numbers and PDF bookmarks are generated from the rendered headings.
 
-Companion repository: machine-readable product and step matrices, risk register, framework crosswalk, integration contracts, source code, policy, tests and observed evidence. Diagram sources are supplied as SVG and Mermaid.
+| Section | PDF page |
+|---|---|
+| Research question and evidence boundary | 4 |
+| Extending the Erdos framework in practice | 5 |
+| From a process description to governed execution | 6 |
+| What is reusable, configurable or newly implemented? | 7 |
+| Runtime contract and effect boundary | 8 |
+| Seven framework inputs: candidate coverage, not completeness | 9 |
+| Twelve outputs: review artifacts with reserved authority | 10 |
+| Prose design method, bounded repair and provenance | 11 |
+| Empirical method: contracts, policies and real storage | 12 |
+| Five native design runs: retain failures and interruptions | 13 |
+| A mechanical pass still contains substantive defects | 14 |
+| Validity, reproduction and the next research questions | 15 |
+| Architecture: responsibilities and trust boundaries | 16 |
+| Execution flow and decision invariants | 17 |
+| Identity, delegation and exclusive execution | 18 |
+| Microsoft AGT: adopt, integrate and constrain | 19 |
+| Risk register and accountable acceptance | 20 |
+| Worked risk: action changes after approval | 21 |
+| Data, model and business-system authority | 22 |
+| Workflow, approvals and distributed effects | 23 |
+| Evidence graph, retention and integrity | 24 |
+| Telemetry, incidents and service resilience | 25 |
+| Input crosswalk: sections 3.1.1-3.1.7 | 26 |
+| Output crosswalk: sections 4.1-4.6 | 27 |
+| Output crosswalk: sections 4.7-4.12 | 28 |
+| Framework alignment and regulatory scope | 29 |
+| OWASP threats: initial evidence snapshot | 30 |
+| Method and reproducible experimental setup | 31 |
+| Observed results and interpretation | 32 |
+| Product deployment and acceptance roadmap | 33 |
+| Limitations and interpretation of the initial experiment | 34 |
+| Primary sources 1-9 | 35 |
+| Primary sources 10-18 | 36 |
+| Primary sources 19-27 | 37 |
+| Primary sources 28-30 | 38 |
+| Component role catalogue 1-6 | 39 |
+| Component role catalogue 7-12 | 40 |
+| Component role catalogue 13-18 | 41 |
+| Native integration package: edition 0.2 | 42 |
+| Native component acceptance 1-9 | 43 |
+| Native component acceptance 10-18 | 44 |
+| Commissioning, evidence and release limits | 45 |
+| Products brought together 1-9 | 46 |
+| Products brought together 10-18 | 47 |
+| An autonomous agent fabric | 48 |
+| Protocol, artifacts and observations | 49 |
+| Results: task success is not safety | 50 |
+| Connected approval, restart and resumption | 51 |
+| Observed product boundaries 1-9 | 52 |
+| Observed product boundaries 10-18 | 53 |
+| Negative results and release implications | 54 |
+| Actual risk records, controls and evidence | 55 |
+| Primary sources and evidence index | 56 |
 
 
 ## Research question and evidence boundary
@@ -56,11 +88,11 @@ Companion repository: machine-readable product and step matrices, risk register,
 
 ### Question
 
-How can governance of an agentic workflow remain enforceable when the workflow depends on identity, data, models, people, tools and enterprise systems owned by different teams?
+How can governance remain enforceable across workflow-specific identity, data, models, people and tools, while reusing assessment structures and enforcement machinery? Edition 0.5 also asks what a model-generated governance design can establish before accountable review and implementation.
 
 ### Contribution
 
-The contribution is a reference integration design and a reproducible control laboratory. It is not a claim to invent policy engines, durable workflows, zero-trust identity or risk registers. The design makes their boundaries explicit and requires a trace from obligation to risk, control, decision and business outcome.
+The contribution is an engineering composition and reproducible control laboratory: explicit design contracts, a configurable enforcement engine, registered adapters and evidence-linked review. Existing policy engines, durable workflows, identity systems and risk registers supply complementary capabilities. The original framework already addresses implementation, enforceable controls, evaluation and operational evidence; the eighteen-product selection is this project's choice, not a source requirement or endorsement. [1]
 
 | Evidence level | Meaning in this paper |
 |---|---|
@@ -76,7 +108,7 @@ OPA 1.0.1 was run as a real local HTTP service. The Python gateway, signed-token
 
 ### What cannot be concluded
 
-The original control experiment did not run a generative model or measure model task success. Edition 0.3 adds actual native Qwen tool experiments in the native-research appendix. Neither experiment measures token savings, incident reduction or business credit accuracy. Self-authored tests require independent challenge before supporting release decisions.
+The original control experiment had no generative model. Edition 0.3 added native Qwen tool experiments; edition 0.5 adds prose-design observations and configurable-runtime regression. Neither test counts nor mechanical design acceptance establish semantic adequacy, representative business outcomes or complete deployment acceptance. Self-authored tests and assistant source comparisons require independent human challenge.
 
 
 ## Extending the Erdos framework in practice
@@ -100,12 +132,217 @@ The Erdos governance framework defines workflow assessment inputs and outputs, i
 We preserve the framework workflow inputs and governance outputs while making product responsibilities, interfaces, enforcement decisions and evidence paths explicit. The observations in this paper describe the supplied synthetic implementation and its stated test scope.
 
 
+## From a process description to governed execution
+
+
+The generalisation separates three artifacts: a model-assisted governance draft, an engineering contract, and an observed execution record. They have different authors, validation requirements and authority. A useful draft can guide implementation without being executable or sufficient for release.
+
+![Description, review, configuration, runtime and evidence lifecycle](generalisation-workflow-lifecycle.svg)
+
+### Two connected contributions
+
+First, a shared runtime executes multiple declared workflows through the same enforcement engine. Second, a structured Ollama designer interprets prose into a workflow graph, proposed controls and questions. The synthetic credit and access profiles demonstrate the former; vendor onboarding and museum lending are exploratory descriptions for the latter. Their domains are not silently substituted.
+
+Accountable review remains a separate decision. A reviewer must correct source interpretation, determine actual permissions and obligations, and establish implementation and validation requirements. The designer has no business tools, target credentials, provisioning endpoint or approval operation.
+
+This extension operationalises the Erdos workflow-input and assessment-output structure [1]. It does not claim that product selection is prescribed by that framework or that structured output constitutes framework conformity. The source already includes enforcement, evaluation and operational evidence.
+
+
+## What is reusable, configurable or newly implemented?
+
+
+![Workflow configuration and reviewed adapters around shared enforcement](generalisation-reuse-boundaries.svg)
+
+The shared engine supplies authorization, approval, freshness, idempotency, aggregate limits and evidence semantics. Workflow configuration supplies supported domain rules. An effect adapter supplies target behavior when a new action cannot be represented by an existing reviewed adapter. A new control mechanism outside the contract requires explicit implementation and tests.
+
+### Product reuse is conditional
+
+The eighteen component groups are a responsibility map. Identity realms, relationship tuples, metadata entities, model metrics, workflow queues and risk/evidence links remain deployment-specific. Existing clients and platform patterns can be reused, but new bindings still need commissioning and acceptance. The diagram does not mark the full native stack as operational.
+
+The supplied legacy credit path remains a compatibility fixture for earlier experiments. New definitions use the configurable modules and cfg_ table family; old records are not silently migrated. Historical product observations do not approve new identities, source mappings, workflow configurations or targets.
+
+Teal denotes the shared path exercised by selected local contract and storage checks. The new adapter and enterprise bindings remain engineering and deployment responsibilities, rather than model-generated authority.
+
+
+## Runtime contract and effect boundary
+
+
+Every action contains exactly workflow_id, operation, resource_id, parameters and idempotency_key. Identity, tenant, resource facts, configuration and target endpoints are resolved by trusted services. Definitions use schema_version 1 and a digest of the complete workflow definition; changing a declared adapter binding or rule invalidates approval even when a human-readable version is unchanged. External native-service settings require separate change control.
+
+| Contract element | Enforcement / scope |
+|---|---|
+| Operation schema | Bounded string, integer and Boolean parameters; unknown fields fail validation. |
+| Resource predicates | Declared comparisons over authoritative stored attributes; no eval or arbitrary imports. |
+| Approval | Separate current reviewer; exact action, actor/resource state, configuration and deployment approval version; expiry checked. |
+| Shared budgets | Positive integer lifetime counters across actors within workflow, operation and tenant; optional resource scope. |
+| Current authority | Active roles, tenant isolation, source freshness, approved configuration and stop state remain enforced. |
+| Policy composition | External policies add restrictions; they cannot convert an internal denial into permission. |
+| Adapter selection | Operator-registered identifier, never a model-supplied import path, URL or shell command. |
+
+### Local atomicity is not a remote transaction guarantee
+
+Adapters expose validate(operation) and apply(connection, context). The included credit-ledger and access-directory effects are synthetic local writes. Effect, usage, consumed approval, audit and outbox commit together. Scoped records retain receipts; audit/outbox fields are minimized. A hash chain detects modification but is not an independently immutable archive.
+
+An HTTP call inside apply cannot be undone by a database rollback. Remote targets require target idempotency, conditional writes, durable delivery and reconciliation. Nested parameter objects, arbitrary expressions, rolling budgets and general graph execution are outside the current contract. Administration and explicit fixture provisioning remain separate from the agent API.
+
+
+## Seven framework inputs: candidate coverage, not completeness
+
+
+The designer retains the original section identifiers and uses concise paraphrased labels [1]. The crosswalk below explains the implementation contribution and the evidence still required. A source mention changes coverage to requires_review; it does not establish completeness or applicability.
+
+| Source ID / paraphrased area | Candidate representation and remaining review |
+|---|---|
+| 3.1.1 Purpose and context | Source facts and questions; establish intended outcomes, boundaries and baseline measures. |
+| 3.1.2 Process structure | Actors, steps, decisions and edges; confirm ordering, handoffs, exceptions and resumption. |
+| 3.1.3 AI authority | Proposed duties and tool links; verify real permissions, delegation and prohibited effects. |
+| 3.1.4 Information context | Data entities and quotations; verify provenance, sensitivity, reliability and retention. |
+| 3.1.5 Accountability and impact | Proposed human roles; name accountable people and assess affected parties and redress. |
+| 3.1.6 Assessment criteria | Requirements as source claims; obtain versioned authority and qualified applicability decisions. |
+| 3.1.7 Safeguards and evidence | Described safeguards; obtain tests, operating records, incidents and change evidence. |
+
+### Grounding has a deliberately narrow meaning
+
+Evidence contains exact contiguous quotations and offsets in the supplied description. Facts reference those quotations instead of introducing a separate verified-fact narrative. Every entity marked stated requires evidence references. Proposed and unknown entities, assumptions, and open questions remain explicit in the artifact.
+
+These checks establish source presence, not truth or entailment. A genuine quotation may be attached to an unsupported inference. Likewise, a source-described control is not independent evidence that the control operates. Review must distinguish intended duties, actual permissions and demonstrated behavior.
+
+The complete framework catalog is fabric/framework.py; docs/framework-extension-map.md records the source/engineering boundary and component relationships. No model-generated coverage status substitutes for an accountable assessment.
+
+
+## Twelve outputs: review artifacts with reserved authority
+
+
+All twelve source output areas are retained. Their structured content is assembled from the validated draft and deterministic defaults. The labels below are paraphrases; the proposed product mappings and implementation status belong to this project. Every area remains a draft requiring review.
+
+| Source ID / paraphrased output | Generated contribution and boundary |
+|---|---|
+| 4.1 Understanding and gaps | Source coverage, assumptions, gaps and questions. |
+| 4.2 Decision advice | Draft recommendation; production and deployment approval false. |
+| 4.3 Analysis by step | Step-to-risk and step-to-control references. |
+| 4.4 Risk records | Proposed scenarios and priorities; no residual-risk acceptance. |
+| 4.5 Autonomy boundaries | Actors, tools and decisions; actual permissions unverified. |
+| 4.6 Control designs | Proposed controls and explicit implementation gaps. |
+| 4.7 Requirements traceability | Candidate evidence links; applicability and mapping require review. |
+| 4.8 Validation design | Proposed tests; execution status not_run and no measured results. |
+| 4.9 Operational response | Monitoring/response suggestions; recovery not rehearsed. |
+| 4.10 Value and restraint | Benefits, costs and proportionality not established. |
+| 4.11 Remediation priorities | Open remediation; human ownership and dates unassigned. |
+| 4.12 Assessment history | Versions, source digests and reassessment triggers; no release decision. |
+
+Human-owner references must resolve to actors declared human. This validates a structural relationship, not that a named role exists, has been appointed, is independent, or possesses the required competence. Risk acceptance, legal applicability, final release and operational commissioning remain external decisions.
+
+
+## Prose design method, bounded repair and provenance
+
+
+An operator selects an Ollama endpoint and model. The description is untrusted data, and inference requests supply the JSON schema for structured output [28-30]. The current prompt asks for all explicit authority restrictions and exception, handoff and post-decision paths within schema limits, using concise field text rather than fixed step/risk/control targets.
+
+| Boundary | Current implementation |
+|---|---|
+| Input / transport | At most 12,000 characters; explicit HTTP(S) endpoint; no redirects or ambient proxy configuration. |
+| Response / content | 512 KiB response and 256 KiB design limits; strict duplicate-key, finite-number, Unicode and unknown-field checks. |
+| Mechanical validation | Category-specific IDs, typed references, exact quotation presence and human-only accountable owners. |
+| Correction | At most two total attempts; up to 64 safe diagnostic codes. Complete rejected JSON included only within 16 KiB. |
+| Reasoning option | Operator Boolean; 8,192 or 12,288 generation tokens with 16,384 context. Optional thinking field bounded to 128 KiB. |
+| No execution authority | Always draft_requires_review; execution disabled, runtime definitions empty and deployment approval false. |
+
+### Observed provenance and time limits
+
+Artifacts record source, prompt, schema, model-draft and artifact digests, reported model metadata, requested reasoning mode and attempt outcomes. Provider reasoning is excluded from design, report, repair and logs; optional diagnostic capture separately retains the full provider response. Hashes support traceability, not independent model-identity attestation.
+
+The maximum configured budget is 600 seconds shared across attempts. Deadlines are checked before requests and between chunks; an in-flight HTTP operation may extend beyond that deadline. Hard wall-clock cancellation needs an external worker deadline. A malformed-Unicode guard was added after the final native run; regression covers it, while that run retains its original source hashes. The generation prompt and schema were not changed by this parser fix.
+
+
+## Empirical method: contracts, policies and real storage
+
+
+The 2 November 2026 regression distinguishes simulated provider contracts from actual policy and storage execution. The local WSL run used Python 3.14.4, OPA 1.0.1 and PostgreSQL 16.2. Self-authored fixtures exercise selected invariants; they are neither a statistical safety estimate nor product certification.
+
+| Evidence group | Result | Scope |
+|---|---|---|
+| Core regression | 129 passed | Zero failures, errors or skips; includes 29 designer/CLI tests. |
+| Designer/CLI subset | 29 passed | Simulated inference: schema, repair, Unicode, transport and authority boundaries. |
+| Rego checks | 12 passed | Original and configurable policy checks executed with OPA. |
+| Enterprise contracts | 77 passed | Native API/configuration contracts; other service responses simulated. |
+| AGT wrapper | 3 assertions | Installed govern wrapper; no full toolkit qualification. |
+| Real PostgreSQL | PASS | Original controls, two configurable workflows and restart receipt replay. |
+| Compilation / docs | Passed | Source compilation and strict documentation build. |
+
+Both configurable workflows denied execution before independent approval and reused receipts afterward. Approval substitution and changed configuration were denied. 12 concurrent duplicate requests produced 1 additional effect. A shared resource budget across 2 actors admitted 10 of 15 requests and denied 5. The 13 executed events matched 13 outbox effects; restart replay introduced no new effects. Targets remained synthetic local tables.
+
+The original CI failure arose from SQL_ASCII text returned as bytes. The runner now initializes UTF8 and checks fetch/rebind behavior. A later PostgreSQL decimal usage-sum result required validated normalization before serialization. Failed records and passing reruns are retained; neither change establishes complete eighteen-product live acceptance.
+
+
+## Five native design runs: retain failures and interruptions
+
+
+Ollama served the recorded qwen3:8b model, identified in its catalogue as 8.2B parameters and Q4_K_M quantization. Two synthetic descriptions were reused during development. Prompts, compatibility handling and repair changed adaptively; the final two runs requested reasoning. These observations are not a benchmark or a controlled comparison of reasoning modes.
+
+| Development stage | Vendor onboarding | Museum loan |
+|---|---|---|
+| Initial intake | Provider metadata rejected; correction timed out; 600.02 s | Interrupted; no completed result |
+| Metadata compatibility | Duplicate IDs after both attempts; 408.50 s | Interrupted; no completed result |
+| Prefixed identifiers | Invalid references; repair removed a referenced actor; 405.01 s | Interrupted; no completed result |
+| Reasoning requested | Mechanical pass after correction; 288.70 s | References failed after two attempts; 353.09 s |
+| Complete-path prompt | Mechanical pass on first attempt; 173.05 s | Quotations and references failed after two attempts; 465.34 s |
+
+### What the accepted records establish
+
+The first accepted vendor draft had five steps, three risks and three proposed controls; the final accepted draft had six steps, three risks and three controls. Acceptance here means only the configured mechanical checks passed. Both drafts required substantive revision after source comparison. No accepted museum artifact was produced, and interrupted museum cases are not counted as successes or failures.
+
+Each run retains its implementation and input hashes, recorded outcomes and available provider responses. The five directories, in table order, are 20261102-prose-intake, 20261102-prose-intake-fixed, 20261102-prefixed-designs, 20261102-reasoning-designs and 20261102-complete-graphs under results/workflow-designer/. The two accepted vendor records are observations of changing development revisions, not independent repeated trials.
+
+
+## A mechanical pass still contains substantive defects
+
+
+An independent assistant compared the accepted vendor drafts with their supplied description. The latest artifact preserves four source roles, separate-channel finance verification, unknown tool permissions and proposed human owners. It quotes forbidden AI effects and identifies prompt injection and unauthorized vendor addition. These improvements do not make its process design correct.
+
+| Finding in latest vendor draft | Required substantive revision |
+|---|---|
+| Effect before final decision | Vendor addition precedes accept/reject. Establish acceptance prerequisites before the write; rejection must produce no effect. |
+| Incomplete exception path | Missing/conflicting records need an explicit paused state, review completion and resume condition; rejection needs an explanation. |
+| Weak risk-control fit | Bank verification does not enforce the AI write restriction. Specify independent boundaries for bank changes, vendor writes, orders and payments. |
+| Unsupported stated authority | Final acceptance authority and serial sequencing are inferred. Mark them proposed and obtain accountable confirmation. |
+| Underspecified validation | Define invalid inputs, positive controls, expected decisions, unchanged target state and correlated evidence; alteration alone is not invalidity. |
+| Missing information/context | Represent recommendation and verification evidence, record versions, rejection explanation, escalation and workflow-specific evaluation needs. |
+
+### Implication for governance automation
+
+Valid references can connect the wrong concepts, and genuine quotations can support neither the attached inference nor the claimed authority. The source comparison is diagnostic assistant review, not human approval, factual verification or operational assurance. The museum failures establish mechanical rejection only; invalid responses were not promoted into an accepted design.
+
+These findings support a review-assisted prototype. They do not support unattended governance design for arbitrary processes, reliable identification of every restriction or risk, or automatic translation from a prose graph into an approved runtime contract. The absence of execution authority limits what a flawed draft can do, but does not remove the need to correct it before implementation.
+
+
+## Validity, reproduction and the next research questions
+
+
+Two synthetic descriptions and one local model identity cannot establish domain generality. Adaptive prompt changes, repeated exposure to the examples, caching and hardware conditions prevent causal claims from latency differences. Assistant review lacks blinded human annotations. Simulated service responses and self-authored tests can share omissions with the implementation. Real PostgreSQL success does not qualify remote targets or the complete native stack.
+
+### Reproduce the correct evidence layer
+
+Run the ordinary core discovery and tests/enterprise suite for contract regression. The native PostgreSQL runner exercises storage concurrency and restart. For a new model observation, run scripts/run_workflow_designer.py with an explicit installed model, supplied descriptions and a new empty output directory; --thinking records the reasoning request, while --capture-model-responses retains sensitive source-derived content and provider reasoning. Keep failures and source hashes.
+
+| Repository evidence / entry point | Purpose |
+|---|---|
+| results/designer-validation/ | Final regression summary, policy/toolkit checks and PostgreSQL log. |
+| results/workflow-designer/*/run-summary.json | Five development runs; interrupted cases have separate records. |
+| 20261102-complete-graphs/source-comparison.json | Latest vendor findings and absence of an accepted museum artifact; path relative to results/workflow-designer/. |
+| fabric/framework.py; docs/framework-extension-map.md | Seven inputs, twelve outputs and project component crosswalk. |
+| docs/configurable-workflows.md; docs/workflow-designer.md | Supported contracts, model operation, limits and reproduction commands. |
+
+### Next research
+
+Freeze model, prompt, schema and runtime revisions before held-out evaluation. Have independent domain reviewers annotate authority restrictions, exceptions and risk-control links; report agreement, correction effort and missed constraints alongside mechanical acceptance. Compare reasoning and repair strategies under controlled conditions. Extend remote-effect reconciliation under fault injection, then commission and test each required native component. Review drafts, enforced actions and operational approval must remain separate throughout that work.
+
+
 ## Architecture: responsibilities and trust boundaries
 
 
-See architecture.svg and architecture.mmd for the component diagram.
+![Original control-lab architecture](architecture.svg)
 
-Teal-topped boxes contain a locally exercised path or component. Other named products require deployment and native integration. A tested local substitute does not imply that the named enterprise product has been connected.
+Historical topology of the original control experiment. Teal boxes identify that experiment's exercised path; other labels describe its target architecture. Later Keycloak, OpenFGA, Temporal and other native observations, and the newer PostgreSQL checks, have separate scopes below. This diagram is not a current per-product acceptance matrix.
 
 The governance authority owns policy and risk decisions. The execution authority enforces them. The evidence plane records decisions and outcomes. Data and validation authorities supply trusted facts; model-generated content cannot amend those facts.
 
@@ -113,7 +350,7 @@ The governance authority owns policy and risk decisions. The execution authority
 ## Execution flow and decision invariants
 
 
-See execution-flow.svg for the execution sequence.
+![Original control-lab execution sequence](execution-flow.svg)
 
 ### Commit invariant
 
@@ -133,7 +370,7 @@ The target uses Keycloak for human and service identities through OpenID Connect
 
 ### OpenFGA: authorize relationships
 
-Record-level relationships answer whether the user may operate the case and whether this agent is assigned. Authorization is the intersection of the delegating user, workload identity, current task and target record. A relationship grant does not waive OPA business restrictions. The supplied FGA model is illustrative and has not been deployed. [9]
+Record-level relationships constrain the delegating user, workload identity, current task and target resource. A relationship grant cannot waive OPA restrictions. The original control lab used local relationships; later native-agent trials exercised OpenFGA. Configurable bindings and their simulated contracts still require deployment-specific models, tuples and native acceptance. [9]
 
 ### Microsoft AGT: intercept agent proposals
 
@@ -145,7 +382,7 @@ OpenBao is the proposed source of short-lived adapter credentials and certificat
 
 ### Implemented boundary and remaining work
 
-The lab verifies a narrow RS256 token profile using cryptography and checks a server-owned active-principal table. Its keys are generated locally, with the private key excluded from the repository. It is not a Keycloak/JWKS client and does not provide rotation, federated logout, mTLS or a complete token-replay defense. It listens on loopback only. An authenticated production gateway and network bypass test remain release blockers.
+The original lab verifies a narrow RS256 token profile and a server-owned active-principal table. Its local keys and loopback server are distinct from the later native Keycloak/JWKS client and authenticated configurable API. Later subset trials exercised native identity and relationship checks. Production rotation, federated logout, mTLS, replay defense and network bypass acceptance remain separate requirements.
 
 
 ## Microsoft AGT: adopt, integrate and constrain
@@ -178,7 +415,7 @@ Microsoft Agent Control Specification and the OWASP Agent Control Standard both 
 
 ### CISO Assistant Community: system of record
 
-CISO Assistant Community Edition is selected to hold the risk, control, assessment and treatment records. Its repository distinguishes an AGPLv3 Community Edition from commercial editions. Selected-release licensing and API access must be checked before deployment. The supplied JSON/CSV register is portable seed data, not evidence of a native CISO Assistant integration. [11]
+CISO Assistant Community Edition is selected for risk, control, assessment and treatment records. Its repository distinguishes AGPLv3 Community and commercial editions; verify the selected release. The JSON/CSV register is portable seed data. A later isolated v4.2.1 REST experiment wrote and read back twelve risk/control records and attached evidence with replay checks; it did not appoint owners or accept risk. That separate observation is documented in the native-governance appendix. [11]
 
 ### Risk identity and relationships
 
@@ -239,7 +476,7 @@ The gateway must obtain KYC status, case tenant, source version and observation 
 
 ### MLflow: facts about the evaluated artifact
 
-MLflow provides the proposed model/prompt registry and evaluation artifact store. The release record should identify model and prompt digests, data versions, intended use, limitations, evaluation results, independent validator, approval and expiry. Runtime use is blocked when the approved version or validation window no longer matches. The lab demonstrates a synthetic validation-expiry gate; no MLflow server was deployed. [13]
+MLflow supplies a model/prompt registry and evaluation store. Release records should identify artifacts, data, intended use, limitations, evaluation, independent review and expiry. The original control lab used a synthetic validation-expiry gate. A later real MLflow HTTP experiment wrote and read back a Fairlearn fixture evaluation and candidate version; the candidate remained unapproved. Eight synthetic records tested metric plumbing, not fairness or business validity. See results/local-native-evaluation.json. [13]
 
 ### GLPI: facts about the business service
 
@@ -263,7 +500,7 @@ The adapter accepts only typed, allowlisted operations. It maps a canonical acti
 
 ### No fictional distributed transaction
 
-The lab commits action, approval consumption, audit and outbox in one SQLite transaction. A real core system cannot generally participate in that same transaction. The production adapter therefore needs target-supported idempotency, conditional updates and receipts, plus an intent/outcome journal and reconciliation when the response is lost. Retries must not blindly repeat an irreversible business operation.
+The original lab commits local action, approval consumption, audit and outbox in one SQLite transaction. Edition 0.5 also exercises that local transaction boundary in real PostgreSQL with two configured synthetic workflows. A remote business system cannot generally participate in the same transaction: its adapter needs target-supported idempotency, conditional updates, receipts and durable intent/outcome reconciliation. Retries must not blindly repeat an irreversible effect.
 
 ### Compensation and irreversibility
 
@@ -277,19 +514,19 @@ The lab enforces a lifetime tenant budget of GBP 15,000, a per-action ceiling of
 ## Evidence graph, retention and integrity
 
 
-See evidence-graph.svg for the traceability graph.
+![Evidence relationships](evidence-graph.svg)
 
 ### Why a graph matters
 
-The useful property is the explicit relationship among artifacts. A risk record should lead to its controls, test cases, deployment configuration, observed decisions and incidents. A policy or model change should reveal which approvals and assessments need review. PostgreSQL can store these edges without requiring a separate graph database.
+A risk record should link to controls, tests, configuration, decisions and incidents. A policy or model change should reveal which approvals need review. PostgreSQL can store these relationships without a separate graph database.
 
 ### Integrity boundary
 
-The lab SHA-256 chain detects edits to a stored event body if the chain is left unchanged. It does not resist a privileged operator who rewrites the complete chain or truncates its tail. Production needs signed checkpoints anchored to a separately administered store, restricted archival roles, retention/legal-hold controls and verification against the external checkpoint. Hashing is not anonymization or WORM storage.
+The SHA-256 chain detects edited event bodies while the chain remains unchanged. A privileged operator can rewrite it or truncate its tail. Production needs signed external checkpoints, independent archival authority and retention/legal-hold controls. Hashing does not provide anonymization or immutable storage.
 
 ### Delivery and consistency
 
-Outbox delivery is at least once. Receivers must deduplicate event IDs, acknowledge accepted updates and expose failures for reconciliation. A risk-register outage does not erase queued evidence. Production must also define backlog limits and a policy for whether a prolonged evidence-export outage restricts new writes.
+Delivery is at least once. Receivers must deduplicate event IDs, acknowledge updates and expose failures for reconciliation. Queued evidence survives a risk-register outage. Backlog limits and restrictions during prolonged export failure require deployment-specific acceptance.
 
 
 ## Telemetry, incidents and service resilience
@@ -297,7 +534,7 @@ Outbox delivery is at least once. Receivers must deduplicate event IDs, acknowle
 
 ### OpenTelemetry and Prometheus
 
-The observability plane should expose policy decision outcomes, dependency health, source age, validation expiry, approval latency, adapter errors, execution receipts and outbox backlog. Correlate by workflow run and evidence references rather than logging complete prompts or customer records. OpenTelemetry documents sensitive-data handling; the provided collector configuration is an unexecuted reference, not comprehensive DLP. [15]
+The observability plane should expose decisions, dependency health, source age, validation expiry, approval latency, adapter errors and outbox backlog. Correlate minimized evidence references. The deployment-pinned Collector 0.164.0 failed on the restricted host; a separate 0.130.0 compatibility experiment verified actual OTLP delivery, trace read-back and removal of three sensitive attributes. That isolated result does not qualify the deployment release or establish comprehensive DLP. [15]
 
 ### DFIR-IRIS instead of current TheHive
 
@@ -316,7 +553,7 @@ Fail-closed authorization protects the write boundary but may disrupt an importa
 Before a pilot, agree policy-error and outbox-backlog alerts, maximum source age, manual fallback capacity, detection and revocation objectives, restoration objectives and escalation owners. These values depend on business harm and operating context. The paper intentionally does not invent a universal latency SLO or assert that the current lab meets one.
 
 
-## Full input coverage: steps 3.1.1-3.1.7
+## Input crosswalk: sections 3.1.1-3.1.7
 
 
 | Framework section / capability | Product responsibility | Evidence and gate |
@@ -329,10 +566,10 @@ Before a pilot, agree policy-error and outbox-backlog alerts, maximum source age
 | 3.1.6 / Obligation applicability | CISO Assistant + Git + OPA | Dated requirement, jurisdiction, applicability rationale, policy mapping. Unknown applicability goes to qualified review |
 | 3.1.7 / Operational assurance | MLflow + OTel + DFIR-IRIS | Config, tests, observed events, incidents and changes. Expired validation: restricted or stopped |
 
-The full CSV adds the accountable role for every row. These assignments implement the integration design; product names do not imply a running connector. Every source record must have an owner, authority, version and freshness contract.
+Labels in this engineering crosswalk are paraphrases; numeric references identify the original article sections. The CSV adds proposed accountable roles. These mappings neither establish completeness nor appoint owners. Product names do not imply connected services; source authority, version and freshness require validation.
 
 
-## Full output coverage: steps 4.1-4.6
+## Output crosswalk: sections 4.1-4.6
 
 
 | Framework section / capability | Products | Operational interpretation |
@@ -344,15 +581,15 @@ The full CSV adds the accountable role for every row. These assignments implemen
 | 4.5 / Autonomy boundary review | Keycloak + OpenFGA + AGT + OPA | Needed versus actual permissions, task limits, delegation ceiling. No increase from parent authority or trust score |
 | 4.6 / Control implementation | OPA + AGT + OpenBao + Cilium | Enforcement code, configured product, negative test, evidence. Advisory rules are not execution controls |
 
-scripts/assess.py generates structured output sections from test results, open risks and implementation status. It explicitly limits readiness to laboratory use and preserves missing evidence. It is a deterministic evidence pack generator, not an autonomous legal or compliance assessor.
+The historical scripts/assess.py assembles an evidence pack from tests and open risks. Configurable assess/package commands operate on reviewed runtime definitions. The new design command interprets prose into a review draft. These are distinct contracts; none authorizes deployment or establishes legal adequacy.
 
 
-## Full output coverage: steps 4.7-4.12
+## Output crosswalk: sections 4.7-4.12
 
 
 | Framework section / capability | Products | Operational interpretation |
 |---|---|---|
-| 4.7 / Traceable assurance | CISO Assistant + PostgreSQL + OpenMetadata | Requirement-control-configuration-test-event-risk links. Traceability is not compliance certification |
+| 4.7 / Traceable assurance | CISO Assistant + PostgreSQL + OpenMetadata | Links among requirements, controls, configurations, tests, events and risks. Traceability is not compliance certification |
 | 4.8 / Validation and evaluation | MLflow + Fairlearn + unittest + OPA tests | Business correctness, adversarial cases, fairness, resilience, thresholds. Unvalidated dimensions remain open |
 | 4.9 / Operations and incidents | OTel + Prometheus + Alertmanager + DFIR-IRIS | Alerts, containment, manual service fallback, recovery and review. Control-plane outage blocks writes; fallback must be rehearsed |
 | 4.10 / Value and proportionality | CISO Assistant + MLflow + Prometheus | Baseline task outcome, control cost, loss exposure, supervision cost. No unmeasured claims of savings |
@@ -380,7 +617,7 @@ NIST AI RMF supplies an organizing risk-management structure. Its GOVERN, MAP, M
 Sources: NIST [2-4], OWASP [5], PRA [18], ICO/legislation [19-21], ISO [22] and BIS [23]. Mappings are architecture judgments, not endorsements or legal opinions. New jurisdictions, retail/commercial scope, outsourcing arrangements and intended uses require their own applicability profiles.
 
 
-## OWASP threats: demonstrated and unresolved
+## OWASP threats: initial evidence snapshot
 
 
 | Threat | Current evidence | Remaining gap |
@@ -396,7 +633,7 @@ Sources: NIST [2-4], OWASP [5], PRA [18], ICO/legislation [19-21], ISO [22] and 
 | ASI09 / human trust | Exact-action approval binding tested | No evidence that reviewers resist deceptive narratives |
 | ASI10 / rogue agents | Local stop and revocation behavior tested | No distributed fleet containment exercise |
 
-The categories are used as a threat catalogue [5]. The row-level assessment above belongs to this paper. Product-level coverage claims are not substituted for evidence of the configured deployment.
+Historical assessment of the original control run, using the threat catalogue [5]. Later native identity, tool-use and supply-chain experiments are reported separately, with failures retained. This snapshot is not the current product matrix or a complete adversarial benchmark.
 
 
 ## Method and reproducible experimental setup
@@ -412,15 +649,15 @@ Checks are organized around security boundaries and invariants: valid execution;
 
 ### Run commands
 
-<font face="Courier" size="8.5">python3 -m venv .venv</font>
+python3 -m venv .venv
 
-<font face="Courier" size="8.5">source .venv/bin/activate</font>
+source .venv/bin/activate
 
-<font face="Courier" size="8.5">python3 -m pip install -r requirements.txt</font>
+python3 -m pip install -r requirements.txt
 
-<font face="Courier" size="8.5">OPA_BIN=/absolute/path/to/opa python3 scripts/test_all.py</font>
+OPA_BIN=/absolute/path/to/opa python3 scripts/test_all.py
 
-<font face="Courier" size="8.5">python3 scripts/assess.py</font>
+python3 scripts/assess.py
 
 For the optional AGT checks, install agent-governance-toolkit-core==5.0.0 in a separate virtual environment, then run scripts/test_agt.py with the OPA_BIN environment variable. In the observed environment the SDK was installed to a temporary target directory and selected using PYTHONPATH. Review and pin the resolved dependencies before regulated deployment.
 
@@ -462,7 +699,7 @@ results/summary.json and tests.log record the control run; rego-tests.log record
 | 1. Qualify the environment | Name owners; determine legal/firm scope; choose supported releases and approved licensing; define business service and risk appetite | Signed scope, obligation profile, dependency/license register |
 | 2. Connect authority | Deploy IAM and relationship checks; implement real KYC/core, metadata, validation and CMDB adapters; define freshness and precedence | Connector tests, access evidence, version-conflict and revocation tests |
 | 3. Enforce exclusive writes | Deploy gateway/adapter isolation, OpenBao credentials and target idempotency; implement conditional commits and reconciliation | Bypass tests, replay tests, lost-response tests and target receipts |
-| 4. Connect GRC and incidents | Implement CISO Assistant and IRIS API bridges with durable external IDs, optimistic concurrency and deduplication | Native-product round-trip tests and human-approved risk updates |
+| 4. Connect GRC and incidents | Commission and harden CISO Assistant and IRIS API bridges: durable external IDs, concurrency and deduplication | Native-product round-trip tests and human-approved risk updates |
 | 5. Validate outcomes | Add representative credit decisions, fairness, explanations, redress and human-factor tests; independent validation | Approved validation report and unresolved limitations |
 | 6. Exercise operations | Add metrics, thresholds, bounded queues, manual fallback, restoration, external evidence anchors and incident drills | Measured impact-tolerance and restoration evidence |
 | 7. Controlled pilot | Restrict cases, tools and exposure; use time-limited authorization; monitor harm and business value | Release approval, pilot outcome review and explicit expansion decision |
@@ -472,14 +709,14 @@ results/summary.json and tests.log record the control run; rego-tests.log record
 Adopt existing enterprise systems of record wherever possible. Start with one bounded tool, one risk owner and one service dependency map. The catalogue describes responsibilities that must be covered; it does not mandate installing every product immediately or maintaining duplicate inventories.
 
 
-## Limitations, remaining risks and conclusion
+## Limitations and interpretation of the initial experiment
 
 
 ### Material technical limitations
 
-The HTTP service is a loopback laboratory using a basic Python server; it is not a hardened public API. SQLite serializes the small local workload and is not a multi-region exposure service. Authentication failures, schema rejects and some approval-operation rejects do not yet enter the business audit chain; production ingress security telemetry must capture them without exposing credentials. Event hashes reduce raw content but do not anonymize it.
+The original HTTP service is a loopback laboratory using a basic Python server; it is not a hardened public API. SQLite serializes that experiment. Later local PostgreSQL checks do not establish multi-region performance. Authentication and schema failures require security telemetry beyond the business audit chain. Event hashes reduce raw content but do not anonymize it.
 
-Policy version is a logical identifier, not a cryptographically verified policy-bundle digest. A malicious policy operator could substitute semantics under the same version unless deployment integrity and separation of duties are added. Local administrators can modify authoritative tables and audit state. The outbox has no production backpressure, poison-message handling or authenticated native-product bridge.
+The original policy version is a logical identifier. Later configurable definitions add digests and deployed approval identity, but privileged policy substitution still requires deployment integrity and separation of duties. Administrators can modify authoritative tables and audit state. Later native code adds scoped bridges, per-sink receipts and a queue limit; production poison-message handling, reconciliation and independent evidence custody still need validation.
 
 ### Material governance limitations
 
@@ -503,55 +740,55 @@ Accessed 2 November 2026. Source assertions are separated from our architecture 
 
 Implementing Governance for Agentic Workflows; 1 Nov 2026
 
-<link href="https://www.linkedin.com/pulse/implementing-governance-agentic-workflows-erdos-effect-vipie" color="#087f8c">https://www.linkedin.com/pulse/implementing-governance-agentic-workflows-erdos-effect-vipie</link>
+[https://www.linkedin.com/pulse/implementing-governance-agentic-workflows-erdos-effect-vipie](https://www.linkedin.com/pulse/implementing-governance-agentic-workflows-erdos-effect-vipie)
 
 ### [2] NIST
 
 AI RMF Core; GOVERN, MAP, MEASURE, MANAGE
 
-<link href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/" color="#087f8c">https://airc.nist.gov/airmf-resources/airmf/5-sec-core/</link>
+[https://airc.nist.gov/airmf-resources/airmf/5-sec-core/](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)
 
 ### [3] NIST
 
 AI 600-1, Generative Artificial Intelligence Profile; Jul 2024
 
-<link href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" color="#087f8c">https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence</link>
+[https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence)
 
 ### [4] NIST
 
 SP 800-53 Rev.5; publication page notes Release 5.2.0 updates
 
-<link href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" color="#087f8c">https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+[https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
 
 ### [5] OWASP
 
 Top 10 for Agentic Applications 2026
 
-<link href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/" color="#087f8c">https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/</link>
+[https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
 
 ### [6] FCA
 
 Operational resilience; scope and expectations
 
-<link href="https://www.fca.org.uk/firms/operational-resilience" color="#087f8c">https://www.fca.org.uk/firms/operational-resilience</link>
+[https://www.fca.org.uk/firms/operational-resilience](https://www.fca.org.uk/firms/operational-resilience)
 
 ### [7] Microsoft
 
 Agent Governance Toolkit repository and release documentation
 
-<link href="https://github.com/microsoft/agent-governance-toolkit" color="#087f8c">https://github.com/microsoft/agent-governance-toolkit</link>
+[https://github.com/microsoft/agent-governance-toolkit](https://github.com/microsoft/agent-governance-toolkit)
 
 ### [8] Keycloak
 
 Securing applications and services with OpenID Connect
 
-<link href="https://www.keycloak.org/securing-apps/oidc-layers" color="#087f8c">https://www.keycloak.org/securing-apps/oidc-layers</link>
+[https://www.keycloak.org/securing-apps/oidc-layers](https://www.keycloak.org/securing-apps/oidc-layers)
 
 ### [9] OpenFGA
 
 Authorization concepts
 
-<link href="https://openfga.dev/docs/authorization-concepts" color="#087f8c">https://openfga.dev/docs/authorization-concepts</link>
+[https://openfga.dev/docs/authorization-concepts](https://openfga.dev/docs/authorization-concepts)
 
 
 ## Primary sources 10-18
@@ -563,55 +800,55 @@ Accessed 2 November 2026. Source assertions are separated from our architecture 
 
 Secrets engines
 
-<link href="https://openbao.org/docs/secrets/" color="#087f8c">https://openbao.org/docs/secrets/</link>
+[https://openbao.org/docs/secrets/](https://openbao.org/docs/secrets/)
 
 ### [11] intuitem
 
 CISO Assistant Community; functionality and license boundaries
 
-<link href="https://github.com/intuitem/ciso-assistant-community" color="#087f8c">https://github.com/intuitem/ciso-assistant-community</link>
+[https://github.com/intuitem/ciso-assistant-community](https://github.com/intuitem/ciso-assistant-community)
 
 ### [12] OpenMetadata
 
 Lineage API
 
-<link href="https://docs.open-metadata.org/v1.12.x/api-reference/lineage/index" color="#087f8c">https://docs.open-metadata.org/v1.12.x/api-reference/lineage/index</link>
+[https://docs.open-metadata.org/v1.12.x/api-reference/lineage/index](https://docs.open-metadata.org/v1.12.x/api-reference/lineage/index)
 
 ### [13] MLflow
 
 Official documentation; registry and evaluation capabilities
 
-<link href="https://mlflow.org/docs/latest/" color="#087f8c">https://mlflow.org/docs/latest/</link>
+[https://mlflow.org/docs/latest/](https://mlflow.org/docs/latest/)
 
 ### [14] Temporal
 
 Workflow execution overview
 
-<link href="https://docs.temporal.io/workflow-execution" color="#087f8c">https://docs.temporal.io/workflow-execution</link>
+[https://docs.temporal.io/workflow-execution](https://docs.temporal.io/workflow-execution)
 
 ### [15] OpenTelemetry
 
 Handling sensitive data
 
-<link href="https://opentelemetry.io/docs/security/handling-sensitive-data/" color="#087f8c">https://opentelemetry.io/docs/security/handling-sensitive-data/</link>
+[https://opentelemetry.io/docs/security/handling-sensitive-data/](https://opentelemetry.io/docs/security/handling-sensitive-data/)
 
 ### [16] DFIR-IRIS
 
 IRIS repository; versioning, deployment and licensing
 
-<link href="https://github.com/dfir-iris/iris-web" color="#087f8c">https://github.com/dfir-iris/iris-web</link>
+[https://github.com/dfir-iris/iris-web](https://github.com/dfir-iris/iris-web)
 
 ### [17] TheHive Project
 
 Archived repository; current commercial distribution notice
 
-<link href="https://github.com/TheHive-Project/TheHive" color="#087f8c">https://github.com/TheHive-Project/TheHive</link>
+[https://github.com/TheHive-Project/TheHive](https://github.com/TheHive-Project/TheHive)
 
 ### [18] Bank of England / PRA
 
 SS1/23 Model risk management principles for banks; current publication
 
-<link href="https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss" color="#087f8c">https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss</link>
+[https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss)
 
 
 ## Primary sources 19-27
@@ -623,175 +860,205 @@ Accessed 2 November 2026. Source assertions are separated from our architecture 
 
 DUAA summary of changes; automated decision-making
 
-<link href="https://ico.org.uk/about-the-ico/what-we-do/legislation-we-cover/data-use-and-access-act-2025/the-data-use-and-access-act-2025-duaa-summary-of-the-changes/data-protection/" color="#087f8c">https://ico.org.uk/about-the-ico/what-we-do/legislation-we-cover/data-use-and-access-act-2025/the-data-use-and-access-act-2025-duaa-summary-of-the-changes/data-protection/</link>
+[https://ico.org.uk/about-the-ico/what-we-do/legislation-we-cover/data-use-and-access-act-2025/the-data-use-and-access-act-2025-duaa-summary-of-the-changes/data-protection/](https://ico.org.uk/about-the-ico/what-we-do/legislation-we-cover/data-use-and-access-act-2025/the-data-use-and-access-act-2025-duaa-summary-of-the-changes/data-protection/)
 
 ### [20] UK legislation
 
 Data (Use and Access) Act 2025, section 80; enacted text
 
-<link href="https://www.legislation.gov.uk/ukpga/2025/18/section/80/enacted" color="#087f8c">https://www.legislation.gov.uk/ukpga/2025/18/section/80/enacted</link>
+[https://www.legislation.gov.uk/ukpga/2025/18/section/80/enacted](https://www.legislation.gov.uk/ukpga/2025/18/section/80/enacted)
 
 ### [21] ICO
 
 Automated decision-making guidance consultation; review status
 
-<link href="https://citizen-space.ico.org.uk/regulatory-risk/adm-guidance-consultation/" color="#087f8c">https://citizen-space.ico.org.uk/regulatory-risk/adm-guidance-consultation/</link>
+[https://citizen-space.ico.org.uk/regulatory-risk/adm-guidance-consultation/](https://citizen-space.ico.org.uk/regulatory-risk/adm-guidance-consultation/)
 
 ### [22] ISO
 
 ISO/IEC 42001:2023 public standard overview
 
-<link href="https://www.iso.org/standard/42001" color="#087f8c">https://www.iso.org/standard/42001</link>
+[https://www.iso.org/standard/42001](https://www.iso.org/standard/42001)
 
 ### [23] BIS / Basel Committee
 
 Risk data aggregation and risk reporting; supervisory framework
 
-<link href="https://www.bis.org/committees/bcbs/basel-framework/standard/srp/36/inforce/2019-12-15/published/2019-12-15" color="#087f8c">https://www.bis.org/committees/bcbs/basel-framework/standard/srp/36/inforce/2019-12-15/published/2019-12-15</link>
+[https://www.bis.org/committees/bcbs/basel-framework/standard/srp/36/inforce/2019-12-15/published/2019-12-15](https://www.bis.org/committees/bcbs/basel-framework/standard/srp/36/inforce/2019-12-15/published/2019-12-15)
 
 ### [24] Open Policy Agent
 
 REST API reference
 
-<link href="https://www.openpolicyagent.org/docs/rest-api" color="#087f8c">https://www.openpolicyagent.org/docs/rest-api</link>
+[https://www.openpolicyagent.org/docs/rest-api](https://www.openpolicyagent.org/docs/rest-api)
 
 ### [25] Fairlearn
 
 Fairness assessment and mitigation; official overview
 
-<link href="https://fairlearn.org/" color="#087f8c">https://fairlearn.org/</link>
+[https://fairlearn.org/](https://fairlearn.org/)
 
 ### [26] Prometheus
 
 Monitoring and alerting overview
 
-<link href="https://prometheus.io/docs/introduction/overview/" color="#087f8c">https://prometheus.io/docs/introduction/overview/</link>
+[https://prometheus.io/docs/introduction/overview/](https://prometheus.io/docs/introduction/overview/)
 
 ### [27] OWASP
 
 Agent Control Standard resource
 
-<link href="https://genai.owasp.org/resource/agent-control-standard-acs/" color="#087f8c">https://genai.owasp.org/resource/agent-control-standard-acs/</link>
+[https://genai.owasp.org/resource/agent-control-standard-acs/](https://genai.owasp.org/resource/agent-control-standard-acs/)
+
+
+## Primary sources 28-30
+
+
+Accessed 2 November 2026. Source assertions are separated from our architecture choices and observed experiments. Public guidance does not substitute for a current legal applicability assessment.
+
+### [28] Ollama
+
+Structured outputs: schema-constrained generation and independent response validation
+
+[https://docs.ollama.com/capabilities/structured-outputs](https://docs.ollama.com/capabilities/structured-outputs)
+
+### [29] Ollama
+
+Chat API: structured format, response metadata and model options
+
+[https://docs.ollama.com/api/chat](https://docs.ollama.com/api/chat)
+
+### [30] Ollama
+
+Thinking: model-specific controls and separate response fields
+
+[https://docs.ollama.com/capabilities/thinking](https://docs.ollama.com/capabilities/thinking)
 
 
 ## Component role catalogue 1-6
 
 
+Original catalogue snapshot. Status labels below describe the initial control lab; they are retained for provenance. Current reuse bindings and later scoped native observations appear in the edition 0.5 and native research sections. Verify licensing against the selected release.
+
 ### Keycloak / Identity
 
 JWT signature, issuer, audience, expiry; user and workload identity.
 
-<b>Evidence status:</b> RS256 lab tokens tested; Keycloak connector required. <b>License baseline:</b> Apache-2.0. Verify the exact release and optional dependencies.
+**Evidence status:** RS256 lab tokens tested; Keycloak connector required. **License baseline:** Apache-2.0. Verify the exact release and optional dependencies.
 
 ### Microsoft Agent Governance Toolkit / Agent runtime
 
 Intercept tool proposals; sandbox and runtime evidence; central deny wins.
 
-<b>Evidence status:</b> Optional SDK experiment; see results/agt.json. <b>License baseline:</b> MIT. Verify the exact release and optional dependencies.
+**Evidence status:** Optional SDK experiment; see results/agt.json. **License baseline:** MIT. Verify the exact release and optional dependencies.
 
 ### Open Policy Agent / Business policy
 
 Deterministic action, tenant, freshness, budget and approval decisions.
 
-<b>Evidence status:</b> Real HTTP engine tested. <b>License baseline:</b> Apache-2.0. Verify the exact release and optional dependencies.
+**Evidence status:** Real HTTP engine tested. **License baseline:** Apache-2.0. Verify the exact release and optional dependencies.
 
 ### OpenFGA / Relationship permissions
 
 Delegator, agent, customer and record relationships.
 
-<b>Evidence status:</b> Model provided; not deployed. <b>License baseline:</b> Apache-2.0. Verify the exact release and optional dependencies.
+**Evidence status:** Model provided; not deployed. **License baseline:** Apache-2.0. Verify the exact release and optional dependencies.
 
 ### Temporal / Durable workflow
 
 Durable waits, bounded retries, authenticated approval signals, recovery.
 
-<b>Evidence status:</b> Production design; local approval state tested instead. <b>License baseline:</b> MIT server. Verify the exact release and optional dependencies.
+**Evidence status:** Production design; local approval state tested instead. **License baseline:** MIT server. Verify the exact release and optional dependencies.
 
 ### CISO Assistant Community / Risk register
 
 Risk ownership, assessment, treatment, exception and acceptance record.
 
-<b>Evidence status:</b> Portable risk register provided; native API integration required. <b>License baseline:</b> AGPL-3.0. Verify the exact release and optional dependencies.
+**Evidence status:** Portable risk register provided; native API integration required. **License baseline:** AGPL-3.0. Verify the exact release and optional dependencies.
 
 
 ## Component role catalogue 7-12
 
 
+Original catalogue snapshot. Status labels below describe the initial control lab; they are retained for provenance. Current reuse bindings and later scoped native observations appear in the edition 0.5 and native research sections. Verify licensing against the selected release.
+
 ### OpenMetadata / Metadata
 
 Source ownership, classification, quality, lineage and freshness.
 
-<b>Evidence status:</b> Synthetic source table tested; native connector required. <b>License baseline:</b> Apache-2.0. Verify the exact release and optional dependencies.
+**Evidence status:** Synthetic source table tested; native connector required. **License baseline:** Apache-2.0. Verify the exact release and optional dependencies.
 
 ### MLflow / Model register
 
 Model, prompt and evaluation version; validation evidence.
 
-<b>Evidence status:</b> Synthetic workflow validation gate tested; MLflow connector required. <b>License baseline:</b> Apache-2.0. Verify the exact release and optional dependencies.
+**Evidence status:** Synthetic workflow validation gate tested; MLflow connector required. **License baseline:** Apache-2.0. Verify the exact release and optional dependencies.
 
 ### OpenBao / Secrets
 
 Short-lived adapter credentials, revocation, PKI and key protection.
 
-<b>Evidence status:</b> Production integration required. <b>License baseline:</b> MPL-2.0. Verify the exact release and optional dependencies.
+**Evidence status:** Production integration required. **License baseline:** MPL-2.0. Verify the exact release and optional dependencies.
 
 ### OpenTelemetry Collector / Telemetry
 
 Redacted correlated spans; export to approved observability systems.
 
-<b>Evidence status:</b> Local minimized audit tested; collector config supplied, untested. <b>License baseline:</b> Apache-2.0. Verify the exact release and optional dependencies.
+**Evidence status:** Local minimized audit tested; collector config supplied, untested. **License baseline:** Apache-2.0. Verify the exact release and optional dependencies.
 
 ### Prometheus + Alertmanager / Metrics and alerting
 
 Policy failures, source age, denial changes and outbox backlog.
 
-<b>Evidence status:</b> Production integration required. <b>License baseline:</b> Apache-2.0. Verify the exact release and optional dependencies.
+**Evidence status:** Production integration required. **License baseline:** Apache-2.0. Verify the exact release and optional dependencies.
 
 ### DFIR-IRIS 2.x / Incident management
 
 Triage, evidence, containment and recovery case.
 
-<b>Evidence status:</b> Generic incident outbox tested; native IRIS integration required. <b>License baseline:</b> LGPL-3.0. Verify the exact release and optional dependencies.
+**Evidence status:** Generic incident outbox tested; native IRIS integration required. **License baseline:** LGPL-3.0. Verify the exact release and optional dependencies.
 
 
 ## Component role catalogue 13-18
 
 
+Original catalogue snapshot. Status labels below describe the initial control lab; they are retained for provenance. Current reuse bindings and later scoped native observations appear in the edition 0.5 and native research sections. Verify licensing against the selected release.
+
 ### GLPI / Business inventory and changes
 
 Service owner, criticality, dependency and change tickets.
 
-<b>Evidence status:</b> Production integration required. <b>License baseline:</b> GPL-3.0. Verify the exact release and optional dependencies.
+**Evidence status:** Production integration required. **License baseline:** GPL-3.0. Verify the exact release and optional dependencies.
 
 ### PostgreSQL / Evidence graph
 
 Versioned requirement-control-test-event-risk relationships.
 
-<b>Evidence status:</b> Local SQLite evidence chain and relational links tested. <b>License baseline:</b> PostgreSQL License. Verify the exact release and optional dependencies.
+**Evidence status:** Local SQLite evidence chain and relational links tested. **License baseline:** PostgreSQL License. Verify the exact release and optional dependencies.
 
 ### Fairlearn / Fairness evaluation
 
 Group performance and disparity evaluation with authorized data.
 
-<b>Evidence status:</b> Required validation design; no fairness experiment performed. <b>License baseline:</b> MIT. Verify the exact release and optional dependencies.
+**Evidence status:** Required validation design; no fairness experiment performed. **License baseline:** MIT. Verify the exact release and optional dependencies.
 
 ### Kubernetes + Cilium / Workload isolation
 
 Default-deny network access, target-only adapter egress, identities.
 
-<b>Evidence status:</b> Production design; not deployed. <b>License baseline:</b> Apache-2.0. Verify the exact release and optional dependencies.
+**Evidence status:** Production design; not deployed. **License baseline:** Apache-2.0. Verify the exact release and optional dependencies.
 
 ### Syft + Grype + Cosign / Supply chain
 
 SBOM, vulnerability gate, signed images and policy bundles.
 
-<b>Evidence status:</b> Release acceptance requirement; not executed. <b>License baseline:</b> Apache-2.0. Verify the exact release and optional dependencies.
+**Evidence status:** Release acceptance requirement; not executed. **License baseline:** Apache-2.0. Verify the exact release and optional dependencies.
 
 ### Ollama + Qwen2.5 0.5B / Local generative model
 
 Optional proposal generation, without execution credentials.
 
-<b>Evidence status:</b> Client supplied; model not downloaded or benchmarked. <b>License baseline:</b> MIT runtime; Apache-2.0 selected model. Verify the exact release and optional dependencies.
+**Evidence status:** Client supplied; model not downloaded or benchmarked. **License baseline:** MIT runtime; Apache-2.0 selected model. Verify the exact release and optional dependencies.
 
 
 ## Native integration package: edition 0.2
@@ -887,7 +1154,17 @@ The implementation now covers every named component group at source/deployment l
 
 We extended the Erdos framework by composing established open-source products across complementary engineering disciplines. The links identify the actual products; the role column explains their place in our implementation approach. Deployment and validation status remain separately recorded.
 
-Official product directory: docs/components/product-links.json
+| Component | Role in our implementation | Official sources |
+|---|---|---|
+| 01. Keycloak | Identity and access management providing signed identities and access tokens for agents and reviewers. | [Official site](https://www.keycloak.org/) |
+| 02. Microsoft Agent Governance Toolkit | Runtime governance toolkit intercepting tool calls before they enter our centrally governed execution path. | [Official repository](https://github.com/microsoft/agent-governance-toolkit) |
+| 03. Open Policy Agent (OPA) | Policy engine evaluating deterministic allow/deny rules for actions, budgets, context and operational restrictions. | [Official site](https://www.openpolicyagent.org/) |
+| 04. OpenFGA | Fine-grained authorization service deciding whether a particular agent may act on a particular record. | [Official site](https://openfga.dev/) |
+| 05. Temporal | Durable workflow engine maintaining process progress, human approval waits and bounded retries. | [Official site](https://temporal.io/) |
+| 06. CISO Assistant Community | Governance, risk and compliance platform holding our risk register, control ownership, treatment and linked evidence. | [Official repository](https://github.com/intuitem/ciso-assistant-community) |
+| 07. OpenMetadata | Metadata platform supplying data ownership, classification and lineage for trusted workflow context. | [Official site](https://open-metadata.org/) |
+| 08. MLflow | Model lifecycle platform connecting versioned evaluation evidence, candidate artifacts and approved release records. | [Official site](https://mlflow.org/) |
+| 09. OpenBao | Secrets-management platform separating credential access for the gateway, workflow worker and evidence dispatcher. | [Official site](https://openbao.org/) |
 
 
 ## Products brought together 10-18
@@ -895,7 +1172,17 @@ Official product directory: docs/components/product-links.json
 
 We extended the Erdos framework by composing established open-source products across complementary engineering disciplines. The links identify the actual products; the role column explains their place in our implementation approach. Deployment and validation status remain separately recorded.
 
-Official product directory: docs/components/product-links.json
+| Component | Role in our implementation | Official sources |
+|---|---|---|
+| 10. OpenTelemetry | Observability framework exporting minimized execution spans so decisions and outcomes can be traced. | [Official site](https://opentelemetry.io/) |
+| 11. Prometheus + Alertmanager | Monitoring and alerting products turning decision, failure and delivery-backlog metrics into operational signals. | [Prometheus](https://prometheus.io/); [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) |
+| 12. DFIR-IRIS | Incident-response platform receiving customer-scoped alerts and supporting investigation, containment and recovery. | [Official site](https://www.dfir-iris.org/) |
+| 13. GLPI | IT service-management and asset platform linking workflows to owned services and trackable remediation tickets. | [Official site](https://www.glpi-project.org/en/) |
+| 14. PostgreSQL | Transactional database coordinating business state, shared limits, approvals, audit records and delivery receipts. | [Official site](https://www.postgresql.org/) |
+| 15. Fairlearn | Responsible-AI evaluation library calculating group-outcome differences and producing versioned validation evidence. | [Official site](https://fairlearn.org/) |
+| 16. Kubernetes + Cilium | Workload and network-security platforms isolating the agent and restricting its permitted network routes. | [Kubernetes](https://kubernetes.io/); [Cilium](https://cilium.io/) |
+| 17. Syft + Grype + Cosign | Software-supply-chain tools inventorying built images, checking vulnerabilities and signing/verifying release artifacts. | [Syft](https://github.com/anchore/syft); [Grype](https://github.com/anchore/grype); [Cosign](https://github.com/sigstore/cosign) |
+| 18. Ollama + Qwen | Local agent inference and bounded tool selection; observations drive the next step while the gateway independently authorizes effects. | [Ollama](https://ollama.com/); [Qwen models](https://huggingface.co/Qwen) |
 
 
 ## An autonomous agent fabric
@@ -903,7 +1190,9 @@ Official product directory: docs/components/product-links.json
 
 The fabric is designed to let an agent interpret a task, select a tool, receive its actual observation and decide what to do next. The eighteen product groups contribute identity, authorization, workflow continuity, source and release assurance, risk accountability, operational evidence and deployment security around that loop. They do not form an eighteen-hop serial request chain.
 
-Reference operating model. Native experiments use a SQLite synthetic target, development product stores and scripted reviewer credentials. The commissioned enterprise implementation substitutes PostgreSQL and the other authoritative product adapters. Neither diagram establishes that all eighteen groups ran simultaneously.
+![Historical native agent and approval loop](research-native-agent-loop.svg)
+
+Reference operating model for the historical native-agent subset: SQLite target, development product stores and scripted reviewer credentials. Later configurable PostgreSQL experiments are separate storage evidence. Neither diagram establishes simultaneous operation of all eighteen groups.
 
 
 ## Protocol, artifacts and observations
@@ -981,6 +1270,8 @@ This is end-to-end autonomous task execution inside the observed native subset, 
 ## Observed product boundaries 1-9
 
 
+Historical native-agent component matrix, retained without rewriting its recorded states. Later isolated PostgreSQL 16.2 checks passed for the configurable workflows, and a separate Collector 0.130.0 compatibility run passed OTLP checks. Those later observations do not establish connected all-product acceptance.
+
 | Product | Observed status | What the evidence establishes |
 |---|---|---|
 | 01. Keycloak | OBSERVED NATIVE SUBSET | Native operation/read-back in the explicitly scoped SQLite-target experiment; development stores. Not complete-stack qualification. |
@@ -999,13 +1290,15 @@ The matrix reports operations at their actual scope. It is not an eighteen-produ
 ## Observed product boundaries 10-18
 
 
+Historical native-agent component matrix, retained without rewriting its recorded states. Later isolated PostgreSQL 16.2 checks passed for the configurable workflows, and a separate Collector 0.130.0 compatibility run passed OTLP checks. Those later observations do not establish connected all-product acceptance.
+
 | Product | Observed status | What the evidence establishes |
 |---|---|---|
-| 10. OpenTelemetry Collector | PARTIAL | Actual OpenTelemetry SDK spans retained locally. Native Collector failed against restricted procfs; OTLP receipt not established. |
+| 10. OpenTelemetry Collector | OBSERVED ISOLATED NATIVE | otelcol-contrib version 0.130.0: actual SDK OTLP delivery/read-back and sensitive-attribute removal. Isolated compatibility experiment; deployment-pinned 0.164.0 remains blocked on restricted procfs. |
 | 11. Prometheus and Alertmanager | OBSERVED NATIVE SUBSET | Native operation/read-back in the explicitly scoped SQLite-target experiment; development stores. Not complete-stack qualification. |
 | 12. DFIR-IRIS | NOT COMMISSIONED | Source/deployment and contract implementation present; live product operation not observed here. |
 | 13. GLPI | NOT COMMISSIONED | Source/deployment and contract implementation present; live product operation not observed here. |
-| 14. PostgreSQL | NOT COMMISSIONED | Enterprise PostgreSQL adapter supplied. No PostgreSQL service observed; native experiment target is explicitly SQLite. |
+| 14. PostgreSQL | BLOCKED | Host maps only root; PostgreSQL requires an unprivileged process. No user or root-safety bypass attempted. |
 | 15. Fairlearn | OBSERVED ISOLATED NATIVE | Actual Fairlearn to MLflow HTTP write and read-back; eight-row fixture, unapproved candidate. Not Qwen fairness or predictive-model validation. |
 | 16. Kubernetes and Cilium | HOST BLOCKED | No Kubernetes/container runtime, network-management or eBPF capabilities. Before/after Cilium enforcement acceptance not run. |
 | 17. Syft, Grype and Cosign | GATE FAILED PARTIAL | Actual dependency-directory SBOM and vulnerability scan, local signature verification and tamper rejection. High gate failed. Built-image acceptance not run. |
@@ -1019,9 +1312,9 @@ The matrix reports operations at their actual scope. It is not an eighteen-produ
 
 ### Product and configuration failures retained
 
-Native startup exposed removal of OpenBao file storage; the experiment and deployment now use supported Raft storage. Shared development-store locking was resolved with isolated run state. Keycloak rejected tokens after an audience mapper referenced an absent client; the mapper now uses the documented custom-audience field. None of these failures was converted into an allow or a passing integration claim.
+Native startup exposed removal of OpenBao file storage; the experiment and deployment use Raft storage. Shared development-store locking was resolved with isolated run state. Keycloak rejected tokens after an audience mapper referenced an absent client; the mapper now uses the custom-audience field. These failures remain recorded separately from successful reruns.
 
-The native Collector could not register process metrics against the restricted process filesystem, including with telemetry level none. Local OpenTelemetry SDK spans therefore represent a partial result, not verified OTLP delivery. A later trace assertion also exposed an ambient one-percent sampler; the corrected experiment explicitly samples all spans. Failed startup and trace runs remain visible.
+The deployment-pinned Collector 0.164.0 failed process-metric registration on the restricted host, even with telemetry disabled. Its SDK-span evidence is partial. A separate stock 0.130.0 compatibility run later passed OTLP/HTTP delivery, matching-trace read-back and sensitive-attribute removal (results/native-telemetry/20261102T071551Z/summary.json). It does not replace or qualify the deployment release. A one-percent ambient sampler was also corrected to explicit always-on sampling; failed attempts remain visible.
 
 ### The dependency gate actually rejected a release
 
@@ -1031,7 +1324,7 @@ Cosign verified the local SBOM signature and rejected altered bytes. This establ
 
 ### Remaining research and deployment work
 
-Complete-stack commissioning, the PostgreSQL target path, metadata and inventory authorities, incident delivery, Cilium bypass prevention, built-image security qualification, protected external evidence, restore drills, representative data and meaningful human review remain independent acceptance requirements. Follow-ups were exploratory after observed failures; fixed seeds and self-authored tasks do not remove selection effects or shared implementation/test omissions.
+Isolated real PostgreSQL acceptance has since passed for both configurable workflows. Connected complete-stack effects and downstream delivery, metadata and inventory authorities, incidents, Cilium bypass prevention, built-image qualification, protected evidence, restore drills and meaningful human review remain independent requirements. Exploratory follow-ups and self-authored tasks retain selection effects and correlated omissions.
 
 Our contribution is an explicit product composition and a reproducible, bounded autonomous execution approach extending the Erdos framework. The observed successes and failures identify specific engineering behavior. They do not establish compliance or justify broader delegated authority.
 
@@ -1064,19 +1357,19 @@ Evidence: results/native-ciso.json, native-ciso-records.json and native-ciso-att
 ## Primary sources and evidence index
 
 
-<link href="https://docs.ollama.com/capabilities/tool-calling" color="#087f8c">Ollama: native tool calling</link>
+[Ollama: native tool calling](https://docs.ollama.com/capabilities/tool-calling)
 
-<link href="https://ollama.com/library/qwen3:4b-instruct" color="#087f8c">Ollama: official Qwen3 4b-instruct artifact</link>
+[Ollama: official Qwen3 4b-instruct artifact](https://ollama.com/library/qwen3:4b-instruct)
 
-<link href="https://www.keycloak.org/admin-api/protocol-mappers" color="#087f8c">Keycloak: audience protocol mapper</link>
+[Keycloak: audience protocol mapper](https://www.keycloak.org/admin-api/protocol-mappers)
 
-<link href="https://openbao.org/docs/configuration/storage/raft/" color="#087f8c">OpenBao: integrated Raft storage</link>
+[OpenBao: integrated Raft storage](https://openbao.org/docs/configuration/storage/raft/)
 
-<link href="https://github.com/pyca/cryptography/security/advisories/GHSA-g6cj-pr64-35w5" color="#087f8c">Cryptography: GHSA-g6cj-pr64-35w5 upstream advisory</link>
+[Cryptography: GHSA-g6cj-pr64-35w5 upstream advisory](https://github.com/pyca/cryptography/security/advisories/GHSA-g6cj-pr64-35w5)
 
-<link href="https://pypi.org/pypi/agent-governance-toolkit-core/5.0.0/json" color="#087f8c">Microsoft AGT 5.0.0: registry dependency metadata</link>
+[Microsoft AGT 5.0.0: registry dependency metadata](https://pypi.org/pypi/agent-governance-toolkit-core/5.0.0/json)
 
-<link href="https://github.com/open-telemetry/opentelemetry-collector/blob/v0.164.0/service/internal/proctelemetry/process_telemetry.go" color="#087f8c">Collector v0.164.0: process telemetry source</link>
+[Collector v0.164.0: process telemetry source](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.164.0/service/internal/proctelemetry/process_telemetry.go)
 
 ### Repository evidence
 

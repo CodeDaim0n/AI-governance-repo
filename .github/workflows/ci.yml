@@ -26,6 +26,10 @@ jobs:
         run: OPA_BIN="$PWD/.local/opa" python scripts/test_agt.py
       - name: Check native adapter contracts
         run: python -m unittest discover -s tests/enterprise -v
+      - name: Exercise reusable workflow packages
+        run: |
+          python -m fabric.workflow_cli demo --workflow workflows/synthetic-credit.json --workflow workflows/it-access.json --output results/configurable-demo.json
+          python -m fabric.workflow_cli package --workflow workflows/synthetic-credit.json --workflow workflows/it-access.json --output results/configurable-package.json
       - name: Exercise real PostgreSQL concurrency, approval and recovery
         run: |
           PG_BIN=$(pg_config --bindir)

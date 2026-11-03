@@ -37,4 +37,4 @@ Qualify the chosen product release and license, test the exact deployed API, sco
 
 The inventory read checks entity scope. Tickets contain minimized synthetic investigation references; production notification and API quotas must be qualified.
 
-[View implementation](https://github.com/CodeDaim0n/AI-governance-repo/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)
+[View implementation](https://github.com/CodeDaim0n/governed-agent-fabric/blob/main/fabric/enterprise/clients.py) · [All components](catalogue.md)

@@ -123,7 +123,9 @@ def approve_model(version:str,authorization:str|None=Header(default=None)):
   if p['role']!='reviewer' or p['tenant']!=required('MODEL_TENANT'):raise HTTPException(403,'Scoped independent reviewer role required')
   reg=MLflowRegistry();m=reg.client.get_model_version(required('MODEL_NAME'),version)
   run=reg.client.get_run(m.run_id)
-  if run.data.metrics.get('fairness_difference',1)>float(required('FAIRNESS_MAX_DIFFERENCE')):raise HTTPException(403,'Evaluation threshold exceeded')
+  from .configuration import enforce_metric_requirements,ConfigurationError
+  try:enforce_metric_requirements(run.data.metrics)
+  except ConfigurationError:raise HTTPException(403,'Evaluation requirements not satisfied')
   import time
   expiry=time.time()+3600
   reg.client.set_tag(m.run_id,'fabric.independent_approval','true')

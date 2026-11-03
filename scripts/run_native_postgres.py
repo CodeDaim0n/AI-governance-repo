@@ -53,7 +53,8 @@ def main():
         def pg(*command):
             return subprocess.run([str(pg_bin / command[0]), *map(str, command[1:])],
                                   cwd=local, capture_output=True, text=True, check=True, timeout=60, **identity)
-        pg("initdb", "-D", local / "data", "--auth-local=trust", "--auth-host=reject", "--no-locale", "-U", "postgres")
+        # --no-locale alone selects SQL_ASCII, making psycopg return text as bytes.
+        pg("initdb", "-D", local / "data", "--auth-local=trust", "--auth-host=reject", "--no-locale", "--encoding=UTF8", "-U", "postgres")
         pg("pg_ctl", "-D", local / "data", "-l", local / "server.log", "-o", f"-h '' -k {local} -p 55439", "-w", "start")
         with socket.socket() as s:
             s.bind(("127.0.0.1", 0)); port = s.getsockname()[1]
@@ -68,6 +69,17 @@ def main():
             else:
                 raise RuntimeError("OPA did not start")
             db = PostgresFabric(f"host={local} port=55439 user=postgres dbname=postgres", OPA(f"http://127.0.0.1:{port}/v1/data/fabric/decision"))
+            with db.connect() as c:
+                server_encoding = c.execute("SHOW server_encoding").fetchone()[0]
+                client_encoding = c.execute("SHOW client_encoding").fetchone()[0]
+                assert server_encoding == "UTF8", f"Expected UTF8 server encoding, got {server_encoding!r}"
+                assert client_encoding == "UTF8", f"Expected UTF8 client encoding, got {client_encoding!r}"
+                sample = "crédit-東京"
+                fetched = c.execute("SELECT ?::text", (sample,)).fetchone()[0]
+                assert isinstance(fetched, str) and fetched == sample
+                # Rebind fetched text, as tenant values are reused in authority queries.
+                assert c.execute("SELECT ?::text = ?", (sample, fetched)).fetchone()[0] is True
+            report["checks"]["utf8_text_round_trip"] = {"server_encoding": server_encoding, "client_encoding": client_encoding}
             db.seed()
             action = {"case_id": "case-a", "tool": "credit.commit", "amount_pence": 50000, "idempotency_key": "same-action"}
             assert db.execute("agent-a", action)["status"] == "denied"
@@ -112,6 +124,11 @@ def main():
             report["checks"]["kill_switch_denied"] = True
             assert db.verify_chain()
             report["checks"]["audit_chain_verified"] = True
+            from check_configurable_postgres import run as check_configurable, registry as configurable_registry, effect_count
+            from fabric.enterprise.configurable import ConfigurablePostgresFabric
+            from fabric.adapters import builtin_adapters
+            configurable = check_configurable(db.path)
+            report["checks"]["configurable_workflows"] = configurable
             with db.connect() as c:
                 before = c.execute("SELECT count(*) FROM actions").fetchone()[0]
                 pending = c.execute("SELECT count(*) FROM outbox WHERE delivered=0").fetchone()[0]
@@ -122,6 +139,12 @@ def main():
                 assert c.execute("SELECT count(*) FROM actions").fetchone()[0] == before
                 assert c.execute("SELECT count(*) FROM outbox WHERE delivered=0").fetchone()[0] == pending
             report["checks"]["restart_preserves_actions_audit_outbox"] = {"effects": before, "pending_outbox": pending}
+            generic = ConfigurablePostgresFabric(db.path, configurable_registry(), adapters=builtin_adapters())
+            for replay in configurable["restart_replays"]:
+                assert generic.execute(replay["actor"], replay["action"]) == replay["response"]
+            assert effect_count(generic, configurable["fixture"]["tenant"]) == configurable["expected_effect_count"]
+            assert generic.verify_chain()
+            report["checks"]["restart_preserves_configurable_receipts"] = True
             report["status"] = "PASS"
         finally:
             opa.terminate(); opa.wait(timeout=10); log.close()

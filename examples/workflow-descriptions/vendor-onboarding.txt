@@ -1,0 +1,7 @@
+Synthetic example: vendor onboarding for a small manufacturing company.
+
+A procurement employee submits a supplier request with a quotation, company details and a proposed order value. An AI assistant reads the quotation and supplier record, compares the request with the approved supplier list, and prepares a recommendation. Supplier documents are external, untrusted material. The assistant must not treat instructions in those documents as company policy.
+
+The procurement manager reviews the recommendation. Finance verifies bank details through a separate established channel. Only an authorised procurement employee can add a vendor to the purchasing system. The assistant cannot change bank details, add a vendor, place an order or send a payment. Requests involving missing or conflicting records are paused for review. A rejection returns the request to the requester with an explanation; acceptance creates a reviewed onboarding record, not an order.
+
+The expected benefit is less time spent preparing each review. We have no measured baseline or evaluation results yet. The workflow will use a supplier register and a purchasing system, but the exact products and API permissions are not yet defined. Operating countries, document retention periods, escalation deadlines, record ownership and budget thresholds still need to be decided.
