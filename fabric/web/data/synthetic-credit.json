@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "workflow_id": "synthetic-credit",
+  "version": "credit-v1",
+  "description": "Synthetic credit commitment with independent approval and aggregate resource and tenant budgets. Local demonstration only.",
+  "resource_schema": {
+    "type": "object",
+    "properties": {
+      "kyc": {"type": "string", "minLength": 1, "maxLength": 16, "enum": ["clear", "blocked"]},
+      "region": {"type": "string", "minLength": 2, "maxLength": 2, "enum": ["UK", "US"]}
+    },
+    "required": ["kyc", "region"],
+    "additionalProperties": false
+  },
+  "resource_freshness_seconds": 86400,
+  "operations": {
+    "commit_credit": {
+      "description": "Record a synthetic credit commitment in the local transactional ledger.",
+      "adapter": "synthetic-credit",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "amount_pence": {"type": "integer", "minimum": 1, "maximum": 100000},
+          "reason": {"type": "string", "minLength": 1, "maxLength": 500}
+        },
+        "required": ["amount_pence", "reason"],
+        "additionalProperties": false
+      },
+      "allowed_roles": ["agent"],
+      "resource_checks": [
+        {"field": "kyc", "op": "eq", "value": "clear"},
+        {"field": "region", "op": "eq", "value": "UK"}
+      ],
+      "approval": {
+        "reviewer_roles": ["reviewer"],
+        "ttl_seconds": 300,
+        "when": [{"field": "amount_pence", "op": "gt", "value": 10000}]
+      },
+      "budgets": [
+        {"parameter": "amount_pence", "limit": 100000, "scope": "resource"},
+        {"parameter": "amount_pence", "limit": 500000, "scope": "tenant"}
+      ]
+    }
+  }
+}

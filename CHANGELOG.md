@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0 - Fabric Studio
+
+- Add a local browser workspace for AI-assisted governance design, workflow packages, component planning and isolated execution demos.
+- Reuse the validated designer, package generator and synthetic runtime through a bounded, session-protected loopback API.
+- Include a searchable component library, editable workflow templates and JSON/Markdown downloads without granting deployment or execution authority to generated drafts.
+
 ## 0.5.0 - Natural-language governance design
 
 - Accept workflow descriptions through an Ollama-backed designer with a bounded schema, exact source quotations, validated graph references and explicit review questions.

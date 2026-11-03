@@ -18,6 +18,19 @@ The 18 component groups contribute across that lifecycle: identity and action au
 
 [Quickstart](docs/getting-started.md) · [Architecture](docs/architecture.md) · [All 18 components](docs/components/catalogue.md) · [Full deployment](docs/deployment/full-stack.md) · [Research paper](docs/Governed_Agent_Fabric_Research_Paper.pdf) · [Validation evidence](docs/validation.md)
 
+## Open Fabric Studio
+
+Use the local browser interface to describe a process, inspect its AI-generated governance draft, configure a workflow package, plan component replacements and run the isolated execution demo.
+
+```bash
+python -m pip install -e .
+python -m fabric.studio
+```
+
+Open the loopback URL printed by the server (default `http://127.0.0.1:8765`). AI design uses your configured Ollama service; workflow packaging, the component library and synthetic execution lab also work without a model. The UI is a local operator workspace. Shared deployment requires separate authentication and operational hardening. [Studio guide](docs/studio.md).
+
+**On Windows:** install Python 3.11 or newer, then double-click `Start-Studio.cmd`. The launcher creates a dedicated environment, installs the project and opens Studio in your default browser. First-time setup needs an internet connection. Keep its terminal open while using Studio; press Ctrl+C to stop it.
+
 ## Configurable workflows
 
 Natural-language intake is available through the [workflow designer](docs/workflow-designer.md). It uses a configured Ollama model to turn a process description into a reviewable governance draft, a workflow graph, questions, risk/control proposals and component mappings. The [illustrated generalisation briefing](docs/Governed_Agent_Fabric_Generalisation.pdf) connects the original Erdos framework to these engineering extensions and all eighteen component groups.

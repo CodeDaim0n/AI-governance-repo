@@ -1,11 +1,15 @@
 [project]
 name = "governed-agent-fabric"
-version = "0.5.0"
+version = "0.6.0"
 requires-python = ">=3.11"
 dependencies = ["cryptography>=44.0.0,<51", "httpx>=0.28,<1"]
 
 [project.scripts]
 fabric-workflow = "fabric.workflow_cli:main"
 fabric-configurable-server = "fabric.configurable_server:main"
+fabric-studio = "fabric.studio:main"
 [tool.setuptools.packages.find]
 include = ["fabric*"]
+
+[tool.setuptools.package-data]
+fabric = ["web/*.html", "web/*.css", "web/*.js", "web/data/*.json", "web/data/*.txt"]
